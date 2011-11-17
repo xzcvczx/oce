@@ -1,0 +1,11 @@
+@ifnotdefined (%jcas_WOKSteps_EDL) then
+
+@set %jcas_WOKSteps_EDL = "";
+
+@string %WOKSteps_XcppGroup += " xcpp.javac xcpp.javah ";
+
+@set %WOKSteps_xcpp_javac = "WOKStep_JavaCompile(src)";
+
+@set %WOKSteps_xcpp_javah  = "WOKStep_JavaHeader(src)";
+
+@endif;

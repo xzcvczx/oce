@@ -1,0 +1,33 @@
+@uses "JAVA.edl";
+
+@string %CMPLRS_CXX_Options += " -I" %CSF_JavaHome "/include";
+
+@if ( %Station == "sun" ) then
+    @string %CMPLRS_CXX_Options += " -I" %CSF_JavaHome "/include/solaris";
+@endif;
+
+@if ( %Station == "lin" ) then
+    @string %CMPLRS_CXX_Options += " -I" %CSF_JavaHome "/include/linux";
+@endif;
+
+@if ( %Station == "sil" ) then
+    @string %CMPLRS_CXX_Options += " -I" %CSF_JavaHome "/include/irix";
+@endif;
+
+@if ( %Station == "hp" ) then
+    @string %CMPLRS_CXX_Options += " -I" %CSF_JavaHome "/include/hpux";
+@endif;
+
+@if ( %Station == "ao1" ) then
+    @string %CMPLRS_CXX_Options += " -I" %CSF_JavaHome "/include/solaris";
+@endif;
+
+@if ( %Station == "bsd" ) then
+    @string %CMPLRS_CXX_Options += " -I" %CSF_JavaHome "/include/freebsd";
+@endif;
+
+@if ( %Station == "aix" ) then
+    @string %CMPLRS_CXX_Options += "" ;
+@endif;
+
+
