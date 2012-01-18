@@ -1,0 +1,9 @@
+#ifndef _TopoDS_Shape_HeaderFile
+#include <TopoDS_Shape.hxx>
+#endif
+#ifndef _ColladaMesh_Mesh_HeaderFile
+#include <ColladaMesh_Mesh.hxx>
+#endif
+#ifndef _ColladaTransfer_HeaderFile
+#include <ColladaTransfer.hxx>
+#endif

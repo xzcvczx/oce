@@ -1,0 +1,21 @@
+#ifndef _Standard_NegativeValue_HeaderFile
+#include <Standard_NegativeValue.hxx>
+#endif
+#ifndef _Standard_NullValue_HeaderFile
+#include <Standard_NullValue.hxx>
+#endif
+#ifndef _Standard_NoSuchObject_HeaderFile
+#include <Standard_NoSuchObject.hxx>
+#endif
+#ifndef _gp_XYZ_HeaderFile
+#include <gp_XYZ.hxx>
+#endif
+#ifndef _ColladaMesh_SequenceOfMeshTriangle_HeaderFile
+#include <ColladaMesh_SequenceOfMeshTriangle.hxx>
+#endif
+#ifndef _TColgp_SequenceOfXYZ_HeaderFile
+#include <TColgp_SequenceOfXYZ.hxx>
+#endif
+#ifndef _ColladaMesh_Mesh_HeaderFile
+#include <ColladaMesh_Mesh.hxx>
+#endif

@@ -397,6 +397,7 @@ p RWStepRepr
 p RWStepShape
 p RWStepVisual
 p RWStl
+p RWCollada
 p STEPCAFControl
 p STEPConstruct
 p STEPControl
@@ -420,6 +421,9 @@ p StepVisual
 p StlAPI
 p StlMesh
 p StlTransfer
+p ColladaAPI
+p ColladaMesh
+p ColladaTransfer
 p TopoDSToStep
 p Transfer
 p TransferBRep

@@ -1,0 +1,6 @@
+#ifndef _ColladaMesh_Mesh_HeaderFile
+#include <ColladaMesh_Mesh.hxx>
+#endif
+#ifndef _ColladaMesh_HeaderFile
+#include <ColladaMesh.hxx>
+#endif

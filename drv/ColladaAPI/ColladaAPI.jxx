@@ -1,0 +1,6 @@
+#ifndef _TopoDS_Shape_HeaderFile
+#include <TopoDS_Shape.hxx>
+#endif
+#ifndef _ColladaAPI_HeaderFile
+#include <ColladaAPI.hxx>
+#endif
