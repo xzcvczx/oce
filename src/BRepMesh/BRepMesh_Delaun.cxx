@@ -1213,18 +1213,9 @@ void BRepMesh_Delaun::MeshPolygon( TColStd_SequenceOfInteger& thePoly )
   }
   else if ( thePoly.Length() > 3 )
   {
-    NCollection_Vector <Bnd_Box2d> aBoxes;
     Standard_Integer aPolyIdx, aUsedIdx = 0;
     Standard_Integer aPolyLen = thePoly.Length();
 
-    for ( aPolyIdx = 1; aPolyIdx <= aPolyLen; ++aPolyIdx )
-    {
-      const BRepMesh_Edge& anEdge = GetEdge( Abs( thePoly( aPolyIdx ) ) );
-      aFirstNode = anEdge.FirstNode();
-      aLastNode  = anEdge.LastNode();
-      fillBndBox( aBoxes, GetVertex( aFirstNode ), GetVertex( aLastNode ) );
-    }
-    
     const BRepMesh_Edge& anEdge = GetEdge( Abs( thePoly(1) ) );
     Standard_Real aMinDist = RealLast();
 
@@ -1247,6 +1238,13 @@ void BRepMesh_Delaun::MeshPolygon( TColStd_SequenceOfInteger& thePoly )
     {
       aVEdge.SetCoord( aVEdge.X() / aVEdgeLen,
                        aVEdge.Y() / aVEdgeLen );
+
+      NCollection_Vector <Bnd_Box2d> aBoxes;
+      for ( aPolyIdx = 1; aPolyIdx <= aPolyLen; ++aPolyIdx )
+      {
+        const BRepMesh_Edge& anEdge = GetEdge( Abs( thePoly( aPolyIdx ) ) );
+        fillBndBox( aBoxes, GetVertex( anEdge.FirstNode() ), GetVertex( anEdge.LastNode() ) );
+      }
 
       for ( aPolyIdx = 3; aPolyIdx <= aPolyLen; ++aPolyIdx )
       {
