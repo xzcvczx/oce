@@ -1230,6 +1230,7 @@ void BRepMesh_Delaun::MeshPolygon( TColStd_SequenceOfInteger& thePoly )
       aLastNode  = anEdge.FirstNode();
     }
     
+    {  // Extra block to hide aVEdge variable when calling recursively MeshPolygon
     gp_XY aVEdge( GetVertex( aLastNode  ).Coord() -
                   GetVertex( aFirstNode ).Coord() );
                   
@@ -1314,6 +1315,7 @@ void BRepMesh_Delaun::MeshPolygon( TColStd_SequenceOfInteger& thePoly )
           }
         }
       }
+    }
     }
 
     Standard_Integer aNewEdge2, aNewEdge3;
