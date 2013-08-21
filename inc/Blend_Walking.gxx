@@ -91,6 +91,7 @@ static void Drawsect(const TheSurface& surf1,
   if (State==Blend_SamePoints) BS->SetColor(Draw_rose);
   Draw::Set(name,BS);
 #endif
+  delete [] name;
 }
 
 static void Drawsect(const TheSurface& surf1,

@@ -1400,6 +1400,10 @@ void BRepOffset_Offset::Init(const TopoDS_Vertex&        Vertex,
     }
 #endif
 
+#ifdef DEB
+  delete [] name;
+#endif
+
     Handle(Geom2d_Curve) PCurve = GeomProjLib::Curve2d(C, S);
     // check if the first point of PCurve in is the canonical boundaries 
     // of the sphere. Else move it.
