@@ -43,6 +43,4 @@
 #ifndef _Interface_InterfaceModel_HeaderFile
 #include <Interface_InterfaceModel.hxx>
 #endif
-#ifndef _TransferBRep_HeaderFile
 #include <TransferBRep.hxx>
-#endif

@@ -6,11 +6,7 @@
 #ifndef _Aspect_PlotMode_HeaderFile
 #define _Aspect_PlotMode_HeaderFile
 
-//! Defines plot mode for plotter drivers derived from <br>
-//!          Aspect_PlotterDriver: <br>
-//!          1) PM_DPLOTTER - send file to plotter and delete file <br>
-//!          2) PM_FILEONLY - do not send file to the plotter <br>
-//!          3) PM_NPLOTTER - send file to the plotter but not delete a file <br>
+//! Defines the grid type : Rectangular or Circular. <br>
 enum Aspect_PlotMode {
 Aspect_PM_DPLOTTER,
 Aspect_PM_FILEONLY,

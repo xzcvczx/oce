@@ -19,18 +19,10 @@
 #include <Handle_PColgp_SeqNodeOfHSequenceOfVec.hxx>
 #endif
 
-#ifndef _gp_Vec_HeaderFile
 #include <gp_Vec.hxx>
-#endif
-#ifndef _Handle_PColgp_SeqNodeOfHSequenceOfVec_HeaderFile
 #include <Handle_PColgp_SeqNodeOfHSequenceOfVec.hxx>
-#endif
-#ifndef _PMMgt_PManaged_HeaderFile
 #include <PMMgt_PManaged.hxx>
-#endif
-#ifndef _Handle_PColgp_HSequenceOfVec_HeaderFile
 #include <Handle_PColgp_HSequenceOfVec.hxx>
-#endif
 class PColgp_HSequenceOfVec;
 class PColgp_SeqExplorerOfHSequenceOfVec;
 class gp_Vec;

@@ -9,9 +9,6 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
@@ -30,27 +27,33 @@ class IntTools_Range;
 class IntTools_CompareRange  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   
 //! Empty constructor <br>
-//! <br>
   Standard_EXPORT   IntTools_CompareRange();
   
 //! Initializes me by tolerance <br>
-//! <br>
   Standard_EXPORT   IntTools_CompareRange(const Standard_Real aTol);
   
 //! Returns True if <Left> is lower than <Right>. <br>
-//! <br>
   Standard_EXPORT     Standard_Boolean IsLower(const IntTools_Range& Left,const IntTools_Range& Right) const;
   
 //! Returns True if <Left> is greater than <Right>. <br>
-//! <br>
   Standard_EXPORT     Standard_Boolean IsGreater(const IntTools_Range& Left,const IntTools_Range& Right) const;
   
 //! Returns True when <Right> and <Left> are equal. <br>
-//! <br>
   Standard_EXPORT     Standard_Boolean IsEqual(const IntTools_Range& Left,const IntTools_Range& Right) const;
 
 

@@ -9,43 +9,20 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
 
-#ifndef _Handle_TCollection_HAsciiString_HeaderFile
 #include <Handle_TCollection_HAsciiString.hxx>
-#endif
-#ifndef _StepToTopoDS_BuilderError_HeaderFile
 #include <StepToTopoDS_BuilderError.hxx>
-#endif
-#ifndef _StepToTopoDS_TranslateShellError_HeaderFile
 #include <StepToTopoDS_TranslateShellError.hxx>
-#endif
-#ifndef _StepToTopoDS_TranslateFaceError_HeaderFile
 #include <StepToTopoDS_TranslateFaceError.hxx>
-#endif
-#ifndef _StepToTopoDS_TranslateEdgeError_HeaderFile
 #include <StepToTopoDS_TranslateEdgeError.hxx>
-#endif
-#ifndef _StepToTopoDS_TranslateVertexError_HeaderFile
 #include <StepToTopoDS_TranslateVertexError.hxx>
-#endif
-#ifndef _StepToTopoDS_TranslateVertexLoopError_HeaderFile
 #include <StepToTopoDS_TranslateVertexLoopError.hxx>
-#endif
-#ifndef _StepToTopoDS_TranslatePolyLoopError_HeaderFile
 #include <StepToTopoDS_TranslatePolyLoopError.hxx>
-#endif
-#ifndef _Standard_CString_HeaderFile
 #include <Standard_CString.hxx>
-#endif
-#ifndef _StepToTopoDS_GeometricToolError_HeaderFile
 #include <StepToTopoDS_GeometricToolError.hxx>
-#endif
 class TCollection_HAsciiString;
 class StepToTopoDS_Root;
 class StepToTopoDS_TranslateShell;
@@ -88,7 +65,18 @@ class StepToTopoDS_DataMapIteratorOfPointVertexMap;
 class StepToTopoDS  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   
   Standard_EXPORT   static  Handle_TCollection_HAsciiString DecodeBuilderError(const StepToTopoDS_BuilderError Error) ;

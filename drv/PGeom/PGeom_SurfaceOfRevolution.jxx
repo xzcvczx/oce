@@ -7,6 +7,4 @@
 #ifndef _gp_Pnt_HeaderFile
 #include <gp_Pnt.hxx>
 #endif
-#ifndef _PGeom_SurfaceOfRevolution_HeaderFile
 #include <PGeom_SurfaceOfRevolution.hxx>
-#endif

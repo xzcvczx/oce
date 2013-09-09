@@ -19,9 +19,7 @@
 #include <Handle_PTopoDS_Vertex.hxx>
 #endif
 
-#ifndef _PTopoDS_HShape_HeaderFile
 #include <PTopoDS_HShape.hxx>
-#endif
 
 
 class PTopoDS_Vertex : public PTopoDS_HShape {

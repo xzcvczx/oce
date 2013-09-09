@@ -9,16 +9,11 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
 
-#ifndef _Handle_IGESData_Protocol_HeaderFile
 #include <Handle_IGESData_Protocol.hxx>
-#endif
 class IGESData_Protocol;
 class IGESData_Protocol;
 class IGESData_IGESModel;
@@ -68,7 +63,18 @@ class IGESData_NodeOfSpecificLib;
 class IGESData  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   //! Prepares General dynamic data used for IGESData specifically : <br>
 //!           Protocol and Modules, which treat UndefinedEntity <br>

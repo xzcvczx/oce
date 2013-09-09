@@ -46,6 +46,4 @@
 #ifndef _gp_Torus_HeaderFile
 #include <gp_Torus.hxx>
 #endif
-#ifndef _BndLib_HeaderFile
 #include <BndLib.hxx>
-#endif

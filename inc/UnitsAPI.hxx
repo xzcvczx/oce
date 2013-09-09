@@ -9,28 +9,15 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
 
-#ifndef _Standard_Real_HeaderFile
 #include <Standard_Real.hxx>
-#endif
-#ifndef _Standard_CString_HeaderFile
 #include <Standard_CString.hxx>
-#endif
-#ifndef _Handle_Units_Dimensions_HeaderFile
 #include <Handle_Units_Dimensions.hxx>
-#endif
-#ifndef _UnitsAPI_SystemUnits_HeaderFile
 #include <UnitsAPI_SystemUnits.hxx>
-#endif
-#ifndef _Standard_Boolean_HeaderFile
 #include <Standard_Boolean.hxx>
-#endif
 class Units_Dimensions;
 
 
@@ -62,7 +49,18 @@ class Units_Dimensions;
 class UnitsAPI  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   //! Converts the current unit value to the local system units value. <br>
 //!  Example: CurrentToLS(1.,"LENGTH") returns 1000. if the current length unit <br>

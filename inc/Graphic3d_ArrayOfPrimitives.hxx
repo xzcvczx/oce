@@ -58,14 +58,6 @@ class gp_Pnt2d;
 //!      So the array datas exist only one time and the use <br>
 //!      of SetXxxxxx() methods enable to change dynamically <br>
 //!      the aspect of this primitive. <br>
-//! <br>
-//!      Advantages are : <br>
-//!      1) Decrease strongly the loading time. <br>
-//!      2) Decrease strongly the display time using optimized Opengl <br>
-//!         primitives. <br>
-//!      3) Enable to change dynamically the components of the primitive <br>
-//!         (vertice,normal,color,texture coordinates). <br>
-//!      4) Add true triangle and quadrangle strips or fans capabilities. <br>
 class Graphic3d_ArrayOfPrimitives : public MMgt_TShared {
 
 public:

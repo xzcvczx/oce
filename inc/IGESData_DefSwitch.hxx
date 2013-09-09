@@ -9,22 +9,13 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
 
-#ifndef _Standard_Integer_HeaderFile
 #include <Standard_Integer.hxx>
-#endif
-#ifndef _Standard_Storable_HeaderFile
 #include <Standard_Storable.hxx>
-#endif
-#ifndef _IGESData_DefType_HeaderFile
 #include <IGESData_DefType.hxx>
-#endif
 #ifndef _Standard_PrimitiveTypes_HeaderFile
 #include <Standard_PrimitiveTypes.hxx>
 #endif
@@ -40,8 +31,18 @@ Standard_EXPORT const Handle(Standard_Type)& STANDARD_TYPE(IGESData_DefSwitch);
 class IGESData_DefSwitch  {
 
 public:
-
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   //! creates a DefSwitch as Void <br>
   Standard_EXPORT   IGESData_DefSwitch();

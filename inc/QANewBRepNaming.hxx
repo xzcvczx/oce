@@ -9,19 +9,12 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
 
-#ifndef _TNaming_Evolution_HeaderFile
 #include <TNaming_Evolution.hxx>
-#endif
-#ifndef _Standard_Boolean_HeaderFile
 #include <Standard_Boolean.hxx>
-#endif
 class TDF_Label;
 class TNaming_Builder;
 class TopoDS_Shape;
@@ -57,7 +50,18 @@ class QANewBRepNaming_Limitation;
 class QANewBRepNaming  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   
   Standard_EXPORT   static  void CleanStructure(const TDF_Label& theLabel) ;

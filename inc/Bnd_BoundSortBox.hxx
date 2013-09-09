@@ -9,9 +9,6 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
@@ -55,7 +52,18 @@ class gp_Pln;
 class Bnd_BoundSortBox  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   //! Constructs an empty comparison algorithm for bounding boxes. <br>
 //! The bounding boxes are then defined using the Initialize function. <br>
@@ -76,18 +84,6 @@ public:
 //! the array of boxes to be sorted by this comparison algorithm. <br>
 //! This function is used only in conjunction with the third <br>
 //! syntax described in the synopsis of Initialize. <br>
-//! <br>
-//! Exceptions: <br>
-//! <br>
-//! - Standard_OutOfRange if boxIndex is not in the <br>
-//!   range [ 1,nbComponents ] where <br>
-//!   nbComponents is the maximum number of bounding <br>
-//!   boxes declared for this comparison algorithm at <br>
-//!   initialization. <br>
-//! <br>
-//! - Standard_MultiplyDefined if a box already exists at <br>
-//!   position boxIndex in the array of boxes to be sorted by <br>
-//!   this comparison algorithm. <br>
   Standard_EXPORT     void Add(const Bnd_Box& theBox,const Standard_Integer boxIndex) ;
   //! Compares the bounding box theBox, <br>
 //! with the set of bounding boxes to be sorted by this <br>

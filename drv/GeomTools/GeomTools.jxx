@@ -10,6 +10,4 @@
 #ifndef _GeomTools_UndefinedTypeHandler_HeaderFile
 #include <GeomTools_UndefinedTypeHandler.hxx>
 #endif
-#ifndef _GeomTools_HeaderFile
 #include <GeomTools.hxx>
-#endif

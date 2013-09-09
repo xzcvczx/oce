@@ -42,9 +42,6 @@ class IGESData_IGESEntity;
 
 //! defines IGESPlanar, Type <402> Form <16> <br>
 //!          in package IGESDraw <br>
-//! <br>
-//!          Indicates that a collection of entities is coplanar.The <br>
-//!          entities may be geometric, annotative, and/or structural. <br>
 class IGESDraw_Planar : public IGESData_IGESEntity {
 
 public:

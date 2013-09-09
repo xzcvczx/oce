@@ -19,9 +19,7 @@
 #include <Handle_PMMgt_PManaged.hxx>
 #endif
 
-#ifndef _Standard_Persistent_HeaderFile
 #include <Standard_Persistent.hxx>
-#endif
 class Standard_OutOfMemory;
 
 
@@ -44,18 +42,13 @@ protected:
   
 //!   Returns an instance. The storage of the given "size" is <br>
 //!   allocated by <StorageManager>. <br>
-//! <br>
 //!   Returns the storage of the given size to the <StorageManager>. <br>
 //!   The application using "Delete" must guarantee that the <br>
 //!   instance is not shared. <br>
-//! <br>
-//! -C++: alias "void operator delete (void*, size_t);" <br>
 //!   The virtual Destructor for the class "PManaged". This <br>
 //!   declaration is necessary for the C++ compiler to <br>
 //!   generate a call to "operator delete" with the real size <br>
 //!   of the object. <br>
-//! <br>
-//! -C+..+: alias "virtual ~PMMgt_PManaged();" <br>
   Standard_EXPORT   PMMgt_PManaged();
 
 

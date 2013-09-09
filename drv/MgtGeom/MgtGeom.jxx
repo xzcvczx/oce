@@ -172,6 +172,4 @@
 #ifndef _PGeom_VectorWithMagnitude_HeaderFile
 #include <PGeom_VectorWithMagnitude.hxx>
 #endif
-#ifndef _MgtGeom_HeaderFile
 #include <MgtGeom.hxx>
-#endif

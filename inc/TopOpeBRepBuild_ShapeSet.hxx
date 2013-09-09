@@ -9,9 +9,6 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
@@ -66,20 +63,21 @@ class TCollection_AsciiString;
 //! <SubShapeType> is : <br>
 //!  - TopAbs_VERTEX to connect edges <br>
 //!  - TopAbs_EDGE to connect faces <br>
-//! <br>
-//! Signature needed by the BlockBuilder : <br>
-//!    InitStartElements(me : in out) <br>
-//!    MoreStartElements(me) returns Boolean; <br>
-//!    NextStartElement(me : in out); <br>
-//!    StartElement(me) returns Shape; ---C++: return const & <br>
-//!    InitNeighbours(me : in out; S : Shape); <br>
-//!    MoreNeighbours(me) returns Boolean; <br>
-//!    NextNeighbour(me : in out); <br>
-//!    Neighbour(me) returns Shape; ---C++: return const & <br>
 class TopOpeBRepBuild_ShapeSet  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   //! Creates a ShapeSet  in order to build shapes connected <br>
 //! by <SubShapeType>  shapes. <br>

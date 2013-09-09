@@ -6,8 +6,8 @@
 #ifndef _Graphic3d_LevelOfTextureAnisotropy_HeaderFile
 #define _Graphic3d_LevelOfTextureAnisotropy_HeaderFile
 
-//! Level of anisotropy filter. <br>
-//! Notice that actual quality depends on hardware capabilities! <br>
+//! Type of the texture filter. <br>
+//! Notice that for textures without mipmaps linear interpolation will be used instead of TOTF_BILINEAR and TOTF_TRILINEAR. <br>
 enum Graphic3d_LevelOfTextureAnisotropy {
 Graphic3d_LOTA_OFF,
 Graphic3d_LOTA_FAST,

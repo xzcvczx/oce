@@ -9,9 +9,6 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
@@ -42,7 +39,18 @@ class TopoDS_Solid;
 class BRepPrimAPI_MakeHalfSpace  : public BRepBuilderAPI_MakeShape {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   //! Make a HalfSpace defined with a Face and a Point. <br>
   Standard_EXPORT   BRepPrimAPI_MakeHalfSpace(const TopoDS_Face& Face,const gp_Pnt& RefPnt);

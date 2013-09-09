@@ -19,15 +19,9 @@
 #include <Handle_PColgp_VArrayNodeOfFieldOfHArray2OfPnt2d.hxx>
 #endif
 
-#ifndef _Standard_Address_HeaderFile
 #include <Standard_Address.hxx>
-#endif
-#ifndef _gp_Pnt2d_HeaderFile
 #include <gp_Pnt2d.hxx>
-#endif
-#ifndef _PStandard_ArrayNode_HeaderFile
 #include <PStandard_ArrayNode.hxx>
-#endif
 class gp_Pnt2d;
 class PColgp_FieldOfHArray2OfPnt2d;
 class PColgp_VArrayTNodeOfFieldOfHArray2OfPnt2d;

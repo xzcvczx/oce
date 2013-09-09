@@ -16,6 +16,4 @@
 #ifndef _TCollection_AsciiString_HeaderFile
 #include <TCollection_AsciiString.hxx>
 #endif
-#ifndef _PCDM_HeaderFile
 #include <PCDM.hxx>
-#endif

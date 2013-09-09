@@ -9,28 +9,15 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
 
-#ifndef _Standard_Boolean_HeaderFile
 #include <Standard_Boolean.hxx>
-#endif
-#ifndef _Handle_TDocStd_Application_HeaderFile
 #include <Handle_TDocStd_Application.hxx>
-#endif
-#ifndef _Standard_CString_HeaderFile
 #include <Standard_CString.hxx>
-#endif
-#ifndef _Handle_TDocStd_Document_HeaderFile
 #include <Handle_TDocStd_Document.hxx>
-#endif
-#ifndef _Handle_TDF_Attribute_HeaderFile
 #include <Handle_TDF_Attribute.hxx>
-#endif
 class TDocStd_Application;
 class TDocStd_Document;
 class TDF_Label;
@@ -55,10 +42,20 @@ class DDocStd_DrawDocument;
 class DDocStd  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
-  //! return the application of the session. False <br>
-//!          if there is noone current application. <br>
+  
   Standard_EXPORT   static  Standard_Boolean Find(Handle(TDocStd_Application)& Appli,const Standard_Boolean Complain = Standard_True) ;
   
   Standard_EXPORT   static  Standard_Boolean GetDocument(Standard_CString& Name,Handle(TDocStd_Document)& Doc,const Standard_Boolean Complain = Standard_True) ;

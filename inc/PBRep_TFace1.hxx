@@ -19,24 +19,12 @@
 #include <Handle_PBRep_TFace1.hxx>
 #endif
 
-#ifndef _Handle_PGeom_Surface_HeaderFile
 #include <Handle_PGeom_Surface.hxx>
-#endif
-#ifndef _Handle_PPoly_Triangulation_HeaderFile
 #include <Handle_PPoly_Triangulation.hxx>
-#endif
-#ifndef _PTopLoc_Location_HeaderFile
 #include <PTopLoc_Location.hxx>
-#endif
-#ifndef _Standard_Real_HeaderFile
 #include <Standard_Real.hxx>
-#endif
-#ifndef _Standard_Boolean_HeaderFile
 #include <Standard_Boolean.hxx>
-#endif
-#ifndef _PTopoDS_TFace1_HeaderFile
 #include <PTopoDS_TFace1.hxx>
-#endif
 class PGeom_Surface;
 class PPoly_Triangulation;
 class PTopLoc_Location;

@@ -9,31 +9,16 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
 
-#ifndef _Standard_Boolean_HeaderFile
 #include <Standard_Boolean.hxx>
-#endif
-#ifndef _Handle_TNaming_NamedShape_HeaderFile
 #include <Handle_TNaming_NamedShape.hxx>
-#endif
-#ifndef _Handle_TopTools_HArray1OfShape_HeaderFile
 #include <Handle_TopTools_HArray1OfShape.hxx>
-#endif
-#ifndef _Standard_OStream_HeaderFile
 #include <Standard_OStream.hxx>
-#endif
-#ifndef _TNaming_Evolution_HeaderFile
 #include <TNaming_Evolution.hxx>
-#endif
-#ifndef _TNaming_NameType_HeaderFile
 #include <TNaming_NameType.hxx>
-#endif
 class TDF_Label;
 class TopTools_DataMapOfShapeShape;
 class TopLoc_Location;
@@ -150,7 +135,18 @@ class TNaming_ListIteratorOfListOfIndexedDataMapOfShapeListOfShape;
 class TNaming  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   //! Subtituter les  shapes  sur les structures de   source <br>
 //!          vers cible <br>
@@ -202,14 +198,11 @@ public:
 //!          IDs of this package. CAUTION: <anIDList> is NOT <br>
 //!          cleared before use. <br>
   Standard_EXPORT   static  void IDList(TDF_IDList& anIDList) ;
-  //! Prints the  evolution  <EVOL> as  a String on  the <br>
-//!          Stream <S> and returns <S>. <br>
+  
   Standard_EXPORT   static  Standard_OStream& Print(const TNaming_Evolution EVOL,Standard_OStream& S) ;
-  //! Prints the name of name type <NAME> as a String on <br>
-//!          the Stream <S> and returns <S>. <br>
+  
   Standard_EXPORT   static  Standard_OStream& Print(const TNaming_NameType NAME,Standard_OStream& S) ;
-  //! Prints the content of UsedShapes private  attribute as a String Table on <br>
-//!          the Stream <S> and returns <S>. <br>
+  
   Standard_EXPORT   static  Standard_OStream& Print(const TDF_Label& ACCESS,Standard_OStream& S) ;
 
 

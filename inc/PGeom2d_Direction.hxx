@@ -19,9 +19,7 @@
 #include <Handle_PGeom2d_Direction.hxx>
 #endif
 
-#ifndef _PGeom2d_Vector_HeaderFile
 #include <PGeom2d_Vector.hxx>
-#endif
 class gp_Vec2d;
 
 

@@ -19,15 +19,9 @@
 #include <Handle_PGeom_RectangularTrimmedSurface.hxx>
 #endif
 
-#ifndef _Handle_PGeom_Surface_HeaderFile
 #include <Handle_PGeom_Surface.hxx>
-#endif
-#ifndef _Standard_Real_HeaderFile
 #include <Standard_Real.hxx>
-#endif
-#ifndef _PGeom_BoundedSurface_HeaderFile
 #include <PGeom_BoundedSurface.hxx>
-#endif
 class PGeom_Surface;
 
 

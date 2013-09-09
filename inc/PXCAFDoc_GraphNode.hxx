@@ -19,21 +19,11 @@
 #include <Handle_PXCAFDoc_GraphNode.hxx>
 #endif
 
-#ifndef _Standard_Integer_HeaderFile
 #include <Standard_Integer.hxx>
-#endif
-#ifndef _Handle_PXCAFDoc_GraphNode_HeaderFile
 #include <Handle_PXCAFDoc_GraphNode.hxx>
-#endif
-#ifndef _Standard_GUID_HeaderFile
 #include <Standard_GUID.hxx>
-#endif
-#ifndef _Handle_PXCAFDoc_GraphNodeSequence_HeaderFile
 #include <Handle_PXCAFDoc_GraphNodeSequence.hxx>
-#endif
-#ifndef _PDF_Attribute_HeaderFile
 #include <PDF_Attribute.hxx>
-#endif
 class PXCAFDoc_GraphNodeSequence;
 class Standard_GUID;
 

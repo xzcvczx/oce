@@ -4,6 +4,4 @@
 #ifndef _Materials_Material_HeaderFile
 #include <Materials_Material.hxx>
 #endif
-#ifndef _Materials_HeaderFile
 #include <Materials.hxx>
-#endif

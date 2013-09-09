@@ -4,6 +4,4 @@
 #ifndef _gp_XYZ_HeaderFile
 #include <gp_XYZ.hxx>
 #endif
-#ifndef _Intf_HeaderFile
 #include <Intf.hxx>
-#endif

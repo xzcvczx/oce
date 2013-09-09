@@ -19,30 +19,14 @@
 #include <Handle_PShort_HSequenceOfShortReal.hxx>
 #endif
 
-#ifndef _Standard_Boolean_HeaderFile
 #include <Standard_Boolean.hxx>
-#endif
-#ifndef _Standard_Integer_HeaderFile
 #include <Standard_Integer.hxx>
-#endif
-#ifndef _Standard_ShortReal_HeaderFile
 #include <Standard_ShortReal.hxx>
-#endif
-#ifndef _Handle_PShort_HSequenceOfShortReal_HeaderFile
 #include <Handle_PShort_HSequenceOfShortReal.hxx>
-#endif
-#ifndef _Handle_PShort_SeqNodeOfHSequenceOfShortReal_HeaderFile
 #include <Handle_PShort_SeqNodeOfHSequenceOfShortReal.hxx>
-#endif
-#ifndef _Handle_Standard_Persistent_HeaderFile
 #include <Handle_Standard_Persistent.hxx>
-#endif
-#ifndef _Standard_Persistent_HeaderFile
 #include <Standard_Persistent.hxx>
-#endif
-#ifndef _Standard_OStream_HeaderFile
 #include <Standard_OStream.hxx>
-#endif
 class PShort_SeqNodeOfHSequenceOfShortReal;
 class Standard_Persistent;
 class Standard_NoSuchObject;

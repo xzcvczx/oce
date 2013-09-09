@@ -19,27 +19,13 @@
 #include <Handle_PBRep_CurveOnClosedSurface.hxx>
 #endif
 
-#ifndef _Handle_PGeom2d_Curve_HeaderFile
 #include <Handle_PGeom2d_Curve.hxx>
-#endif
-#ifndef _GeomAbs_Shape_HeaderFile
 #include <GeomAbs_Shape.hxx>
-#endif
-#ifndef _Standard_Boolean_HeaderFile
 #include <Standard_Boolean.hxx>
-#endif
-#ifndef _gp_Pnt2d_HeaderFile
 #include <gp_Pnt2d.hxx>
-#endif
-#ifndef _PBRep_CurveOnSurface_HeaderFile
 #include <PBRep_CurveOnSurface.hxx>
-#endif
-#ifndef _Standard_Real_HeaderFile
 #include <Standard_Real.hxx>
-#endif
-#ifndef _Handle_PGeom_Surface_HeaderFile
 #include <Handle_PGeom_Surface.hxx>
-#endif
 class PGeom2d_Curve;
 class PGeom_Surface;
 class PTopLoc_Location;

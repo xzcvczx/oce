@@ -19,21 +19,11 @@
 #include <Handle_PBRep_TEdge.hxx>
 #endif
 
-#ifndef _Standard_Real_HeaderFile
 #include <Standard_Real.hxx>
-#endif
-#ifndef _Standard_Boolean_HeaderFile
 #include <Standard_Boolean.hxx>
-#endif
-#ifndef _Handle_PBRep_CurveRepresentation_HeaderFile
 #include <Handle_PBRep_CurveRepresentation.hxx>
-#endif
-#ifndef _Standard_Integer_HeaderFile
 #include <Standard_Integer.hxx>
-#endif
-#ifndef _PTopoDS_TEdge_HeaderFile
 #include <PTopoDS_TEdge.hxx>
-#endif
 class PBRep_CurveRepresentation;
 
 

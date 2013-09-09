@@ -19,30 +19,14 @@
 #include <Handle_PColgp_HArray1OfVec2d.hxx>
 #endif
 
-#ifndef _Standard_Integer_HeaderFile
 #include <Standard_Integer.hxx>
-#endif
-#ifndef _gp_Vec2d_HeaderFile
 #include <gp_Vec2d.hxx>
-#endif
-#ifndef _Handle_Standard_Persistent_HeaderFile
 #include <Handle_Standard_Persistent.hxx>
-#endif
-#ifndef _PColgp_FieldOfHArray1OfVec2d_HeaderFile
 #include <PColgp_FieldOfHArray1OfVec2d.hxx>
-#endif
-#ifndef _Standard_Address_HeaderFile
 #include <Standard_Address.hxx>
-#endif
-#ifndef _Standard_Persistent_HeaderFile
 #include <Standard_Persistent.hxx>
-#endif
-#ifndef _Handle_PColgp_VArrayNodeOfFieldOfHArray1OfVec2d_HeaderFile
 #include <Handle_PColgp_VArrayNodeOfFieldOfHArray1OfVec2d.hxx>
-#endif
-#ifndef _Standard_OStream_HeaderFile
 #include <Standard_OStream.hxx>
-#endif
 class Standard_Persistent;
 class Standard_OutOfRange;
 class Standard_RangeError;

@@ -10,6 +10,4 @@
 #ifndef _TColGeom2d_HSequenceOfBoundedCurve_HeaderFile
 #include <TColGeom2d_HSequenceOfBoundedCurve.hxx>
 #endif
-#ifndef _ShapeUpgrade_HeaderFile
 #include <ShapeUpgrade.hxx>
-#endif

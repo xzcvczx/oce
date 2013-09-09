@@ -19,30 +19,14 @@
 #include <Handle_PColStd_HArray1OfExtendedString.hxx>
 #endif
 
-#ifndef _Standard_Integer_HeaderFile
 #include <Standard_Integer.hxx>
-#endif
-#ifndef _Handle_PCollection_HExtendedString_HeaderFile
 #include <Handle_PCollection_HExtendedString.hxx>
-#endif
-#ifndef _Handle_Standard_Persistent_HeaderFile
 #include <Handle_Standard_Persistent.hxx>
-#endif
-#ifndef _PColStd_FieldOfHArray1OfExtendedString_HeaderFile
 #include <PColStd_FieldOfHArray1OfExtendedString.hxx>
-#endif
-#ifndef _Standard_Address_HeaderFile
 #include <Standard_Address.hxx>
-#endif
-#ifndef _Standard_Persistent_HeaderFile
 #include <Standard_Persistent.hxx>
-#endif
-#ifndef _Handle_PColStd_VArrayNodeOfFieldOfHArray1OfExtendedString_HeaderFile
 #include <Handle_PColStd_VArrayNodeOfFieldOfHArray1OfExtendedString.hxx>
-#endif
-#ifndef _Standard_OStream_HeaderFile
 #include <Standard_OStream.hxx>
-#endif
 class PCollection_HExtendedString;
 class Standard_Persistent;
 class Standard_OutOfRange;

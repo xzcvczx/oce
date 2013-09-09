@@ -19,12 +19,8 @@
 #include <Handle_PGeom2d_AxisPlacement.hxx>
 #endif
 
-#ifndef _gp_Ax2d_HeaderFile
 #include <gp_Ax2d.hxx>
-#endif
-#ifndef _PGeom2d_Geometry_HeaderFile
 #include <PGeom2d_Geometry.hxx>
-#endif
 class gp_Ax2d;
 
 

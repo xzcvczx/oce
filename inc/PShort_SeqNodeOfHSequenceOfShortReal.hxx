@@ -19,18 +19,10 @@
 #include <Handle_PShort_SeqNodeOfHSequenceOfShortReal.hxx>
 #endif
 
-#ifndef _Standard_ShortReal_HeaderFile
 #include <Standard_ShortReal.hxx>
-#endif
-#ifndef _Handle_PShort_SeqNodeOfHSequenceOfShortReal_HeaderFile
 #include <Handle_PShort_SeqNodeOfHSequenceOfShortReal.hxx>
-#endif
-#ifndef _PMMgt_PManaged_HeaderFile
 #include <PMMgt_PManaged.hxx>
-#endif
-#ifndef _Handle_PShort_HSequenceOfShortReal_HeaderFile
 #include <Handle_PShort_HSequenceOfShortReal.hxx>
-#endif
 class PShort_HSequenceOfShortReal;
 class PShort_SeqExplorerOfHSequenceOfShortReal;
 

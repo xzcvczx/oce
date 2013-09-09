@@ -9,109 +9,42 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
 
-#ifndef _Handle_Geom2d_AxisPlacement_HeaderFile
 #include <Handle_Geom2d_AxisPlacement.hxx>
-#endif
-#ifndef _Handle_PGeom2d_AxisPlacement_HeaderFile
 #include <Handle_PGeom2d_AxisPlacement.hxx>
-#endif
-#ifndef _Handle_Geom2d_BSplineCurve_HeaderFile
 #include <Handle_Geom2d_BSplineCurve.hxx>
-#endif
-#ifndef _Handle_PGeom2d_BSplineCurve_HeaderFile
 #include <Handle_PGeom2d_BSplineCurve.hxx>
-#endif
-#ifndef _Handle_Geom2d_BezierCurve_HeaderFile
 #include <Handle_Geom2d_BezierCurve.hxx>
-#endif
-#ifndef _Handle_PGeom2d_BezierCurve_HeaderFile
 #include <Handle_PGeom2d_BezierCurve.hxx>
-#endif
-#ifndef _Handle_Geom2d_CartesianPoint_HeaderFile
 #include <Handle_Geom2d_CartesianPoint.hxx>
-#endif
-#ifndef _Handle_PGeom2d_CartesianPoint_HeaderFile
 #include <Handle_PGeom2d_CartesianPoint.hxx>
-#endif
-#ifndef _Handle_Geom2d_Circle_HeaderFile
 #include <Handle_Geom2d_Circle.hxx>
-#endif
-#ifndef _Handle_PGeom2d_Circle_HeaderFile
 #include <Handle_PGeom2d_Circle.hxx>
-#endif
-#ifndef _Handle_Geom2d_Curve_HeaderFile
 #include <Handle_Geom2d_Curve.hxx>
-#endif
-#ifndef _Handle_PGeom2d_Curve_HeaderFile
 #include <Handle_PGeom2d_Curve.hxx>
-#endif
-#ifndef _Handle_Geom2d_Direction_HeaderFile
 #include <Handle_Geom2d_Direction.hxx>
-#endif
-#ifndef _Handle_PGeom2d_Direction_HeaderFile
 #include <Handle_PGeom2d_Direction.hxx>
-#endif
-#ifndef _Handle_Geom2d_Ellipse_HeaderFile
 #include <Handle_Geom2d_Ellipse.hxx>
-#endif
-#ifndef _Handle_PGeom2d_Ellipse_HeaderFile
 #include <Handle_PGeom2d_Ellipse.hxx>
-#endif
-#ifndef _Handle_Geom2d_Hyperbola_HeaderFile
 #include <Handle_Geom2d_Hyperbola.hxx>
-#endif
-#ifndef _Handle_PGeom2d_Hyperbola_HeaderFile
 #include <Handle_PGeom2d_Hyperbola.hxx>
-#endif
-#ifndef _Handle_Geom2d_Line_HeaderFile
 #include <Handle_Geom2d_Line.hxx>
-#endif
-#ifndef _Handle_PGeom2d_Line_HeaderFile
 #include <Handle_PGeom2d_Line.hxx>
-#endif
-#ifndef _Handle_Geom2d_OffsetCurve_HeaderFile
 #include <Handle_Geom2d_OffsetCurve.hxx>
-#endif
-#ifndef _Handle_PGeom2d_OffsetCurve_HeaderFile
 #include <Handle_PGeom2d_OffsetCurve.hxx>
-#endif
-#ifndef _Handle_Geom2d_Parabola_HeaderFile
 #include <Handle_Geom2d_Parabola.hxx>
-#endif
-#ifndef _Handle_PGeom2d_Parabola_HeaderFile
 #include <Handle_PGeom2d_Parabola.hxx>
-#endif
-#ifndef _Handle_Geom2d_Point_HeaderFile
 #include <Handle_Geom2d_Point.hxx>
-#endif
-#ifndef _Handle_PGeom2d_Point_HeaderFile
 #include <Handle_PGeom2d_Point.hxx>
-#endif
-#ifndef _Handle_Geom2d_Transformation_HeaderFile
 #include <Handle_Geom2d_Transformation.hxx>
-#endif
-#ifndef _Handle_PGeom2d_Transformation_HeaderFile
 #include <Handle_PGeom2d_Transformation.hxx>
-#endif
-#ifndef _Handle_Geom2d_TrimmedCurve_HeaderFile
 #include <Handle_Geom2d_TrimmedCurve.hxx>
-#endif
-#ifndef _Handle_PGeom2d_TrimmedCurve_HeaderFile
 #include <Handle_PGeom2d_TrimmedCurve.hxx>
-#endif
-#ifndef _Handle_Geom2d_VectorWithMagnitude_HeaderFile
 #include <Handle_Geom2d_VectorWithMagnitude.hxx>
-#endif
-#ifndef _Handle_PGeom2d_VectorWithMagnitude_HeaderFile
 #include <Handle_PGeom2d_VectorWithMagnitude.hxx>
-#endif
 class Geom2d_AxisPlacement;
 class PGeom2d_AxisPlacement;
 class Geom2d_BSplineCurve;
@@ -158,7 +91,18 @@ class PGeom2d_VectorWithMagnitude;
 class MgtGeom2d  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   //! Translate <PObj> to its Transient equivalent from Geom2d. <br>
   Standard_EXPORT   static  Handle_Geom2d_AxisPlacement Translate(const Handle(PGeom2d_AxisPlacement)& PObj) ;

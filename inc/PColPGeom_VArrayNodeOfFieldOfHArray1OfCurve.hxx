@@ -19,15 +19,9 @@
 #include <Handle_PColPGeom_VArrayNodeOfFieldOfHArray1OfCurve.hxx>
 #endif
 
-#ifndef _Standard_Address_HeaderFile
 #include <Standard_Address.hxx>
-#endif
-#ifndef _Handle_PGeom_Curve_HeaderFile
 #include <Handle_PGeom_Curve.hxx>
-#endif
-#ifndef _PStandard_ArrayNode_HeaderFile
 #include <PStandard_ArrayNode.hxx>
-#endif
 class PGeom_Curve;
 class PColPGeom_FieldOfHArray1OfCurve;
 class PColPGeom_VArrayTNodeOfFieldOfHArray1OfCurve;

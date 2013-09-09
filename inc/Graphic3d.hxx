@@ -9,19 +9,12 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
 
-#ifndef _Handle_Graphic3d_GraphicDriver_HeaderFile
 #include <Handle_Graphic3d_GraphicDriver.hxx>
-#endif
-#ifndef _Aspect_DisplayConnection_Handle_HeaderFile
 #include <Aspect_DisplayConnection_Handle.hxx>
-#endif
 class Graphic3d_GraphicDriver;
 class Graphic3d_Strips;
 class Graphic3d_ArrayOfPrimitives;
@@ -97,7 +90,18 @@ class Graphic3d_ListIteratorOfListOfShortReal;
 class Graphic3d  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   //! Initialize graphic driver and returns Handle to it. <br>
   Standard_EXPORT   static  Handle_Graphic3d_GraphicDriver InitGraphicDriver(const Aspect_DisplayConnection_Handle& theDisplayConnection) ;

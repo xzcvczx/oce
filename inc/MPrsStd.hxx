@@ -9,22 +9,13 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
 
-#ifndef _Handle_MDF_ASDriverHSequence_HeaderFile
 #include <Handle_MDF_ASDriverHSequence.hxx>
-#endif
-#ifndef _Handle_CDM_MessageDriver_HeaderFile
 #include <Handle_CDM_MessageDriver.hxx>
-#endif
-#ifndef _Handle_MDF_ARDriverHSequence_HeaderFile
 #include <Handle_MDF_ARDriverHSequence.hxx>
-#endif
 class MDF_ASDriverHSequence;
 class CDM_MessageDriver;
 class MDF_ARDriverHSequence;
@@ -42,7 +33,18 @@ class MPrsStd_PositionRetrievalDriver;
 class MPrsStd  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   //! Adds the attribute storage drivers to <aDriverTable>. <br>
   Standard_EXPORT   static  void AddStorageDrivers(const Handle(MDF_ASDriverHSequence)& aDriverTable,const Handle(CDM_MessageDriver)& theMessageDriver) ;

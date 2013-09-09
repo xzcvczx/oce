@@ -19,30 +19,14 @@
 #include <Handle_PDF_HAttributeArray1.hxx>
 #endif
 
-#ifndef _Standard_Integer_HeaderFile
 #include <Standard_Integer.hxx>
-#endif
-#ifndef _Handle_PDF_Attribute_HeaderFile
 #include <Handle_PDF_Attribute.hxx>
-#endif
-#ifndef _Handle_Standard_Persistent_HeaderFile
 #include <Handle_Standard_Persistent.hxx>
-#endif
-#ifndef _PDF_FieldOfHAttributeArray1_HeaderFile
 #include <PDF_FieldOfHAttributeArray1.hxx>
-#endif
-#ifndef _Standard_Address_HeaderFile
 #include <Standard_Address.hxx>
-#endif
-#ifndef _Standard_Persistent_HeaderFile
 #include <Standard_Persistent.hxx>
-#endif
-#ifndef _Handle_PDF_VArrayNodeOfFieldOfHAttributeArray1_HeaderFile
 #include <Handle_PDF_VArrayNodeOfFieldOfHAttributeArray1.hxx>
-#endif
-#ifndef _Standard_OStream_HeaderFile
 #include <Standard_OStream.hxx>
-#endif
 class PDF_Attribute;
 class Standard_Persistent;
 class Standard_OutOfRange;

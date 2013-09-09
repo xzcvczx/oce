@@ -9,22 +9,13 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
 
-#ifndef _Standard_Real_HeaderFile
 #include <Standard_Real.hxx>
-#endif
-#ifndef _Handle_ShapeExtend_WireData_HeaderFile
 #include <Handle_ShapeExtend_WireData.hxx>
-#endif
-#ifndef _Standard_Boolean_HeaderFile
 #include <Standard_Boolean.hxx>
-#endif
 class TopoDS_Wire;
 class TopoDS_Face;
 class ShapeExtend_WireData;
@@ -71,7 +62,18 @@ class ShapeAnalysis_DataMapIteratorOfDataMapOfShapeListOfReal;
 class ShapeAnalysis  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   //! Returns the outer wire on the face <Face>. <br>
 //!          This is replacement of the method BRepTools::OuterWire <br>

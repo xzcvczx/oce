@@ -19,18 +19,10 @@
 #include <Handle_PNaming_Name.hxx>
 #endif
 
-#ifndef _Standard_Integer_HeaderFile
 #include <Standard_Integer.hxx>
-#endif
-#ifndef _Handle_PNaming_HArray1OfNamedShape_HeaderFile
 #include <Handle_PNaming_HArray1OfNamedShape.hxx>
-#endif
-#ifndef _Handle_PNaming_NamedShape_HeaderFile
 #include <Handle_PNaming_NamedShape.hxx>
-#endif
-#ifndef _Standard_Persistent_HeaderFile
 #include <Standard_Persistent.hxx>
-#endif
 class PNaming_HArray1OfNamedShape;
 class PNaming_NamedShape;
 

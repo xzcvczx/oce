@@ -6,7 +6,7 @@
 #ifndef _Graphic3d_TypeOfMaterial_HeaderFile
 #define _Graphic3d_TypeOfMaterial_HeaderFile
 
-//! Types of materials specifies if a material can change color. <br>
+//! Types of aspect materials. <br>
 enum Graphic3d_TypeOfMaterial {
 Graphic3d_MATERIAL_ASPECT,
 Graphic3d_MATERIAL_PHYSIC

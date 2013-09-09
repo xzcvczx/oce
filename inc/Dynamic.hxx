@@ -9,19 +9,12 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
 
-#ifndef _Dynamic_ModeEnum_HeaderFile
 #include <Dynamic_ModeEnum.hxx>
-#endif
-#ifndef _Standard_CString_HeaderFile
 #include <Standard_CString.hxx>
-#endif
 class Dynamic_Node;
 class Dynamic_Parameter;
 class Dynamic_BooleanParameter;
@@ -243,7 +236,18 @@ class Dynamic_SequenceNodeOfSeqOfFuzzyDefinitions;
 class Dynamic  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   
   Standard_EXPORT   static  Dynamic_ModeEnum Mode(const Standard_CString amode) ;

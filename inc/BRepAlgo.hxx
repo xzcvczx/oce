@@ -9,22 +9,13 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
 
-#ifndef _GeomAbs_Shape_HeaderFile
 #include <GeomAbs_Shape.hxx>
-#endif
-#ifndef _Standard_Real_HeaderFile
 #include <Standard_Real.hxx>
-#endif
-#ifndef _Standard_Boolean_HeaderFile
 #include <Standard_Boolean.hxx>
-#endif
 class TopoDS_Wire;
 class TopoDS_Edge;
 class TopoDS_Shape;
@@ -63,16 +54,22 @@ class BRepAlgo_SequenceNodeOfSequenceOfSequenceOfInteger;
 class BRepAlgo  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
-  //! this method makes a wire whose edges are C1 from <br>
-//!          a Wire whose edges could be G1. It removes a vertex <br>
-//!          between G1 edges. <br>
-//!          Option can be G1 or C1. <br>
+  
   Standard_EXPORT   static  TopoDS_Wire ConcatenateWire(const TopoDS_Wire& Wire,const GeomAbs_Shape Option,const Standard_Real AngularTolerance = 1.0e-4) ;
-  //! this method makes an edge from a wire. <br>
-//!          Junction points between edges of wire may be sharp, <br>
-//!          resulting curve of the resulting edge may be C0. <br>
+  
   Standard_EXPORT   static  TopoDS_Edge ConcatenateWireC0(const TopoDS_Wire& Wire) ;
   //! Checks if the  shape is "correct". If not, returns <br>
 //!          <Standard_False>, else returns <Standard_True>. <br>

@@ -31,6 +31,4 @@
 #ifndef _gp_Elips_HeaderFile
 #include <gp_Elips.hxx>
 #endif
-#ifndef _DsgPrs_HeaderFile
 #include <DsgPrs.hxx>
-#endif

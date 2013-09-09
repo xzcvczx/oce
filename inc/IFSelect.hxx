@@ -9,22 +9,13 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
 
-#ifndef _Standard_Boolean_HeaderFile
 #include <Standard_Boolean.hxx>
-#endif
-#ifndef _Handle_IFSelect_WorkSession_HeaderFile
 #include <Handle_IFSelect_WorkSession.hxx>
-#endif
-#ifndef _Standard_CString_HeaderFile
 #include <Standard_CString.hxx>
-#endif
 class IFSelect_WorkSession;
 class IFSelect_Signature;
 class IFSelect_SignMultiple;
@@ -132,7 +123,18 @@ class IFSelect_SequenceNodeOfSequenceOfAppliedModifiers;
 class IFSelect  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   //! Saves the state of a WorkSession from IFSelect, by using a <br>
 //!           SessionFile from IFSelect. Returns True if Done, False in <br>

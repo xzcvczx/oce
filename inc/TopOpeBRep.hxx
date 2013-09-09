@@ -9,19 +9,12 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
 
-#ifndef _Standard_OStream_HeaderFile
 #include <Standard_OStream.hxx>
-#endif
-#ifndef _TopOpeBRep_TypeLineCurve_HeaderFile
 #include <TopOpeBRep_TypeLineCurve.hxx>
-#endif
 class TopOpeBRep_VPointInter;
 class TopOpeBRep_Array1OfVPointInter;
 class TopOpeBRep_HArray1OfVPointInter;
@@ -66,7 +59,18 @@ class TopOpeBRep_ListIteratorOfListOfBipoint;
 class TopOpeBRep  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   //! Prints the name  of  <TLC>  as  a String  on the <br>
 //!          Stream <S> and returns <S>. <br>

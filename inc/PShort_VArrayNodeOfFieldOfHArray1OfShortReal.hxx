@@ -19,15 +19,9 @@
 #include <Handle_PShort_VArrayNodeOfFieldOfHArray1OfShortReal.hxx>
 #endif
 
-#ifndef _Standard_Address_HeaderFile
 #include <Standard_Address.hxx>
-#endif
-#ifndef _Standard_ShortReal_HeaderFile
 #include <Standard_ShortReal.hxx>
-#endif
-#ifndef _PStandard_ArrayNode_HeaderFile
 #include <PStandard_ArrayNode.hxx>
-#endif
 class PShort_FieldOfHArray1OfShortReal;
 class PShort_VArrayTNodeOfFieldOfHArray1OfShortReal;
 

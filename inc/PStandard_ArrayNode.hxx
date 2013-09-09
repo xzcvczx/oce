@@ -19,9 +19,7 @@
 #include <Handle_PStandard_ArrayNode.hxx>
 #endif
 
-#ifndef _Standard_Persistent_HeaderFile
 #include <Standard_Persistent.hxx>
-#endif
 
 
 class PStandard_ArrayNode : public Standard_Persistent {

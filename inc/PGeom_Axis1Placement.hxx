@@ -19,9 +19,7 @@
 #include <Handle_PGeom_Axis1Placement.hxx>
 #endif
 
-#ifndef _PGeom_AxisPlacement_HeaderFile
 #include <PGeom_AxisPlacement.hxx>
-#endif
 class gp_Ax1;
 
 

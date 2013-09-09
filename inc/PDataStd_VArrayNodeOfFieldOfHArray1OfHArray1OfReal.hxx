@@ -19,15 +19,9 @@
 #include <Handle_PDataStd_VArrayNodeOfFieldOfHArray1OfHArray1OfReal.hxx>
 #endif
 
-#ifndef _Standard_Address_HeaderFile
 #include <Standard_Address.hxx>
-#endif
-#ifndef _Handle_PColStd_HArray1OfReal_HeaderFile
 #include <Handle_PColStd_HArray1OfReal.hxx>
-#endif
-#ifndef _PStandard_ArrayNode_HeaderFile
 #include <PStandard_ArrayNode.hxx>
-#endif
 class PColStd_HArray1OfReal;
 class PDataStd_FieldOfHArray1OfHArray1OfReal;
 class PDataStd_VArrayTNodeOfFieldOfHArray1OfHArray1OfReal;

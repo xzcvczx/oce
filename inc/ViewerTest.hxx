@@ -9,58 +9,25 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
 
-#ifndef _Standard_Integer_HeaderFile
 #include <Standard_Integer.hxx>
-#endif
-#ifndef _Handle_MMgt_TShared_HeaderFile
 #include <Handle_MMgt_TShared.hxx>
-#endif
-#ifndef _TopAbs_ShapeEnum_HeaderFile
 #include <TopAbs_ShapeEnum.hxx>
-#endif
-#ifndef _Standard_Boolean_HeaderFile
 #include <Standard_Boolean.hxx>
-#endif
-#ifndef _Handle_TopTools_HArray1OfShape_HeaderFile
 #include <Handle_TopTools_HArray1OfShape.hxx>
-#endif
-#ifndef _Handle_AIS_InteractiveObject_HeaderFile
 #include <Handle_AIS_InteractiveObject.hxx>
-#endif
-#ifndef _AIS_KindOfInteractive_HeaderFile
 #include <AIS_KindOfInteractive.hxx>
-#endif
-#ifndef _Handle_TColStd_HArray1OfTransient_HeaderFile
 #include <Handle_TColStd_HArray1OfTransient.hxx>
-#endif
-#ifndef _Handle_V3d_Viewer_HeaderFile
 #include <Handle_V3d_Viewer.hxx>
-#endif
-#ifndef _Handle_AIS_InteractiveContext_HeaderFile
 #include <Handle_AIS_InteractiveContext.hxx>
-#endif
-#ifndef _NIS_InteractiveContext_HeaderFile
 #include <NIS_InteractiveContext.hxx>
-#endif
-#ifndef _Handle_V3d_View_HeaderFile
 #include <Handle_V3d_View.hxx>
-#endif
-#ifndef _Handle_ViewerTest_EventManager_HeaderFile
 #include <Handle_ViewerTest_EventManager.hxx>
-#endif
-#ifndef _Quantity_NameOfColor_HeaderFile
 #include <Quantity_NameOfColor.hxx>
-#endif
-#ifndef _Standard_CString_HeaderFile
 #include <Standard_CString.hxx>
-#endif
 class Draw_Interpretor;
 class MMgt_TShared;
 class TopoDS_Shape;
@@ -82,7 +49,18 @@ class ViewerTest_DoubleMapIteratorOfDoubleMapOfInteractiveAndName;
 class ViewerTest  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   //! Loads all Draw commands of  V2d & V3d. Used for plugin. <br>
   Standard_EXPORT   static  void Factory(Draw_Interpretor& theDI) ;

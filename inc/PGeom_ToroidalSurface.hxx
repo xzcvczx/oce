@@ -19,12 +19,8 @@
 #include <Handle_PGeom_ToroidalSurface.hxx>
 #endif
 
-#ifndef _Standard_Real_HeaderFile
 #include <Standard_Real.hxx>
-#endif
-#ifndef _PGeom_ElementarySurface_HeaderFile
 #include <PGeom_ElementarySurface.hxx>
-#endif
 class gp_Ax3;
 
 

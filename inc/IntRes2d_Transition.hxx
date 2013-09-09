@@ -9,28 +9,15 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
 
-#ifndef _Standard_Boolean_HeaderFile
 #include <Standard_Boolean.hxx>
-#endif
-#ifndef _IntRes2d_Position_HeaderFile
 #include <IntRes2d_Position.hxx>
-#endif
-#ifndef _IntRes2d_TypeTrans_HeaderFile
 #include <IntRes2d_TypeTrans.hxx>
-#endif
-#ifndef _IntRes2d_Situation_HeaderFile
 #include <IntRes2d_Situation.hxx>
-#endif
-#ifndef _Standard_Storable_HeaderFile
 #include <Standard_Storable.hxx>
-#endif
 #ifndef _Standard_PrimitiveTypes_HeaderFile
 #include <Standard_PrimitiveTypes.hxx>
 #endif
@@ -50,8 +37,18 @@ Standard_EXPORT const Handle(Standard_Type)& STANDARD_TYPE(IntRes2d_Transition);
 class IntRes2d_Transition  {
 
 public:
-
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   //! Empty constructor. <br>
   Standard_EXPORT   IntRes2d_Transition();

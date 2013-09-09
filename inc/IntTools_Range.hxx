@@ -9,9 +9,6 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
@@ -26,35 +23,39 @@
 class IntTools_Range  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   
 //! Empty constructor <br>
-//! <br>
   Standard_EXPORT   IntTools_Range();
   
 //! Initialize me by range boundaries <br>
-//! <br>
   Standard_EXPORT   IntTools_Range(const Standard_Real aFirst,const Standard_Real aLast);
   
 //! Modifier <br>
-//! <br>
   Standard_EXPORT     void SetFirst(const Standard_Real aFirst) ;
   
 //! Modifier <br>
-//! <br>
   Standard_EXPORT     void SetLast(const Standard_Real aLast) ;
   
 //! Selector <br>
-//! <br>
   Standard_EXPORT     Standard_Real First() const;
   
 //! Selector <br>
-//! <br>
   Standard_EXPORT     Standard_Real Last() const;
   
 //! Selector <br>
-//! <br>
   Standard_EXPORT     void Range(Standard_Real& aFirst,Standard_Real& aLast) const;
 
 

@@ -9,31 +9,16 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
 
-#ifndef _Handle_Geom_Surface_HeaderFile
 #include <Handle_Geom_Surface.hxx>
-#endif
-#ifndef _Standard_OStream_HeaderFile
 #include <Standard_OStream.hxx>
-#endif
-#ifndef _Standard_IStream_HeaderFile
 #include <Standard_IStream.hxx>
-#endif
-#ifndef _Handle_Geom_Curve_HeaderFile
 #include <Handle_Geom_Curve.hxx>
-#endif
-#ifndef _Handle_Geom2d_Curve_HeaderFile
 #include <Handle_Geom2d_Curve.hxx>
-#endif
-#ifndef _Handle_GeomTools_UndefinedTypeHandler_HeaderFile
 #include <Handle_GeomTools_UndefinedTypeHandler.hxx>
-#endif
 class Geom_Surface;
 class Geom_Curve;
 class Geom2d_Curve;
@@ -53,9 +38,20 @@ class GeomTools_Curve2dSet;
 class GeomTools  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
-  //! A set of Curves from Geom2d. <br>//! Dumps the surface on the stream. <br>
+  //! Dumps the surface on the stream. <br>
   Standard_EXPORT   static  void Dump(const Handle(Geom_Surface)& S,Standard_OStream& OS) ;
   //! Writes the surface on the stream. <br>
   Standard_EXPORT   static  void Write(const Handle(Geom_Surface)& S,Standard_OStream& OS) ;

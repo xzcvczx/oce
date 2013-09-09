@@ -9,9 +9,6 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
@@ -87,17 +84,21 @@ class STEPConstruct_Tool;
 //!          DECAF document. Besides transfer of shapes (including <br>
 //!          assemblies) provided by STEPControl, supports also <br>
 //!          colors and part names <br>
-//! <br>
-//!          This reader supports reading files with external references <br>
-//!          i.e. multifile reading <br>
-//!          It behaves as usual Reader (from STEPControl) for the main <br>
-//!          file (e.g. if it is single file) <br>
-//!          Results of reading other files can be accessed by name of the <br>
-//!          file or by iterating on a readers <br>
 class STEPCAFControl_Reader  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   //! Creates a reader with an empty <br>
 //! STEP model and sets ColorMode, LayerMode, NameMode and <br>

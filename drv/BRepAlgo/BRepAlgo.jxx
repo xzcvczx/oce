@@ -10,6 +10,4 @@
 #ifndef _TopTools_ListOfShape_HeaderFile
 #include <TopTools_ListOfShape.hxx>
 #endif
-#ifndef _BRepAlgo_HeaderFile
 #include <BRepAlgo.hxx>
-#endif

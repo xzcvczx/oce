@@ -19,18 +19,10 @@
 #include <Handle_PBRep_TVertex.hxx>
 #endif
 
-#ifndef _Standard_Real_HeaderFile
 #include <Standard_Real.hxx>
-#endif
-#ifndef _gp_Pnt_HeaderFile
 #include <gp_Pnt.hxx>
-#endif
-#ifndef _Handle_PBRep_PointRepresentation_HeaderFile
 #include <Handle_PBRep_PointRepresentation.hxx>
-#endif
-#ifndef _PTopoDS_TVertex_HeaderFile
 #include <PTopoDS_TVertex.hxx>
-#endif
 class PBRep_PointRepresentation;
 class gp_Pnt;
 

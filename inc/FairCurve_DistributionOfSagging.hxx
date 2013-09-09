@@ -9,9 +9,6 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
@@ -44,7 +41,18 @@ class math_Vector;
 class FairCurve_DistributionOfSagging  : public FairCurve_DistributionOfEnergy {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   
   Standard_EXPORT   FairCurve_DistributionOfSagging(const Standard_Integer BSplOrder,const Handle(TColStd_HArray1OfReal)& FlatKnots,const Handle(TColgp_HArray1OfPnt2d)& Poles,const Standard_Integer DerivativeOrder,const FairCurve_BattenLaw& Law,const Standard_Integer NbValAux = 0);

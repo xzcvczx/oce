@@ -19,12 +19,8 @@
 #include <Handle_PNaming_Naming_1.hxx>
 #endif
 
-#ifndef _Handle_PNaming_Name_1_HeaderFile
 #include <Handle_PNaming_Name_1.hxx>
-#endif
-#ifndef _PDF_Attribute_HeaderFile
 #include <PDF_Attribute.hxx>
-#endif
 class PNaming_Name_1;
 
 

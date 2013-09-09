@@ -19,12 +19,8 @@
 #include <Handle_PDocStd_Document.hxx>
 #endif
 
-#ifndef _Handle_PDF_Data_HeaderFile
 #include <Handle_PDF_Data.hxx>
-#endif
-#ifndef _PCDM_Document_HeaderFile
 #include <PCDM_Document.hxx>
-#endif
 class PDF_Data;
 
 

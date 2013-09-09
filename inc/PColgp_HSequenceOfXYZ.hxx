@@ -19,30 +19,14 @@
 #include <Handle_PColgp_HSequenceOfXYZ.hxx>
 #endif
 
-#ifndef _Standard_Boolean_HeaderFile
 #include <Standard_Boolean.hxx>
-#endif
-#ifndef _Standard_Integer_HeaderFile
 #include <Standard_Integer.hxx>
-#endif
-#ifndef _gp_XYZ_HeaderFile
 #include <gp_XYZ.hxx>
-#endif
-#ifndef _Handle_PColgp_HSequenceOfXYZ_HeaderFile
 #include <Handle_PColgp_HSequenceOfXYZ.hxx>
-#endif
-#ifndef _Handle_PColgp_SeqNodeOfHSequenceOfXYZ_HeaderFile
 #include <Handle_PColgp_SeqNodeOfHSequenceOfXYZ.hxx>
-#endif
-#ifndef _Handle_Standard_Persistent_HeaderFile
 #include <Handle_Standard_Persistent.hxx>
-#endif
-#ifndef _Standard_Persistent_HeaderFile
 #include <Standard_Persistent.hxx>
-#endif
-#ifndef _Standard_OStream_HeaderFile
 #include <Standard_OStream.hxx>
-#endif
 class PColgp_SeqNodeOfHSequenceOfXYZ;
 class Standard_Persistent;
 class Standard_NoSuchObject;

@@ -6,8 +6,8 @@
 #ifndef _Aspect_TypeOfColorMap_HeaderFile
 #define _Aspect_TypeOfColorMap_HeaderFile
 
-//! Definition of the color map types <br>
-//! <br>
+//! Definition of interior types for primitive <br>
+//!          faces. <br>
 enum Aspect_TypeOfColorMap {
 Aspect_TOC_Generic,
 Aspect_TOC_ColorCube,

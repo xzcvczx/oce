@@ -9,15 +9,12 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
 
-#ifndef _Standard_Boolean_HeaderFile
-#include <Standard_Boolean.hxx>
+#ifndef _Standard_Integer_HeaderFile
+#include <Standard_Integer.hxx>
 #endif
 #ifndef _Handle_HLRAlgo_WiresBlock_HeaderFile
 #include <Handle_HLRAlgo_WiresBlock.hxx>
@@ -34,8 +31,8 @@
 #ifndef _TopAbs_Orientation_HeaderFile
 #include <TopAbs_Orientation.hxx>
 #endif
-#ifndef _Standard_Integer_HeaderFile
-#include <Standard_Integer.hxx>
+#ifndef _Standard_Boolean_HeaderFile
+#include <Standard_Boolean.hxx>
 #endif
 class HLRAlgo_WiresBlock;
 class TopoDS_Face;
@@ -46,7 +43,18 @@ class HLRBRep_Surface;
 class HLRBRep_FaceData  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   
   Standard_EXPORT   HLRBRep_FaceData();

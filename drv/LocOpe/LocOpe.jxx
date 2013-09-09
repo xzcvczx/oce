@@ -13,6 +13,4 @@
 #ifndef _TColgp_SequenceOfPnt_HeaderFile
 #include <TColgp_SequenceOfPnt.hxx>
 #endif
-#ifndef _LocOpe_HeaderFile
 #include <LocOpe.hxx>
-#endif

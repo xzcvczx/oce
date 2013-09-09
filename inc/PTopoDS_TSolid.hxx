@@ -19,12 +19,8 @@
 #include <Handle_PTopoDS_TSolid.hxx>
 #endif
 
-#ifndef _TopAbs_ShapeEnum_HeaderFile
 #include <TopAbs_ShapeEnum.hxx>
-#endif
-#ifndef _PTopoDS_TShape_HeaderFile
 #include <PTopoDS_TShape.hxx>
-#endif
 
 
 class PTopoDS_TSolid : public PTopoDS_TShape {

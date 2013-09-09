@@ -13,6 +13,4 @@
 #ifndef _TopoDS_Vertex_HeaderFile
 #include <TopoDS_Vertex.hxx>
 #endif
-#ifndef _ShapeAnalysis_HeaderFile
 #include <ShapeAnalysis.hxx>
-#endif

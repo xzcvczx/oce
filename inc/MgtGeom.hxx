@@ -9,187 +9,68 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
 
-#ifndef _Handle_Geom_Axis1Placement_HeaderFile
 #include <Handle_Geom_Axis1Placement.hxx>
-#endif
-#ifndef _Handle_PGeom_Axis1Placement_HeaderFile
 #include <Handle_PGeom_Axis1Placement.hxx>
-#endif
-#ifndef _Handle_Geom_Axis2Placement_HeaderFile
 #include <Handle_Geom_Axis2Placement.hxx>
-#endif
-#ifndef _Handle_PGeom_Axis2Placement_HeaderFile
 #include <Handle_PGeom_Axis2Placement.hxx>
-#endif
-#ifndef _Handle_Geom_BSplineCurve_HeaderFile
 #include <Handle_Geom_BSplineCurve.hxx>
-#endif
-#ifndef _Handle_PGeom_BSplineCurve_HeaderFile
 #include <Handle_PGeom_BSplineCurve.hxx>
-#endif
-#ifndef _Handle_Geom_BSplineSurface_HeaderFile
 #include <Handle_Geom_BSplineSurface.hxx>
-#endif
-#ifndef _Handle_PGeom_BSplineSurface_HeaderFile
 #include <Handle_PGeom_BSplineSurface.hxx>
-#endif
-#ifndef _Handle_Geom_BezierCurve_HeaderFile
 #include <Handle_Geom_BezierCurve.hxx>
-#endif
-#ifndef _Handle_PGeom_BezierCurve_HeaderFile
 #include <Handle_PGeom_BezierCurve.hxx>
-#endif
-#ifndef _Handle_Geom_BezierSurface_HeaderFile
 #include <Handle_Geom_BezierSurface.hxx>
-#endif
-#ifndef _Handle_PGeom_BezierSurface_HeaderFile
 #include <Handle_PGeom_BezierSurface.hxx>
-#endif
-#ifndef _Handle_Geom_CartesianPoint_HeaderFile
 #include <Handle_Geom_CartesianPoint.hxx>
-#endif
-#ifndef _Handle_PGeom_CartesianPoint_HeaderFile
 #include <Handle_PGeom_CartesianPoint.hxx>
-#endif
-#ifndef _Handle_Geom_Circle_HeaderFile
 #include <Handle_Geom_Circle.hxx>
-#endif
-#ifndef _Handle_PGeom_Circle_HeaderFile
 #include <Handle_PGeom_Circle.hxx>
-#endif
-#ifndef _Handle_Geom_ConicalSurface_HeaderFile
 #include <Handle_Geom_ConicalSurface.hxx>
-#endif
-#ifndef _Handle_PGeom_ConicalSurface_HeaderFile
 #include <Handle_PGeom_ConicalSurface.hxx>
-#endif
-#ifndef _Handle_Geom_Curve_HeaderFile
 #include <Handle_Geom_Curve.hxx>
-#endif
-#ifndef _Handle_PGeom_Curve_HeaderFile
 #include <Handle_PGeom_Curve.hxx>
-#endif
-#ifndef _Handle_Geom_CylindricalSurface_HeaderFile
 #include <Handle_Geom_CylindricalSurface.hxx>
-#endif
-#ifndef _Handle_PGeom_CylindricalSurface_HeaderFile
 #include <Handle_PGeom_CylindricalSurface.hxx>
-#endif
-#ifndef _Handle_Geom_Direction_HeaderFile
 #include <Handle_Geom_Direction.hxx>
-#endif
-#ifndef _Handle_PGeom_Direction_HeaderFile
 #include <Handle_PGeom_Direction.hxx>
-#endif
-#ifndef _Handle_Geom_Ellipse_HeaderFile
 #include <Handle_Geom_Ellipse.hxx>
-#endif
-#ifndef _Handle_PGeom_Ellipse_HeaderFile
 #include <Handle_PGeom_Ellipse.hxx>
-#endif
-#ifndef _Handle_Geom_Hyperbola_HeaderFile
 #include <Handle_Geom_Hyperbola.hxx>
-#endif
-#ifndef _Handle_PGeom_Hyperbola_HeaderFile
 #include <Handle_PGeom_Hyperbola.hxx>
-#endif
-#ifndef _Handle_Geom_Line_HeaderFile
 #include <Handle_Geom_Line.hxx>
-#endif
-#ifndef _Handle_PGeom_Line_HeaderFile
 #include <Handle_PGeom_Line.hxx>
-#endif
-#ifndef _Handle_Geom_OffsetCurve_HeaderFile
 #include <Handle_Geom_OffsetCurve.hxx>
-#endif
-#ifndef _Handle_PGeom_OffsetCurve_HeaderFile
 #include <Handle_PGeom_OffsetCurve.hxx>
-#endif
-#ifndef _Handle_Geom_OffsetSurface_HeaderFile
 #include <Handle_Geom_OffsetSurface.hxx>
-#endif
-#ifndef _Handle_PGeom_OffsetSurface_HeaderFile
 #include <Handle_PGeom_OffsetSurface.hxx>
-#endif
-#ifndef _Handle_Geom_Parabola_HeaderFile
 #include <Handle_Geom_Parabola.hxx>
-#endif
-#ifndef _Handle_PGeom_Parabola_HeaderFile
 #include <Handle_PGeom_Parabola.hxx>
-#endif
-#ifndef _Handle_Geom_Plane_HeaderFile
 #include <Handle_Geom_Plane.hxx>
-#endif
-#ifndef _Handle_PGeom_Plane_HeaderFile
 #include <Handle_PGeom_Plane.hxx>
-#endif
-#ifndef _Handle_Geom_Point_HeaderFile
 #include <Handle_Geom_Point.hxx>
-#endif
-#ifndef _Handle_PGeom_Point_HeaderFile
 #include <Handle_PGeom_Point.hxx>
-#endif
-#ifndef _Handle_Geom_RectangularTrimmedSurface_HeaderFile
 #include <Handle_Geom_RectangularTrimmedSurface.hxx>
-#endif
-#ifndef _Handle_PGeom_RectangularTrimmedSurface_HeaderFile
 #include <Handle_PGeom_RectangularTrimmedSurface.hxx>
-#endif
-#ifndef _Handle_Geom_SphericalSurface_HeaderFile
 #include <Handle_Geom_SphericalSurface.hxx>
-#endif
-#ifndef _Handle_PGeom_SphericalSurface_HeaderFile
 #include <Handle_PGeom_SphericalSurface.hxx>
-#endif
-#ifndef _Handle_Geom_Surface_HeaderFile
 #include <Handle_Geom_Surface.hxx>
-#endif
-#ifndef _Handle_PGeom_Surface_HeaderFile
 #include <Handle_PGeom_Surface.hxx>
-#endif
-#ifndef _Handle_Geom_SurfaceOfLinearExtrusion_HeaderFile
 #include <Handle_Geom_SurfaceOfLinearExtrusion.hxx>
-#endif
-#ifndef _Handle_PGeom_SurfaceOfLinearExtrusion_HeaderFile
 #include <Handle_PGeom_SurfaceOfLinearExtrusion.hxx>
-#endif
-#ifndef _Handle_Geom_SurfaceOfRevolution_HeaderFile
 #include <Handle_Geom_SurfaceOfRevolution.hxx>
-#endif
-#ifndef _Handle_PGeom_SurfaceOfRevolution_HeaderFile
 #include <Handle_PGeom_SurfaceOfRevolution.hxx>
-#endif
-#ifndef _Handle_Geom_ToroidalSurface_HeaderFile
 #include <Handle_Geom_ToroidalSurface.hxx>
-#endif
-#ifndef _Handle_PGeom_ToroidalSurface_HeaderFile
 #include <Handle_PGeom_ToroidalSurface.hxx>
-#endif
-#ifndef _Handle_Geom_Transformation_HeaderFile
 #include <Handle_Geom_Transformation.hxx>
-#endif
-#ifndef _Handle_PGeom_Transformation_HeaderFile
 #include <Handle_PGeom_Transformation.hxx>
-#endif
-#ifndef _Handle_Geom_TrimmedCurve_HeaderFile
 #include <Handle_Geom_TrimmedCurve.hxx>
-#endif
-#ifndef _Handle_PGeom_TrimmedCurve_HeaderFile
 #include <Handle_PGeom_TrimmedCurve.hxx>
-#endif
-#ifndef _Handle_Geom_VectorWithMagnitude_HeaderFile
 #include <Handle_Geom_VectorWithMagnitude.hxx>
-#endif
-#ifndef _Handle_PGeom_VectorWithMagnitude_HeaderFile
 #include <Handle_PGeom_VectorWithMagnitude.hxx>
-#endif
 class Geom_Axis1Placement;
 class PGeom_Axis1Placement;
 class Geom_Axis2Placement;
@@ -262,7 +143,18 @@ class PGeom_VectorWithMagnitude;
 class MgtGeom  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   //! Translate <PObj> to its Transient equivalent from Geom. <br>
   Standard_EXPORT   static  Handle_Geom_Axis1Placement Translate(const Handle(PGeom_Axis1Placement)& PObj) ;

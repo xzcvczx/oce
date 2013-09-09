@@ -4,6 +4,4 @@
 #ifndef _IntRes2d_Transition_HeaderFile
 #include <IntRes2d_Transition.hxx>
 #endif
-#ifndef _IntRes2d_IntersectionPoint_HeaderFile
 #include <IntRes2d_IntersectionPoint.hxx>
-#endif

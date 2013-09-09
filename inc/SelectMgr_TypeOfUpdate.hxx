@@ -6,10 +6,7 @@
 #ifndef _SelectMgr_TypeOfUpdate_HeaderFile
 #define _SelectMgr_TypeOfUpdate_HeaderFile
 
-//! Provides values for types of update, including <br>
-//! -   full <br>
-//! -   partial <br>
-//! -   none. <br>
+//! different state of a Selection in a ViewerSelector... <br>
 enum SelectMgr_TypeOfUpdate {
 SelectMgr_TOU_Full,
 SelectMgr_TOU_Partial,

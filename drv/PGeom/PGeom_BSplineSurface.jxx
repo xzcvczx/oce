@@ -10,6 +10,4 @@
 #ifndef _PColStd_HArray1OfInteger_HeaderFile
 #include <PColStd_HArray1OfInteger.hxx>
 #endif
-#ifndef _PGeom_BSplineSurface_HeaderFile
 #include <PGeom_BSplineSurface.hxx>
-#endif

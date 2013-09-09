@@ -310,7 +310,6 @@ public:
   Standard_EXPORT     V3d_TypeOfUpdate UpdateMode() const;
   //! Returns True if One View more can be <br>
 //!          activated in this Viewer. <br>
-//! <br>
   Standard_EXPORT     Standard_Boolean IfMoreViews() const;
   //! initializes an iteration on the active views. <br>
   Standard_EXPORT     void InitActiveViews() ;

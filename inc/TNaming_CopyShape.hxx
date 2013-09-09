@@ -9,9 +9,6 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
@@ -29,7 +26,18 @@ class TopLoc_Location;
 class TNaming_CopyShape  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   //!      Makes  copy  a  set  of  shape(s),  using the  aMap <br>
   Standard_EXPORT   static  void CopyTool(const TopoDS_Shape& aShape,TColStd_IndexedDataMapOfTransientTransient& aMap,TopoDS_Shape& aResult) ;

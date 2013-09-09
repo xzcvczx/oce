@@ -4,6 +4,4 @@
 #ifndef _TColStd_Array2OfReal_HeaderFile
 #include <TColStd_Array2OfReal.hxx>
 #endif
-#ifndef _Aspect_HeaderFile
 #include <Aspect.hxx>
-#endif

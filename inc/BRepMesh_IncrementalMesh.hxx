@@ -54,7 +54,6 @@ class TopoDS_Face;
 
 //! Builds the mesh of a shape with respect of their <br>
 //!          correctly triangulated parts <br>
-//! <br>
 class BRepMesh_IncrementalMesh : public BRepMesh_DiscretRoot {
 
 public:

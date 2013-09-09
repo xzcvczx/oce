@@ -19,9 +19,7 @@
 #include <Handle_PGeom_Surface.hxx>
 #endif
 
-#ifndef _PGeom_Geometry_HeaderFile
 #include <PGeom_Geometry.hxx>
-#endif
 
 
 class PGeom_Surface : public PGeom_Geometry {

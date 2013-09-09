@@ -7,6 +7,4 @@
 #ifndef _PNaming_NamedShape_HeaderFile
 #include <PNaming_NamedShape.hxx>
 #endif
-#ifndef _PDataXtd_Constraint_HeaderFile
 #include <PDataXtd_Constraint.hxx>
-#endif

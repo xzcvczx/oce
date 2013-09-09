@@ -9,9 +9,6 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
@@ -66,7 +63,18 @@ class TCollection_AsciiString;
 class TCollection_ExtendedString  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   //! Initializes a ExtendedString to an empty ExtendedString. <br>
   Standard_EXPORT   TCollection_ExtendedString();
@@ -240,7 +248,8 @@ friend Standard_EXPORT Standard_OStream& operator << (Standard_OStream& astream,
 //!    aString.Token("; :,",2) returns "test" <br>
   Standard_EXPORT     TCollection_ExtendedString Token(const Standard_ExtString separators,const Standard_Integer whichone = 1) const;
   //! Returns pointer to ExtString <br>
-  Standard_EXPORT    Standard_ExtString ToExtString() const;
+//!   ---C++: return const <br>
+  Standard_EXPORT     Standard_ExtString ToExtString() const;
   //! Truncates <me> to <ahowmany> characters. <br>
 //! Example:  me = "Hello Dolly" -> Trunc(3) -> me = "Hel" <br>
 //!   Exceptions <br>

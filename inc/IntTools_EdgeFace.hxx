@@ -9,9 +9,6 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
@@ -76,70 +73,66 @@ class IntTools_CommonPrt;
 class IntTools_EdgeFace  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   
 //! Empty Constructor <br>
-//! <br>
   Standard_EXPORT   IntTools_EdgeFace();
   
 //! Initializes algorithm by the edge anEdge <br>
-//! <br>
   Standard_EXPORT     void SetEdge(const TopoDS_Edge& anEdge) ;
   
 //! Initializes algorithm by edge tolerance <br>
-//! <br>
   Standard_EXPORT     void SetTolE(const Standard_Real aTolEdge1) ;
   
 //! Initializes algorithm by the face aFace <br>
-//! <br>
   Standard_EXPORT     void SetFace(const TopoDS_Face& aFace) ;
   
 //! Initializes algorithm by face tolerance <br>
-//! <br>
   Standard_EXPORT     void SetTolF(const Standard_Real aTolFace) ;
   
 //! Initializes algorithm by discretization value <br>
-//! <br>
   Standard_EXPORT     void SetDiscretize(const Standard_Integer aDiscret) ;
   
 //! Initializes algorithm by deflection value <br>
-//! <br>
   Standard_EXPORT     void SetDeflection(const Standard_Real aDeflection) ;
   
 //! Initializes algorithm by parameter tolerance <br>
-//! <br>
   Standard_EXPORT     void SetEpsilonT(const Standard_Real anEpsT) ;
   
 //! Initializes algorithm by distance tolerance <br>
-//! <br>
   Standard_EXPORT     void SetEpsilonNull(const Standard_Real anEpsNull) ;
   
 //! Sets boundaries for edge. <br>
 //! The algorithm processes edge inside these boundaries. <br>
-//! <br>
   Standard_EXPORT     void SetRange(const IntTools_Range& aRange) ;
   
 //! Sets boundaries for edge. <br>
 //! The algorithm processes edge inside these boundaries. <br>
-//! <br>
   Standard_EXPORT     void SetRange(const Standard_Real aFirst,const Standard_Real aLast) ;
   
 //! Sets the intersecton context <br>
-//! <br>
   Standard_EXPORT     void SetContext(const Handle(BOPInt_Context)& theContext) ;
   
 //! Gets the intersecton context <br>
-//! <br>
   Standard_EXPORT    const Handle_BOPInt_Context& Context() const;
   
 //! Launches the process <br>
-//! <br>
   Standard_EXPORT     void Perform() ;
   
 //! Returns true if computation was done <br>
 //! successfully, otherwise returns false <br>
-//! <br>
   Standard_EXPORT     Standard_Boolean IsDone() const;
   
 //! Returns code of completion <br>
@@ -149,19 +142,14 @@ public:
 //! 6 - discretization failed <br>
 //! 7 - no projectable ranges found <br>
 //! 11 - distance computing error <br>
-//! <br>
   Standard_EXPORT     Standard_Integer ErrorStatus() const;
   
 //! Returns results <br>
-//! <br>
   Standard_EXPORT    const IntTools_SequenceOfCommonPrts& CommonParts() const;
   
 //! Returns boundaries for edge <br>
-//! <br>
   Standard_EXPORT    const IntTools_Range& Range() const;
   
-//! <br>
-//! <br>
 //! <br>
   Standard_EXPORT   static  Standard_Boolean IsEqDistance(const gp_Pnt& aP,const BRepAdaptor_Surface& aS,const Standard_Real aT,Standard_Real& aD) ;
 

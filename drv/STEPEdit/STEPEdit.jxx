@@ -10,6 +10,4 @@
 #ifndef _IFSelect_SelectSignature_HeaderFile
 #include <IFSelect_SelectSignature.hxx>
 #endif
-#ifndef _STEPEdit_HeaderFile
 #include <STEPEdit.hxx>
-#endif

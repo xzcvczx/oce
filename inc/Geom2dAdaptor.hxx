@@ -9,16 +9,11 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
 
-#ifndef _Handle_Geom2d_Curve_HeaderFile
 #include <Handle_Geom2d_Curve.hxx>
-#endif
 class Geom2d_Curve;
 class Adaptor2d_Curve2d;
 class Geom2dAdaptor_Curve;
@@ -32,11 +27,20 @@ class Geom2dAdaptor_HCurve;
 class Geom2dAdaptor  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
-  //! Inherited  from    GHCurve.   Provides a  curve <br>
-//!          handled by reference. <br>//! Creates  a 2d  curve  from  a  HCurve2d.  This <br>
-//!          cannot process the OtherCurves. <br>
+  
   Standard_EXPORT   static  Handle_Geom2d_Curve MakeCurve(const Adaptor2d_Curve2d& HC) ;
 
 

@@ -16,6 +16,4 @@
 #ifndef _XCAFPrs_Style_HeaderFile
 #include <XCAFPrs_Style.hxx>
 #endif
-#ifndef _XCAFPrs_HeaderFile
 #include <XCAFPrs.hxx>
-#endif

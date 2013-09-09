@@ -46,15 +46,6 @@ class Graphic3d_Vector;
 //! This class defines and updates light sources. <br>
 //!	    There is no limit to the number of light sources defined. <br>
 //!	    Only the number of active sources is limited. <br>
-//! <br>
-//!	    TypeOfLightSource = TOLS_AMBIENT <br>
-//!				TOLS_DIRECTIONAL <br>
-//!				TOLS_POSITIONAL <br>
-//!				TOLS_SPOT <br>
-//! <br>
-//!	    Angle is a radian value. <br>
-//!	    Concentration, Attenuation are in the [0,1] interval. <br>
-//! <br>
 class Visual3d_Light : public MMgt_TShared {
 
 public:
@@ -62,9 +53,6 @@ public:
   //! Creates a light from default values. <br>
 //!	    Light sources are created in a visualiser <br>
 //!	    and are activated in one of its views. <br>
-//! <br>
-//!	    Type	= TOLS_AMBIENT <br>
-//!	    Color	= WHITE <br>
   Standard_EXPORT   Visual3d_Light();
   //! Creates an AMBIENT light source. <br>
 //!	    Light sources are created in a visualiser <br>
@@ -150,12 +138,6 @@ public:
   //! Returns the colour of the light <me>. <br>
   Standard_EXPORT     Quantity_Color Color() const;
   //! Returns the light type of <me>. <br>
-//! <br>
-//!	    TypeOfLightSource = TOLS_AMBIENT <br>
-//!				TOLS_DIRECTIONAL <br>
-//!				TOLS_POSITIONAL <br>
-//!				TOLS_SPOT <br>
-//! <br>
   Standard_EXPORT     Visual3d_TypeOfLightSource LightType() const;
   //! Returns the definition of <me> if <me> is <br>
 //!	    a light source of the TOLS_AMBIENT type. <br>

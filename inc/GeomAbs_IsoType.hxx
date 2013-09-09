@@ -6,8 +6,12 @@
 #ifndef _GeomAbs_IsoType_HeaderFile
 #define _GeomAbs_IsoType_HeaderFile
 
-//! this enumeration describes if a curve is an U isoparaetric <br>
-//!          or V isoparametric <br>
+
+//!  This enumeration is used in the class RectangularTrimmedSurface <br>
+//!  to compare the orientation of the basic surface and the orientation <br>
+//!  of the trimmed surface and in the class ElementarySurface to know <br>
+//!  the direction of parametrization by comparison with the default <br>
+//!  construction mode. <br>
 enum GeomAbs_IsoType {
 GeomAbs_IsoU,
 GeomAbs_IsoV,

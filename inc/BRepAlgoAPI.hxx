@@ -9,22 +9,13 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
 
-#ifndef _Standard_CString_HeaderFile
 #include <Standard_CString.hxx>
-#endif
-#ifndef _BOPAlgo_Operation_HeaderFile
 #include <BOPAlgo_Operation.hxx>
-#endif
-#ifndef _Standard_Boolean_HeaderFile
 #include <Standard_Boolean.hxx>
-#endif
 class TopoDS_Shape;
 class BRepAlgoAPI_BooleanOperation;
 class BRepAlgoAPI_Fuse;
@@ -102,10 +93,20 @@ class BRepAlgoAPI_Check;
 class BRepAlgoAPI  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
-  //! Check shapes on validity for boolean <br>
-//! operation. <br>//! Dump arguments and result of boolean operation in the file specified by path. <br>
+  //! Dump arguments and result of boolean operation in the file specified by path. <br>
   Standard_EXPORT   static  void DumpOper(const Standard_CString theFilePath,const TopoDS_Shape& theShape1,const TopoDS_Shape& theShape2,const TopoDS_Shape& theResult,const BOPAlgo_Operation theOperation,const Standard_Boolean isNonValidArgs) ;
 
 

@@ -19,12 +19,8 @@
 #include <Handle_PXCAFDoc_Area.hxx>
 #endif
 
-#ifndef _Standard_Real_HeaderFile
 #include <Standard_Real.hxx>
-#endif
-#ifndef _PDF_Attribute_HeaderFile
 #include <PDF_Attribute.hxx>
-#endif
 
 
 class PXCAFDoc_Area : public PDF_Attribute {

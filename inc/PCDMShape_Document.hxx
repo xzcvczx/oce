@@ -19,12 +19,8 @@
 #include <Handle_PCDMShape_Document.hxx>
 #endif
 
-#ifndef _PTopoDS_Shape1_HeaderFile
 #include <PTopoDS_Shape1.hxx>
-#endif
-#ifndef _PCDM_Document_HeaderFile
 #include <PCDM_Document.hxx>
-#endif
 class PTopoDS_Shape1;
 
 

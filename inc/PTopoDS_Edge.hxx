@@ -19,9 +19,7 @@
 #include <Handle_PTopoDS_Edge.hxx>
 #endif
 
-#ifndef _PTopoDS_HShape_HeaderFile
 #include <PTopoDS_HShape.hxx>
-#endif
 
 
 class PTopoDS_Edge : public PTopoDS_HShape {

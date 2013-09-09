@@ -19,15 +19,9 @@
 #include <Handle_PColPGeom_VArrayNodeOfFieldOfHArray2OfBSplineSurface.hxx>
 #endif
 
-#ifndef _Standard_Address_HeaderFile
 #include <Standard_Address.hxx>
-#endif
-#ifndef _Handle_PGeom_BSplineSurface_HeaderFile
 #include <Handle_PGeom_BSplineSurface.hxx>
-#endif
-#ifndef _PStandard_ArrayNode_HeaderFile
 #include <PStandard_ArrayNode.hxx>
-#endif
 class PGeom_BSplineSurface;
 class PColPGeom_FieldOfHArray2OfBSplineSurface;
 class PColPGeom_VArrayTNodeOfFieldOfHArray2OfBSplineSurface;

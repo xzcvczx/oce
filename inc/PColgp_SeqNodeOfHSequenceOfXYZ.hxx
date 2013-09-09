@@ -19,18 +19,10 @@
 #include <Handle_PColgp_SeqNodeOfHSequenceOfXYZ.hxx>
 #endif
 
-#ifndef _gp_XYZ_HeaderFile
 #include <gp_XYZ.hxx>
-#endif
-#ifndef _Handle_PColgp_SeqNodeOfHSequenceOfXYZ_HeaderFile
 #include <Handle_PColgp_SeqNodeOfHSequenceOfXYZ.hxx>
-#endif
-#ifndef _PMMgt_PManaged_HeaderFile
 #include <PMMgt_PManaged.hxx>
-#endif
-#ifndef _Handle_PColgp_HSequenceOfXYZ_HeaderFile
 #include <Handle_PColgp_HSequenceOfXYZ.hxx>
-#endif
 class PColgp_HSequenceOfXYZ;
 class PColgp_SeqExplorerOfHSequenceOfXYZ;
 class gp_XYZ;

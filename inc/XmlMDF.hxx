@@ -9,37 +9,18 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
 
-#ifndef _Handle_TDF_Data_HeaderFile
 #include <Handle_TDF_Data.hxx>
-#endif
-#ifndef _XmlObjMgt_Element_HeaderFile
 #include <XmlObjMgt_Element.hxx>
-#endif
-#ifndef _XmlObjMgt_SRelocationTable_HeaderFile
 #include <XmlObjMgt_SRelocationTable.hxx>
-#endif
-#ifndef _Handle_XmlMDF_ADriverTable_HeaderFile
 #include <Handle_XmlMDF_ADriverTable.hxx>
-#endif
-#ifndef _Standard_Integer_HeaderFile
 #include <Standard_Integer.hxx>
-#endif
-#ifndef _Standard_Boolean_HeaderFile
 #include <Standard_Boolean.hxx>
-#endif
-#ifndef _XmlObjMgt_RRelocationTable_HeaderFile
 #include <XmlObjMgt_RRelocationTable.hxx>
-#endif
-#ifndef _Handle_CDM_MessageDriver_HeaderFile
 #include <Handle_CDM_MessageDriver.hxx>
-#endif
 class TDF_Data;
 class XmlMDF_ADriverTable;
 class TDF_Label;
@@ -76,7 +57,18 @@ class XmlMDF_DataMapIteratorOfTypeADriverMap;
 class XmlMDF  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   //! Translates a transient <aSource> into a persistent <br>
 //!          <aTarget>. <br>

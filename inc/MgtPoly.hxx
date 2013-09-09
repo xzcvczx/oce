@@ -9,37 +9,18 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
 
-#ifndef _Handle_Poly_Triangulation_HeaderFile
 #include <Handle_Poly_Triangulation.hxx>
-#endif
-#ifndef _Handle_PPoly_Triangulation_HeaderFile
 #include <Handle_PPoly_Triangulation.hxx>
-#endif
-#ifndef _Handle_Poly_Polygon3D_HeaderFile
 #include <Handle_Poly_Polygon3D.hxx>
-#endif
-#ifndef _Handle_PPoly_Polygon3D_HeaderFile
 #include <Handle_PPoly_Polygon3D.hxx>
-#endif
-#ifndef _Handle_Poly_Polygon2D_HeaderFile
 #include <Handle_Poly_Polygon2D.hxx>
-#endif
-#ifndef _Handle_PPoly_Polygon2D_HeaderFile
 #include <Handle_PPoly_Polygon2D.hxx>
-#endif
-#ifndef _Handle_Poly_PolygonOnTriangulation_HeaderFile
 #include <Handle_Poly_PolygonOnTriangulation.hxx>
-#endif
-#ifndef _Handle_PPoly_PolygonOnTriangulation_HeaderFile
 #include <Handle_PPoly_PolygonOnTriangulation.hxx>
-#endif
 class Poly_Triangle;
 class PPoly_Triangle;
 class Poly_Triangulation;
@@ -62,7 +43,18 @@ class PPoly_PolygonOnTriangulation;
 class MgtPoly  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   //! translates Transient -> Persistent <br>
   Standard_EXPORT   static  Poly_Triangle Translate(const PPoly_Triangle& POjb) ;

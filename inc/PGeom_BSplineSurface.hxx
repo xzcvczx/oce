@@ -19,27 +19,13 @@
 #include <Handle_PGeom_BSplineSurface.hxx>
 #endif
 
-#ifndef _Standard_Boolean_HeaderFile
 #include <Standard_Boolean.hxx>
-#endif
-#ifndef _Standard_Integer_HeaderFile
 #include <Standard_Integer.hxx>
-#endif
-#ifndef _Handle_PColgp_HArray2OfPnt_HeaderFile
 #include <Handle_PColgp_HArray2OfPnt.hxx>
-#endif
-#ifndef _Handle_PColStd_HArray2OfReal_HeaderFile
 #include <Handle_PColStd_HArray2OfReal.hxx>
-#endif
-#ifndef _Handle_PColStd_HArray1OfReal_HeaderFile
 #include <Handle_PColStd_HArray1OfReal.hxx>
-#endif
-#ifndef _Handle_PColStd_HArray1OfInteger_HeaderFile
 #include <Handle_PColStd_HArray1OfInteger.hxx>
-#endif
-#ifndef _PGeom_BoundedSurface_HeaderFile
 #include <PGeom_BoundedSurface.hxx>
-#endif
 class PColgp_HArray2OfPnt;
 class PColStd_HArray2OfReal;
 class PColStd_HArray1OfReal;

@@ -7,6 +7,4 @@
 #ifndef _gp_Mat2d_HeaderFile
 #include <gp_Mat2d.hxx>
 #endif
-#ifndef _gp_XY_HeaderFile
 #include <gp_XY.hxx>
-#endif

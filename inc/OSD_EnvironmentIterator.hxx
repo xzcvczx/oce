@@ -9,9 +9,6 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
@@ -19,14 +16,17 @@
 #ifndef _Standard_Address_HeaderFile
 #include <Standard_Address.hxx>
 #endif
-#ifndef _Standard_Integer_HeaderFile
-#include <Standard_Integer.hxx>
+#ifndef _Standard_CString_HeaderFile
+#include <Standard_CString.hxx>
 #endif
 #ifndef _OSD_Error_HeaderFile
 #include <OSD_Error.hxx>
 #endif
 #ifndef _Standard_Boolean_HeaderFile
 #include <Standard_Boolean.hxx>
+#endif
+#ifndef _Standard_Integer_HeaderFile
+#include <Standard_Integer.hxx>
 #endif
 class OSD_OSDError;
 class OSD_Environment;
@@ -37,7 +37,18 @@ class OSD_Environment;
 class OSD_EnvironmentIterator  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   //! Instantiates Object as Iterator; <br>
   Standard_EXPORT   OSD_EnvironmentIterator();
@@ -79,11 +90,7 @@ private:
 
 
 Standard_Address myEnv;
-#ifdef WNT
 Standard_CString myCount;
-#else
-Standard_Integer myCount;
-#endif
 OSD_Error myError;
 
 

@@ -10,6 +10,4 @@
 #ifndef _Draw_ProgressIndicator_HeaderFile
 #include <Draw_ProgressIndicator.hxx>
 #endif
-#ifndef _Draw_HeaderFile
 #include <Draw.hxx>
-#endif

@@ -7,6 +7,4 @@
 #ifndef _PDataStd_Integer_HeaderFile
 #include <PDataStd_Integer.hxx>
 #endif
-#ifndef _PDataXtd_PatternStd_HeaderFile
 #include <PDataXtd_PatternStd.hxx>
-#endif

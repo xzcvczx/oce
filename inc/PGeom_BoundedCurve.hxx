@@ -19,9 +19,7 @@
 #include <Handle_PGeom_BoundedCurve.hxx>
 #endif
 
-#ifndef _PGeom_Curve_HeaderFile
 #include <PGeom_Curve.hxx>
-#endif
 
 
 class PGeom_BoundedCurve : public PGeom_Curve {

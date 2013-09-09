@@ -9,31 +9,16 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
 
-#ifndef _XmlObjMgt_DOMString_HeaderFile
 #include <XmlObjMgt_DOMString.hxx>
-#endif
-#ifndef _Standard_Boolean_HeaderFile
 #include <Standard_Boolean.hxx>
-#endif
-#ifndef _XmlObjMgt_Element_HeaderFile
 #include <XmlObjMgt_Element.hxx>
-#endif
-#ifndef _Standard_Integer_HeaderFile
 #include <Standard_Integer.hxx>
-#endif
-#ifndef _Standard_CString_HeaderFile
 #include <Standard_CString.hxx>
-#endif
-#ifndef _Standard_Real_HeaderFile
 #include <Standard_Real.hxx>
-#endif
 class TCollection_ExtendedString;
 class TCollection_AsciiString;
 class XmlObjMgt_Persistent;
@@ -47,9 +32,20 @@ class XmlObjMgt_Array1;
 class XmlObjMgt  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
-  //! translation of gp objects <br>//! Define the name of XMLattribute 'ID' (to be used everywhere) <br>
+  //! Define the name of XMLattribute 'ID' (to be used everywhere) <br>
   Standard_EXPORT   static const XmlObjMgt_DOMString& IdString() ;
   //! Add attribute <theElement extstring="theString" ...> <br>
   Standard_EXPORT   static  Standard_Boolean SetExtendedString(XmlObjMgt_Element& theElement,const TCollection_ExtendedString& theString) ;

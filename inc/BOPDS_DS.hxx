@@ -9,9 +9,6 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
@@ -122,7 +119,18 @@ class BOPDS_FaceInfo;
 class BOPDS_DS  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   
 //! Empty contructor <br>
@@ -284,7 +292,6 @@ Standard_EXPORT virtual ~BOPDS_DS();
 //! state information <br>
 //! <br>
 //!  ++ <br>
-//! <br>
   Standard_EXPORT     void RefineFaceInfoOn() ;
   
 //! Returns the indices of vertices and pave blocks <br>
@@ -311,9 +318,6 @@ Standard_EXPORT virtual ~BOPDS_DS();
 //! Returns true if the shape with index theIndex has the <br>
 //! same domain shape. In this case theIndexSD will contain <br>
 //!  the index of same domain shape found <br>
-//! <br>
-//! interferences <br>
-//! <br>
   Standard_EXPORT     Standard_Boolean HasShapeSD(const Standard_Integer theIndex,Standard_Integer& theIndexSD) const;
   
 //! Selector/Modifier <br>
@@ -385,7 +389,6 @@ Standard_EXPORT virtual ~BOPDS_DS();
   Standard_EXPORT     void Paves(const Standard_Integer theIndex,BOPDS_ListOfPave& theLP) ;
   
 //! Updates tolerance of the sub-shapes of the shape with index <theIndex>. <br>
-//! <br>
   Standard_EXPORT     void UpdateEdgeTolerance(const Standard_Integer theIndex,const Standard_Real theTolerance) ;
 
 

@@ -4,6 +4,4 @@
 #ifndef _Standard_GUID_HeaderFile
 #include <Standard_GUID.hxx>
 #endif
-#ifndef _FWOSDriver_HeaderFile
 #include <FWOSDriver.hxx>
-#endif

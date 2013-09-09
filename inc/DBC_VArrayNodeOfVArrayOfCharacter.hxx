@@ -19,15 +19,9 @@
 #include <Handle_DBC_VArrayNodeOfVArrayOfCharacter.hxx>
 #endif
 
-#ifndef _Standard_Address_HeaderFile
 #include <Standard_Address.hxx>
-#endif
-#ifndef _Standard_Character_HeaderFile
 #include <Standard_Character.hxx>
-#endif
-#ifndef _PStandard_ArrayNode_HeaderFile
 #include <PStandard_ArrayNode.hxx>
-#endif
 class DBC_VArrayOfCharacter;
 class DBC_VArrayTNodeOfVArrayOfCharacter;
 

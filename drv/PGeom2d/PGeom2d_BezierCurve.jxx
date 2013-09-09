@@ -4,6 +4,4 @@
 #ifndef _PColStd_HArray1OfReal_HeaderFile
 #include <PColStd_HArray1OfReal.hxx>
 #endif
-#ifndef _PGeom2d_BezierCurve_HeaderFile
 #include <PGeom2d_BezierCurve.hxx>
-#endif

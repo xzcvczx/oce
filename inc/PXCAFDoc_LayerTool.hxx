@@ -19,9 +19,7 @@
 #include <Handle_PXCAFDoc_LayerTool.hxx>
 #endif
 
-#ifndef _PDF_Attribute_HeaderFile
 #include <PDF_Attribute.hxx>
-#endif
 
 
 class PXCAFDoc_LayerTool : public PDF_Attribute {

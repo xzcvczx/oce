@@ -19,18 +19,10 @@
 #include <Handle_PBRep_PointOnCurve.hxx>
 #endif
 
-#ifndef _Handle_PGeom_Curve_HeaderFile
 #include <Handle_PGeom_Curve.hxx>
-#endif
-#ifndef _Standard_Boolean_HeaderFile
 #include <Standard_Boolean.hxx>
-#endif
-#ifndef _PBRep_PointRepresentation_HeaderFile
 #include <PBRep_PointRepresentation.hxx>
-#endif
-#ifndef _Standard_Real_HeaderFile
 #include <Standard_Real.hxx>
-#endif
 class PGeom_Curve;
 class PTopLoc_Location;
 

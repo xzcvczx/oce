@@ -6,8 +6,9 @@
 #ifndef _Aspect_TypeOfResize_HeaderFile
 #define _Aspect_TypeOfResize_HeaderFile
 
-//! Defines the type of Resize Window method applied <br>
-//!          by the user. <br>
+//! Defines if the maximal chordial deflection used when <br>
+//!          drawing an object is absolute  or relative to the size <br>
+//!          of the object. <br>
 enum Aspect_TypeOfResize {
 Aspect_TOR_UNKNOWN,
 Aspect_TOR_NO_BORDER,

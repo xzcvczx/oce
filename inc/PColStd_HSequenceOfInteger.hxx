@@ -19,27 +19,13 @@
 #include <Handle_PColStd_HSequenceOfInteger.hxx>
 #endif
 
-#ifndef _Standard_Boolean_HeaderFile
 #include <Standard_Boolean.hxx>
-#endif
-#ifndef _Standard_Integer_HeaderFile
 #include <Standard_Integer.hxx>
-#endif
-#ifndef _Handle_PColStd_HSequenceOfInteger_HeaderFile
 #include <Handle_PColStd_HSequenceOfInteger.hxx>
-#endif
-#ifndef _Handle_PColStd_SeqNodeOfHSequenceOfInteger_HeaderFile
 #include <Handle_PColStd_SeqNodeOfHSequenceOfInteger.hxx>
-#endif
-#ifndef _Handle_Standard_Persistent_HeaderFile
 #include <Handle_Standard_Persistent.hxx>
-#endif
-#ifndef _Standard_Persistent_HeaderFile
 #include <Standard_Persistent.hxx>
-#endif
-#ifndef _Standard_OStream_HeaderFile
 #include <Standard_OStream.hxx>
-#endif
 class PColStd_SeqNodeOfHSequenceOfInteger;
 class Standard_Persistent;
 class Standard_NoSuchObject;

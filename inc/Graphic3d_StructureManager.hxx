@@ -103,18 +103,6 @@ public:
 //!	    in the visualiser. <br>
   Standard_EXPORT     void SetPrimitivesAspect(const Handle(Graphic3d_AspectMarker3d)& CTX) ;
   //! Modifies the screen update mode. <br>
-//! <br>
-//!	    TOU_ASAP	as soon as possible <br>
-//!	    TOU_WAIT	on demand (with the Update function) <br>
-//!  Note : Dynamic Operations and Update Mode <br>
-//! Use SetUpdateMode to control when changes to <br>
-//! the display are made.   Use one of the   following <br>
-//! functions to update one or more views: <br>
-//! -   Update all views of the viewer:   Visual3d_ViewManager::Update () <br>
-//! -   Update one view of the viewer:   Visual3d_View::Update () Use one of <br>
-//!   the   following functions to update the entire display: <br>
-//! -   Redraw all structures in all views:   Visual3d_ViewManager::Redraw () <br>
-//! -   Redraw all structures in one view:   Visual3d_View::Redraw ()  Update) <br>
   Standard_EXPORT     void SetUpdateMode(const Aspect_TypeOfUpdate AType) ;
   //! Updates screen in function of modifications of <br>
 //!	    the structures. <br>
@@ -148,10 +136,6 @@ public:
   //! Returns the values of the current default attributes. <br>
   Standard_EXPORT     Handle_Graphic3d_AspectText3d Text3dAspect() const;
   //! Returns the screen update mode. <br>
-//! <br>
-//!	    TOU_ASAP	as soon as possible <br>
-//!	    TOU_WAIT	on demand (Update) <br>
-//! <br>
   Standard_EXPORT     Aspect_TypeOfUpdate UpdateMode() const;
   //! Changes the display priority of the structure <AStructure>. <br>
   Standard_EXPORT   virtual  void ChangeDisplayPriority(const Handle(Graphic3d_Structure)& AStructure,const Standard_Integer OldPriority,const Standard_Integer NewPriority)  = 0;

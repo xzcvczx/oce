@@ -19,15 +19,9 @@
 #include <Handle_PColStd_VArrayNodeOfFieldOfHArray1OfInteger.hxx>
 #endif
 
-#ifndef _Standard_Address_HeaderFile
 #include <Standard_Address.hxx>
-#endif
-#ifndef _Standard_Integer_HeaderFile
 #include <Standard_Integer.hxx>
-#endif
-#ifndef _PStandard_ArrayNode_HeaderFile
 #include <PStandard_ArrayNode.hxx>
-#endif
 class PColStd_FieldOfHArray1OfInteger;
 class PColStd_VArrayTNodeOfFieldOfHArray1OfInteger;
 

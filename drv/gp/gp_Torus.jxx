@@ -25,6 +25,4 @@
 #ifndef _gp_Vec_HeaderFile
 #include <gp_Vec.hxx>
 #endif
-#ifndef _gp_Torus_HeaderFile
 #include <gp_Torus.hxx>
-#endif

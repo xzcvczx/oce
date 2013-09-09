@@ -22,6 +22,4 @@
 #ifndef _StepShape_ContextDependentShapeRepresentation_HeaderFile
 #include <StepShape_ContextDependentShapeRepresentation.hxx>
 #endif
-#ifndef _STEPConstruct_HeaderFile
 #include <STEPConstruct.hxx>
-#endif

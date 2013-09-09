@@ -9,28 +9,15 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
 
-#ifndef _Standard_Boolean_HeaderFile
 #include <Standard_Boolean.hxx>
-#endif
-#ifndef _Handle_Geom_BSplineCurve_HeaderFile
 #include <Handle_Geom_BSplineCurve.hxx>
-#endif
-#ifndef _Handle_TColGeom_HSequenceOfBoundedCurve_HeaderFile
 #include <Handle_TColGeom_HSequenceOfBoundedCurve.hxx>
-#endif
-#ifndef _Handle_Geom2d_BSplineCurve_HeaderFile
 #include <Handle_Geom2d_BSplineCurve.hxx>
-#endif
-#ifndef _Handle_TColGeom2d_HSequenceOfBoundedCurve_HeaderFile
 #include <Handle_TColGeom2d_HSequenceOfBoundedCurve.hxx>
-#endif
 class Geom_BSplineCurve;
 class TColGeom_HSequenceOfBoundedCurve;
 class Geom2d_BSplineCurve;
@@ -81,9 +68,20 @@ class ShapeUpgrade_UnifySameDomain;
 class ShapeUpgrade  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
-  //! Unifies same domain faces and edges of specified shape <br>
+  
   Standard_EXPORT   static  Standard_Boolean C0BSplineToSequenceOfC1BSplineCurve(const Handle(Geom_BSplineCurve)& BS,Handle(TColGeom_HSequenceOfBoundedCurve)& seqBS) ;
   //! Converts C0 B-Spline curve into sequence of C1 B-Spline curves. <br>
 //!           This method splits B-Spline at the knots with multiplicities <br>

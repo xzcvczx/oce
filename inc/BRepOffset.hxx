@@ -9,22 +9,13 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
 
-#ifndef _Handle_Geom_Surface_HeaderFile
 #include <Handle_Geom_Surface.hxx>
-#endif
-#ifndef _Standard_Real_HeaderFile
 #include <Standard_Real.hxx>
-#endif
-#ifndef _BRepOffset_Status_HeaderFile
 #include <BRepOffset_Status.hxx>
-#endif
 class Geom_Surface;
 class BRepOffset_MakeOffset;
 class BRepOffset_Inter3d;
@@ -52,16 +43,20 @@ class BRepOffset_DataMapIteratorOfDataMapOfShapeMapOfShape;
 class BRepOffset  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
-  //! returns   the  Offset  surface  computed from  the <br>
-//!          surface <Surface> at an OffsetDistance <Offset>. <br>
-//! <br>
-//!          If possible, this method returns  the real type of <br>
-//!          the surface ( e.g. An Offset of a plane is a plane). <br>
-//! <br>
-//!          If  no particular  case  is detected, the returned <br>
-//!          surface will have the Type Geom_OffsetSurface. <br>
+  
   Standard_EXPORT   static  Handle_Geom_Surface Surface(const Handle(Geom_Surface)& Surface,const Standard_Real Offset,BRepOffset_Status& Status) ;
 
 

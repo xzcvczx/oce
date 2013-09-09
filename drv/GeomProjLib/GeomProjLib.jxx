@@ -13,6 +13,4 @@
 #ifndef _gp_Dir_HeaderFile
 #include <gp_Dir.hxx>
 #endif
-#ifndef _GeomProjLib_HeaderFile
 #include <GeomProjLib.hxx>
-#endif

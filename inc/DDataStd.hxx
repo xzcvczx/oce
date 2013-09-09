@@ -9,19 +9,12 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
 
-#ifndef _Handle_TDataXtd_Constraint_HeaderFile
 #include <Handle_TDataXtd_Constraint.hxx>
-#endif
-#ifndef _Standard_OStream_HeaderFile
 #include <Standard_OStream.hxx>
-#endif
 class Draw_Interpretor;
 class TDataXtd_Constraint;
 class DDataStd_DrawPresentation;
@@ -34,10 +27,20 @@ class DDataStd_TreeBrowser;
 class DDataStd  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
-  //! Used to browse tree nodes. <br>//! commands <br>
-//!          ======== <br>//! command to set and get modeling attributes <br>
+  //! command to set and get modeling attributes <br>
   Standard_EXPORT   static  void AllCommands(Draw_Interpretor& I) ;
   //! to set and get NamedShape <br>
   Standard_EXPORT   static  void NamedShapeCommands(Draw_Interpretor& I) ;

@@ -9,9 +9,6 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
@@ -85,7 +82,18 @@ class Geom_TrimmedCurve;
 class FilletSurf_InternalBuilder  : public ChFi3d_FilBuilder {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   
   Standard_EXPORT   FilletSurf_InternalBuilder(const TopoDS_Shape& S,const ChFi3d_FilletShape FShape = ChFi3d_Polynomial,const Standard_Real Ta = 1.0e-2,const Standard_Real Tapp3d = 1.0e-4,const Standard_Real Tapp2d = 1.0e-5);
@@ -152,7 +160,7 @@ protected:
   //! This  method calculates the elements of construction of the <br>
 //!          fillet (constant or evolutive). <br>
 //! <br>
-  Standard_EXPORT   virtual  Standard_Boolean PerformSurf(ChFiDS_SequenceOfSurfData& SeqData,const Handle(ChFiDS_HElSpine)& Guide,const Handle(ChFiDS_Spine)& Spine,const Standard_Integer Choix,const Handle(BRepAdaptor_HSurface)& S1,const Handle(Adaptor3d_TopolTool)& I1,const Handle(BRepAdaptor_HSurface)& S2,const Handle(Adaptor3d_TopolTool)& I2,const Standard_Real MaxStep,const Standard_Real Fleche,const Standard_Real TolGuide,Standard_Real& First,Standard_Real& Last,const Standard_Boolean Inside,const Standard_Boolean Appro,const Standard_Boolean Forward,const Standard_Boolean RecOnS1,const Standard_Boolean RecOnS2,const math_Vector& Soldep,Standard_Boolean& Intf,Standard_Boolean& Intl) ;
+  Standard_EXPORT   virtual  Standard_Boolean PerformSurf(ChFiDS_SequenceOfSurfData& SeqData,const Handle(ChFiDS_HElSpine)& Guide,const Handle(ChFiDS_Spine)& Spine,const Standard_Integer Choix,const Handle(BRepAdaptor_HSurface)& S1,const Handle(Adaptor3d_TopolTool)& I1,const Handle(BRepAdaptor_HSurface)& S2,const Handle(Adaptor3d_TopolTool)& I2,const Standard_Real MaxStep,const Standard_Real Fleche,const Standard_Real TolGuide,Standard_Real& First,Standard_Real& Last,const Standard_Boolean Inside,const Standard_Boolean Appro,const Standard_Boolean Forward,const Standard_Boolean RecOnS1,const Standard_Boolean RecOnS2,const math_Vector& Soldep,Standard_Integer& Intf,Standard_Integer& Intl) ;
   
   Standard_EXPORT   virtual  void PerformSurf(ChFiDS_SequenceOfSurfData& SeqData,const Handle(ChFiDS_HElSpine)& Guide,const Handle(ChFiDS_Spine)& Spine,const Standard_Integer Choix,const Handle(BRepAdaptor_HSurface)& S1,const Handle(Adaptor3d_TopolTool)& I1,const Handle(BRepAdaptor_HCurve2d)& PC1,const Handle(BRepAdaptor_HSurface)& Sref1,const Handle(BRepAdaptor_HCurve2d)& PCref1,Standard_Boolean& Decroch1,const Handle(BRepAdaptor_HSurface)& S2,const Handle(Adaptor3d_TopolTool)& I2,const TopAbs_Orientation Or2,const Standard_Real MaxStep,const Standard_Real Fleche,const Standard_Real TolGuide,Standard_Real& First,Standard_Real& Last,const Standard_Boolean Inside,const Standard_Boolean Appro,const Standard_Boolean Forward,const Standard_Boolean RecP,const Standard_Boolean RecS,const Standard_Boolean RecRst,const math_Vector& Soldep) ;
   

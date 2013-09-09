@@ -9,43 +9,20 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
 
-#ifndef _Handle_TDF_Data_HeaderFile
 #include <Handle_TDF_Data.hxx>
-#endif
-#ifndef _Handle_PDF_Data_HeaderFile
 #include <Handle_PDF_Data.hxx>
-#endif
-#ifndef _Handle_MDF_ASDriverTable_HeaderFile
 #include <Handle_MDF_ASDriverTable.hxx>
-#endif
-#ifndef _Handle_MDF_SRelocationTable_HeaderFile
 #include <Handle_MDF_SRelocationTable.hxx>
-#endif
-#ifndef _Standard_Integer_HeaderFile
 #include <Standard_Integer.hxx>
-#endif
-#ifndef _Handle_MDF_ARDriverTable_HeaderFile
 #include <Handle_MDF_ARDriverTable.hxx>
-#endif
-#ifndef _Handle_MDF_RRelocationTable_HeaderFile
 #include <Handle_MDF_RRelocationTable.hxx>
-#endif
-#ifndef _Handle_MDF_ASDriverHSequence_HeaderFile
 #include <Handle_MDF_ASDriverHSequence.hxx>
-#endif
-#ifndef _Handle_CDM_MessageDriver_HeaderFile
 #include <Handle_CDM_MessageDriver.hxx>
-#endif
-#ifndef _Handle_MDF_ARDriverHSequence_HeaderFile
 #include <Handle_MDF_ARDriverHSequence.hxx>
-#endif
 class TDF_Data;
 class PDF_Data;
 class MDF_ASDriverTable;
@@ -122,7 +99,18 @@ class MDF_TypeDriverListMapOfARDriverTable;
 class MDF  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   //! Translates a transient <aSource> into a persistent <br>
 //!          <aTarget>. <br>

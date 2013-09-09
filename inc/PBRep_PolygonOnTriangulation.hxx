@@ -19,18 +19,10 @@
 #include <Handle_PBRep_PolygonOnTriangulation.hxx>
 #endif
 
-#ifndef _Standard_Boolean_HeaderFile
 #include <Standard_Boolean.hxx>
-#endif
-#ifndef _Handle_PPoly_PolygonOnTriangulation_HeaderFile
 #include <Handle_PPoly_PolygonOnTriangulation.hxx>
-#endif
-#ifndef _Handle_PPoly_Triangulation_HeaderFile
 #include <Handle_PPoly_Triangulation.hxx>
-#endif
-#ifndef _PBRep_CurveRepresentation_HeaderFile
 #include <PBRep_CurveRepresentation.hxx>
-#endif
 class PPoly_PolygonOnTriangulation;
 class PPoly_Triangulation;
 class PTopLoc_Location;

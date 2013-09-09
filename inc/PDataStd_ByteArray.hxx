@@ -19,12 +19,8 @@
 #include <Handle_PDataStd_ByteArray.hxx>
 #endif
 
-#ifndef _Handle_PColStd_HArray1OfInteger_HeaderFile
 #include <Handle_PColStd_HArray1OfInteger.hxx>
-#endif
-#ifndef _PDF_Attribute_HeaderFile
 #include <PDF_Attribute.hxx>
-#endif
 class PColStd_HArray1OfInteger;
 
 

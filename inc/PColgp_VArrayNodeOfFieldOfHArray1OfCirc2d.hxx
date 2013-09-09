@@ -19,15 +19,9 @@
 #include <Handle_PColgp_VArrayNodeOfFieldOfHArray1OfCirc2d.hxx>
 #endif
 
-#ifndef _Standard_Address_HeaderFile
 #include <Standard_Address.hxx>
-#endif
-#ifndef _gp_Circ2d_HeaderFile
 #include <gp_Circ2d.hxx>
-#endif
-#ifndef _PStandard_ArrayNode_HeaderFile
 #include <PStandard_ArrayNode.hxx>
-#endif
 class gp_Circ2d;
 class PColgp_FieldOfHArray1OfCirc2d;
 class PColgp_VArrayTNodeOfFieldOfHArray1OfCirc2d;

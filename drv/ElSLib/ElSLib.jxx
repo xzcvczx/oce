@@ -28,6 +28,4 @@
 #ifndef _gp_Circ_HeaderFile
 #include <gp_Circ.hxx>
 #endif
-#ifndef _ElSLib_HeaderFile
 #include <ElSLib.hxx>
-#endif

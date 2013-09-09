@@ -9,25 +9,14 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
 
-#ifndef _BOPCol_MapOfShape_HeaderFile
 #include <BOPCol_MapOfShape.hxx>
-#endif
-#ifndef _BOPCol_IndexedMapOfShape_HeaderFile
 #include <BOPCol_IndexedMapOfShape.hxx>
-#endif
-#ifndef _TopAbs_ShapeEnum_HeaderFile
 #include <TopAbs_ShapeEnum.hxx>
-#endif
-#ifndef _BOPCol_IndexedDataMapOfShapeListOfShape_HeaderFile
 #include <BOPCol_IndexedDataMapOfShapeListOfShape.hxx>
-#endif
 class TopoDS_Shape;
 class BOPTools_ShapeSet;
 class BOPTools_EdgeSet;
@@ -42,7 +31,18 @@ class BOPTools_AlgoTools3D;
 class BOPTools  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   
   Standard_EXPORT   static  void MapShapes(const TopoDS_Shape& S,BOPCol_MapOfShape& M) ;

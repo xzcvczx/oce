@@ -7,6 +7,4 @@
 #ifndef _gp_Pln_HeaderFile
 #include <gp_Pln.hxx>
 #endif
-#ifndef _GeomAPI_HeaderFile
 #include <GeomAPI.hxx>
-#endif

@@ -10,6 +10,4 @@
 #ifndef _gp_Pnt2d_HeaderFile
 #include <gp_Pnt2d.hxx>
 #endif
-#ifndef _PBRep_CurveOnClosedSurface_HeaderFile
 #include <PBRep_CurveOnClosedSurface.hxx>
-#endif

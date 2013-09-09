@@ -9,9 +9,6 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
@@ -23,38 +20,42 @@
 
 //! Class is a container of three flags used <br>
 //!         by intersection algorithm <br>
-//! <br>
 class BOPAlgo_SectionAttribute  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   
 //! Initializes me by flags <br>
   Standard_EXPORT   BOPAlgo_SectionAttribute(const Standard_Boolean Aproximation = Standard_True,const Standard_Boolean PCurveOnS1 = Standard_True,const Standard_Boolean PCurveOnS2 = Standard_True);
   
 //! Modifier <br>
-//! <br>
   Standard_EXPORT     void Approximation(const Standard_Boolean theFlag) ;
   
 //! Modifier <br>
-//! <br>
   Standard_EXPORT     void PCurveOnS1(const Standard_Boolean theFlag) ;
   
 //! Modifier <br>
-//! <br>
   Standard_EXPORT     void PCurveOnS2(const Standard_Boolean theFlag) ;
   
 //! Selector <br>
-//! <br>
         Standard_Boolean Approximation() const;
   
 //! Selector <br>
-//! <br>
         Standard_Boolean PCurveOnS1() const;
   
 //! Selector <br>
-//! <br>
         Standard_Boolean PCurveOnS2() const;
 
 

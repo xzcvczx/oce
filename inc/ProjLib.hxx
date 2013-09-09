@@ -9,9 +9,6 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
@@ -91,9 +88,20 @@ class ProjLib_SequenceNodeOfSequenceOfHSequenceOfPnt;
 class ProjLib  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
-  //! Projection on a torus. <br>
+  
   Standard_EXPORT   static  gp_Pnt2d Project(const gp_Pln& Pl,const gp_Pnt& P) ;
   
   Standard_EXPORT   static  gp_Lin2d Project(const gp_Pln& Pl,const gp_Lin& L) ;

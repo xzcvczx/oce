@@ -19,30 +19,14 @@
 #include <Handle_PColPGeom_HArray2OfSurface.hxx>
 #endif
 
-#ifndef _Standard_Integer_HeaderFile
 #include <Standard_Integer.hxx>
-#endif
-#ifndef _Handle_PGeom_Surface_HeaderFile
 #include <Handle_PGeom_Surface.hxx>
-#endif
-#ifndef _Handle_Standard_Persistent_HeaderFile
 #include <Handle_Standard_Persistent.hxx>
-#endif
-#ifndef _PColPGeom_FieldOfHArray2OfSurface_HeaderFile
 #include <PColPGeom_FieldOfHArray2OfSurface.hxx>
-#endif
-#ifndef _Standard_Address_HeaderFile
 #include <Standard_Address.hxx>
-#endif
-#ifndef _Standard_Persistent_HeaderFile
 #include <Standard_Persistent.hxx>
-#endif
-#ifndef _Handle_PColPGeom_VArrayNodeOfFieldOfHArray2OfSurface_HeaderFile
 #include <Handle_PColPGeom_VArrayNodeOfFieldOfHArray2OfSurface.hxx>
-#endif
-#ifndef _Standard_OStream_HeaderFile
 #include <Standard_OStream.hxx>
-#endif
 class PGeom_Surface;
 class Standard_Persistent;
 class Standard_RangeError;

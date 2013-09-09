@@ -19,24 +19,12 @@
 #include <Handle_PGeom2d_BSplineCurve.hxx>
 #endif
 
-#ifndef _Standard_Boolean_HeaderFile
 #include <Standard_Boolean.hxx>
-#endif
-#ifndef _Standard_Integer_HeaderFile
 #include <Standard_Integer.hxx>
-#endif
-#ifndef _Handle_PColgp_HArray1OfPnt2d_HeaderFile
 #include <Handle_PColgp_HArray1OfPnt2d.hxx>
-#endif
-#ifndef _Handle_PColStd_HArray1OfReal_HeaderFile
 #include <Handle_PColStd_HArray1OfReal.hxx>
-#endif
-#ifndef _Handle_PColStd_HArray1OfInteger_HeaderFile
 #include <Handle_PColStd_HArray1OfInteger.hxx>
-#endif
-#ifndef _PGeom2d_BoundedCurve_HeaderFile
 #include <PGeom2d_BoundedCurve.hxx>
-#endif
 class PColgp_HArray1OfPnt2d;
 class PColStd_HArray1OfReal;
 class PColStd_HArray1OfInteger;

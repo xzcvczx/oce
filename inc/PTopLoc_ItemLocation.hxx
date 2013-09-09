@@ -19,18 +19,10 @@
 #include <Handle_PTopLoc_ItemLocation.hxx>
 #endif
 
-#ifndef _Handle_PTopLoc_Datum3D_HeaderFile
 #include <Handle_PTopLoc_Datum3D.hxx>
-#endif
-#ifndef _Standard_Integer_HeaderFile
 #include <Standard_Integer.hxx>
-#endif
-#ifndef _PTopLoc_Location_HeaderFile
 #include <PTopLoc_Location.hxx>
-#endif
-#ifndef _Standard_Persistent_HeaderFile
 #include <Standard_Persistent.hxx>
-#endif
 class PTopLoc_Datum3D;
 class PTopLoc_Location;
 

@@ -19,9 +19,7 @@
 #include <Handle_PDataStd_Directory.hxx>
 #endif
 
-#ifndef _PDF_Attribute_HeaderFile
 #include <PDF_Attribute.hxx>
-#endif
 
 
 class PDataStd_Directory : public PDF_Attribute {

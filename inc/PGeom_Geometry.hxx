@@ -19,9 +19,7 @@
 #include <Handle_PGeom_Geometry.hxx>
 #endif
 
-#ifndef _Standard_Persistent_HeaderFile
 #include <Standard_Persistent.hxx>
-#endif
 
 
 class PGeom_Geometry : public Standard_Persistent {

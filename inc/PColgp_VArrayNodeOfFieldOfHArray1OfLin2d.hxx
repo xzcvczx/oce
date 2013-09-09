@@ -19,15 +19,9 @@
 #include <Handle_PColgp_VArrayNodeOfFieldOfHArray1OfLin2d.hxx>
 #endif
 
-#ifndef _Standard_Address_HeaderFile
 #include <Standard_Address.hxx>
-#endif
-#ifndef _gp_Lin2d_HeaderFile
 #include <gp_Lin2d.hxx>
-#endif
-#ifndef _PStandard_ArrayNode_HeaderFile
 #include <PStandard_ArrayNode.hxx>
-#endif
 class gp_Lin2d;
 class PColgp_FieldOfHArray1OfLin2d;
 class PColgp_VArrayTNodeOfFieldOfHArray1OfLin2d;

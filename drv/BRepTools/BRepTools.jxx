@@ -37,6 +37,4 @@
 #ifndef _BRep_Builder_HeaderFile
 #include <BRep_Builder.hxx>
 #endif
-#ifndef _BRepTools_HeaderFile
 #include <BRepTools.hxx>
-#endif

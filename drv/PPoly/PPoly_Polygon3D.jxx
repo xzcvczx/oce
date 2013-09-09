@@ -4,6 +4,4 @@
 #ifndef _PColStd_HArray1OfReal_HeaderFile
 #include <PColStd_HArray1OfReal.hxx>
 #endif
-#ifndef _PPoly_Polygon3D_HeaderFile
 #include <PPoly_Polygon3D.hxx>
-#endif

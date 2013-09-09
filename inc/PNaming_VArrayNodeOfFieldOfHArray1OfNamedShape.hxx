@@ -19,15 +19,9 @@
 #include <Handle_PNaming_VArrayNodeOfFieldOfHArray1OfNamedShape.hxx>
 #endif
 
-#ifndef _Standard_Address_HeaderFile
 #include <Standard_Address.hxx>
-#endif
-#ifndef _Handle_PNaming_NamedShape_HeaderFile
 #include <Handle_PNaming_NamedShape.hxx>
-#endif
-#ifndef _PStandard_ArrayNode_HeaderFile
 #include <PStandard_ArrayNode.hxx>
-#endif
 class PNaming_NamedShape;
 class PNaming_FieldOfHArray1OfNamedShape;
 class PNaming_VArrayTNodeOfFieldOfHArray1OfNamedShape;

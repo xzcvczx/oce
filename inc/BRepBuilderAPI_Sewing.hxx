@@ -212,9 +212,6 @@ public:
   //! Sets mode for non-manifold sewing. <br>
         void SetNonManifoldMode(const Standard_Boolean theNonManifoldMode) ;
   //! Gets mode for non-manifold sewing. <br>
-//! <br>
-//! INTERNAL FUCTIONS --- <br>
-//! <br>
         Standard_Boolean NonManifoldMode() const;
 
 

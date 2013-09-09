@@ -19,6 +19,4 @@
 #ifndef _DBC_VArrayOfExtCharacter_HeaderFile
 #include <DBC_VArrayOfExtCharacter.hxx>
 #endif
-#ifndef _PCollection_HExtendedString_HeaderFile
 #include <PCollection_HExtendedString.hxx>
-#endif

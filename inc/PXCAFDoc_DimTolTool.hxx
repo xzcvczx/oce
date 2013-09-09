@@ -19,9 +19,7 @@
 #include <Handle_PXCAFDoc_DimTolTool.hxx>
 #endif
 
-#ifndef _PDF_Attribute_HeaderFile
 #include <PDF_Attribute.hxx>
-#endif
 
 
 class PXCAFDoc_DimTolTool : public PDF_Attribute {

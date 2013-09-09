@@ -9,21 +9,18 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
 
-#ifndef _Standard_Integer_HeaderFile
-#include <Standard_Integer.hxx>
-#endif
 #ifndef _Standard_Address_HeaderFile
 #include <Standard_Address.hxx>
 #endif
 #ifndef _TCollection_AsciiString_HeaderFile
 #include <TCollection_AsciiString.hxx>
+#endif
+#ifndef _Standard_Integer_HeaderFile
+#include <Standard_Integer.hxx>
 #endif
 #ifndef _OSD_Error_HeaderFile
 #include <OSD_Error.hxx>
@@ -46,7 +43,18 @@ class TCollection_AsciiString;
 class OSD_SharedMemory  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   //! Allocates room for shared memory name. <br>
 //!          This is to be used with 'Open'. <br>
@@ -55,12 +63,6 @@ public:
   //! Instantiates SharedMemory object with parameters. <br>
 //!          A name to make sure shared memory is unique and a size in <br>
 //!          bytes for the size of shared memory. <br>
-//! <br>
-//!          Raises ConstructionError when the name contains characters <br>
-//!          not in range of ' '...'~'. <br>
-//!          Raises ProgramError when the size given is negative or null. <br>
-//!          This is for a server process. <br>
-//! <br>
   Standard_EXPORT   OSD_SharedMemory(const TCollection_AsciiString& Name,const Standard_Integer size);
   //! Creates a shared memory in the system <br>
 //!          This is for a server process. <br>
@@ -101,11 +103,7 @@ private:
 
 
 
-#ifdef WNT
 Standard_Address myId;
-#else
-Standard_Integer myId;
-#endif
 Standard_Address myAddress;
 TCollection_AsciiString myName;
 Standard_Integer mySize;

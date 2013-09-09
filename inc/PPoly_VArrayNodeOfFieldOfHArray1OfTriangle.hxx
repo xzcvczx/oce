@@ -19,15 +19,9 @@
 #include <Handle_PPoly_VArrayNodeOfFieldOfHArray1OfTriangle.hxx>
 #endif
 
-#ifndef _Standard_Address_HeaderFile
 #include <Standard_Address.hxx>
-#endif
-#ifndef _PPoly_Triangle_HeaderFile
 #include <PPoly_Triangle.hxx>
-#endif
-#ifndef _PStandard_ArrayNode_HeaderFile
 #include <PStandard_ArrayNode.hxx>
-#endif
 class PPoly_Triangle;
 class PPoly_FieldOfHArray1OfTriangle;
 class PPoly_VArrayTNodeOfFieldOfHArray1OfTriangle;

@@ -9,9 +9,6 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
@@ -61,13 +58,21 @@ class Geom2dAdaptor_Curve;
 //! -   defining the construction of 2D line(s), <br>
 //! -   implementing the construction algorithm, and <br>
 //! -   consulting the result(s). <br>
-//! <br>
-//! Note: Some constructors may check the type of the qualified argument <br>
-//!         and raise BadQualifier Error in case of incorrect couple (qualifier, curv). <br>
 class Geom2dGcc_Lin2d2Tan  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   //! This class implements the algorithms used to create 2d <br>
 //!          line tangent to two curves. <br>

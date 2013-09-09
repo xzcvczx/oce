@@ -19,6 +19,4 @@
 #ifndef _gp_Vec_HeaderFile
 #include <gp_Vec.hxx>
 #endif
-#ifndef _gp_Ax3_HeaderFile
 #include <gp_Ax3.hxx>
-#endif

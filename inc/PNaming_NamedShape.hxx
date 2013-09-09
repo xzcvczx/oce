@@ -19,15 +19,9 @@
 #include <Handle_PNaming_NamedShape.hxx>
 #endif
 
-#ifndef _Standard_Integer_HeaderFile
 #include <Standard_Integer.hxx>
-#endif
-#ifndef _Handle_PTopoDS_HArray1OfShape1_HeaderFile
 #include <Handle_PTopoDS_HArray1OfShape1.hxx>
-#endif
-#ifndef _PDF_Attribute_HeaderFile
 #include <PDF_Attribute.hxx>
-#endif
 class PTopoDS_HArray1OfShape1;
 
 

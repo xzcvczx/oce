@@ -19,12 +19,8 @@
 #include <Handle_PTopLoc_Datum3D.hxx>
 #endif
 
-#ifndef _gp_Trsf_HeaderFile
 #include <gp_Trsf.hxx>
-#endif
-#ifndef _Standard_Persistent_HeaderFile
 #include <Standard_Persistent.hxx>
-#endif
 class Standard_ConstructionError;
 class gp_Trsf;
 

@@ -9,28 +9,15 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
 
-#ifndef _Standard_CString_HeaderFile
 #include <Standard_CString.hxx>
-#endif
-#ifndef _TopAbs_ShapeEnum_HeaderFile
 #include <TopAbs_ShapeEnum.hxx>
-#endif
-#ifndef _Standard_Boolean_HeaderFile
 #include <Standard_Boolean.hxx>
-#endif
-#ifndef _Standard_Real_HeaderFile
 #include <Standard_Real.hxx>
-#endif
-#ifndef _Standard_Integer_HeaderFile
 #include <Standard_Integer.hxx>
-#endif
 class TopoDS_Shape;
 class Draw_Interpretor;
 class DBRep_Edge;
@@ -58,9 +45,20 @@ class DBRep_ListIteratorOfListOfHideData;
 class DBRep  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
-  //! Creation of isoparametric curves. <br>//! Implements ProgressIndicator for DRAW <br>//! Sets  <S> in the  variable  <Name>.  Overwrite the <br>
+  //! Sets  <S> in the  variable  <Name>.  Overwrite the <br>
 //!          variable if already set. <br>
   Standard_EXPORT   static  void Set(const Standard_CString Name,const TopoDS_Shape& S) ;
   //! Returns the shape in the variable  <Name>. Returns <br>

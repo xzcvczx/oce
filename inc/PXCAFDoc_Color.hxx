@@ -19,12 +19,8 @@
 #include <Handle_PXCAFDoc_Color.hxx>
 #endif
 
-#ifndef _Quantity_Color_HeaderFile
 #include <Quantity_Color.hxx>
-#endif
-#ifndef _PDF_Attribute_HeaderFile
 #include <PDF_Attribute.hxx>
-#endif
 class Quantity_Color;
 
 

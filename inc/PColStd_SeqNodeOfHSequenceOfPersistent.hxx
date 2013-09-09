@@ -19,18 +19,10 @@
 #include <Handle_PColStd_SeqNodeOfHSequenceOfPersistent.hxx>
 #endif
 
-#ifndef _Handle_Standard_Persistent_HeaderFile
 #include <Handle_Standard_Persistent.hxx>
-#endif
-#ifndef _Handle_PColStd_SeqNodeOfHSequenceOfPersistent_HeaderFile
 #include <Handle_PColStd_SeqNodeOfHSequenceOfPersistent.hxx>
-#endif
-#ifndef _PMMgt_PManaged_HeaderFile
 #include <PMMgt_PManaged.hxx>
-#endif
-#ifndef _Handle_PColStd_HSequenceOfPersistent_HeaderFile
 #include <Handle_PColStd_HSequenceOfPersistent.hxx>
-#endif
 class Standard_Persistent;
 class PColStd_HSequenceOfPersistent;
 class PColStd_SeqExplorerOfHSequenceOfPersistent;

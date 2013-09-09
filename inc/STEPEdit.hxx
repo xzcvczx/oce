@@ -9,25 +9,14 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
 
-#ifndef _Handle_Interface_Protocol_HeaderFile
 #include <Handle_Interface_Protocol.hxx>
-#endif
-#ifndef _Handle_StepData_StepModel_HeaderFile
 #include <Handle_StepData_StepModel.hxx>
-#endif
-#ifndef _Handle_IFSelect_Signature_HeaderFile
 #include <Handle_IFSelect_Signature.hxx>
-#endif
-#ifndef _Handle_IFSelect_SelectSignature_HeaderFile
 #include <Handle_IFSelect_SelectSignature.hxx>
-#endif
 class Interface_Protocol;
 class StepData_StepModel;
 class IFSelect_Signature;
@@ -41,7 +30,18 @@ class STEPEdit_EditSDR;
 class STEPEdit  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   //! Returns a Protocol fit for STEP (creates the first time) <br>
   Standard_EXPORT   static  Handle_Interface_Protocol Protocol() ;

@@ -13,6 +13,4 @@
 #ifndef _ShapeCustom_RestrictionParameters_HeaderFile
 #include <ShapeCustom_RestrictionParameters.hxx>
 #endif
-#ifndef _ShapeCustom_HeaderFile
 #include <ShapeCustom.hxx>
-#endif

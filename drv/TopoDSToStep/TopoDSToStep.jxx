@@ -13,6 +13,4 @@
 #ifndef _TopoDSToStep_Tool_HeaderFile
 #include <TopoDSToStep_Tool.hxx>
 #endif
-#ifndef _TopoDSToStep_HeaderFile
 #include <TopoDSToStep.hxx>
-#endif

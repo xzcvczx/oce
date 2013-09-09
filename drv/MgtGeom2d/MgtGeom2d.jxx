@@ -94,6 +94,4 @@
 #ifndef _PGeom2d_VectorWithMagnitude_HeaderFile
 #include <PGeom2d_VectorWithMagnitude.hxx>
 #endif
-#ifndef _MgtGeom2d_HeaderFile
 #include <MgtGeom2d.hxx>
-#endif

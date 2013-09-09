@@ -4,6 +4,4 @@
 #ifndef _TopoDS_Solid_HeaderFile
 #include <TopoDS_Solid.hxx>
 #endif
-#ifndef _BRepClass3d_HeaderFile
 #include <BRepClass3d.hxx>
-#endif

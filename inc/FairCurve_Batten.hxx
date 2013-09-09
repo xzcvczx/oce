@@ -9,9 +9,6 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
@@ -63,7 +60,18 @@ class Geom2d_BSplineCurve;
 class FairCurve_Batten  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   //! Constructor  with the two points and the geometrical <br>
 //!          characteristics of the batten (elastic beam) <br>
@@ -212,9 +220,6 @@ Standard_EXPORT virtual ~FairCurve_Batten(){Delete();}
   Standard_EXPORT     Handle_Geom2d_BSplineCurve Curve() const;
   //! Prints on the stream o information on the current state <br>
 //!          of the object. <br>
-//! <br>
-//!   Private methodes  -------------------------------------- <br>
-//! <br>
   Standard_EXPORT   virtual  void Dump(Standard_OStream& o) const;
 
 

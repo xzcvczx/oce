@@ -9,16 +9,11 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
 
-#ifndef _Handle_IGESDimen_Protocol_HeaderFile
 #include <Handle_IGESDimen_Protocol.hxx>
-#endif
 class IGESDimen_Protocol;
 class IGESDimen_CenterLine;
 class IGESDimen_Section;
@@ -82,7 +77,18 @@ class IGESDimen_HArray1OfGeneralNote;
 class IGESDimen  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   //! Prepares dynamic data (Protocol, Modules) for this package <br>
   Standard_EXPORT   static  void Init() ;

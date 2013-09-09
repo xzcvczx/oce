@@ -9,9 +9,6 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
@@ -52,7 +49,18 @@ class MDF_RRelocationTable;
 class MDF_Tool  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   //! Writes the labels with empty attributes. <br>
   Standard_EXPORT   static  void WriteLabels(const Handle(TDF_Data)& aSource,const Handle(PDF_Data)& aTarget,const MDF_TypeASDriverMap& aDriverMap,const Handle(MDF_SRelocationTable)& aReloc) ;

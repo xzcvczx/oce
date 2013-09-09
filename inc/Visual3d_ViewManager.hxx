@@ -93,9 +93,6 @@ public:
 //!  is not supported and leads to InitializationError and <br>
 //!  initialisation failure. <br>
 //!  This limitation might be addressed in some future OCCT releases. <br>
-//! <br>
-//! Category: Methods to modify the class definition <br>
-//! <br>
   Standard_EXPORT   Visual3d_ViewManager(const Handle(Graphic3d_GraphicDriver)& theDriver);
   //! Activates all the views of the manager <me>. <br>
   Standard_EXPORT     void Activate() ;

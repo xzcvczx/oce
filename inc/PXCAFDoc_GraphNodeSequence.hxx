@@ -19,30 +19,14 @@
 #include <Handle_PXCAFDoc_GraphNodeSequence.hxx>
 #endif
 
-#ifndef _Standard_Boolean_HeaderFile
 #include <Standard_Boolean.hxx>
-#endif
-#ifndef _Standard_Integer_HeaderFile
 #include <Standard_Integer.hxx>
-#endif
-#ifndef _Handle_PXCAFDoc_GraphNode_HeaderFile
 #include <Handle_PXCAFDoc_GraphNode.hxx>
-#endif
-#ifndef _Handle_PXCAFDoc_GraphNodeSequence_HeaderFile
 #include <Handle_PXCAFDoc_GraphNodeSequence.hxx>
-#endif
-#ifndef _Handle_PXCAFDoc_SeqNodeOfGraphNodeSequence_HeaderFile
 #include <Handle_PXCAFDoc_SeqNodeOfGraphNodeSequence.hxx>
-#endif
-#ifndef _Handle_Standard_Persistent_HeaderFile
 #include <Handle_Standard_Persistent.hxx>
-#endif
-#ifndef _Standard_Persistent_HeaderFile
 #include <Standard_Persistent.hxx>
-#endif
-#ifndef _Standard_OStream_HeaderFile
 #include <Standard_OStream.hxx>
-#endif
 class PXCAFDoc_GraphNode;
 class PXCAFDoc_SeqNodeOfGraphNodeSequence;
 class Standard_Persistent;

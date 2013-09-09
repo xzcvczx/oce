@@ -19,9 +19,7 @@
 #include <Handle_PGeom_Plane.hxx>
 #endif
 
-#ifndef _PGeom_ElementarySurface_HeaderFile
 #include <PGeom_ElementarySurface.hxx>
-#endif
 class gp_Ax3;
 
 

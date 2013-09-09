@@ -9,19 +9,12 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
 
-#ifndef _Handle_Geom2d_Curve_HeaderFile
 #include <Handle_Geom2d_Curve.hxx>
-#endif
-#ifndef _Handle_Geom_Curve_HeaderFile
 #include <Handle_Geom_Curve.hxx>
-#endif
 class Geom2d_Curve;
 class Geom_Curve;
 class gp_Pln;
@@ -76,9 +69,20 @@ class GeomAPI_IntCS;
 class GeomAPI  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
-  //! To intersect a curve and a surface. <br>//! This function builds (in the <br>
+  //! This function builds (in the <br>
 //! parametric space of the plane P) a 2D curve equivalent to the 3D curve <br>
 //! C. The 3D curve C is considered to be located in the plane P. <br>
 //! Warning <br>

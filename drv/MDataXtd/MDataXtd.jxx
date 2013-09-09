@@ -13,6 +13,4 @@
 #ifndef _Geom_Geometry_HeaderFile
 #include <Geom_Geometry.hxx>
 #endif
-#ifndef _MDataXtd_HeaderFile
 #include <MDataXtd.hxx>
-#endif

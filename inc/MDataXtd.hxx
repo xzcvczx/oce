@@ -9,37 +9,18 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
 
-#ifndef _Handle_MDF_ASDriverHSequence_HeaderFile
 #include <Handle_MDF_ASDriverHSequence.hxx>
-#endif
-#ifndef _Handle_CDM_MessageDriver_HeaderFile
 #include <Handle_CDM_MessageDriver.hxx>
-#endif
-#ifndef _Handle_MDF_ARDriverHSequence_HeaderFile
 #include <Handle_MDF_ARDriverHSequence.hxx>
-#endif
-#ifndef _Handle_PGeom_Geometry_HeaderFile
 #include <Handle_PGeom_Geometry.hxx>
-#endif
-#ifndef _Handle_Geom_Geometry_HeaderFile
 #include <Handle_Geom_Geometry.hxx>
-#endif
-#ifndef _Standard_Integer_HeaderFile
 #include <Standard_Integer.hxx>
-#endif
-#ifndef _TDataXtd_ConstraintEnum_HeaderFile
 #include <TDataXtd_ConstraintEnum.hxx>
-#endif
-#ifndef _TDataXtd_GeometryEnum_HeaderFile
 #include <TDataXtd_GeometryEnum.hxx>
-#endif
 class MDF_ASDriverHSequence;
 class CDM_MessageDriver;
 class MDF_ARDriverHSequence;
@@ -70,19 +51,26 @@ class MDataXtd_PatternStdRetrievalDriver;
 class MDataXtd  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   //! Adds the attribute storage drivers to <aDriverSeq>. <br>
   Standard_EXPORT   static  void AddStorageDrivers(const Handle(MDF_ASDriverHSequence)& aDriverSeq,const Handle(CDM_MessageDriver)& theMessageDriver) ;
   //! Adds the attribute retrieval drivers to <aDriverSeq>. <br>
   Standard_EXPORT   static  void AddRetrievalDrivers(const Handle(MDF_ARDriverHSequence)& aDriverSeq,const Handle(CDM_MessageDriver)& theMessageDriver) ;
-  //! Method to launch in MgtGeom <br>
-//!           Delete MDataStd_1.cxx <br>
-//!           Modify MDataStd_GeometryStorageDriver::Paste <br>
+  
   Standard_EXPORT   static  Handle_PGeom_Geometry Translate(const Handle(Geom_Geometry)& Geometry) ;
-  //! Method to lasunch in MgtGeom <br>
-//!           Delete MDataStd_1.cxx <br>
-//!           Modify MDataStd_GeometryRetrievalDriver::Paste <br>//! Translation of TDataXtd enumerations to integer <br>
+  //! Translation of TDataXtd enumerations to integer <br>
 //!          =============================================== <br>
   Standard_EXPORT   static  Handle_Geom_Geometry Translate(const Handle(PGeom_Geometry)& Geometry) ;
   

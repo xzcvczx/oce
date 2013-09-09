@@ -19,9 +19,7 @@
 #include <Handle_PGeom_BoundedSurface.hxx>
 #endif
 
-#ifndef _PGeom_Surface_HeaderFile
 #include <PGeom_Surface.hxx>
-#endif
 
 
 class PGeom_BoundedSurface : public PGeom_Surface {

@@ -19,15 +19,9 @@
 #include <Handle_PTopoDS_VArrayNodeOfFieldOfHArray1OfHShape.hxx>
 #endif
 
-#ifndef _Standard_Address_HeaderFile
 #include <Standard_Address.hxx>
-#endif
-#ifndef _Handle_PTopoDS_HShape_HeaderFile
 #include <Handle_PTopoDS_HShape.hxx>
-#endif
-#ifndef _PStandard_ArrayNode_HeaderFile
 #include <PStandard_ArrayNode.hxx>
-#endif
 class PTopoDS_HShape;
 class PTopoDS_FieldOfHArray1OfHShape;
 class PTopoDS_VArrayTNodeOfFieldOfHArray1OfHShape;

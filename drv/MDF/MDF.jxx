@@ -25,6 +25,4 @@
 #ifndef _MDF_ARDriverHSequence_HeaderFile
 #include <MDF_ARDriverHSequence.hxx>
 #endif
-#ifndef _MDF_HeaderFile
 #include <MDF.hxx>
-#endif

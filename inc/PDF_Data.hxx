@@ -19,18 +19,10 @@
 #include <Handle_PDF_Data.hxx>
 #endif
 
-#ifndef _Standard_Integer_HeaderFile
 #include <Standard_Integer.hxx>
-#endif
-#ifndef _Handle_PColStd_HArray1OfInteger_HeaderFile
 #include <Handle_PColStd_HArray1OfInteger.hxx>
-#endif
-#ifndef _Handle_PDF_HAttributeArray1_HeaderFile
 #include <Handle_PDF_HAttributeArray1.hxx>
-#endif
-#ifndef _Standard_Persistent_HeaderFile
 #include <Standard_Persistent.hxx>
-#endif
 class PColStd_HArray1OfInteger;
 class PDF_HAttributeArray1;
 

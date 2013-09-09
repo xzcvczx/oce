@@ -4,6 +4,4 @@
 #ifndef _PCollection_HAsciiString_HeaderFile
 #include <PCollection_HAsciiString.hxx>
 #endif
-#ifndef _PXCAFDoc_DimTol_HeaderFile
 #include <PXCAFDoc_DimTol.hxx>
-#endif

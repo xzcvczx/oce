@@ -9,9 +9,6 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
@@ -43,7 +40,18 @@ class HLRAlgo_Intersection;
 class HLRBRep_EdgeBuilder  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   //! Creates  an   EdgeBuilder    algorithm.    <VList> <br>
 //!          describes   the edge    and  the    interferences. <br>
@@ -85,10 +93,8 @@ public:
   Standard_EXPORT     void NextEdge() ;
   //! True if there are more vertices in the current new <br>
 //!          edge. <br>
-//! <br>
   Standard_EXPORT     Standard_Boolean MoreVertices() const;
   //! Proceeds to the next vertex of the current edge. <br>
-//! <br>
   Standard_EXPORT     void NextVertex() ;
   //! Returns the current vertex of the current edge. <br>
   Standard_EXPORT    const HLRAlgo_Intersection& Current() const;

@@ -7,6 +7,4 @@
 #ifndef _Message_ProgressIndicator_HeaderFile
 #include <Message_ProgressIndicator.hxx>
 #endif
-#ifndef _RWStl_HeaderFile
 #include <RWStl.hxx>
-#endif

@@ -19,30 +19,14 @@
 #include <Handle_PColPGeom_HArray1OfBezierCurve.hxx>
 #endif
 
-#ifndef _Standard_Integer_HeaderFile
 #include <Standard_Integer.hxx>
-#endif
-#ifndef _Handle_PGeom_BezierCurve_HeaderFile
 #include <Handle_PGeom_BezierCurve.hxx>
-#endif
-#ifndef _Handle_Standard_Persistent_HeaderFile
 #include <Handle_Standard_Persistent.hxx>
-#endif
-#ifndef _PColPGeom_FieldOfHArray1OfBezierCurve_HeaderFile
 #include <PColPGeom_FieldOfHArray1OfBezierCurve.hxx>
-#endif
-#ifndef _Standard_Address_HeaderFile
 #include <Standard_Address.hxx>
-#endif
-#ifndef _Standard_Persistent_HeaderFile
 #include <Standard_Persistent.hxx>
-#endif
-#ifndef _Handle_PColPGeom_VArrayNodeOfFieldOfHArray1OfBezierCurve_HeaderFile
 #include <Handle_PColPGeom_VArrayNodeOfFieldOfHArray1OfBezierCurve.hxx>
-#endif
-#ifndef _Standard_OStream_HeaderFile
 #include <Standard_OStream.hxx>
-#endif
 class PGeom_BezierCurve;
 class Standard_Persistent;
 class Standard_OutOfRange;

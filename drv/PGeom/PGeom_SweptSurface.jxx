@@ -4,6 +4,4 @@
 #ifndef _gp_Dir_HeaderFile
 #include <gp_Dir.hxx>
 #endif
-#ifndef _PGeom_SweptSurface_HeaderFile
 #include <PGeom_SweptSurface.hxx>
-#endif

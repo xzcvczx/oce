@@ -19,12 +19,8 @@
 #include <Handle_PDocStd_XLink.hxx>
 #endif
 
-#ifndef _Handle_PCollection_HAsciiString_HeaderFile
 #include <Handle_PCollection_HAsciiString.hxx>
-#endif
-#ifndef _PDF_Attribute_HeaderFile
 #include <PDF_Attribute.hxx>
-#endif
 class PCollection_HAsciiString;
 
 

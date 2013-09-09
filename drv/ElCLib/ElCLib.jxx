@@ -58,6 +58,4 @@
 #ifndef _gp_Dir2d_HeaderFile
 #include <gp_Dir2d.hxx>
 #endif
-#ifndef _ElCLib_HeaderFile
 #include <ElCLib.hxx>
-#endif

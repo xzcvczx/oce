@@ -19,18 +19,10 @@
 #include <Handle_PColgp_SeqNodeOfHSequenceOfPnt.hxx>
 #endif
 
-#ifndef _gp_Pnt_HeaderFile
 #include <gp_Pnt.hxx>
-#endif
-#ifndef _Handle_PColgp_SeqNodeOfHSequenceOfPnt_HeaderFile
 #include <Handle_PColgp_SeqNodeOfHSequenceOfPnt.hxx>
-#endif
-#ifndef _PMMgt_PManaged_HeaderFile
 #include <PMMgt_PManaged.hxx>
-#endif
-#ifndef _Handle_PColgp_HSequenceOfPnt_HeaderFile
 #include <Handle_PColgp_HSequenceOfPnt.hxx>
-#endif
 class PColgp_HSequenceOfPnt;
 class PColgp_SeqExplorerOfHSequenceOfPnt;
 class gp_Pnt;

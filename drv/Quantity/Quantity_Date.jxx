@@ -7,6 +7,4 @@
 #ifndef _Quantity_Period_HeaderFile
 #include <Quantity_Period.hxx>
 #endif
-#ifndef _Quantity_Date_HeaderFile
 #include <Quantity_Date.hxx>
-#endif

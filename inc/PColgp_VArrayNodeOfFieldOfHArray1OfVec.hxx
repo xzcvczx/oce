@@ -19,15 +19,9 @@
 #include <Handle_PColgp_VArrayNodeOfFieldOfHArray1OfVec.hxx>
 #endif
 
-#ifndef _Standard_Address_HeaderFile
 #include <Standard_Address.hxx>
-#endif
-#ifndef _gp_Vec_HeaderFile
 #include <gp_Vec.hxx>
-#endif
-#ifndef _PStandard_ArrayNode_HeaderFile
 #include <PStandard_ArrayNode.hxx>
-#endif
 class gp_Vec;
 class PColgp_FieldOfHArray1OfVec;
 class PColgp_VArrayTNodeOfFieldOfHArray1OfVec;

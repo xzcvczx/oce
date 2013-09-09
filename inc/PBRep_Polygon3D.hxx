@@ -19,15 +19,9 @@
 #include <Handle_PBRep_Polygon3D.hxx>
 #endif
 
-#ifndef _Standard_Boolean_HeaderFile
 #include <Standard_Boolean.hxx>
-#endif
-#ifndef _Handle_PPoly_Polygon3D_HeaderFile
 #include <Handle_PPoly_Polygon3D.hxx>
-#endif
-#ifndef _PBRep_CurveRepresentation_HeaderFile
 #include <PBRep_CurveRepresentation.hxx>
-#endif
 class PPoly_Polygon3D;
 class PTopLoc_Location;
 

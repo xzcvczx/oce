@@ -16,6 +16,4 @@
 #ifndef _TopTools_ListOfShape_HeaderFile
 #include <TopTools_ListOfShape.hxx>
 #endif
-#ifndef _BRepLib_HeaderFile
 #include <BRepLib.hxx>
-#endif

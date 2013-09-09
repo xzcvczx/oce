@@ -61,9 +61,6 @@ class gp_XYZ;
 
 //! defines IGESDrawingWithRotation, Type <404> Form <1> <br>
 //!          in package IGESDraw <br>
-//! <br>
-//!          Permits rotation, in addition to transformation and <br>
-//!          scaling, between the view and drawing coordinate systems <br>
 class IGESDraw_DrawingWithRotation : public IGESData_IGESEntity {
 
 public:

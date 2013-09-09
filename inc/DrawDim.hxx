@@ -9,22 +9,13 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
 
-#ifndef _Standard_CString_HeaderFile
 #include <Standard_CString.hxx>
-#endif
-#ifndef _Standard_Boolean_HeaderFile
 #include <Standard_Boolean.hxx>
-#endif
-#ifndef _Standard_Real_HeaderFile
 #include <Standard_Real.hxx>
-#endif
 class TopoDS_Shape;
 class Draw_Interpretor;
 class gp_Pnt;
@@ -56,10 +47,20 @@ class DrawDim_PlanarDiameter;
 class DrawDim  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
-  //! Commands <br>
-//!          ======== <br>
+  
   Standard_EXPORT   static  void DrawShapeName(const TopoDS_Shape& ashape,const Standard_CString aname) ;
   
   Standard_EXPORT   static  void AllCommands(Draw_Interpretor& I) ;
@@ -68,11 +69,11 @@ public:
   Standard_EXPORT   static  void PlanarDimensionCommands(Draw_Interpretor& I) ;
   
   Standard_EXPORT   static  gp_Pnt Nearest(const TopoDS_Shape& aShape,const gp_Pnt& apoint) ;
-  //! false if <e> is not a linear edge <br>
+  
   Standard_EXPORT   static  Standard_Boolean Lin(const TopoDS_Edge& e,gp_Lin& l,Standard_Boolean& infinite,Standard_Real& first,Standard_Real& last) ;
-  //! false if <e> is not a circular edge <br>
+  
   Standard_EXPORT   static  Standard_Boolean Circ(const TopoDS_Edge& e,gp_Circ& l,Standard_Real& first,Standard_Real& last) ;
-  //! false if <f> is not a planar face <br>
+  
   Standard_EXPORT   static  Standard_Boolean Pln(const TopoDS_Face& f,gp_Pln& p) ;
 
 

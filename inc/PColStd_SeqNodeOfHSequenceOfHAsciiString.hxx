@@ -19,18 +19,10 @@
 #include <Handle_PColStd_SeqNodeOfHSequenceOfHAsciiString.hxx>
 #endif
 
-#ifndef _Handle_PCollection_HAsciiString_HeaderFile
 #include <Handle_PCollection_HAsciiString.hxx>
-#endif
-#ifndef _Handle_PColStd_SeqNodeOfHSequenceOfHAsciiString_HeaderFile
 #include <Handle_PColStd_SeqNodeOfHSequenceOfHAsciiString.hxx>
-#endif
-#ifndef _PMMgt_PManaged_HeaderFile
 #include <PMMgt_PManaged.hxx>
-#endif
-#ifndef _Handle_PColStd_HSequenceOfHAsciiString_HeaderFile
 #include <Handle_PColStd_HSequenceOfHAsciiString.hxx>
-#endif
 class PCollection_HAsciiString;
 class PColStd_HSequenceOfHAsciiString;
 class PColStd_SeqExplorerOfHSequenceOfHAsciiString;

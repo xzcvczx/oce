@@ -19,15 +19,9 @@
 #include <Handle_PDF_VArrayNodeOfFieldOfHAttributeArray1.hxx>
 #endif
 
-#ifndef _Standard_Address_HeaderFile
 #include <Standard_Address.hxx>
-#endif
-#ifndef _Handle_PDF_Attribute_HeaderFile
 #include <Handle_PDF_Attribute.hxx>
-#endif
-#ifndef _PStandard_ArrayNode_HeaderFile
 #include <PStandard_ArrayNode.hxx>
-#endif
 class PDF_Attribute;
 class PDF_FieldOfHAttributeArray1;
 class PDF_VArrayTNodeOfFieldOfHAttributeArray1;

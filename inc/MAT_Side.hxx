@@ -6,7 +6,8 @@
 #ifndef _MAT_Side_HeaderFile
 #define _MAT_Side_HeaderFile
 
-//! Definition on the Left and the Right on the Fig. <br>
+//! The template class used in Mat. <br>//! The Algorithm of Computation of the Map of <br>
+//!           bisecting locus. <br>
 enum MAT_Side {
 MAT_Left,
 MAT_Right

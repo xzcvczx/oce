@@ -19,27 +19,13 @@
 #include <Handle_PColStd_HArray2OfPersistent.hxx>
 #endif
 
-#ifndef _Standard_Integer_HeaderFile
 #include <Standard_Integer.hxx>
-#endif
-#ifndef _Handle_Standard_Persistent_HeaderFile
 #include <Handle_Standard_Persistent.hxx>
-#endif
-#ifndef _PColStd_FieldOfHArray2OfPersistent_HeaderFile
 #include <PColStd_FieldOfHArray2OfPersistent.hxx>
-#endif
-#ifndef _Standard_Address_HeaderFile
 #include <Standard_Address.hxx>
-#endif
-#ifndef _Standard_Persistent_HeaderFile
 #include <Standard_Persistent.hxx>
-#endif
-#ifndef _Handle_PColStd_VArrayNodeOfFieldOfHArray2OfPersistent_HeaderFile
 #include <Handle_PColStd_VArrayNodeOfFieldOfHArray2OfPersistent.hxx>
-#endif
-#ifndef _Standard_OStream_HeaderFile
 #include <Standard_OStream.hxx>
-#endif
 class Standard_Persistent;
 class Standard_RangeError;
 class Standard_OutOfRange;

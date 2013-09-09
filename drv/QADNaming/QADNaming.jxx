@@ -16,6 +16,4 @@
 #ifndef _Draw_Interpretor_HeaderFile
 #include <Draw_Interpretor.hxx>
 #endif
-#ifndef _QADNaming_HeaderFile
 #include <QADNaming.hxx>
-#endif

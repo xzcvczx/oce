@@ -19,15 +19,9 @@
 #include <Handle_PDataStd_TreeNode.hxx>
 #endif
 
-#ifndef _Handle_PDataStd_TreeNode_HeaderFile
 #include <Handle_PDataStd_TreeNode.hxx>
-#endif
-#ifndef _Standard_GUID_HeaderFile
 #include <Standard_GUID.hxx>
-#endif
-#ifndef _PDF_Attribute_HeaderFile
 #include <PDF_Attribute.hxx>
-#endif
 class Standard_GUID;
 
 

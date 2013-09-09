@@ -19,15 +19,9 @@
 #include <Handle_PBRep_PointsOnSurface.hxx>
 #endif
 
-#ifndef _Handle_PGeom_Surface_HeaderFile
 #include <Handle_PGeom_Surface.hxx>
-#endif
-#ifndef _PBRep_PointRepresentation_HeaderFile
 #include <PBRep_PointRepresentation.hxx>
-#endif
-#ifndef _Standard_Real_HeaderFile
 #include <Standard_Real.hxx>
-#endif
 class PGeom_Surface;
 class PTopLoc_Location;
 

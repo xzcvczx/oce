@@ -19,18 +19,10 @@
 #include <Handle_PPoly_Polygon2D.hxx>
 #endif
 
-#ifndef _Standard_Real_HeaderFile
 #include <Standard_Real.hxx>
-#endif
-#ifndef _Standard_Integer_HeaderFile
 #include <Standard_Integer.hxx>
-#endif
-#ifndef _Handle_PColgp_HArray1OfPnt2d_HeaderFile
 #include <Handle_PColgp_HArray1OfPnt2d.hxx>
-#endif
-#ifndef _Standard_Persistent_HeaderFile
 #include <Standard_Persistent.hxx>
-#endif
 class PColgp_HArray1OfPnt2d;
 
 

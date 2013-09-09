@@ -19,12 +19,8 @@
 #include <Handle_PXCAFDoc_Centroid.hxx>
 #endif
 
-#ifndef _gp_Pnt_HeaderFile
 #include <gp_Pnt.hxx>
-#endif
-#ifndef _PDF_Attribute_HeaderFile
 #include <PDF_Attribute.hxx>
-#endif
 class gp_Pnt;
 
 

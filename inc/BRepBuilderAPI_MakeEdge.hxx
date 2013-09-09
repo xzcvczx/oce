@@ -9,9 +9,6 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
@@ -88,7 +85,18 @@ class TopoDS_Edge;
 class BRepBuilderAPI_MakeEdge  : public BRepBuilderAPI_MakeShape {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   
   Standard_EXPORT   BRepBuilderAPI_MakeEdge();
@@ -220,9 +228,6 @@ public:
 //!    points will be computed from the parameters on the curve. <br>
 //! The vertices or points and the parameter values can be omitted. The first and last <br>
 //!   parameters of the curve will then be used. <br>
-//! <br>
-//!  Auxiliary methods <br>
-//! <br>
   Standard_EXPORT   BRepBuilderAPI_MakeEdge(const Handle(Geom2d_Curve)& L,const Handle(Geom_Surface)& S,const TopoDS_Vertex& V1,const TopoDS_Vertex& V2,const Standard_Real p1,const Standard_Real p2);
   
   Standard_EXPORT     void Init(const Handle(Geom_Curve)& C) ;

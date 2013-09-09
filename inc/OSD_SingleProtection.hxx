@@ -6,11 +6,8 @@
 #ifndef _OSD_SingleProtection_HeaderFile
 #define _OSD_SingleProtection_HeaderFile
 
-//! Access rights for files. <br>
-//!          R means Read, W means Write, X means eXecute and D means Delete. <br>
-//!          On UNIX, the right to Delete is combined with Write access. <br>
-//!          So if "W"rite is not set and "D"elete is, "W"rite will be set <br>
-//!          and if "W" is set, "D" will be too. <br>
+//! locks for files. <br>
+//!          NoLock is the default value when opening a file. <br>
 enum OSD_SingleProtection {
 OSD_None,
 OSD_R,

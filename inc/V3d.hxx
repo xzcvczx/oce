@@ -9,37 +9,18 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
 
-#ifndef _V3d_TypeOfOrientation_HeaderFile
 #include <V3d_TypeOfOrientation.hxx>
-#endif
-#ifndef _Handle_Graphic3d_Group_HeaderFile
 #include <Handle_Graphic3d_Group.hxx>
-#endif
-#ifndef _V3d_Coordinate_HeaderFile
 #include <V3d_Coordinate.hxx>
-#endif
-#ifndef _V3d_Parameter_HeaderFile
 #include <V3d_Parameter.hxx>
-#endif
-#ifndef _Quantity_PlaneAngle_HeaderFile
 #include <Quantity_PlaneAngle.hxx>
-#endif
-#ifndef _Handle_V3d_View_HeaderFile
 #include <Handle_V3d_View.hxx>
-#endif
-#ifndef _Handle_V3d_Viewer_HeaderFile
 #include <Handle_V3d_Viewer.hxx>
-#endif
-#ifndef _Quantity_Length_HeaderFile
 #include <Quantity_Length.hxx>
-#endif
 class Graphic3d_Vector;
 class Graphic3d_Group;
 class V3d_View;
@@ -80,7 +61,18 @@ class V3d_ColorScaleLayerItem;
 class V3d  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   //! Determines the orientation vector corresponding <br>
 //!          to the predefined orientation type. <br>

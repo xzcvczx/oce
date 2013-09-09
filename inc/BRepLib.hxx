@@ -9,28 +9,15 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
 
-#ifndef _Standard_Real_HeaderFile
 #include <Standard_Real.hxx>
-#endif
-#ifndef _Handle_Geom_Plane_HeaderFile
 #include <Handle_Geom_Plane.hxx>
-#endif
-#ifndef _Standard_Boolean_HeaderFile
 #include <Standard_Boolean.hxx>
-#endif
-#ifndef _GeomAbs_Shape_HeaderFile
 #include <GeomAbs_Shape.hxx>
-#endif
-#ifndef _Standard_Integer_HeaderFile
 #include <Standard_Integer.hxx>
-#endif
 class Geom_Plane;
 class TopoDS_Edge;
 class TopoDS_Shape;
@@ -61,7 +48,18 @@ class BRepLib_FuseEdges;
 class BRepLib  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   //! Sets the default precision.  The current Precision <br>
 //!          is returned. <br>
@@ -101,25 +99,9 @@ public:
   //! Computes  the 3d curves  for all the  edges of <S> <br>
 //!          return False if one of the computation failed. <br>
   Standard_EXPORT   static  Standard_Boolean BuildCurves3d(const TopoDS_Shape& S) ;
-  //!       Checks if the edge has a  Tolerance smaller than -- -- <br>
-//!       -- -- MaxToleranceToCheck  if  so it will compute  the <br>
-//!       radius    of  -- the   cylindrical  pipe  surface that <br>
-//!       MinToleranceRequest is the minimum tolerance before it <br>
-//!       is usefull to start testing. Usually it should be arround <br>
-//!       10e-5 <br>
-//!       contains all  --  the curve represenation of  the edge <br>
-//!       returns True if the Edge tolerance had to be updated <br>
+  
   Standard_EXPORT   static  Standard_Boolean UpdateEdgeTol(const TopoDS_Edge& E,const Standard_Real MinToleranceRequest,const Standard_Real MaxToleranceToCheck) ;
-  //! -- Checks all the edges of the shape whose -- -- -- <br>
-//!          Tolerance  is  smaller than  MaxToleranceToCheck -- <br>
-//!           Returns True if at  least  one edge was updated -- <br>
-//!          MinToleranceRequest is the minimum tolerance before <br>
-//!          --  it -- is  usefull to start  testing. Usually it <br>
-//!          should be arround -- 10e-5-- <br>
-//! <br>
-//!  Warning :The  method is  very  slow  as it  checks all. <br>
-//!         Use  only  in interfaces or  processing assimilate batch <br>
-//! <br>
+  
   Standard_EXPORT   static  Standard_Boolean UpdateEdgeTolerance(const TopoDS_Shape& S,const Standard_Real MinToleranceRequest,const Standard_Real MaxToleranceToCheck) ;
   //! Computes new 2d curve(s)  for the edge <E> to have <br>
 //!          the same parameter  as  the  3d curve. <br>
@@ -136,9 +118,7 @@ public:
 //!          It is not necessary to use this call after <br>
 //!          SameParameter. (called in) <br>
   Standard_EXPORT   static  void UpdateTolerances(const TopoDS_Shape& S,const Standard_Boolean verifyFaceTolerance = Standard_False) ;
-  //!  Orients the solid forward  and the  shell with the <br>
-//!           orientation to have  matter in the solid. Returns <br>
-//!          False if the solid is unOrientable (open or incoherent) <br>
+  
   Standard_EXPORT   static  Standard_Boolean OrientClosedSolid(TopoDS_Solid& solid) ;
   //! Encodes the Regularity of edges on a Shape. <br>
 //!  Warning: <TolAng> is an angular tolerance, expressed in Rad. <br>

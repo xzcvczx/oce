@@ -13,6 +13,4 @@
 #ifndef _Draw_Interpretor_HeaderFile
 #include <Draw_Interpretor.hxx>
 #endif
-#ifndef _DDF_HeaderFile
 #include <DDF.hxx>
-#endif

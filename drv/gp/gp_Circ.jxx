@@ -16,6 +16,4 @@
 #ifndef _gp_Vec_HeaderFile
 #include <gp_Vec.hxx>
 #endif
-#ifndef _gp_Circ_HeaderFile
 #include <gp_Circ.hxx>
-#endif

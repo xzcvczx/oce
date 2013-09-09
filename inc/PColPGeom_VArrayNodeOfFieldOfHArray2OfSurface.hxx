@@ -19,15 +19,9 @@
 #include <Handle_PColPGeom_VArrayNodeOfFieldOfHArray2OfSurface.hxx>
 #endif
 
-#ifndef _Standard_Address_HeaderFile
 #include <Standard_Address.hxx>
-#endif
-#ifndef _Handle_PGeom_Surface_HeaderFile
 #include <Handle_PGeom_Surface.hxx>
-#endif
-#ifndef _PStandard_ArrayNode_HeaderFile
 #include <PStandard_ArrayNode.hxx>
-#endif
 class PGeom_Surface;
 class PColPGeom_FieldOfHArray2OfSurface;
 class PColPGeom_VArrayTNodeOfFieldOfHArray2OfSurface;

@@ -13,6 +13,4 @@
 #ifndef _PTColStd_PersistentTransientMap_HeaderFile
 #include <PTColStd_PersistentTransientMap.hxx>
 #endif
-#ifndef _MgtBRep_HeaderFile
 #include <MgtBRep.hxx>
-#endif

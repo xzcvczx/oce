@@ -85,12 +85,6 @@ class TCollection_ExtendedString;
 //!	    with the SINGLE primitives DrawPolyline(),DrawPolygon(),.... <br>
 //!	    or the INCREMENTAL primitives BeginPolyline(),BeginPolygon(),... <br>
 //!	    or the SET of primitives BeginArcs(),BeginMarkers(),... <br>
-//! <br>
-//!	    NOTE that : <br>
-//!	    The incremental primitives are interesting to used because <br>
-//!	    no more arrays are necessary to fill it. <br>
-//!	    The set of primitives are interesting to used because this <br>
-//!	    increase the drawing performances. <br>
 class Aspect_Driver : public MMgt_TShared {
 
 public:

@@ -25,6 +25,4 @@
 #ifndef _TColStd_HArray2OfInteger_HeaderFile
 #include <TColStd_HArray2OfInteger.hxx>
 #endif
-#ifndef _PDataStd_NamedData_HeaderFile
 #include <PDataStd_NamedData.hxx>
-#endif

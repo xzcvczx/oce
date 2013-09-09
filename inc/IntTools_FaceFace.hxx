@@ -9,9 +9,6 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
@@ -67,51 +64,52 @@ class Adaptor3d_TopolTool;
 class IntTools_FaceFace  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   
 //! Empty constructor. <br>
-//! <br>
   Standard_EXPORT   IntTools_FaceFace();
   
 //! Modifier <br>
-//! <br>
   Standard_EXPORT     void SetParameters(const Standard_Boolean ApproxCurves,const Standard_Boolean ComputeCurveOnS1,const Standard_Boolean ComputeCurveOnS2,const Standard_Real ApproximationTolerance) ;
   
 //! Intersects underliing surfaces of F1 and F2 <br>
 //! Use sum of tolerance of F1 and F2 as intersection <br>
 //! criteria <br>
-//! <br>
   Standard_EXPORT     void Perform(const TopoDS_Face& F1,const TopoDS_Face& F2) ;
   
 //! Returns True if the intersection was successful <br>
-//! <br>
   Standard_EXPORT     Standard_Boolean IsDone() const;
   
 //! Returns sequence of 3d curves as result of intersection <br>
-//! <br>
   Standard_EXPORT    const IntTools_SequenceOfCurves& Lines() const;
   
 //! Returns sequence of 3d curves as result of intersection <br>
-//! <br>
   Standard_EXPORT    const IntTools_SequenceOfPntOn2Faces& Points() const;
   
 //! Returns tolerance reached during approximation. <br>
 //! If approximation was not done, returns zero. <br>
-//! <br>
   Standard_EXPORT     Standard_Real TolReached3d() const;
   
 //! Returns tolerance reached during approximation. <br>
 //! If approximation was not done, returns zero. <br>
-//! <br>
   Standard_EXPORT     Standard_Real TolReached2d() const;
   
 //! Returns first of processed faces <br>
-//! <br>
   Standard_EXPORT    const TopoDS_Face& Face1() const;
   
 //! Returns second of processed faces <br>
-//! <br>
   Standard_EXPORT    const TopoDS_Face& Face2() const;
   
 //! Returns True if faces are tangent <br>

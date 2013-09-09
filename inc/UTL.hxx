@@ -9,34 +9,17 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
 
-#ifndef _Standard_CString_HeaderFile
 #include <Standard_CString.hxx>
-#endif
-#ifndef _Storage_Error_HeaderFile
 #include <Storage_Error.hxx>
-#endif
-#ifndef _Storage_OpenMode_HeaderFile
 #include <Storage_OpenMode.hxx>
-#endif
-#ifndef _Handle_Storage_Data_HeaderFile
 #include <Handle_Storage_Data.hxx>
-#endif
-#ifndef _Standard_Boolean_HeaderFile
 #include <Standard_Boolean.hxx>
-#endif
-#ifndef _Handle_Resource_Manager_HeaderFile
 #include <Handle_Resource_Manager.hxx>
-#endif
-#ifndef _Standard_Integer_HeaderFile
 #include <Standard_Integer.hxx>
-#endif
 class TCollection_ExtendedString;
 class Storage_BaseDriver;
 class Storage_Data;
@@ -51,7 +34,18 @@ class Resource_Manager;
 class UTL  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   
   Standard_EXPORT   static  TCollection_ExtendedString xgetenv(const Standard_CString aCString) ;

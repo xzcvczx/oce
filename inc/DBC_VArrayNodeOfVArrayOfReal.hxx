@@ -19,15 +19,9 @@
 #include <Handle_DBC_VArrayNodeOfVArrayOfReal.hxx>
 #endif
 
-#ifndef _Standard_Address_HeaderFile
 #include <Standard_Address.hxx>
-#endif
-#ifndef _Standard_Real_HeaderFile
 #include <Standard_Real.hxx>
-#endif
-#ifndef _PStandard_ArrayNode_HeaderFile
 #include <PStandard_ArrayNode.hxx>
-#endif
 class DBC_VArrayOfReal;
 class DBC_VArrayTNodeOfVArrayOfReal;
 

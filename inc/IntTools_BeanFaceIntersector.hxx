@@ -9,9 +9,6 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
@@ -75,53 +72,45 @@ class IntTools_ListOfSurfaceRangeSample;
 class IntTools_BeanFaceIntersector  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   
   Standard_EXPORT   IntTools_BeanFaceIntersector();
   
 //! Initializes the algorithm <br>
-//! <br>
-//!  Warning: <br>
-//! The parts of the edge which are on <br>
-//! the surface of the face and belong to <br>
-//! the whole in the face (if there is) <br>
-//! is considered as result <br>
-//! <br>
   Standard_EXPORT   IntTools_BeanFaceIntersector(const TopoDS_Edge& theEdge,const TopoDS_Face& theFace);
   
 //! Initializes the algorithm <br>
-//! <br>
   Standard_EXPORT   IntTools_BeanFaceIntersector(const BRepAdaptor_Curve& theCurve,const BRepAdaptor_Surface& theSurface,const Standard_Real theBeanTolerance,const Standard_Real theFaceTolerance);
   
 //! Initializes the algorithm <br>
 //! theUMinParameter, ... are used for <br>
 //! optimization purposes <br>
-//! <br>
   Standard_EXPORT   IntTools_BeanFaceIntersector(const BRepAdaptor_Curve& theCurve,const BRepAdaptor_Surface& theSurface,const Standard_Real theFirstParOnCurve,const Standard_Real theLastParOnCurve,const Standard_Real theUMinParameter,const Standard_Real theUMaxParameter,const Standard_Real theVMinParameter,const Standard_Real theVMaxParameter,const Standard_Real theBeanTolerance,const Standard_Real theFaceTolerance);
   
 //! Initializes the algorithm <br>
-//! <br>
-//!  Warning: <br>
-//! The parts of the edge which are on <br>
-//! the surface of the face and belong to <br>
-//! the whole in the face (if there is) <br>
-//! is considered as result <br>
-//! <br>
   Standard_EXPORT     void Init(const TopoDS_Edge& theEdge,const TopoDS_Face& theFace) ;
   
 //! Initializes the algorithm <br>
-//! <br>
   Standard_EXPORT     void Init(const BRepAdaptor_Curve& theCurve,const BRepAdaptor_Surface& theSurface,const Standard_Real theBeanTolerance,const Standard_Real theFaceTolerance) ;
   
 //! Initializes the algorithm <br>
 //! theUMinParameter, ... are used for <br>
 //! optimization purposes <br>
-//! <br>
   Standard_EXPORT     void Init(const BRepAdaptor_Curve& theCurve,const BRepAdaptor_Surface& theSurface,const Standard_Real theFirstParOnCurve,const Standard_Real theLastParOnCurve,const Standard_Real theUMinParameter,const Standard_Real theUMaxParameter,const Standard_Real theVMinParameter,const Standard_Real theVMaxParameter,const Standard_Real theBeanTolerance,const Standard_Real theFaceTolerance) ;
   
 //! Sets the intersecton context <br>
-//! <br>
   Standard_EXPORT     void SetContext(const Handle(BOPInt_Context)& theContext) ;
   
 //! Gets the intersecton context <br>
@@ -129,15 +118,12 @@ public:
   Standard_EXPORT    const Handle_BOPInt_Context& Context() const;
   
 //! Set restrictions for curve <br>
-//! <br>
   Standard_EXPORT     void SetBeanParameters(const Standard_Real theFirstParOnCurve,const Standard_Real theLastParOnCurve) ;
   
 //! Set restrictions for surface <br>
-//! <br>
   Standard_EXPORT     void SetSurfaceParameters(const Standard_Real theUMinParameter,const Standard_Real theUMaxParameter,const Standard_Real theVMinParameter,const Standard_Real theVMaxParameter) ;
   
 //! Launches the algorithm <br>
-//! <br>
   Standard_EXPORT     void Perform() ;
   
         Standard_Boolean IsDone() const;

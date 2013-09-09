@@ -19,9 +19,7 @@
 #include <Handle_PDataStd_NoteBook.hxx>
 #endif
 
-#ifndef _PDF_Attribute_HeaderFile
 #include <PDF_Attribute.hxx>
-#endif
 
 
 class PDataStd_NoteBook : public PDF_Attribute {

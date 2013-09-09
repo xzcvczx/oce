@@ -19,15 +19,9 @@
 #include <Handle_PDataStd_VArrayNodeOfFieldOfHArray1OfHAsciiString.hxx>
 #endif
 
-#ifndef _Standard_Address_HeaderFile
 #include <Standard_Address.hxx>
-#endif
-#ifndef _Handle_PCollection_HAsciiString_HeaderFile
 #include <Handle_PCollection_HAsciiString.hxx>
-#endif
-#ifndef _PStandard_ArrayNode_HeaderFile
 #include <PStandard_ArrayNode.hxx>
-#endif
 class PCollection_HAsciiString;
 class PDataStd_FieldOfHArray1OfHAsciiString;
 class PDataStd_VArrayTNodeOfFieldOfHArray1OfHAsciiString;

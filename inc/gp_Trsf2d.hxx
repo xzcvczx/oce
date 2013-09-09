@@ -9,34 +9,17 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
 
-#ifndef _Standard_Real_HeaderFile
 #include <Standard_Real.hxx>
-#endif
-#ifndef _gp_TrsfForm_HeaderFile
 #include <gp_TrsfForm.hxx>
-#endif
-#ifndef _gp_Mat2d_HeaderFile
 #include <gp_Mat2d.hxx>
-#endif
-#ifndef _gp_XY_HeaderFile
 #include <gp_XY.hxx>
-#endif
-#ifndef _Standard_Storable_HeaderFile
 #include <Standard_Storable.hxx>
-#endif
-#ifndef _Standard_Boolean_HeaderFile
 #include <Standard_Boolean.hxx>
-#endif
-#ifndef _Standard_Integer_HeaderFile
 #include <Standard_Integer.hxx>
-#endif
 #ifndef _Standard_PrimitiveTypes_HeaderFile
 #include <Standard_PrimitiveTypes.hxx>
 #endif
@@ -66,14 +49,21 @@ Standard_EXPORT const Handle(Standard_Type)& STANDARD_TYPE(gp_Trsf2d);
 //!    | a11  a12  a13 |   | x |     | x'| <br>
 //!    | a21  a22  a23 |   | y |     | y'| <br>
 //!    |  0    0    1  |   | 1 |     | 1 | <br>
-//! <br>
-//!   where {V1, V2} defines the vectorial part of the transformation <br>
-//!   and T defines the translation part of the transformation. <br>
 class gp_Trsf2d  {
 
 public:
-
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   //! Returns identity transformation. <br>
       gp_Trsf2d();
@@ -194,9 +184,6 @@ public:
 //!  <me> * <me> * .......* <me>,  N time. <br>
 //!  if N = 0 <me> = Identity <br>
 //!  if N < 0 <me> = <me>.Inverse() *...........* <me>.Inverse(). <br>
-//! <br>
-//!  Raises if N < 0 and if the matrix of the transformation not <br>
-//!  inversible. <br>
         gp_Trsf2d Powered(const Standard_Integer N) ;
   
         void Transforms(Standard_Real& X,Standard_Real& Y) const;

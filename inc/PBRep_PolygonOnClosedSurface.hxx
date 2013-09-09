@@ -19,18 +19,10 @@
 #include <Handle_PBRep_PolygonOnClosedSurface.hxx>
 #endif
 
-#ifndef _Standard_Boolean_HeaderFile
 #include <Standard_Boolean.hxx>
-#endif
-#ifndef _Handle_PPoly_Polygon2D_HeaderFile
 #include <Handle_PPoly_Polygon2D.hxx>
-#endif
-#ifndef _PBRep_PolygonOnSurface_HeaderFile
 #include <PBRep_PolygonOnSurface.hxx>
-#endif
-#ifndef _Handle_PGeom_Surface_HeaderFile
 #include <Handle_PGeom_Surface.hxx>
-#endif
 class PPoly_Polygon2D;
 class PGeom_Surface;
 class PTopLoc_Location;

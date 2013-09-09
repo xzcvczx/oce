@@ -456,26 +456,6 @@ public:
 //!          so it is reasonable to call this method after <anObj> has been displayed. <br>
 //!          Otherwise, Compute() method should pass Graphic3d_AspectFillArea3d <br>
 //!          aspect from <myDrawer> to Graphic3d_Group to make polygon offsets work. <br>
-//! <br>
-//!          <aMode> parameter can contain various combinations of <br>
-//!          Aspect_PolygonOffsetMode enumeration elements (Aspect_POM_None means <br>
-//!          that polygon offsets are not changed). <br>
-//!          If <aMode> is different from Aspect_POM_Off and Aspect_POM_None, then <aFactor> and <aUnits> <br>
-//!          arguments are used by graphic renderer to calculate a depth offset value: <br>
-//! <br>
-//!          offset = <aFactor> * m + <aUnits> * r, where <br>
-//!          m - maximum depth slope for the polygon currently being displayed, <br>
-//!          r - minimum window coordinates depth resolution (implementation-specific). <br>
-//! <br>
-//!          Deafult settings for OCC 3D viewer: mode = Aspect_POM_Fill, factor = 1., units = 0. <br>
-//! <br>
-//!          Negative offset values move polygons closer to the viewport, <br>
-//!          while positive values shift polygons away. <br>
-//!          Consult OpenGL reference for details (glPolygonOffset function description). <br>
-//! <br>
-//!          NOTE: This method has a side effect - it creates own shading aspect <br>
-//!          if not yet created, so it is better to set up object material, <br>
-//!          color, etc. first. <br>
   Standard_EXPORT   virtual  void SetPolygonOffsets(const Standard_Integer aMode,const Standard_ShortReal aFactor = 1.0,const Standard_ShortReal aUnits = 0.0) ;
   //! Returns Standard_True if <myDrawer> has non-null shading aspect <br>
   Standard_EXPORT   virtual  Standard_Boolean HasPolygonOffsets() const;

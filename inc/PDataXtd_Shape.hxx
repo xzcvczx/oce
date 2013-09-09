@@ -19,9 +19,7 @@
 #include <Handle_PDataXtd_Shape.hxx>
 #endif
 
-#ifndef _PDF_Attribute_HeaderFile
 #include <PDF_Attribute.hxx>
-#endif
 
 
 class PDataXtd_Shape : public PDF_Attribute {

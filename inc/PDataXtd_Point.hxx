@@ -19,9 +19,7 @@
 #include <Handle_PDataXtd_Point.hxx>
 #endif
 
-#ifndef _PDF_Attribute_HeaderFile
 #include <PDF_Attribute.hxx>
-#endif
 
 
 class PDataXtd_Point : public PDF_Attribute {

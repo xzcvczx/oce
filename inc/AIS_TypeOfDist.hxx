@@ -6,7 +6,7 @@
 #ifndef _AIS_TypeOfDist_HeaderFile
 #define _AIS_TypeOfDist_HeaderFile
 
-//! To declare the type of distance. <br>
+//! Declares the type of plane. <br>
 enum AIS_TypeOfDist {
 AIS_TOD_Unknown,
 AIS_TOD_Horizontal,

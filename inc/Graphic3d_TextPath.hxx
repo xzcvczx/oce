@@ -6,7 +6,8 @@
 #ifndef _Graphic3d_TextPath_HeaderFile
 #define _Graphic3d_TextPath_HeaderFile
 
-//! Direction in which text is displayed. <br>
+//! Structural attribute indicating if it can be displayed <br>
+//!      in wireframe, shadow mode, or both. <br>
 enum Graphic3d_TextPath {
 Graphic3d_TP_UP,
 Graphic3d_TP_DOWN,

@@ -19,18 +19,10 @@
 #include <Handle_PTopoDS_HShape.hxx>
 #endif
 
-#ifndef _Handle_PTopoDS_TShape_HeaderFile
 #include <Handle_PTopoDS_TShape.hxx>
-#endif
-#ifndef _PTopLoc_Location_HeaderFile
 #include <PTopLoc_Location.hxx>
-#endif
-#ifndef _TopAbs_Orientation_HeaderFile
 #include <TopAbs_Orientation.hxx>
-#endif
-#ifndef _ObjMgt_ExternShareable_HeaderFile
 #include <ObjMgt_ExternShareable.hxx>
-#endif
 class PTopoDS_TShape;
 class PTopLoc_Location;
 

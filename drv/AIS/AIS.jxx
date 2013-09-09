@@ -46,6 +46,4 @@
 #ifndef _AIS_Drawer_HeaderFile
 #include <AIS_Drawer.hxx>
 #endif
-#ifndef _AIS_HeaderFile
 #include <AIS.hxx>
-#endif

@@ -9,28 +9,15 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
 
-#ifndef _Standard_CString_HeaderFile
 #include <Standard_CString.hxx>
-#endif
-#ifndef _Handle_TDF_Data_HeaderFile
 #include <Handle_TDF_Data.hxx>
-#endif
-#ifndef _Standard_Integer_HeaderFile
 #include <Standard_Integer.hxx>
-#endif
-#ifndef _Standard_Boolean_HeaderFile
 #include <Standard_Boolean.hxx>
-#endif
-#ifndef _Standard_Address_HeaderFile
 #include <Standard_Address.hxx>
-#endif
 class TopoDS_Shape;
 class TDF_Data;
 class TopTools_ListOfShape;
@@ -46,15 +33,24 @@ class QADNaming_DataMapIteratorOfDataMapOfShapeOfName;
 class QADNaming  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   
   Standard_EXPORT   static  TopoDS_Shape CurrentShape(const Standard_CString ShapeEntry,const Handle(TDF_Data)& Data) ;
   
   Standard_EXPORT   static  void GetShape(const Standard_CString ShapeEntry,const Handle(TDF_Data)& Data,TopTools_ListOfShape& Shapes) ;
-  //! Status = 0  Not  found, <br>
-//!          Status = 1  One  shape, <br>
-//!          Status = 2  More than one shape. <br>
+  
   Standard_EXPORT   static  TCollection_AsciiString GetEntry(const TopoDS_Shape& Shape,const Handle(TDF_Data)& Data,Standard_Integer& Status) ;
   //! returns label by first two arguments (df and entry string) <br>
   Standard_EXPORT   static  Standard_Boolean Entry(const Standard_Address theArguments,TDF_Label& theLabel) ;

@@ -25,6 +25,4 @@
 #ifndef _TColStd_Array1OfReal_HeaderFile
 #include <TColStd_Array1OfReal.hxx>
 #endif
-#ifndef _BRepFill_HeaderFile
 #include <BRepFill.hxx>
-#endif

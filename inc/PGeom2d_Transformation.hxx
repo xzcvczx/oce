@@ -19,12 +19,8 @@
 #include <Handle_PGeom2d_Transformation.hxx>
 #endif
 
-#ifndef _gp_Trsf2d_HeaderFile
 #include <gp_Trsf2d.hxx>
-#endif
-#ifndef _Standard_Persistent_HeaderFile
 #include <Standard_Persistent.hxx>
-#endif
 class gp_Trsf2d;
 
 

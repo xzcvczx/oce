@@ -19,12 +19,8 @@
 #include <Handle_PDataStd_UAttribute.hxx>
 #endif
 
-#ifndef _Handle_PCollection_HExtendedString_HeaderFile
 #include <Handle_PCollection_HExtendedString.hxx>
-#endif
-#ifndef _PDF_Attribute_HeaderFile
 #include <PDF_Attribute.hxx>
-#endif
 class PCollection_HExtendedString;
 
 

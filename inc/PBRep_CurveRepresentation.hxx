@@ -19,18 +19,10 @@
 #include <Handle_PBRep_CurveRepresentation.hxx>
 #endif
 
-#ifndef _PTopLoc_Location_HeaderFile
 #include <PTopLoc_Location.hxx>
-#endif
-#ifndef _Handle_PBRep_CurveRepresentation_HeaderFile
 #include <Handle_PBRep_CurveRepresentation.hxx>
-#endif
-#ifndef _Standard_Boolean_HeaderFile
 #include <Standard_Boolean.hxx>
-#endif
-#ifndef _Standard_Persistent_HeaderFile
 #include <Standard_Persistent.hxx>
-#endif
 class PTopLoc_Location;
 
 

@@ -19,12 +19,8 @@
 #include <Handle_PDF_TagSource.hxx>
 #endif
 
-#ifndef _Standard_Integer_HeaderFile
 #include <Standard_Integer.hxx>
-#endif
-#ifndef _PDF_Attribute_HeaderFile
 #include <PDF_Attribute.hxx>
-#endif
 
 
 class PDF_TagSource : public PDF_Attribute {

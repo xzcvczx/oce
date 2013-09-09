@@ -4,6 +4,4 @@
 #ifndef _TopoDS_Compound_HeaderFile
 #include <TopoDS_Compound.hxx>
 #endif
-#ifndef _QANewModTopOpe_HeaderFile
 #include <QANewModTopOpe.hxx>
-#endif

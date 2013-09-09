@@ -114,29 +114,6 @@ class Graphic3d_ArrayOfPrimitives;
 //!     A group contains the primitives and attributes <br>
 //!     for which the range is limited to this group. <br>
 //!     The primitives of a group can be globally suppressed. <br>
-//! <br>
-//!      There are two main group usage models: <br>
-//! <br>
-//!        1) Non-modifiable, or unbounded, group ('black box'). <br>
-//!           Developers can repeat a sequence of <br>
-//!           SetPrimitivesAspect() with AddPrimitiveArray() methods arbitrary number of times <br>
-//!           to define arbitrary number of primitive "blocks" each having individual apect values. <br>
-//!           Any modification of such a group is forbidden, as aspects and primitives are mixed <br>
-//!           in memory without any high-level logical structure, and any modification is very likely to result <br>
-//!           in corruption of the group internal data. <br>
-//!           It is necessary to recreate such a group as a whole when some attribute should be changed. <br>
-//!           (for example, in terms of AIS it is necessary to re-Compute() the whole presentation each time). <br>
-//!        2) Bounded group. Developers should specify the necessary group aspects with help of <br>
-//!           SetGroupPrimitivesAspect() and then add primitives to the group. <br>
-//!           Such a group have simplified organization in memory (a single block of attributes <br>
-//!           followed by a block of primitives) and therefore it can be modified, if it is necessary to <br>
-//!           change parameters of some aspect that has already been set, using methods: <br>
-//!           IsGroupPrimitivesAspectSet() to detect which aspect was set for primitives; <br>
-//!           GroupPrimitivesAspect() to read current aspect values <br>
-//!           and SetGroupPrimitivesAspect() to set new values. <br>
-//! <br>
-//!        Developers are strongly recommended to take all the above into account when filling Graphic3d_Group <br>
-//!        with aspects and primitives and choose the group usage model beforehand out of application needs. <br>
 class Graphic3d_Group : public MMgt_TShared {
 
 public:

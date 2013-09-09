@@ -34,6 +34,4 @@
 #ifndef _PPoly_PolygonOnTriangulation_HeaderFile
 #include <PPoly_PolygonOnTriangulation.hxx>
 #endif
-#ifndef _MgtPoly_HeaderFile
 #include <MgtPoly.hxx>
-#endif

@@ -6,7 +6,7 @@
 #ifndef _AlienImage_SUNRFFormat_HeaderFile
 #define _AlienImage_SUNRFFormat_HeaderFile
 
-//! Type of code for a SUNRF image. <br>
+//! Public definition of windows .gif AlienImage. <br>
 enum AlienImage_SUNRFFormat {
 AlienImage_SUNRF_Old,
 AlienImage_SUNRF_Standard,

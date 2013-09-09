@@ -19,18 +19,10 @@
 #include <Handle_ObjMgt_SeqNodeOfPSeqOfExtRef.hxx>
 #endif
 
-#ifndef _Handle_ObjMgt_ExternRef_HeaderFile
 #include <Handle_ObjMgt_ExternRef.hxx>
-#endif
-#ifndef _Handle_ObjMgt_SeqNodeOfPSeqOfExtRef_HeaderFile
 #include <Handle_ObjMgt_SeqNodeOfPSeqOfExtRef.hxx>
-#endif
-#ifndef _PMMgt_PManaged_HeaderFile
 #include <PMMgt_PManaged.hxx>
-#endif
-#ifndef _Handle_ObjMgt_PSeqOfExtRef_HeaderFile
 #include <Handle_ObjMgt_PSeqOfExtRef.hxx>
-#endif
 class ObjMgt_ExternRef;
 class ObjMgt_PSeqOfExtRef;
 class ObjMgt_SeqExplorerOfPSeqOfExtRef;

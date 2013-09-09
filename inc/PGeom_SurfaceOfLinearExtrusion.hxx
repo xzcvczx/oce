@@ -19,12 +19,8 @@
 #include <Handle_PGeom_SurfaceOfLinearExtrusion.hxx>
 #endif
 
-#ifndef _PGeom_SweptSurface_HeaderFile
 #include <PGeom_SweptSurface.hxx>
-#endif
-#ifndef _Handle_PGeom_Curve_HeaderFile
 #include <Handle_PGeom_Curve.hxx>
-#endif
 class PGeom_Curve;
 class gp_Dir;
 

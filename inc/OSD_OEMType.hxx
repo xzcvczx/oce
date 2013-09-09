@@ -6,8 +6,10 @@
 #ifndef _OSD_OEMType_HeaderFile
 #define _OSD_OEMType_HeaderFile
 
-//! This is set of possible machine types <br>
-//!          used in OSD_Host::MachineType <br>
+//! This is in fact a pointer to a function. <br>
+//!          This is not an "enumeration" but a trick to solve an omission <br>
+//!          from CDL. <br>
+//! C++: alias "typedef int (* OSD_Function)(...);" <br>
 enum OSD_OEMType {
 OSD_Unavailable,
 OSD_SUN,

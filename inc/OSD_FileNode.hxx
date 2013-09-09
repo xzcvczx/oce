@@ -9,9 +9,6 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
@@ -19,14 +16,17 @@
 #ifndef _OSD_Path_HeaderFile
 #include <OSD_Path.hxx>
 #endif
-#ifndef _Standard_Integer_HeaderFile
-#include <Standard_Integer.hxx>
+#ifndef _Standard_Address_HeaderFile
+#include <Standard_Address.hxx>
 #endif
 #ifndef _OSD_Error_HeaderFile
 #include <OSD_Error.hxx>
 #endif
 #ifndef _Standard_Boolean_HeaderFile
 #include <Standard_Boolean.hxx>
+#endif
+#ifndef _Standard_Integer_HeaderFile
+#include <Standard_Integer.hxx>
 #endif
 class OSD_OSDError;
 class Standard_ProgramError;
@@ -42,7 +42,18 @@ class Quantity_Date;
 class OSD_FileNode  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   //! Gets file name and path. <br>
   Standard_EXPORT     void Path(OSD_Path& Name) const;
@@ -99,11 +110,7 @@ protected:
 
 
 OSD_Path myPath;
-#ifdef WNT
 Standard_Address myFileChannel;
-#else
-Standard_Integer myFileChannel;
-#endif
 OSD_Error myError;
 
 

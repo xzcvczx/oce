@@ -9,34 +9,17 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
 
-#ifndef _Standard_CString_HeaderFile
 #include <Standard_CString.hxx>
-#endif
-#ifndef _Handle_Units_UnitsDictionary_HeaderFile
 #include <Handle_Units_UnitsDictionary.hxx>
-#endif
-#ifndef _Standard_Boolean_HeaderFile
 #include <Standard_Boolean.hxx>
-#endif
-#ifndef _Handle_Units_Quantity_HeaderFile
 #include <Handle_Units_Quantity.hxx>
-#endif
-#ifndef _Handle_Units_Lexicon_HeaderFile
 #include <Handle_Units_Lexicon.hxx>
-#endif
-#ifndef _Handle_Units_Dimensions_HeaderFile
 #include <Handle_Units_Dimensions.hxx>
-#endif
-#ifndef _Standard_Real_HeaderFile
 #include <Standard_Real.hxx>
-#endif
 class Units_UnitsDictionary;
 class Units_Quantity;
 class Units_Lexicon;
@@ -74,7 +57,18 @@ class Units_SequenceNodeOfQtsSequence;
 class Units  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   //! Defines the location of the file containing all the <br>
 //!          information useful in creating the dictionary of all <br>

@@ -19,12 +19,8 @@
 #include <Handle_PGeom_Line.hxx>
 #endif
 
-#ifndef _gp_Ax1_HeaderFile
 #include <gp_Ax1.hxx>
-#endif
-#ifndef _PGeom_Curve_HeaderFile
 #include <PGeom_Curve.hxx>
-#endif
 class gp_Ax1;
 
 

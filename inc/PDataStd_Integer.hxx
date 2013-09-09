@@ -19,12 +19,8 @@
 #include <Handle_PDataStd_Integer.hxx>
 #endif
 
-#ifndef _Standard_Integer_HeaderFile
 #include <Standard_Integer.hxx>
-#endif
-#ifndef _PDF_Attribute_HeaderFile
 #include <PDF_Attribute.hxx>
-#endif
 
 
 class PDataStd_Integer : public PDF_Attribute {

@@ -9,9 +9,6 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
@@ -34,13 +31,6 @@
 #ifndef _Standard_Integer_HeaderFile
 #include <Standard_Integer.hxx>
 #endif
-
-// The Convex method can conflict with Convex defined as an integer
-// in X.h
-#ifdef Convex
-#undef Convex
-#endif
-
 class TopoDS_TShape;
 class Standard_NullObject;
 class Standard_DomainError;
@@ -61,7 +51,18 @@ class TopLoc_Location;
 class TopoDS_Shape  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   //! Creates a NULL Shape referring to nothing. <br>
       TopoDS_Shape();

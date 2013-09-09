@@ -7,6 +7,4 @@
 #ifndef _PPoly_HArray1OfTriangle_HeaderFile
 #include <PPoly_HArray1OfTriangle.hxx>
 #endif
-#ifndef _PPoly_Triangulation_HeaderFile
 #include <PPoly_Triangulation.hxx>
-#endif

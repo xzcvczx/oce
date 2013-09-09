@@ -16,6 +16,4 @@
 #ifndef _IntTools_CArray1OfReal_HeaderFile
 #include <IntTools_CArray1OfReal.hxx>
 #endif
-#ifndef _IntTools_HeaderFile
 #include <IntTools.hxx>
-#endif

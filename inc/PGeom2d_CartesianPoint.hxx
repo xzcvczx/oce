@@ -19,12 +19,8 @@
 #include <Handle_PGeom2d_CartesianPoint.hxx>
 #endif
 
-#ifndef _gp_Pnt2d_HeaderFile
 #include <gp_Pnt2d.hxx>
-#endif
-#ifndef _PGeom2d_Point_HeaderFile
 #include <PGeom2d_Point.hxx>
-#endif
 class gp_Pnt2d;
 
 

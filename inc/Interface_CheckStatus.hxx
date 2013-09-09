@@ -6,10 +6,7 @@
 #ifndef _Interface_CheckStatus_HeaderFile
 #define _Interface_CheckStatus_HeaderFile
 
-//! Classifies checks <br>
-//!           OK : check is empty  Warning : Warning, no Fail   Fail : Fail <br>
-//!           Others to query : <br>
-//!           Any : any status   Message : Warning/Fail  NoFail : Warning/OK <br>
+//! validity state of anentity's content (see InterfaceModel) <br>
 enum Interface_CheckStatus {
 Interface_CheckOK,
 Interface_CheckWarning,

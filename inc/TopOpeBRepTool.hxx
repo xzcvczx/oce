@@ -9,22 +9,13 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
 
-#ifndef _Standard_Boolean_HeaderFile
 #include <Standard_Boolean.hxx>
-#endif
-#ifndef _Standard_OStream_HeaderFile
 #include <Standard_OStream.hxx>
-#endif
-#ifndef _TopOpeBRepTool_OutCurveType_HeaderFile
 #include <TopOpeBRepTool_OutCurveType.hxx>
-#endif
 class TopoDS_Face;
 class TopTools_DataMapOfShapeInteger;
 class TopTools_IndexedMapOfOrientedShape;
@@ -81,10 +72,20 @@ class TopOpeBRepTool_DataMapIteratorOfDataMapOfShapeface;
 class TopOpeBRepTool  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
-  //!  Fuse  edges (in a   wire) of a  shape   where we have <br>
-//!          useless vertex. <br>//! In case face <FF> is built on UV-non-connexed  wires <br>
+  //! In case face <FF> is built on UV-non-connexed  wires <br>
 //!          (with the two closing edges  FORWARD and REVERSED, in <br>
 //!          spite of one only), we find out the faulty edge, add <br>
 //!          the faulty shapes (edge,wire,face) to <MshNOK>. <br>

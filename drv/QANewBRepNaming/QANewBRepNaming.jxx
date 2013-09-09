@@ -10,6 +10,4 @@
 #ifndef _TopLoc_Location_HeaderFile
 #include <TopLoc_Location.hxx>
 #endif
-#ifndef _QANewBRepNaming_HeaderFile
 #include <QANewBRepNaming.hxx>
-#endif

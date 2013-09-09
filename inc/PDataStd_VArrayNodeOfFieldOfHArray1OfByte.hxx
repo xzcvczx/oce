@@ -19,15 +19,9 @@
 #include <Handle_PDataStd_VArrayNodeOfFieldOfHArray1OfByte.hxx>
 #endif
 
-#ifndef _Standard_Address_HeaderFile
 #include <Standard_Address.hxx>
-#endif
-#ifndef _Standard_Byte_HeaderFile
 #include <Standard_Byte.hxx>
-#endif
-#ifndef _PStandard_ArrayNode_HeaderFile
 #include <PStandard_ArrayNode.hxx>
-#endif
 class PDataStd_FieldOfHArray1OfByte;
 class PDataStd_VArrayTNodeOfFieldOfHArray1OfByte;
 

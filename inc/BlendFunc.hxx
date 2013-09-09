@@ -9,34 +9,17 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
 
-#ifndef _BlendFunc_SectionShape_HeaderFile
 #include <BlendFunc_SectionShape.hxx>
-#endif
-#ifndef _Standard_Real_HeaderFile
 #include <Standard_Real.hxx>
-#endif
-#ifndef _Standard_Integer_HeaderFile
 #include <Standard_Integer.hxx>
-#endif
-#ifndef _Convert_ParameterisationType_HeaderFile
 #include <Convert_ParameterisationType.hxx>
-#endif
-#ifndef _GeomAbs_Shape_HeaderFile
 #include <GeomAbs_Shape.hxx>
-#endif
-#ifndef _Standard_Boolean_HeaderFile
 #include <Standard_Boolean.hxx>
-#endif
-#ifndef _Handle_Adaptor3d_HSurface_HeaderFile
 #include <Handle_Adaptor3d_HSurface.hxx>
-#endif
 class TColStd_Array1OfReal;
 class TColStd_Array1OfInteger;
 class Adaptor3d_HSurface;
@@ -64,7 +47,18 @@ class BlendFunc_Tensor;
 class BlendFunc  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   
   Standard_EXPORT   static  void GetShape(const BlendFunc_SectionShape SectShape,const Standard_Real MaxAng,Standard_Integer& NbPoles,Standard_Integer& NbKnots,Standard_Integer& Degree,Convert_ParameterisationType& TypeConv) ;
@@ -74,7 +68,7 @@ public:
   Standard_EXPORT   static  void Mults(const BlendFunc_SectionShape SectShape,TColStd_Array1OfInteger& TMults) ;
   
   Standard_EXPORT   static  void GetMinimalWeights(const BlendFunc_SectionShape SectShape,const Convert_ParameterisationType TConv,const Standard_Real AngleMin,const Standard_Real AngleMax,TColStd_Array1OfReal& Weigths) ;
-  //! Used  to obtain the next level of continuity. <br>
+  
   Standard_EXPORT   static  GeomAbs_Shape NextShape(const GeomAbs_Shape S) ;
   
   Standard_EXPORT   static  Standard_Boolean ComputeNormal(const Handle(Adaptor3d_HSurface)& Surf,const gp_Pnt2d& p2d,gp_Vec& Normal) ;

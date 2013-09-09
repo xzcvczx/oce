@@ -9,34 +9,17 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
 
-#ifndef _OSD_Signals_HeaderFile
 #include <OSD_Signals.hxx>
-#endif
-#ifndef _Standard_Address_HeaderFile
 #include <Standard_Address.hxx>
-#endif
-#ifndef _Standard_Integer_HeaderFile
 #include <Standard_Integer.hxx>
-#endif
-#ifndef _Standard_Boolean_HeaderFile
 #include <Standard_Boolean.hxx>
-#endif
-#ifndef _Standard_Real_HeaderFile
 #include <Standard_Real.hxx>
-#endif
-#ifndef _Standard_PCharacter_HeaderFile
 #include <Standard_PCharacter.hxx>
-#endif
-#ifndef _Standard_CString_HeaderFile
 #include <Standard_CString.hxx>
-#endif
 class OSD_Error;
 class OSD_Protection;
 class OSD_Path;
@@ -65,7 +48,18 @@ class OSD_Thread;
 class OSD  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   
 //! Sets signal and exception handlers. <br>
@@ -115,7 +109,6 @@ public:
 //! ::throw() will be called) is regulated by the NO_CXX_EXCEPTIONS and <br>
 //! OCC_CONVERT_SIGNALS macros used during compilation of Open CASCADE and <br>
 //! user's code. Refer to Foundation Classes User's Guide for further details. <br>
-//! <br>
   Standard_EXPORT   static  void SetSignal(const Standard_Boolean theFloatingSignal = Standard_True) ;
   //! Returns available memory in Kilobytes. <br>
   Standard_EXPORT   static  Standard_Integer AvailableMemory() ;
@@ -159,31 +152,8 @@ protected:
 private:
 
   
-//!   1) Raise a exception when aSignal is a floating point signal. <br>
-//!    aSignal is SIGFPE. <br>
-//!    aCode is <br>
-//!        (FPE:  Floating Point Exception) <br>
-//!        (FLT:  FLoaTing operation.) <br>
-//!        (INT:  INTeger  operation.) <br>
-//!        (DIV:  DIVided by zero.) <br>
-//!        (OVF:  OVerFlow.) <br>
-//!        (INEX: INEXact operation.) <br>
-//! <br>
-//!        FPE_FLTDIV_TRAP  (the exception "DivideByZero" is raised.) <br>
-//!        FPE_INTDIV_TRAP  (the exception "DivideByZero" is raised.) <br>
-//! <br>
-//!        FPE_FLTOVF_TRAP  (the exception "Overflow" is raised.) <br>
-//!        FPE_INTOVF_TRAP  (the exception "Overflow" is raised.) <br>
-//! <br>
-//!        FPE_FLTINEX_TRAP (the exception "NumericError" is raised.) <br>
-//! <br>
-//!   2) Display the signal name, and call "exit" with signal number for <br>
-//!   a "Hardware" signal. <br>
-//! <br>
   Standard_EXPORT   static  void Handler(const OSD_Signals aSignal,const Standard_Address aSigInfo,const Standard_Address aContext) ;
   
-//! Handle access to null object and segmentation violation <br>
-//! <br>
   Standard_EXPORT   static  void SegvHandler(const OSD_Signals aSignal,const Standard_Address aSigInfo,const Standard_Address aContext) ;
   
 //!  1) Raises an exception if the exception due to floating point errors. <br>

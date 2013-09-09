@@ -16,6 +16,4 @@
 #ifndef _TopLoc_Location_HeaderFile
 #include <TopLoc_Location.hxx>
 #endif
-#ifndef _MgtTopLoc_HeaderFile
 #include <MgtTopLoc.hxx>
-#endif

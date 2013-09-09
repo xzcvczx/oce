@@ -19,15 +19,9 @@
 #include <Handle_PGeom2d_OffsetCurve.hxx>
 #endif
 
-#ifndef _Handle_PGeom2d_Curve_HeaderFile
 #include <Handle_PGeom2d_Curve.hxx>
-#endif
-#ifndef _Standard_Real_HeaderFile
 #include <Standard_Real.hxx>
-#endif
-#ifndef _PGeom2d_Curve_HeaderFile
 #include <PGeom2d_Curve.hxx>
-#endif
 class PGeom2d_Curve;
 
 

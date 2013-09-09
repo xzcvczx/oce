@@ -19,15 +19,9 @@
 #include <Handle_PColPGeom_VArrayNodeOfFieldOfHArray1OfBoundedCurve.hxx>
 #endif
 
-#ifndef _Standard_Address_HeaderFile
 #include <Standard_Address.hxx>
-#endif
-#ifndef _Handle_PGeom_BoundedCurve_HeaderFile
 #include <Handle_PGeom_BoundedCurve.hxx>
-#endif
-#ifndef _PStandard_ArrayNode_HeaderFile
 #include <PStandard_ArrayNode.hxx>
-#endif
 class PGeom_BoundedCurve;
 class PColPGeom_FieldOfHArray1OfBoundedCurve;
 class PColPGeom_VArrayTNodeOfFieldOfHArray1OfBoundedCurve;

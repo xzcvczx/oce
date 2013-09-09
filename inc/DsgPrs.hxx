@@ -9,37 +9,18 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
 
-#ifndef _Handle_Prs3d_Presentation_HeaderFile
 #include <Handle_Prs3d_Presentation.hxx>
-#endif
-#ifndef _Handle_Prs3d_AngleAspect_HeaderFile
 #include <Handle_Prs3d_AngleAspect.hxx>
-#endif
-#ifndef _DsgPrs_ArrowSide_HeaderFile
 #include <DsgPrs_ArrowSide.hxx>
-#endif
-#ifndef _Handle_Prs3d_LengthAspect_HeaderFile
 #include <Handle_Prs3d_LengthAspect.hxx>
-#endif
-#ifndef _Standard_Boolean_HeaderFile
 #include <Standard_Boolean.hxx>
-#endif
-#ifndef _Standard_Real_HeaderFile
 #include <Standard_Real.hxx>
-#endif
-#ifndef _Handle_Geom_Surface_HeaderFile
 #include <Handle_Geom_Surface.hxx>
-#endif
-#ifndef _Handle_Geom_Curve_HeaderFile
 #include <Handle_Geom_Curve.hxx>
-#endif
 class Prs3d_Presentation;
 class Prs3d_AngleAspect;
 class gp_Pnt;
@@ -82,7 +63,18 @@ class DsgPrs_ShadedPlanePresentation;
 class DsgPrs  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   //! draws symbols ((one or two) arrows,(one or two)points <br>
 //!          at thebeginning and at the end of the dimension <br>

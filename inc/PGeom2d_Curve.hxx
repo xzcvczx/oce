@@ -19,9 +19,7 @@
 #include <Handle_PGeom2d_Curve.hxx>
 #endif
 
-#ifndef _PGeom2d_Geometry_HeaderFile
 #include <PGeom2d_Geometry.hxx>
-#endif
 
 
 class PGeom2d_Curve : public PGeom2d_Geometry {

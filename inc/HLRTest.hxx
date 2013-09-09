@@ -9,22 +9,13 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
 
-#ifndef _Standard_CString_HeaderFile
 #include <Standard_CString.hxx>
-#endif
-#ifndef _Standard_Boolean_HeaderFile
 #include <Standard_Boolean.hxx>
-#endif
-#ifndef _Handle_HLRTopoBRep_OutLiner_HeaderFile
 #include <Handle_HLRTopoBRep_OutLiner.hxx>
-#endif
 class HLRAlgo_Projector;
 class TopoDS_Shape;
 class HLRTopoBRep_OutLiner;
@@ -42,9 +33,20 @@ class HLRTest_OutLiner;
 class HLRTest  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
-  //! Draw Variable Outliner to test <br>//! Set a Projector Variable <br>
+  //! Set a Projector Variable <br>
   Standard_EXPORT   static  void Set(const Standard_CString Name,const HLRAlgo_Projector& P) ;
   //! Get a projector variable <br>
 //!          Returns false if the variable is not a projector <br>

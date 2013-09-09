@@ -19,12 +19,8 @@
 #include <Handle_PXCAFDoc_Location.hxx>
 #endif
 
-#ifndef _PTopLoc_Location_HeaderFile
 #include <PTopLoc_Location.hxx>
-#endif
-#ifndef _PDF_Attribute_HeaderFile
 #include <PDF_Attribute.hxx>
-#endif
 class PTopLoc_Location;
 
 

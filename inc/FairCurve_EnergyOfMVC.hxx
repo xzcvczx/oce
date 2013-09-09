@@ -9,9 +9,6 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
@@ -60,7 +57,18 @@ class math_Vector;
 class FairCurve_EnergyOfMVC  : public FairCurve_Energy {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   //! Angles corresspond to the Ox axis <br>
   Standard_EXPORT   FairCurve_EnergyOfMVC(const Standard_Integer BSplOrder,const Handle(TColStd_HArray1OfReal)& FlatKnots,const Handle(TColgp_HArray1OfPnt2d)& Poles,const Standard_Integer ContrOrder1,const Standard_Integer ContrOrder2,const FairCurve_BattenLaw& Law,const Standard_Real PhysicalRatio,const Standard_Real LengthSliding,const Standard_Boolean FreeSliding = Standard_True,const Standard_Real Angle1 = 0,const Standard_Real Angle2 = 0,const Standard_Real Curvature1 = 0,const Standard_Real Curvature2 = 0);

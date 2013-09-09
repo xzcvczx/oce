@@ -9,16 +9,11 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
 
-#ifndef _Handle_IGESDraw_Protocol_HeaderFile
 #include <Handle_IGESDraw_Protocol.hxx>
-#endif
 class IGESDraw_Protocol;
 class IGESDraw_ConnectPoint;
 class IGESDraw_NetworkSubfigureDef;
@@ -64,7 +59,18 @@ class IGESDraw_HArray1OfViewKindEntity;
 class IGESDraw  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   //! Prepares dynamic data (Protocol, Modules) for this package <br>
   Standard_EXPORT   static  void Init() ;

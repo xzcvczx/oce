@@ -9,19 +9,12 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
 
-#ifndef _Standard_OStream_HeaderFile
 #include <Standard_OStream.hxx>
-#endif
-#ifndef _Standard_CString_HeaderFile
 #include <Standard_CString.hxx>
-#endif
 class Vrml_SFImage;
 class Vrml_SFRotation;
 class Vrml_AsciiText;
@@ -75,9 +68,20 @@ class Vrml_Instancing;
 class Vrml  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
-  //! Writes a header in anOStream (VRML file). <br>//! Writes one line of commentary in  anOStream (VRML file). <br>
+  //! Writes one line of commentary in  anOStream (VRML file). <br>
   Standard_EXPORT   static  Standard_OStream& VrmlHeaderWriter(Standard_OStream& anOStream) ;
   
   Standard_EXPORT   static  Standard_OStream& CommentWriter(const Standard_CString aComment,Standard_OStream& anOStream) ;

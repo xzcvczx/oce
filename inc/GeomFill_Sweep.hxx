@@ -9,9 +9,6 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
@@ -64,7 +61,18 @@ class Geom2d_Curve;
 class GeomFill_Sweep  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   
   Standard_EXPORT   GeomFill_Sweep(const Handle(GeomFill_LocationLaw)& Location,const Standard_Boolean WithKpart = Standard_True);
@@ -78,9 +86,6 @@ public:
 //!           Location(v) and Section(w) where <br>
 //!           w = SectionFirst + (v - First) / (Last-First) <br>
 //!             * (SectionLast - SectionFirst) <br>
-//! <br>
-//!           By default w = v, and First and Last are given by <br>
-//!           First and Last parameter stored in LocationLaw. <br>
   Standard_EXPORT     void SetDomain(const Standard_Real First,const Standard_Real Last,const Standard_Real SectionFirst,const Standard_Real SectionLast) ;
   //! Set Approximation Tolerance <br>
 //!    Tol3d : Tolerance to surface approximation <br>

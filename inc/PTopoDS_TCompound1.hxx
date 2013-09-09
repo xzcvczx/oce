@@ -19,12 +19,8 @@
 #include <Handle_PTopoDS_TCompound1.hxx>
 #endif
 
-#ifndef _TopAbs_ShapeEnum_HeaderFile
 #include <TopAbs_ShapeEnum.hxx>
-#endif
-#ifndef _PTopoDS_TShape1_HeaderFile
 #include <PTopoDS_TShape1.hxx>
-#endif
 
 
 class PTopoDS_TCompound1 : public PTopoDS_TShape1 {

@@ -9,9 +9,6 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
@@ -50,7 +47,18 @@ class Geom_Curve;
 class BRepFill_TrimSurfaceTool  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   
   Standard_EXPORT   BRepFill_TrimSurfaceTool(const Handle(Geom2d_Curve)& Bis,const TopoDS_Face& Face1,const TopoDS_Face& Face2,const TopoDS_Edge& Edge1,const TopoDS_Edge& Edge2,const Standard_Boolean Inv1,const Standard_Boolean Inv2);

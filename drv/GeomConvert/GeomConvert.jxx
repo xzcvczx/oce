@@ -22,6 +22,4 @@
 #ifndef _TColStd_HArray1OfInteger_HeaderFile
 #include <TColStd_HArray1OfInteger.hxx>
 #endif
-#ifndef _GeomConvert_HeaderFile
 #include <GeomConvert.hxx>
-#endif

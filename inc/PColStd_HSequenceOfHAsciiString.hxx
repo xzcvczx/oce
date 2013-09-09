@@ -19,30 +19,14 @@
 #include <Handle_PColStd_HSequenceOfHAsciiString.hxx>
 #endif
 
-#ifndef _Standard_Boolean_HeaderFile
 #include <Standard_Boolean.hxx>
-#endif
-#ifndef _Standard_Integer_HeaderFile
 #include <Standard_Integer.hxx>
-#endif
-#ifndef _Handle_PCollection_HAsciiString_HeaderFile
 #include <Handle_PCollection_HAsciiString.hxx>
-#endif
-#ifndef _Handle_PColStd_HSequenceOfHAsciiString_HeaderFile
 #include <Handle_PColStd_HSequenceOfHAsciiString.hxx>
-#endif
-#ifndef _Handle_PColStd_SeqNodeOfHSequenceOfHAsciiString_HeaderFile
 #include <Handle_PColStd_SeqNodeOfHSequenceOfHAsciiString.hxx>
-#endif
-#ifndef _Handle_Standard_Persistent_HeaderFile
 #include <Handle_Standard_Persistent.hxx>
-#endif
-#ifndef _Standard_Persistent_HeaderFile
 #include <Standard_Persistent.hxx>
-#endif
-#ifndef _Standard_OStream_HeaderFile
 #include <Standard_OStream.hxx>
-#endif
 class PCollection_HAsciiString;
 class PColStd_SeqNodeOfHSequenceOfHAsciiString;
 class Standard_Persistent;

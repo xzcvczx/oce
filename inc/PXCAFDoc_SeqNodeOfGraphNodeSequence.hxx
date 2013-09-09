@@ -19,18 +19,10 @@
 #include <Handle_PXCAFDoc_SeqNodeOfGraphNodeSequence.hxx>
 #endif
 
-#ifndef _Handle_PXCAFDoc_GraphNode_HeaderFile
 #include <Handle_PXCAFDoc_GraphNode.hxx>
-#endif
-#ifndef _Handle_PXCAFDoc_SeqNodeOfGraphNodeSequence_HeaderFile
 #include <Handle_PXCAFDoc_SeqNodeOfGraphNodeSequence.hxx>
-#endif
-#ifndef _PMMgt_PManaged_HeaderFile
 #include <PMMgt_PManaged.hxx>
-#endif
-#ifndef _Handle_PXCAFDoc_GraphNodeSequence_HeaderFile
 #include <Handle_PXCAFDoc_GraphNodeSequence.hxx>
-#endif
 class PXCAFDoc_GraphNode;
 class PXCAFDoc_GraphNodeSequence;
 class PXCAFDoc_SeqExplorerOfGraphNodeSequence;

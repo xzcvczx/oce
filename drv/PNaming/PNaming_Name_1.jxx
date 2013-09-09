@@ -7,6 +7,4 @@
 #ifndef _PCollection_HAsciiString_HeaderFile
 #include <PCollection_HAsciiString.hxx>
 #endif
-#ifndef _PNaming_Name_1_HeaderFile
 #include <PNaming_Name_1.hxx>
-#endif

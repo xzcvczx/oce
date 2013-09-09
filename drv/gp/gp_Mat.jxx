@@ -13,6 +13,4 @@
 #ifndef _gp_GTrsf_HeaderFile
 #include <gp_GTrsf.hxx>
 #endif
-#ifndef _gp_Mat_HeaderFile
 #include <gp_Mat.hxx>
-#endif

@@ -4,6 +4,4 @@
 #ifndef _Interface_Graph_HeaderFile
 #include <Interface_Graph.hxx>
 #endif
-#ifndef _IGESSelect_HeaderFile
 #include <IGESSelect.hxx>
-#endif

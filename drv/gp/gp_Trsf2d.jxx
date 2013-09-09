@@ -25,6 +25,4 @@
 #ifndef _gp_Mat2d_HeaderFile
 #include <gp_Mat2d.hxx>
 #endif
-#ifndef _gp_Trsf2d_HeaderFile
 #include <gp_Trsf2d.hxx>
-#endif

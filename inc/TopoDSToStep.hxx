@@ -9,37 +9,18 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
 
-#ifndef _Handle_TCollection_HAsciiString_HeaderFile
 #include <Handle_TCollection_HAsciiString.hxx>
-#endif
-#ifndef _TopoDSToStep_BuilderError_HeaderFile
 #include <TopoDSToStep_BuilderError.hxx>
-#endif
-#ifndef _TopoDSToStep_MakeFaceError_HeaderFile
 #include <TopoDSToStep_MakeFaceError.hxx>
-#endif
-#ifndef _TopoDSToStep_MakeWireError_HeaderFile
 #include <TopoDSToStep_MakeWireError.hxx>
-#endif
-#ifndef _TopoDSToStep_MakeEdgeError_HeaderFile
 #include <TopoDSToStep_MakeEdgeError.hxx>
-#endif
-#ifndef _TopoDSToStep_MakeVertexError_HeaderFile
 #include <TopoDSToStep_MakeVertexError.hxx>
-#endif
-#ifndef _Handle_Transfer_FinderProcess_HeaderFile
 #include <Handle_Transfer_FinderProcess.hxx>
-#endif
-#ifndef _Handle_Standard_Transient_HeaderFile
 #include <Handle_Standard_Transient.hxx>
-#endif
 class TCollection_HAsciiString;
 class Transfer_FinderProcess;
 class TopoDS_Shape;
@@ -79,7 +60,18 @@ class TopoDSToStep_MakeStepVertex;
 class TopoDSToStep  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   
   Standard_EXPORT   static  Handle_TCollection_HAsciiString DecodeBuilderError(const TopoDSToStep_BuilderError E) ;

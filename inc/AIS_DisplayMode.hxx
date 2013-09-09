@@ -7,10 +7,6 @@
 #define _AIS_DisplayMode_HeaderFile
 
 
-//! Sets display modes other than neutral point ones, <br>
-//! for interactive objects. The possibilities include: <br>
-//! -   wireframe, <br>
-//! -   shaded, <br>
 enum AIS_DisplayMode {
 AIS_WireFrame,
 AIS_Shaded

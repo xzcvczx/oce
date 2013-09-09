@@ -19,9 +19,7 @@
 #include <Handle_PCDM_Document.hxx>
 #endif
 
-#ifndef _Standard_Persistent_HeaderFile
 #include <Standard_Persistent.hxx>
-#endif
 
 
 class PCDM_Document : public Standard_Persistent {

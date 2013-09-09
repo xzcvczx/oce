@@ -10,6 +10,4 @@
 #ifndef _Draw_Interpretor_HeaderFile
 #include <Draw_Interpretor.hxx>
 #endif
-#ifndef _HLRTest_HeaderFile
 #include <HLRTest.hxx>
-#endif

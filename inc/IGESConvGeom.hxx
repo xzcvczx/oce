@@ -9,34 +9,17 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
 
-#ifndef _Standard_Integer_HeaderFile
 #include <Standard_Integer.hxx>
-#endif
-#ifndef _Handle_IGESGeom_SplineCurve_HeaderFile
 #include <Handle_IGESGeom_SplineCurve.hxx>
-#endif
-#ifndef _Standard_Real_HeaderFile
 #include <Standard_Real.hxx>
-#endif
-#ifndef _Handle_Geom_BSplineCurve_HeaderFile
 #include <Handle_Geom_BSplineCurve.hxx>
-#endif
-#ifndef _Handle_Geom2d_BSplineCurve_HeaderFile
 #include <Handle_Geom2d_BSplineCurve.hxx>
-#endif
-#ifndef _Handle_IGESGeom_SplineSurface_HeaderFile
 #include <Handle_IGESGeom_SplineSurface.hxx>
-#endif
-#ifndef _Handle_Geom_BSplineSurface_HeaderFile
 #include <Handle_Geom_BSplineSurface.hxx>
-#endif
 class IGESGeom_SplineCurve;
 class Geom_BSplineCurve;
 class Geom2d_BSplineCurve;
@@ -53,10 +36,20 @@ class IGESConvGeom_GeomBuilder;
 class IGESConvGeom  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
-  //! basic tool to build curves from IGESGeom (arrays of points, <br>
-//!           Transformations, evaluation of points in a datum) <br>//! Converts a SplineCurve from IGES to a BSplineCurve from CasCade <br>
+  //! Converts a SplineCurve from IGES to a BSplineCurve from CasCade <br>
 //!           <epscoef> gives tolerance to consider coefficient to be nul <br>
 //!           <epsgeom> gives tolerance to consider poles to be equal <br>
 //!           The returned value is a status with these possible values : <br>

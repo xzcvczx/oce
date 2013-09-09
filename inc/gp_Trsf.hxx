@@ -9,34 +9,17 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
 
-#ifndef _Standard_Real_HeaderFile
 #include <Standard_Real.hxx>
-#endif
-#ifndef _gp_TrsfForm_HeaderFile
 #include <gp_TrsfForm.hxx>
-#endif
-#ifndef _gp_Mat_HeaderFile
 #include <gp_Mat.hxx>
-#endif
-#ifndef _gp_XYZ_HeaderFile
 #include <gp_XYZ.hxx>
-#endif
-#ifndef _Standard_Storable_HeaderFile
 #include <Standard_Storable.hxx>
-#endif
-#ifndef _Standard_Boolean_HeaderFile
 #include <Standard_Boolean.hxx>
-#endif
-#ifndef _Standard_Integer_HeaderFile
 #include <Standard_Integer.hxx>
-#endif
 #ifndef _Standard_PrimitiveTypes_HeaderFile
 #include <Standard_PrimitiveTypes.hxx>
 #endif
@@ -70,15 +53,21 @@ Standard_EXPORT const Handle(Standard_Type)& STANDARD_TYPE(gp_Trsf);
 //!    | a21  a22  a23   a24 |   | y |      | y'| <br>
 //!    | a31  a32  a33   a34 |   | z |   =  | z'| <br>
 //!    |  0    0    0     1  |   | 1 |      | 1 | <br>
-//! <br>
-//!    where {V1, V2, V3} defines the vectorial part of the <br>
-//!    transformation and T defines the translation part of the <br>
-//!    transformation. <br>
 class gp_Trsf  {
 
 public:
-
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   //! Returns the identity transformation. <br>
       gp_Trsf();
@@ -309,9 +298,6 @@ public:
 //!  <me> * <me> * .......* <me>, N time. <br>
 //!  if N = 0 <me> = Identity <br>
 //!  if N < 0 <me> = <me>.Inverse() *...........* <me>.Inverse(). <br>
-//! <br>
-//!  Raises if N < 0 and if the matrix of the transformation not <br>
-//!  inversible. <br>
         gp_Trsf Powered(const Standard_Integer N) ;
   
         void Transforms(Standard_Real& X,Standard_Real& Y,Standard_Real& Z) const;

@@ -6,10 +6,7 @@
 #ifndef _Aspect_TypeOfText_HeaderFile
 #define _Aspect_TypeOfText_HeaderFile
 
-//! Definition of Text types <br>
-//! <br>
-//!          TOF_SOLID           Default text <br>
-//!          TOF_OUTLINE <br>
+//! Definition of line types <br>
 enum Aspect_TypeOfText {
 Aspect_TOT_SOLID,
 Aspect_TOT_OUTLINE

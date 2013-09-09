@@ -9,31 +9,16 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
 
-#ifndef _Standard_Real_HeaderFile
 #include <Standard_Real.hxx>
-#endif
-#ifndef _Standard_Boolean_HeaderFile
 #include <Standard_Boolean.hxx>
-#endif
-#ifndef _Standard_OStream_HeaderFile
 #include <Standard_OStream.hxx>
-#endif
-#ifndef _Handle_Message_ProgressIndicator_HeaderFile
 #include <Handle_Message_ProgressIndicator.hxx>
-#endif
-#ifndef _Standard_IStream_HeaderFile
 #include <Standard_IStream.hxx>
-#endif
-#ifndef _Standard_CString_HeaderFile
 #include <Standard_CString.hxx>
-#endif
 class TopoDS_Face;
 class TopoDS_Wire;
 class TopoDS_Edge;
@@ -98,7 +83,18 @@ class BRepTools_DataMapIteratorOfMapOfVertexPnt2d;
 class BRepTools  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   //! Returns in UMin,  UMax, VMin,  VMax  the  bounding <br>
 //!          values in the parametric space of F. <br>
@@ -163,8 +159,7 @@ public:
   //! Stores in the map  <M> all the 3D topology edges <br>
 //!          of <S>. <br>
   Standard_EXPORT   static  void Map3DEdges(const TopoDS_Shape& S,TopTools_IndexedMapOfShape& M) ;
-  //! Verifies that the edge  <E> is found two  times on <br>
-//!          the face <F> before calling BRep_Tool::IsClosed. <br>
+  
   Standard_EXPORT   static  Standard_Boolean IsReallyClosed(const TopoDS_Edge& E,const TopoDS_Face& F) ;
   //! Dumps the topological structure and the geometry <br>
 //!          of <Sh> on the stream <S>. <br>

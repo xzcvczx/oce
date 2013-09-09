@@ -9,22 +9,13 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
 
-#ifndef _Handle_Image_Image_HeaderFile
 #include <Handle_Image_Image.hxx>
-#endif
-#ifndef _Standard_Real_HeaderFile
 #include <Standard_Real.hxx>
-#endif
-#ifndef _Quantity_PlaneAngle_HeaderFile
 #include <Quantity_PlaneAngle.hxx>
-#endif
 class Image_Image;
 class Image_PixelInterpolation;
 class gp_GTrsf2d;
@@ -64,7 +55,18 @@ class Image_DataMapIteratorOfLookupTable;
 class Image  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   //! Zoom an Image with a specific PixelInterpolation method. <br>
   Standard_EXPORT   static  void Zoom(const Handle(Image_Image)& aImage,const Image_PixelInterpolation& aInterpolation,const Standard_Real aCoefX,const Standard_Real aCoefY) ;

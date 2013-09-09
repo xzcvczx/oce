@@ -19,30 +19,14 @@
 #include <Handle_PColPGeom_HArray1OfBoundedSurface.hxx>
 #endif
 
-#ifndef _Standard_Integer_HeaderFile
 #include <Standard_Integer.hxx>
-#endif
-#ifndef _Handle_PGeom_BoundedSurface_HeaderFile
 #include <Handle_PGeom_BoundedSurface.hxx>
-#endif
-#ifndef _Handle_Standard_Persistent_HeaderFile
 #include <Handle_Standard_Persistent.hxx>
-#endif
-#ifndef _PColPGeom_FieldOfHArray1OfBoundedSurface_HeaderFile
 #include <PColPGeom_FieldOfHArray1OfBoundedSurface.hxx>
-#endif
-#ifndef _Standard_Address_HeaderFile
 #include <Standard_Address.hxx>
-#endif
-#ifndef _Standard_Persistent_HeaderFile
 #include <Standard_Persistent.hxx>
-#endif
-#ifndef _Handle_PColPGeom_VArrayNodeOfFieldOfHArray1OfBoundedSurface_HeaderFile
 #include <Handle_PColPGeom_VArrayNodeOfFieldOfHArray1OfBoundedSurface.hxx>
-#endif
-#ifndef _Standard_OStream_HeaderFile
 #include <Standard_OStream.hxx>
-#endif
 class PGeom_BoundedSurface;
 class Standard_Persistent;
 class Standard_OutOfRange;

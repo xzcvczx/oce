@@ -19,9 +19,7 @@
 #include <Handle_PTopoDS_CompSolid.hxx>
 #endif
 
-#ifndef _PTopoDS_HShape_HeaderFile
 #include <PTopoDS_HShape.hxx>
-#endif
 
 
 class PTopoDS_CompSolid : public PTopoDS_HShape {

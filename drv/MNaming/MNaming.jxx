@@ -7,6 +7,4 @@
 #ifndef _MDF_ARDriverHSequence_HeaderFile
 #include <MDF_ARDriverHSequence.hxx>
 #endif
-#ifndef _MNaming_HeaderFile
 #include <MNaming.hxx>
-#endif

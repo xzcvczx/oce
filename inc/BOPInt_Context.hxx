@@ -76,22 +76,18 @@ Standard_EXPORT virtual  ~BOPInt_Context();
   
 //! Returns a reference to point classifier <br>
 //! for given face <br>
-//! <br>
   Standard_EXPORT     IntTools_FClass2d& FClass2d(const TopoDS_Face& aF) ;
   
 //! Returns a reference to point projector <br>
 //! for given face <br>
-//! <br>
   Standard_EXPORT     GeomAPI_ProjectPointOnSurf& ProjPS(const TopoDS_Face& aF) ;
   
 //! Returns a reference to point projector <br>
 //! for given edge <br>
-//! <br>
   Standard_EXPORT     GeomAPI_ProjectPointOnCurve& ProjPC(const TopoDS_Edge& aE) ;
   
 //! Returns a reference to point projector <br>
 //! for given curve <br>
-//! <br>
   Standard_EXPORT     GeomAPI_ProjectPointOnCurve& ProjPT(const Handle(Geom_Curve)& aC) ;
   
 //! Returns a reference to surface localization data <br>
@@ -100,7 +96,6 @@ Standard_EXPORT virtual  ~BOPInt_Context();
   
 //! Returns a reference to solid classifier <br>
 //! for given solid <br>
-//! <br>
   Standard_EXPORT     BRepClass3d_SolidClassifier& SolidClassifier(const TopoDS_Solid& aSolid) ;
   
 //! Returns a reference to 2D hatcher <br>
@@ -117,7 +112,6 @@ Standard_EXPORT virtual  ~BOPInt_Context();
 //! 1. the edge is degenerated (-1) <br>
 //! 2. the edge does not contain 3d curve and pcurves (-2) <br>
 //! 3. projection algorithm failed (-3) <br>
-//! <br>
   Standard_EXPORT     Standard_Integer ComputePE(const gp_Pnt& theP,const Standard_Real theTolP,const TopoDS_Edge& theE,Standard_Real& theT) ;
   
 //! Computes parameter of the vertex aV on <br>
@@ -129,7 +123,6 @@ Standard_EXPORT virtual  ~BOPInt_Context();
 //! 1. the edge is degenerated (-1) <br>
 //! 2. the edge does not contain 3d curve and pcurves (-2) <br>
 //! 3. projection algorithm failed (-3) <br>
-//! <br>
 //! Computes parameter aT of the vertex aV on <br>
 //! the edge aE. <br>
 //! Returns zero if the distance between vertex <br>
@@ -160,41 +153,34 @@ Standard_EXPORT virtual  ~BOPInt_Context();
   
 //! Returns the state of the point aP2D <br>
 //! relative to face aF <br>
-//! <br>
   Standard_EXPORT     TopAbs_State StatePointFace(const TopoDS_Face& aF,const gp_Pnt2d& aP2D) ;
   
 //! Returns true if the point aP2D is <br>
 //! inside the boundaries of the face aF, <br>
 //! otherwise returns false <br>
-//! <br>
   Standard_EXPORT     Standard_Boolean IsPointInFace(const TopoDS_Face& aF,const gp_Pnt2d& aP2D) ;
   
 //! Returns true if the point aP2D is <br>
 //! inside or on the boundaries of aF <br>
-//! <br>
   Standard_EXPORT     Standard_Boolean IsPointInOnFace(const TopoDS_Face& aF,const gp_Pnt2d& aP2D) ;
   
 //! Returns true if the distance between point aP3D <br>
 //! and face aF is less or equal to tolerance aTol <br>
 //! and projection point is inside or on the boundaries <br>
 //! of the face aF <br>
-//! <br>
   Standard_EXPORT     Standard_Boolean IsValidPointForFace(const gp_Pnt& aP3D,const TopoDS_Face& aF,const Standard_Real aTol) ;
   
 //! Returns true if IsValidPointForFace returns true <br>
 //! for both face aF1 and aF2 <br>
-//! <br>
   Standard_EXPORT     Standard_Boolean IsValidPointForFaces(const gp_Pnt& aP3D,const TopoDS_Face& aF1,const TopoDS_Face& aF2,const Standard_Real aTol) ;
   
 //! Returns true if IsValidPointForFace returns true <br>
 //! for some 3d point that lay on the curve aIC bounded by <br>
 //! parameters aT1 and aT2 <br>
-//! <br>
   Standard_EXPORT     Standard_Boolean IsValidBlockForFace(const Standard_Real aT1,const Standard_Real aT2,const IntTools_Curve& aIC,const TopoDS_Face& aF,const Standard_Real aTol) ;
   
 //! Returns true if IsValidBlockForFace returns true <br>
 //! for both faces aF1 and aF2 <br>
-//! <br>
   Standard_EXPORT     Standard_Boolean IsValidBlockForFaces(const Standard_Real aT1,const Standard_Real aT2,const IntTools_Curve& aIC,const TopoDS_Face& aF1,const TopoDS_Face& aF2,const Standard_Real aTol) ;
   
 //! Computes parameter of the vertex aV on <br>
@@ -219,7 +205,6 @@ Standard_EXPORT virtual  ~BOPInt_Context();
 //! the edge aE. <br>
 //! Returns false if projection algorithm failed <br>
 //! other wiese returns true. <br>
-//! <br>
   Standard_EXPORT     Standard_Boolean ProjectPointOnEdge(const gp_Pnt& aP,const TopoDS_Edge& aE,Standard_Real& aT) ;
 
 

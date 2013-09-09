@@ -13,6 +13,4 @@
 #ifndef _gp_Vec_HeaderFile
 #include <gp_Vec.hxx>
 #endif
-#ifndef _BlendFunc_HeaderFile
 #include <BlendFunc.hxx>
-#endif

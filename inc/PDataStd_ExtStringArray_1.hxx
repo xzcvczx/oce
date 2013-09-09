@@ -19,21 +19,11 @@
 #include <Handle_PDataStd_ExtStringArray_1.hxx>
 #endif
 
-#ifndef _Handle_PCollection_HExtendedString_HeaderFile
 #include <Handle_PCollection_HExtendedString.hxx>
-#endif
-#ifndef _Standard_Integer_HeaderFile
 #include <Standard_Integer.hxx>
-#endif
-#ifndef _Standard_Boolean_HeaderFile
 #include <Standard_Boolean.hxx>
-#endif
-#ifndef _Handle_PColStd_HArray1OfExtendedString_HeaderFile
 #include <Handle_PColStd_HArray1OfExtendedString.hxx>
-#endif
-#ifndef _PDF_Attribute_HeaderFile
 #include <PDF_Attribute.hxx>
-#endif
 class PCollection_HExtendedString;
 class PColStd_HArray1OfExtendedString;
 

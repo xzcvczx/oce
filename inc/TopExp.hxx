@@ -9,19 +9,12 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
 
-#ifndef _TopAbs_ShapeEnum_HeaderFile
 #include <TopAbs_ShapeEnum.hxx>
-#endif
-#ifndef _Standard_Boolean_HeaderFile
 #include <Standard_Boolean.hxx>
-#endif
 class TopoDS_Shape;
 class TopTools_IndexedMapOfShape;
 class TopTools_IndexedDataMapOfShapeListOfShape;
@@ -47,9 +40,20 @@ class TopExp_StackIteratorOfStackOfIterator;
 class TopExp  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
-  //! Tool to explore a topological data structure. <br>//! Stores in the map <M> all  the sub-shapes of <S> <br>
+  //! Stores in the map <M> all  the sub-shapes of <S> <br>
 //!          of type <T>. <br>
 //! <br>
 //!  Warning: The map is not cleared at first. <br>

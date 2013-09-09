@@ -19,6 +19,4 @@
 #ifndef _DBC_VArrayOfCharacter_HeaderFile
 #include <DBC_VArrayOfCharacter.hxx>
 #endif
-#ifndef _PCollection_HAsciiString_HeaderFile
 #include <PCollection_HAsciiString.hxx>
-#endif

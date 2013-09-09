@@ -19,6 +19,4 @@
 #ifndef _gp_Vec_HeaderFile
 #include <gp_Vec.hxx>
 #endif
-#ifndef _gp_Lin_HeaderFile
 #include <gp_Lin.hxx>
-#endif

@@ -25,6 +25,4 @@
 #ifndef _TopoDS_Compound_HeaderFile
 #include <TopoDS_Compound.hxx>
 #endif
-#ifndef _TopoDS_HeaderFile
 #include <TopoDS.hxx>
-#endif

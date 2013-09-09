@@ -19,6 +19,4 @@
 #ifndef _gp_Ax2d_HeaderFile
 #include <gp_Ax2d.hxx>
 #endif
-#ifndef _gp_HeaderFile
 #include <gp.hxx>
-#endif

@@ -19,18 +19,10 @@
 #include <Handle_PColgp_SeqNodeOfHSequenceOfDir.hxx>
 #endif
 
-#ifndef _gp_Dir_HeaderFile
 #include <gp_Dir.hxx>
-#endif
-#ifndef _Handle_PColgp_SeqNodeOfHSequenceOfDir_HeaderFile
 #include <Handle_PColgp_SeqNodeOfHSequenceOfDir.hxx>
-#endif
-#ifndef _PMMgt_PManaged_HeaderFile
 #include <PMMgt_PManaged.hxx>
-#endif
-#ifndef _Handle_PColgp_HSequenceOfDir_HeaderFile
 #include <Handle_PColgp_HSequenceOfDir.hxx>
-#endif
 class PColgp_HSequenceOfDir;
 class PColgp_SeqExplorerOfHSequenceOfDir;
 class gp_Dir;

@@ -10,6 +10,4 @@
 #ifndef _TopoDS_Shape_HeaderFile
 #include <TopoDS_Shape.hxx>
 #endif
-#ifndef _TestTopOpe_HeaderFile
 #include <TestTopOpe.hxx>
-#endif

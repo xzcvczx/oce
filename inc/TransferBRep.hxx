@@ -9,58 +9,25 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
 
-#ifndef _Handle_Transfer_Binder_HeaderFile
 #include <Handle_Transfer_Binder.hxx>
-#endif
-#ifndef _Handle_Transfer_TransientProcess_HeaderFile
 #include <Handle_Transfer_TransientProcess.hxx>
-#endif
-#ifndef _Handle_Standard_Transient_HeaderFile
 #include <Handle_Standard_Transient.hxx>
-#endif
-#ifndef _Handle_TopTools_HSequenceOfShape_HeaderFile
 #include <Handle_TopTools_HSequenceOfShape.hxx>
-#endif
-#ifndef _Standard_Boolean_HeaderFile
 #include <Standard_Boolean.hxx>
-#endif
-#ifndef _Handle_TColStd_HSequenceOfTransient_HeaderFile
 #include <Handle_TColStd_HSequenceOfTransient.hxx>
-#endif
-#ifndef _TopAbs_Orientation_HeaderFile
 #include <TopAbs_Orientation.hxx>
-#endif
-#ifndef _Handle_Transfer_FinderProcess_HeaderFile
 #include <Handle_Transfer_FinderProcess.hxx>
-#endif
-#ifndef _Handle_TransferBRep_ShapeMapper_HeaderFile
 #include <Handle_TransferBRep_ShapeMapper.hxx>
-#endif
-#ifndef _Handle_TransferBRep_HSequenceOfTransferResultInfo_HeaderFile
 #include <Handle_TransferBRep_HSequenceOfTransferResultInfo.hxx>
-#endif
-#ifndef _Handle_TColStd_HSequenceOfInteger_HeaderFile
 #include <Handle_TColStd_HSequenceOfInteger.hxx>
-#endif
-#ifndef _Handle_Message_Printer_HeaderFile
 #include <Handle_Message_Printer.hxx>
-#endif
-#ifndef _Handle_TransferBRep_TransferResultInfo_HeaderFile
 #include <Handle_TransferBRep_TransferResultInfo.hxx>
-#endif
-#ifndef _Standard_Integer_HeaderFile
 #include <Standard_Integer.hxx>
-#endif
-#ifndef _Handle_Interface_InterfaceModel_HeaderFile
 #include <Handle_Interface_InterfaceModel.hxx>
-#endif
 class TopoDS_Shape;
 class Transfer_Binder;
 class Transfer_TransientProcess;
@@ -95,7 +62,18 @@ class TransferBRep_SequenceNodeOfSequenceOfTransferResultInfo;
 class TransferBRep  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   //! Get the Shape recorded in a Binder <br>
 //!           If the Binder brings a multiple result, search for the Shape <br>

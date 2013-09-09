@@ -19,9 +19,7 @@
 #include <Handle_PGeom_Point.hxx>
 #endif
 
-#ifndef _PGeom_Geometry_HeaderFile
 #include <PGeom_Geometry.hxx>
-#endif
 
 
 class PGeom_Point : public PGeom_Geometry {

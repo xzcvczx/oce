@@ -9,9 +9,6 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
@@ -108,7 +105,18 @@ class Adaptor2d_HCurve2d;
 class GeomPlate_BuildPlateSurface  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   //! Constructor  compatible  with  the  old  version <br>
 //! with this constructor the constraint are given in a Array of Curve on Surface <br>
@@ -220,7 +228,6 @@ public:
   //! Returns the max angle between the result and the constraint Index <br>
   Standard_EXPORT     Standard_Real G1Error(const Standard_Integer Index) ;
   //! Returns the max difference of curvature between the result and the constraint Index <br>
-//! <br>
   Standard_EXPORT     Standard_Real G2Error(const Standard_Integer Index) ;
 
 

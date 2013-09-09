@@ -9,9 +9,6 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
@@ -24,10 +21,20 @@ class Draw_Interpretor;
 class DPrsStd  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
-  //! Presentation commands <br>
-//!          ===================== <br>//! to load all sketch commands <br>
+  //! to load all sketch commands <br>
   Standard_EXPORT   static  void AllCommands(Draw_Interpretor& I) ;
   //! to display....etc... ais presentation <br>
   Standard_EXPORT   static  void AISPresentationCommands(Draw_Interpretor& I) ;

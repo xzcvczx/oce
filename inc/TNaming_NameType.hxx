@@ -6,7 +6,8 @@
 #ifndef _TNaming_NameType_HeaderFile
 #define _TNaming_NameType_HeaderFile
 
-//! to store naming characteristcs <br>
+//! classes to store selected shape (involve naming algorithm) <br>
+//!          ========================================================= <br>//! to store naming characteristcs <br>
 enum TNaming_NameType {
 TNaming_UNKNOWN,
 TNaming_IDENTITY,

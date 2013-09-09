@@ -4,6 +4,4 @@
 #ifndef _PTopLoc_Location_HeaderFile
 #include <PTopLoc_Location.hxx>
 #endif
-#ifndef _PTopoDS_Shape1_HeaderFile
 #include <PTopoDS_Shape1.hxx>
-#endif

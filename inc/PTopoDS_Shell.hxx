@@ -19,9 +19,7 @@
 #include <Handle_PTopoDS_Shell.hxx>
 #endif
 
-#ifndef _PTopoDS_HShape_HeaderFile
 #include <PTopoDS_HShape.hxx>
-#endif
 
 
 class PTopoDS_Shell : public PTopoDS_HShape {

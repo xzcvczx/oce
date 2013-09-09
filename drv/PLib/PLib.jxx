@@ -16,6 +16,4 @@
 #ifndef _TColgp_Array2OfPnt_HeaderFile
 #include <TColgp_Array2OfPnt.hxx>
 #endif
-#ifndef _PLib_HeaderFile
 #include <PLib.hxx>
-#endif

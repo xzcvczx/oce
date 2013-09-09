@@ -9,9 +9,6 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
@@ -48,32 +45,38 @@ class TopoDS_Shape;
 class BOPTools_AlgoTools3D  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   
 //! Make the edge <aSp> seam edge for the face <aF> <br>
-//! <br>
   Standard_EXPORT   static  void DoSplitSEAMOnFace(const TopoDS_Edge& aSp,const TopoDS_Face& aF) ;
   
 //! Computes normal to the face <aF> for the point on the edge <aE> <br>
 //! at parameter <aT> <br>
-//! <br>
   Standard_EXPORT   static  void GetNormalToFaceOnEdge(const TopoDS_Edge& aE,const TopoDS_Face& aF,const Standard_Real aT,gp_Dir& aD) ;
   
 //! Computes normal to the face <aF> for the point on the edge <aE> <br>
 //! at arbitrary intermediate parameter <br>
-//! <br>
   Standard_EXPORT   static  void GetNormalToFaceOnEdge(const TopoDS_Edge& aE,const TopoDS_Face& aF,gp_Dir& aD) ;
   
 //! Returns 1  if scalar product aNF1* aNF2>0. <br>
 //! Returns 0  if directions aNF1 aNF2 coinside <br>
 //! Returns -1 if scalar product aNF1* aNF2<0. <br>
-//! <br>
   Standard_EXPORT   static  Standard_Integer SenseFlag(const gp_Dir& aNF1,const gp_Dir& aNF2) ;
   
 //! Compute normal <aD> to surface <aS> in point (U,V) <br>
 //! Returns TRUE if directions aD1U, aD1V coinside <br>
-//! <br>
   Standard_EXPORT   static  Standard_Boolean GetNormalToSurface(const Handle(Geom_Surface)& aS,const Standard_Real U,const Standard_Real V,gp_Dir& aD) ;
   
 //! Computes normal to the face <aF> for the 3D-point that <br>
@@ -81,12 +84,6 @@ public:
 //!  Output: <br>
 //! aPx  -  the 3D-point where the normal computed <br>
 //! aD   -  the normal; <br>
-//! <br>
-//!  Warning: <br>
-//! The normal is computed not exactly in the point on the <br>
-//! edge, but in point that is near to the edge towards to <br>
-//! the face material (so, we'll have approx. normal) <br>
-//! <br>
   Standard_EXPORT   static  void GetApproxNormalToFaceOnEdge(const TopoDS_Edge& aE,const TopoDS_Face& aF,const Standard_Real aT,gp_Pnt& aPx,gp_Dir& aD,Handle(BOPInt_Context)& theContext) ;
   
   Standard_EXPORT   static  void GetApproxNormalToFaceOnEdge(const TopoDS_Edge& theE,const TopoDS_Face& theF,const Standard_Real aT,gp_Pnt& aP,gp_Dir& aDNF,const Standard_Real aDt2D) ;
@@ -95,31 +92,26 @@ public:
 //! the edge <aE>   at parameter <aT>  towards to the <br>
 //! material of the face <aF>. The value of shifting in <br>
 //! 2D is <aDt2D> <br>
-//! <br>
   Standard_EXPORT   static  void PointNearEdge(const TopoDS_Edge& aE,const TopoDS_Face& aF,const Standard_Real aT,const Standard_Real aDt2D,gp_Pnt2d& aP2D,gp_Pnt& aPx) ;
   
 //! Computes the point <aPx>,  (<aP2D>)  that is near to <br>
 //! the edge <aE>   at parameter <aT>  towards to the <br>
 //! material of the face <aF>. The value of shifting in <br>
 //!  2D is  dt2D=BOPTools_AlgoTools3D::MinStepIn2d() <br>
-//! <br>
   Standard_EXPORT   static  void PointNearEdge(const TopoDS_Edge& aE,const TopoDS_Face& aF,const Standard_Real aT,gp_Pnt2d& aP2D,gp_Pnt& aPx,Handle(BOPInt_Context)& theContext) ;
   
 //! Compute the point <aPx>,  (<aP2D>)  that is near to <br>
 //! the edge <aE>   at arbitrary  parameter  towards to the <br>
 //! material of the face <aF>. The value of shifting in <br>
 //!  2D is  dt2D=BOPTools_AlgoTools3D::MinStepIn2d() <br>
-//! <br>
   Standard_EXPORT   static  void PointNearEdge(const TopoDS_Edge& aE,const TopoDS_Face& aF,gp_Pnt2d& aP2D,gp_Pnt& aPx,Handle(BOPInt_Context)& theContext) ;
   
 //! Returns simple step value that is used in 2D-computations <br>
 //! = 1.e-5 <br>
-//! <br>
   Standard_EXPORT   static  Standard_Real MinStepIn2d() ;
   
 //! Returns TRUE if the shape <aS> does not contain <br>
 //! geometry information  (e.g. empty compound) <br>
-//! <br>
   Standard_EXPORT   static  Standard_Boolean IsEmptyShape(const TopoDS_Shape& aS) ;
   
 //! Get the edge <aER> from the face <aF> that is the same as <br>

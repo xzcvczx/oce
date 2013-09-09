@@ -6,8 +6,7 @@
 #ifndef _Graphic3d_TypeOfStructure_HeaderFile
 #define _Graphic3d_TypeOfStructure_HeaderFile
 
-//! Structural attribute indicating if it can be displayed <br>
-//!      in wireframe, shadow mode, or both. <br>
+//! Nature of the reflection of a material. <br>
 enum Graphic3d_TypeOfStructure {
 Graphic3d_TOS_WIREFRAME,
 Graphic3d_TOS_SHADING,

@@ -19,12 +19,8 @@
 #include <Handle_PGeom2d_Conic.hxx>
 #endif
 
-#ifndef _gp_Ax22d_HeaderFile
 #include <gp_Ax22d.hxx>
-#endif
-#ifndef _PGeom2d_Curve_HeaderFile
 #include <PGeom2d_Curve.hxx>
-#endif
 class gp_Ax22d;
 
 

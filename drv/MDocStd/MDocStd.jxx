@@ -13,6 +13,4 @@
 #ifndef _Standard_GUID_HeaderFile
 #include <Standard_GUID.hxx>
 #endif
-#ifndef _MDocStd_HeaderFile
 #include <MDocStd.hxx>
-#endif

@@ -19,21 +19,11 @@
 #include <Handle_PBRep_PointRepresentation.hxx>
 #endif
 
-#ifndef _PTopLoc_Location_HeaderFile
 #include <PTopLoc_Location.hxx>
-#endif
-#ifndef _Standard_Real_HeaderFile
 #include <Standard_Real.hxx>
-#endif
-#ifndef _Handle_PBRep_PointRepresentation_HeaderFile
 #include <Handle_PBRep_PointRepresentation.hxx>
-#endif
-#ifndef _Standard_Boolean_HeaderFile
 #include <Standard_Boolean.hxx>
-#endif
-#ifndef _Standard_Persistent_HeaderFile
 #include <Standard_Persistent.hxx>
-#endif
 class PTopLoc_Location;
 
 

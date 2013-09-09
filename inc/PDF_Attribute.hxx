@@ -19,9 +19,7 @@
 #include <Handle_PDF_Attribute.hxx>
 #endif
 
-#ifndef _Standard_Persistent_HeaderFile
 #include <Standard_Persistent.hxx>
-#endif
 
 
 class PDF_Attribute : public Standard_Persistent {

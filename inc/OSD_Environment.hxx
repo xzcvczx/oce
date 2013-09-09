@@ -9,9 +9,6 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
@@ -37,13 +34,21 @@ class TCollection_AsciiString;
 //! Management of system environment variables <br>
 //!          An environment variable is composed of a variable name <br>
 //!          and its value. <br>
-//! <br>
-//!          To be portable among various systems, environment variables <br>
-//!          are local to a process. <br>
 class OSD_Environment  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   //! Creates the object Environment. <br>
   Standard_EXPORT   OSD_Environment();

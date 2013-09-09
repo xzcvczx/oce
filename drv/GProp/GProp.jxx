@@ -4,6 +4,4 @@
 #ifndef _gp_Mat_HeaderFile
 #include <gp_Mat.hxx>
 #endif
-#ifndef _GProp_HeaderFile
 #include <GProp.hxx>
-#endif

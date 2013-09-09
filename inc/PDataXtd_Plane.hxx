@@ -19,9 +19,7 @@
 #include <Handle_PDataXtd_Plane.hxx>
 #endif
 
-#ifndef _PDF_Attribute_HeaderFile
 #include <PDF_Attribute.hxx>
-#endif
 
 
 class PDataXtd_Plane : public PDF_Attribute {

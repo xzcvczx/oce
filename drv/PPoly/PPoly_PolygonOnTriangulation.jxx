@@ -7,6 +7,4 @@
 #ifndef _Standard_NullObject_HeaderFile
 #include <Standard_NullObject.hxx>
 #endif
-#ifndef _PPoly_PolygonOnTriangulation_HeaderFile
 #include <PPoly_PolygonOnTriangulation.hxx>
-#endif

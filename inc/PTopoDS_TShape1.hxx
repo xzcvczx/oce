@@ -19,31 +19,12 @@
 #include <Handle_PTopoDS_TShape1.hxx>
 #endif
 
-#ifndef _TopAbs_ShapeEnum_HeaderFile
 #include <TopAbs_ShapeEnum.hxx>
-#endif
-#ifndef _Standard_Boolean_HeaderFile
 #include <Standard_Boolean.hxx>
-#endif
-#ifndef _Handle_PTopoDS_HArray1OfShape1_HeaderFile
 #include <Handle_PTopoDS_HArray1OfShape1.hxx>
-#endif
-#ifndef _PTopoDS_Shape1_HeaderFile
 #include <PTopoDS_Shape1.hxx>
-#endif
-#ifndef _Standard_Integer_HeaderFile
 #include <Standard_Integer.hxx>
-#endif
-#ifndef _Standard_Persistent_HeaderFile
 #include <Standard_Persistent.hxx>
-#endif
-
-// The Convex method can conflict with Convex defined as an integer
-// in X.h
-#ifdef Convex
-#undef Convex
-#endif
-
 class PTopoDS_HArray1OfShape1;
 class PTopoDS_Shape1;
 

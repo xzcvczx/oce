@@ -9,46 +9,21 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
 
-#ifndef _Handle_TDataStd_Real_HeaderFile
 #include <Handle_TDataStd_Real.hxx>
-#endif
-#ifndef _Handle_TFunction_Function_HeaderFile
 #include <Handle_TFunction_Function.hxx>
-#endif
-#ifndef _Standard_Integer_HeaderFile
 #include <Standard_Integer.hxx>
-#endif
-#ifndef _Handle_TDataStd_Integer_HeaderFile
 #include <Handle_TDataStd_Integer.hxx>
-#endif
-#ifndef _Handle_TDataStd_Name_HeaderFile
 #include <Handle_TDataStd_Name.hxx>
-#endif
-#ifndef _Standard_Boolean_HeaderFile
 #include <Standard_Boolean.hxx>
-#endif
-#ifndef _Handle_TNaming_NamedShape_HeaderFile
 #include <Handle_TNaming_NamedShape.hxx>
-#endif
-#ifndef _Handle_TDataStd_UAttribute_HeaderFile
 #include <Handle_TDataStd_UAttribute.hxx>
-#endif
-#ifndef _TopAbs_ShapeEnum_HeaderFile
 #include <TopAbs_ShapeEnum.hxx>
-#endif
-#ifndef _Standard_CString_HeaderFile
 #include <Standard_CString.hxx>
-#endif
-#ifndef _Handle_TDF_Data_HeaderFile
 #include <Handle_TDF_Data.hxx>
-#endif
 class TDataStd_Real;
 class TFunction_Function;
 class TDataStd_Integer;
@@ -86,7 +61,18 @@ class DNaming_DataMapIteratorOfDataMapOfShapeOfName;
 class DNaming  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   
   Standard_EXPORT   static  Handle_TDataStd_Real GetReal(const Handle(TFunction_Function)& theFunction,const Standard_Integer thePosition) ;
@@ -130,9 +116,7 @@ public:
   Standard_EXPORT   static  TopoDS_Shape CurrentShape(const Standard_CString ShapeEntry,const Handle(TDF_Data)& Data) ;
   
   Standard_EXPORT   static  void GetShape(const Standard_CString ShapeEntry,const Handle(TDF_Data)& Data,TopTools_ListOfShape& Shapes) ;
-  //! Status = 0  Not  found, <br>
-//!          Status = 1  One  shape, <br>
-//!          Status = 2  More than one shape. <br>
+  
   Standard_EXPORT   static  TCollection_AsciiString GetEntry(const TopoDS_Shape& Shape,const Handle(TDF_Data)& Data,Standard_Integer& Status) ;
   //! Loads the Shape to DF <br>
   Standard_EXPORT   static  void LoadImportedShape(const TDF_Label& theResultLabel,const TopoDS_Shape& theShape) ;

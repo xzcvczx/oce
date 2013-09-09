@@ -4,6 +4,4 @@
 #ifndef _Adaptor2d_Curve2d_HeaderFile
 #include <Adaptor2d_Curve2d.hxx>
 #endif
-#ifndef _Geom2dAdaptor_HeaderFile
 #include <Geom2dAdaptor.hxx>
-#endif

@@ -19,15 +19,9 @@
 #include <Handle_PGeom_SweptSurface.hxx>
 #endif
 
-#ifndef _Handle_PGeom_Curve_HeaderFile
 #include <Handle_PGeom_Curve.hxx>
-#endif
-#ifndef _gp_Dir_HeaderFile
 #include <gp_Dir.hxx>
-#endif
-#ifndef _PGeom_Surface_HeaderFile
 #include <PGeom_Surface.hxx>
-#endif
 class PGeom_Curve;
 class gp_Dir;
 

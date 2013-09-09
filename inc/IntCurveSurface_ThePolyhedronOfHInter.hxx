@@ -9,9 +9,6 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
@@ -51,7 +48,18 @@ class gp_XYZ;
 class IntCurveSurface_ThePolyhedronOfHInter  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   
   Standard_EXPORT   IntCurveSurface_ThePolyhedronOfHInter(const Handle(Adaptor3d_HSurface)& Surface,const Standard_Integer nbdU,const Standard_Integer nbdV,const Standard_Real U1,const Standard_Real V1,const Standard_Real U2,const Standard_Real V2);

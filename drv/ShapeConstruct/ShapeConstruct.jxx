@@ -25,6 +25,4 @@
 #ifndef _TopoDS_Edge_HeaderFile
 #include <TopoDS_Edge.hxx>
 #endif
-#ifndef _ShapeConstruct_HeaderFile
 #include <ShapeConstruct.hxx>
-#endif

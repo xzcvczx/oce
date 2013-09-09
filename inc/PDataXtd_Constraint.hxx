@@ -19,24 +19,12 @@
 #include <Handle_PDataXtd_Constraint.hxx>
 #endif
 
-#ifndef _Handle_PDataStd_Real_HeaderFile
 #include <Handle_PDataStd_Real.hxx>
-#endif
-#ifndef _Standard_Integer_HeaderFile
 #include <Standard_Integer.hxx>
-#endif
-#ifndef _Handle_PDF_HAttributeArray1_HeaderFile
 #include <Handle_PDF_HAttributeArray1.hxx>
-#endif
-#ifndef _Handle_PNaming_NamedShape_HeaderFile
 #include <Handle_PNaming_NamedShape.hxx>
-#endif
-#ifndef _Standard_Boolean_HeaderFile
 #include <Standard_Boolean.hxx>
-#endif
-#ifndef _PDF_Attribute_HeaderFile
 #include <PDF_Attribute.hxx>
-#endif
 class PDataStd_Real;
 class PDF_HAttributeArray1;
 class PNaming_NamedShape;

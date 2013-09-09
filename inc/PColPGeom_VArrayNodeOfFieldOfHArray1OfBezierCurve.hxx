@@ -19,15 +19,9 @@
 #include <Handle_PColPGeom_VArrayNodeOfFieldOfHArray1OfBezierCurve.hxx>
 #endif
 
-#ifndef _Standard_Address_HeaderFile
 #include <Standard_Address.hxx>
-#endif
-#ifndef _Handle_PGeom_BezierCurve_HeaderFile
 #include <Handle_PGeom_BezierCurve.hxx>
-#endif
-#ifndef _PStandard_ArrayNode_HeaderFile
 #include <PStandard_ArrayNode.hxx>
-#endif
 class PGeom_BezierCurve;
 class PColPGeom_FieldOfHArray1OfBezierCurve;
 class PColPGeom_VArrayTNodeOfFieldOfHArray1OfBezierCurve;

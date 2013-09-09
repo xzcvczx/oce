@@ -9,9 +9,6 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
@@ -47,7 +44,18 @@ class Bnd_Box;
 class BOPInt_ShrunkRange  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   
   Standard_EXPORT   BOPInt_ShrunkRange();
@@ -75,7 +83,6 @@ public:
 //! 5 - projection of second vertex failed <br>
 //! 6 - shrunk range can not be computed <br>
 //!     shrunk range is setted to initial range <br>
-//! <br>
   Standard_EXPORT     Standard_Integer ErrorStatus() const;
 
 

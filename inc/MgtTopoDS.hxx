@@ -9,22 +9,13 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
 
-#ifndef _Handle_PTopoDS_HShape_HeaderFile
 #include <Handle_PTopoDS_HShape.hxx>
-#endif
-#ifndef _Handle_MgtTopoDS_TranslateTool_HeaderFile
 #include <Handle_MgtTopoDS_TranslateTool.hxx>
-#endif
-#ifndef _Handle_MgtTopoDS_TranslateTool1_HeaderFile
 #include <Handle_MgtTopoDS_TranslateTool1.hxx>
-#endif
 class PTopoDS_HShape;
 class TopoDS_Shape;
 class MgtTopoDS_TranslateTool;
@@ -75,10 +66,20 @@ class MgtTopoDS_TranslateTool1;
 class MgtTopoDS  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
-  //! Supports   the translation of   inherited parts of <br>
-//!          classes. Root of all translation tools. <br>//! Translates a Transient Shape onto a Persistent Shape <br>
+  //! Translates a Transient Shape onto a Persistent Shape <br>
   Standard_EXPORT   static  Handle_PTopoDS_HShape Translate(const TopoDS_Shape& S,const Handle(MgtTopoDS_TranslateTool)& T,PTColStd_TransientPersistentMap& M) ;
   //! Translates a Persistent Shape onto a Transient Shape <br>
   Standard_EXPORT   static  void Translate(const Handle(PTopoDS_HShape)& S,const Handle(MgtTopoDS_TranslateTool)& T,PTColStd_PersistentTransientMap& M,TopoDS_Shape& Sh) ;

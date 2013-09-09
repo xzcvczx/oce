@@ -19,15 +19,9 @@
 #include <Handle_PGeom_TrimmedCurve.hxx>
 #endif
 
-#ifndef _Standard_Real_HeaderFile
 #include <Standard_Real.hxx>
-#endif
-#ifndef _Handle_PGeom_Curve_HeaderFile
 #include <Handle_PGeom_Curve.hxx>
-#endif
-#ifndef _PGeom_BoundedCurve_HeaderFile
 #include <PGeom_BoundedCurve.hxx>
-#endif
 class PGeom_Curve;
 
 

@@ -22,6 +22,4 @@
 #ifndef _Resource_Manager_HeaderFile
 #include <Resource_Manager.hxx>
 #endif
-#ifndef _UTL_HeaderFile
 #include <UTL.hxx>
-#endif

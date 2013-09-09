@@ -19,12 +19,8 @@
 #include <Handle_PGeom_Vector.hxx>
 #endif
 
-#ifndef _gp_Vec_HeaderFile
 #include <gp_Vec.hxx>
-#endif
-#ifndef _PGeom_Geometry_HeaderFile
 #include <PGeom_Geometry.hxx>
-#endif
 class gp_Vec;
 
 

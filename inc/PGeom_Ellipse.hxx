@@ -19,12 +19,8 @@
 #include <Handle_PGeom_Ellipse.hxx>
 #endif
 
-#ifndef _Standard_Real_HeaderFile
 #include <Standard_Real.hxx>
-#endif
-#ifndef _PGeom_Conic_HeaderFile
 #include <PGeom_Conic.hxx>
-#endif
 class gp_Ax2;
 
 

@@ -10,6 +10,4 @@
 #ifndef _Adaptor3d_Surface_HeaderFile
 #include <Adaptor3d_Surface.hxx>
 #endif
-#ifndef _GeomAdaptor_HeaderFile
 #include <GeomAdaptor.hxx>
-#endif

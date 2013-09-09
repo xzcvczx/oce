@@ -19,30 +19,14 @@
 #include <Handle_PColStd_HSequenceOfReal.hxx>
 #endif
 
-#ifndef _Standard_Boolean_HeaderFile
 #include <Standard_Boolean.hxx>
-#endif
-#ifndef _Standard_Integer_HeaderFile
 #include <Standard_Integer.hxx>
-#endif
-#ifndef _Standard_Real_HeaderFile
 #include <Standard_Real.hxx>
-#endif
-#ifndef _Handle_PColStd_HSequenceOfReal_HeaderFile
 #include <Handle_PColStd_HSequenceOfReal.hxx>
-#endif
-#ifndef _Handle_PColStd_SeqNodeOfHSequenceOfReal_HeaderFile
 #include <Handle_PColStd_SeqNodeOfHSequenceOfReal.hxx>
-#endif
-#ifndef _Handle_Standard_Persistent_HeaderFile
 #include <Handle_Standard_Persistent.hxx>
-#endif
-#ifndef _Standard_Persistent_HeaderFile
 #include <Standard_Persistent.hxx>
-#endif
-#ifndef _Standard_OStream_HeaderFile
 #include <Standard_OStream.hxx>
-#endif
 class PColStd_SeqNodeOfHSequenceOfReal;
 class Standard_Persistent;
 class Standard_NoSuchObject;

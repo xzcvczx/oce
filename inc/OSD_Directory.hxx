@@ -9,9 +9,6 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
@@ -27,7 +24,18 @@ class OSD_Protection;
 class OSD_Directory  : public OSD_FileNode {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   //! Creates Directory object. <br>
 //!          It is initiliazed to an empty name. <br>
@@ -37,9 +45,6 @@ public:
   //! Creates (physically) a directory. <br>
 //!          When a directory of the same name already exists, no error is <br>
 //!          returned, and only <Protect> is applied to the existing directory. <br>
-//! <br>
-//!          If Build is used and <me> is instantiated without a name, <br>
-//!          OSDError is raised. <br>
   Standard_EXPORT     void Build(const OSD_Protection& Protect) ;
   //! Creates a temporary Directory in current directory. <br>
 //!          This directory is automatically removed when object dies. <br>

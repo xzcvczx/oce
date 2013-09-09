@@ -9,9 +9,6 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
@@ -38,7 +35,18 @@ class gp_Pnt2d;
 class StdPrs_ShadedShape  : public Prs3d_Root {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   //! Shades <theShape>. <br>
   Standard_EXPORT   static  void Add(const Handle(Prs3d_Presentation)& thePresentation,const TopoDS_Shape& theShape,const Handle(Prs3d_Drawer)& theDrawer) ;

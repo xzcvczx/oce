@@ -28,6 +28,4 @@
 #ifndef _ViewerTest_EventManager_HeaderFile
 #include <ViewerTest_EventManager.hxx>
 #endif
-#ifndef _ViewerTest_HeaderFile
 #include <ViewerTest.hxx>
-#endif

@@ -7,6 +7,4 @@
 #ifndef _XSControl_Vars_HeaderFile
 #include <XSControl_Vars.hxx>
 #endif
-#ifndef _XSControl_HeaderFile
 #include <XSControl.hxx>
-#endif

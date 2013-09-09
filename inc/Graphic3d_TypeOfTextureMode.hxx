@@ -6,7 +6,7 @@
 #ifndef _Graphic3d_TypeOfTextureMode_HeaderFile
 #define _Graphic3d_TypeOfTextureMode_HeaderFile
 
-//! Type of the texture projection. <br>
+//! Type of the texture file format. <br>
 enum Graphic3d_TypeOfTextureMode {
 Graphic3d_TOTM_OBJECT,
 Graphic3d_TOTM_SPHERE,

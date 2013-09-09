@@ -19,9 +19,6 @@
 #ifndef _TColStd_Array1OfInteger_HeaderFile
 #include <TColStd_Array1OfInteger.hxx>
 #endif
-#ifndef _TColStd_Array1OfBoolean_HeaderFile
-#include <TColStd_Array1OfBoolean.hxx>
-#endif
 #ifndef _Standard_Integer_HeaderFile
 #include <Standard_Integer.hxx>
 #endif

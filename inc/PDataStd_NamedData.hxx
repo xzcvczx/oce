@@ -19,48 +19,20 @@
 #include <Handle_PDataStd_NamedData.hxx>
 #endif
 
-#ifndef _Standard_Integer_HeaderFile
 #include <Standard_Integer.hxx>
-#endif
-#ifndef _Standard_Real_HeaderFile
 #include <Standard_Real.hxx>
-#endif
-#ifndef _Handle_PCollection_HExtendedString_HeaderFile
 #include <Handle_PCollection_HExtendedString.hxx>
-#endif
-#ifndef _Standard_Byte_HeaderFile
 #include <Standard_Byte.hxx>
-#endif
-#ifndef _Handle_PColStd_HArray1OfInteger_HeaderFile
 #include <Handle_PColStd_HArray1OfInteger.hxx>
-#endif
-#ifndef _Handle_PColStd_HArray1OfReal_HeaderFile
 #include <Handle_PColStd_HArray1OfReal.hxx>
-#endif
-#ifndef _Standard_Boolean_HeaderFile
 #include <Standard_Boolean.hxx>
-#endif
-#ifndef _Handle_PColStd_HArray2OfInteger_HeaderFile
 #include <Handle_PColStd_HArray2OfInteger.hxx>
-#endif
-#ifndef _Handle_PColStd_HArray1OfExtendedString_HeaderFile
 #include <Handle_PColStd_HArray1OfExtendedString.hxx>
-#endif
-#ifndef _Handle_PDataStd_HArray1OfByte_HeaderFile
 #include <Handle_PDataStd_HArray1OfByte.hxx>
-#endif
-#ifndef _Handle_PDataStd_HArray1OfHArray1OfInteger_HeaderFile
 #include <Handle_PDataStd_HArray1OfHArray1OfInteger.hxx>
-#endif
-#ifndef _Handle_PDataStd_HArray1OfHArray1OfReal_HeaderFile
 #include <Handle_PDataStd_HArray1OfHArray1OfReal.hxx>
-#endif
-#ifndef _PDF_Attribute_HeaderFile
 #include <PDF_Attribute.hxx>
-#endif
-#ifndef _Handle_TColStd_HArray2OfInteger_HeaderFile
 #include <Handle_TColStd_HArray2OfInteger.hxx>
-#endif
 class PCollection_HExtendedString;
 class PColStd_HArray1OfInteger;
 class PColStd_HArray1OfReal;

@@ -19,12 +19,8 @@
 #include <Handle_PGeom2d_Parabola.hxx>
 #endif
 
-#ifndef _Standard_Real_HeaderFile
 #include <Standard_Real.hxx>
-#endif
-#ifndef _PGeom2d_Conic_HeaderFile
 #include <PGeom2d_Conic.hxx>
-#endif
 class gp_Ax22d;
 
 

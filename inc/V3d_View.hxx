@@ -248,9 +248,6 @@ class gp_Ax3;
 //!          the continuation of this gesture in putting the method <br>
 //!          into operation. <br>
 //!          Example : Shifting the eye-view along the screen axes. <br>
-//! <br>
-//!              View->Move(10.,20.,0.,True)     (Starting motion) <br>
-//!              View->Move(15.,-5.,0.,False)    (Next motion) <br>
 class V3d_View : public MMgt_TShared {
 
 public:
@@ -618,7 +615,6 @@ public:
   Standard_EXPORT     void ResetViewMapping() ;
   //! Resets the centring and the orientation of the view <br>
 //!          Updates the view <br>
-//! <br>
   Standard_EXPORT     void Reset(const Standard_Boolean update = Standard_True) ;
   //! Converts the PIXEL value <br>
 //!           to a value in the projection plane. <br>
@@ -818,7 +814,6 @@ public:
 //!          the graphic managed itself exposure,resizing ... <br>
 //!          if <RetainMode> is FALSE. <br>
 //!          the application must managed itself exposure,resizing ... <br>
-//! <br>
   Standard_EXPORT     Standard_Boolean TransientManagerBeginDraw(const Standard_Boolean DoubleBuffer = Standard_False,const Standard_Boolean RetainMode = Standard_False) const;
   //! Clear all transient graphics in the view <aView> <br>
   Standard_EXPORT     void TransientManagerClearDraw() const;
@@ -829,7 +824,6 @@ public:
 //!         the associated view. <br>
 //!          Returns FALSE ,if nothing works because something <br>
 //!         is wrong for the transient principle : <br>
-//! <br>
   Standard_EXPORT     Standard_Boolean TransientManagerBeginAddDraw() const;
   //! Switches computed HLR mode in the view <br>
   Standard_EXPORT     void SetComputedMode(const Standard_Boolean aMode) ;

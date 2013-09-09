@@ -49,6 +49,4 @@
 #ifndef _gp_Torus_HeaderFile
 #include <gp_Torus.hxx>
 #endif
-#ifndef _ProjLib_HeaderFile
 #include <ProjLib.hxx>
-#endif

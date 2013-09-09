@@ -4,6 +4,4 @@
 #ifndef _PDF_HAttributeArray1_HeaderFile
 #include <PDF_HAttributeArray1.hxx>
 #endif
-#ifndef _PDF_Data_HeaderFile
 #include <PDF_Data.hxx>
-#endif

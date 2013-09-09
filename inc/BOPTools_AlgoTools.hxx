@@ -9,9 +9,6 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
@@ -64,7 +61,18 @@ class IntTools_Range;
 class BOPTools_AlgoTools  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   
   Standard_EXPORT   static  Standard_Integer ComputeVV(const TopoDS_Vertex& aV1,const gp_Pnt& aP2,const Standard_Real aTolP2) ;
@@ -176,77 +184,62 @@ public:
 //! accepted for correction.  If real value of the tolerance <br>
 //! will be greater than  <aTolMax>, the correction does not <br>
 //! perform. <br>
-//! <br>
   Standard_EXPORT   static  void CorrectTolerances(const TopoDS_Shape& theS,const Standard_Real theTolMax = 0.0001) ;
   
 //! Provides valid values of tolerances for the shape <theS> <br>
 //! in  terms of BRepCheck_InvalidCurveOnSurface. <br>
-//! <br>
   Standard_EXPORT   static  void CorrectCurveOnSurface(const TopoDS_Shape& theS,const Standard_Real theTolMax = 0.0001) ;
   
 //! Provides valid values of tolerances for the shape <theS> <br>
 //! in  terms of BRepCheck_InvalidPointOnCurve. <br>
-//! <br>
   Standard_EXPORT   static  void CorrectPointOnCurve(const TopoDS_Shape& theS,const Standard_Real theTolMax = 0.0001) ;
   
 //! Make a vertex using 3D-point <aP1> and 3D-tolerance value <aTol> <br>
-//! <br>
   Standard_EXPORT   static  void MakeNewVertex(const gp_Pnt& aP1,const Standard_Real aTol,TopoDS_Vertex& aNewVertex) ;
   
 //! Make a vertex using couple of vertices  <aV1, aV2> <br>
-//! <br>
   Standard_EXPORT   static  void MakeNewVertex(const TopoDS_Vertex& aV1,const TopoDS_Vertex& aV2,TopoDS_Vertex& aNewVertex) ;
   
 //! Make a vertex in place of intersection between two edges <br>
 //! <aE1, aE2> with parameters <aP1, aP2> <br>
-//! <br>
   Standard_EXPORT   static  void MakeNewVertex(const TopoDS_Edge& aE1,const Standard_Real aP1,const TopoDS_Edge& aE2,const Standard_Real aP2,TopoDS_Vertex& aNewVertex) ;
   
 //! Make a vertex in place of intersection between the edge <aE1> <br>
 //! with parameter <aP1> and the face <aF2> <br>
-//! <br>
   Standard_EXPORT   static  void MakeNewVertex(const TopoDS_Edge& aE1,const Standard_Real aP1,const TopoDS_Face& aF2,TopoDS_Vertex& aNewVertex) ;
   
 //! Compute a 3D-point on the edge <aEdge> at parameter <aPrm> <br>
-//! <br>
   Standard_EXPORT   static  void PointOnEdge(const TopoDS_Edge& aEdge,const Standard_Real aPrm,gp_Pnt& aP) ;
   
 //! Make the edge from base edge <aE1> and two vertices <aV1,aV2> <br>
 //! at parameters <aP1,aP2> <br>
-//! <br>
   Standard_EXPORT   static  void MakeSplitEdge(const TopoDS_Edge& aE1,const TopoDS_Vertex& aV1,const Standard_Real aP1,const TopoDS_Vertex& aV2,const Standard_Real aP2,TopoDS_Edge& aNewEdge) ;
   
 //! Make the edge from 3D-Curve <aIC>  and two vertices <aV1,aV2> <br>
 //! at parameters <aP1,aP2> <br>
-//! <br>
   Standard_EXPORT   static  void MakeSectEdge(const IntTools_Curve& aIC,const TopoDS_Vertex& aV1,const Standard_Real aP1,const TopoDS_Vertex& aV2,const Standard_Real aP2,TopoDS_Edge& aNewEdge) ;
   
 //! Update the tolerance value for vertex  <aV> <br>
 //! taking into account the fact that <aV> lays on <br>
 //! the curve <aIC> <br>
-//! <br>
   Standard_EXPORT   static  void UpdateVertex(const IntTools_Curve& aIC,const Standard_Real aT,const TopoDS_Vertex& aV) ;
   
 //! Update the tolerance value for vertex  <aV> <br>
 //! taking into account the fact that <aV> lays on <br>
 //! the edge <aE> <br>
-//! <br>
   Standard_EXPORT   static  void UpdateVertex(const TopoDS_Edge& aE,const Standard_Real aT,const TopoDS_Vertex& aV) ;
   
 //! Update the tolerance value for vertex  <aVN> <br>
 //! taking into account the fact that <aVN> should <br>
 //! cover tolerance zone of <aVF> <br>
-//! <br>
   Standard_EXPORT   static  void UpdateVertex(const TopoDS_Vertex& aVF,const TopoDS_Vertex& aVN) ;
   
 //! Correct shrunk range <aSR> taking into account 3D-curve <br>
 //! resolution and corresp. tolerances' values of <aE1>, <aE2> <br>
-//! <br>
   Standard_EXPORT   static  void CorrectRange(const TopoDS_Edge& aE1,const TopoDS_Edge& aE2,const IntTools_Range& aSR,IntTools_Range& aNewSR) ;
   
 //! Correct shrunk range <aSR> taking into account 3D-curve <br>
 //! resolution and corresp. tolerances' values of <aE>, <aF> <br>
-//! <br>
   Standard_EXPORT   static  void CorrectRange(const TopoDS_Edge& aE,const TopoDS_Face& aF,const IntTools_Range& aSR,IntTools_Range& aNewSR) ;
   
 //! Returns TRUE if PaveBlock <aPB> lays on the face <aF>, i.e <br>
@@ -258,7 +251,6 @@ public:
   Standard_EXPORT   static  Standard_Boolean IsMicroEdge(const TopoDS_Edge& theEdge,const Handle(BOPInt_Context)& theContext) ;
   
 //! Corrects tolerance values of the sub-shapes of the shape <theS> if needed. <br>
-//! <br>
   Standard_EXPORT   static  void CorrectShapeTolerances(const TopoDS_Shape& theS) ;
   
 //! Retutns dimension of the shape <theS>. <br>

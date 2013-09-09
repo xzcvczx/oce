@@ -19,15 +19,9 @@
 #include <Handle_PGeom_SurfaceOfRevolution.hxx>
 #endif
 
-#ifndef _gp_Pnt_HeaderFile
 #include <gp_Pnt.hxx>
-#endif
-#ifndef _PGeom_SweptSurface_HeaderFile
 #include <PGeom_SweptSurface.hxx>
-#endif
-#ifndef _Handle_PGeom_Curve_HeaderFile
 #include <Handle_PGeom_Curve.hxx>
-#endif
 class PGeom_Curve;
 class gp_Dir;
 class gp_Pnt;

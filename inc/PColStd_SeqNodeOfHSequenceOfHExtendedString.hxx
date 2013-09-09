@@ -19,18 +19,10 @@
 #include <Handle_PColStd_SeqNodeOfHSequenceOfHExtendedString.hxx>
 #endif
 
-#ifndef _Handle_PCollection_HExtendedString_HeaderFile
 #include <Handle_PCollection_HExtendedString.hxx>
-#endif
-#ifndef _Handle_PColStd_SeqNodeOfHSequenceOfHExtendedString_HeaderFile
 #include <Handle_PColStd_SeqNodeOfHSequenceOfHExtendedString.hxx>
-#endif
-#ifndef _PMMgt_PManaged_HeaderFile
 #include <PMMgt_PManaged.hxx>
-#endif
-#ifndef _Handle_PColStd_HSequenceOfHExtendedString_HeaderFile
 #include <Handle_PColStd_HSequenceOfHExtendedString.hxx>
-#endif
 class PCollection_HExtendedString;
 class PColStd_HSequenceOfHExtendedString;
 class PColStd_SeqExplorerOfHSequenceOfHExtendedString;

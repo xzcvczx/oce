@@ -7,6 +7,4 @@
 #ifndef _TColgp_Array2OfVec_HeaderFile
 #include <TColgp_Array2OfVec.hxx>
 #endif
-#ifndef _CSLib_HeaderFile
 #include <CSLib.hxx>
-#endif

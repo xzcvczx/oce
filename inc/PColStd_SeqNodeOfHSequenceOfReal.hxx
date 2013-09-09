@@ -19,18 +19,10 @@
 #include <Handle_PColStd_SeqNodeOfHSequenceOfReal.hxx>
 #endif
 
-#ifndef _Standard_Real_HeaderFile
 #include <Standard_Real.hxx>
-#endif
-#ifndef _Handle_PColStd_SeqNodeOfHSequenceOfReal_HeaderFile
 #include <Handle_PColStd_SeqNodeOfHSequenceOfReal.hxx>
-#endif
-#ifndef _PMMgt_PManaged_HeaderFile
 #include <PMMgt_PManaged.hxx>
-#endif
-#ifndef _Handle_PColStd_HSequenceOfReal_HeaderFile
 #include <Handle_PColStd_HSequenceOfReal.hxx>
-#endif
 class PColStd_HSequenceOfReal;
 class PColStd_SeqExplorerOfHSequenceOfReal;
 

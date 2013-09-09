@@ -16,6 +16,4 @@
 #ifndef _TColStd_HArray1OfInteger_HeaderFile
 #include <TColStd_HArray1OfInteger.hxx>
 #endif
-#ifndef _Geom2dConvert_HeaderFile
 #include <Geom2dConvert.hxx>
-#endif

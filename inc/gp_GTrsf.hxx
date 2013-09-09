@@ -9,37 +9,18 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
 
-#ifndef _gp_Mat_HeaderFile
 #include <gp_Mat.hxx>
-#endif
-#ifndef _gp_XYZ_HeaderFile
 #include <gp_XYZ.hxx>
-#endif
-#ifndef _gp_TrsfForm_HeaderFile
 #include <gp_TrsfForm.hxx>
-#endif
-#ifndef _Standard_Real_HeaderFile
 #include <Standard_Real.hxx>
-#endif
-#ifndef _Standard_Storable_HeaderFile
 #include <Standard_Storable.hxx>
-#endif
-#ifndef _Standard_Integer_HeaderFile
 #include <Standard_Integer.hxx>
-#endif
-#ifndef _Standard_Boolean_HeaderFile
 #include <Standard_Boolean.hxx>
-#endif
-#ifndef _gp_Trsf_HeaderFile
 #include <gp_Trsf.hxx>
-#endif
 #ifndef _Standard_PrimitiveTypes_HeaderFile
 #include <Standard_PrimitiveTypes.hxx>
 #endif
@@ -71,25 +52,21 @@ Standard_EXPORT const Handle(Standard_Type)& STANDARD_TYPE(gp_GTrsf);
 //!    | a21  a22  a23   a24 |   | y |      | y'| <br>
 //!    | a31  a32  a33   a34 |   | z |   =  | z'| <br>
 //!    |  0    0    0     1  |   | 1 |      | 1 | <br>
-//! <br>
-//!    where {V1, V2, V3} define the vectorial part of the <br>
-//!    transformation and T defines the translation part of the <br>
-//!    transformation. <br>
-//!  Warning <br>
-//! A GTrsf transformation is only applicable to <br>
-//! coordinates. Be careful if you apply such a <br>
-//! transformation to all points of a geometric object, as <br>
-//! this can change the nature of the object and thus <br>
-//! render it incoherent! <br>
-//! Typically, a circle is transformed into an ellipse by an <br>
-//! affinity transformation. To avoid modifying the nature of <br>
-//! an object, use a gp_Trsf transformation instead, as <br>
-//! objects of this class respect the nature of geometric objects. <br>
 class gp_GTrsf  {
 
 public:
-
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   //! Returns the Identity transformation. <br>
       gp_GTrsf();
@@ -220,9 +197,6 @@ public:
 //!  I.e.:  <me> * <me> * .......* <me>, N time. <br>
 //!  if N =0 <me> = Identity <br>
 //!  if N < 0 <me> = <me>.Inverse() *...........* <me>.Inverse(). <br>
-//! <br>
-//!  Raises an exception if N < 0 and if the matrix of the <br>
-//!  transformation not inversible. <br>
         gp_GTrsf Powered(const Standard_Integer N) const;
   
         void Transforms(gp_XYZ& Coord) const;

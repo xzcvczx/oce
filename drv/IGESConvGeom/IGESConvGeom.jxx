@@ -13,6 +13,4 @@
 #ifndef _Geom_BSplineSurface_HeaderFile
 #include <Geom_BSplineSurface.hxx>
 #endif
-#ifndef _IGESConvGeom_HeaderFile
 #include <IGESConvGeom.hxx>
-#endif

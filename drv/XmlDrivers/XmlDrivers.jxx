@@ -10,6 +10,4 @@
 #ifndef _CDM_MessageDriver_HeaderFile
 #include <CDM_MessageDriver.hxx>
 #endif
-#ifndef _XmlDrivers_HeaderFile
 #include <XmlDrivers.hxx>
-#endif

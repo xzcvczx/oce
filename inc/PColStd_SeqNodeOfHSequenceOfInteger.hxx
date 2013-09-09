@@ -19,18 +19,10 @@
 #include <Handle_PColStd_SeqNodeOfHSequenceOfInteger.hxx>
 #endif
 
-#ifndef _Standard_Integer_HeaderFile
 #include <Standard_Integer.hxx>
-#endif
-#ifndef _Handle_PColStd_SeqNodeOfHSequenceOfInteger_HeaderFile
 #include <Handle_PColStd_SeqNodeOfHSequenceOfInteger.hxx>
-#endif
-#ifndef _PMMgt_PManaged_HeaderFile
 #include <PMMgt_PManaged.hxx>
-#endif
-#ifndef _Handle_PColStd_HSequenceOfInteger_HeaderFile
 #include <Handle_PColStd_HSequenceOfInteger.hxx>
-#endif
 class PColStd_HSequenceOfInteger;
 class PColStd_SeqExplorerOfHSequenceOfInteger;
 

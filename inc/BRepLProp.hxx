@@ -9,19 +9,12 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
 
-#ifndef _GeomAbs_Shape_HeaderFile
 #include <GeomAbs_Shape.hxx>
-#endif
-#ifndef _Standard_Real_HeaderFile
 #include <Standard_Real.hxx>
-#endif
 class BRepAdaptor_Curve;
 class BRepLProp_CurveTool;
 class BRepLProp_SurfaceTool;
@@ -35,15 +28,22 @@ class BRepLProp_SLProps;
 class BRepLProp  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
-  //! Computes the regularity at the junction between C1 and <br>
-//!          C2. The point u1 on C1 and the point u2 on  C2 must be <br>
-//!          confused.   tl  and ta  are  the  linear  and  angular <br>
-//!          tolerance used two compare the derivative. <br>
+  
   Standard_EXPORT   static  GeomAbs_Shape Continuity(const BRepAdaptor_Curve& C1,const BRepAdaptor_Curve& C2,const Standard_Real u1,const Standard_Real u2,const Standard_Real tl,const Standard_Real ta) ;
-  //! The  same  as  preciding   but   using  the   standard <br>
-//!          tolerances from package Precision. <br>
+  
   Standard_EXPORT   static  GeomAbs_Shape Continuity(const BRepAdaptor_Curve& C1,const BRepAdaptor_Curve& C2,const Standard_Real u1,const Standard_Real u2) ;
 
 

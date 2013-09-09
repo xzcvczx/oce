@@ -13,6 +13,4 @@
 #ifndef _CDM_MessageDriver_HeaderFile
 #include <CDM_MessageDriver.hxx>
 #endif
-#ifndef _XmlLDrivers_HeaderFile
 #include <XmlLDrivers.hxx>
-#endif

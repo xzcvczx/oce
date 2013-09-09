@@ -6,7 +6,8 @@
 #ifndef _Aspect_TypeOfColorScaleData_HeaderFile
 #define _Aspect_TypeOfColorScaleData_HeaderFile
 
-//! Defines the using type of colors and labels <br>
+//! Defines the fill methods to <br>
+//!      write gradient background in a window. <br>
 enum Aspect_TypeOfColorScaleData {
 Aspect_TOCSD_AUTO,
 Aspect_TOCSD_USER

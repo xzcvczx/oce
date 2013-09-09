@@ -16,6 +16,4 @@
 #ifndef _TopoDS_Solid_HeaderFile
 #include <TopoDS_Solid.hxx>
 #endif
-#ifndef _TopOpeBRepTool_HeaderFile
 #include <TopOpeBRepTool.hxx>
-#endif

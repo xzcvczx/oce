@@ -9,9 +9,6 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
@@ -72,7 +69,18 @@ class Storage_BaseDriver;
 class FSD_File  : public Storage_BaseDriver {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   
 //! Constructs a driver defining as a file, the physical <br>
@@ -314,7 +322,7 @@ protected:
 private:
 
   
-  Standard_EXPORT   static Standard_CString MagicNumber() ;
+  Standard_EXPORT   static  Standard_CString MagicNumber() ;
 
 
 FSD_FStream myStream;

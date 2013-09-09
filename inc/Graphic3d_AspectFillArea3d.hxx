@@ -61,35 +61,9 @@ public:
 
   //! Creates a context table for fill area primitives <br>
 //!          defined with the following default values: <br>
-//! <br>
-//!          InteriorStyle       : IS_EMPTY <br>
-//!          InteriorColor       : NOC_CYAN1 <br>
-//!          EdgeColor           : NOC_WHITE <br>
-//!          EdgeLineType        : TOL_SOLID <br>
-//!          EdgeWidth           : 1.0 <br>
-//!          FrontMaterial       : NOM_BRASS <br>
-//!          BackMaterial        : NOM_BRASS <br>
-//! <br>
-//!          Display of back-facing filled polygons. <br>
-//!          No distinction between external and internal <br>
-//!          faces of FillAreas. <br>
-//!          The edges are not drawn. <br>
-//!          Polygon offset parameters: mode = Aspect_POM_None, factor = 1., units = 0. <br>
   Standard_EXPORT   Graphic3d_AspectFillArea3d();
   //! Creates a context table for fill area primitives <br>
 //!          defined with the specified values. <br>
-//! <br>
-//!          Display of back-facing filled polygons. <br>
-//!          No distinction between external and internal <br>
-//!          faces of FillAreas. <br>
-//!          The edges are not drawn. <br>
-//!          Polygon offset parameters: mode = Aspect_POM_None, factor = 1., units = 0. <br>
-//! Warning <br>
-//! EdgeWidth is the "line width scale factor".   The <br>
-//! nominal line width is 1 pixel.   The width of the line is <br>
-//! determined by applying the line width scale factor to <br>
-//! this nominal line width.   The supported line widths <br>
-//! vary by 1-pixel units. <br>
   Standard_EXPORT   Graphic3d_AspectFillArea3d(const Aspect_InteriorStyle Interior,const Quantity_Color& InteriorColor,const Quantity_Color& EdgeColor,const Aspect_TypeOfLine EdgeLineType,const Standard_Real EdgeWidth,const Graphic3d_MaterialAspect& FrontMaterial,const Graphic3d_MaterialAspect& BackMaterial);
   //! Allows the display of back-facing filled <br>
 //!          polygons. <br>
@@ -130,12 +104,6 @@ public:
 //!          offset = <aFactor> * m + <aUnits> * r, where <br>
 //!          m - maximum depth slope for the polygon currently being displayed, <br>
 //!          r - minimum window coordinates depth resolution (implementation-specific) <br>
-//! <br>
-//!          Deafult settings for OCC 3D viewer: mode = Aspect_POM_Fill, factor = 1., units = 0. <br>
-//! <br>
-//!          Negative offset values move polygons closer to the viewport, <br>
-//!          while positive values shift polygons away. <br>
-//!          Consult OpenGL reference for details (glPolygonOffset function description). <br>
   Standard_EXPORT     void SetPolygonOffsets(const Standard_Integer aMode,const Standard_ShortReal aFactor = 1.0,const Standard_ShortReal aUnits = 0.0) ;
   //! Returns the Back Face Removal status. <br>
 //!          Standard_True if SuppressBackFace is activated. <br>

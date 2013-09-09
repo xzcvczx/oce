@@ -6,12 +6,7 @@
 #ifndef _Aspect_TypeOfDisplayText_HeaderFile
 #define _Aspect_TypeOfDisplayText_HeaderFile
 
-//! Define the display type of the text. <br>
-//! <br>
-//!          TODT_NORMAL         Default display. Text only. <br>
-//!          TODT_SUBTITLE       There is a subtitle under the text. <br>
-//!          TODT_DEKALE         The text is displayed with a 3D style. <br>
-//!          TODT_BLEND          The text is displayed in XOR. <br>
+//! Define the style of the text. <br>
 enum Aspect_TypeOfDisplayText {
 Aspect_TODT_NORMAL,
 Aspect_TODT_SUBTITLE,

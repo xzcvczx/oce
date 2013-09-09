@@ -4,6 +4,4 @@
 #ifndef _Geom_BSplineCurve_HeaderFile
 #include <Geom_BSplineCurve.hxx>
 #endif
-#ifndef _Hermit_HeaderFile
 #include <Hermit.hxx>
-#endif

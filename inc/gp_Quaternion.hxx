@@ -9,9 +9,6 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
@@ -35,14 +32,21 @@ class gp_Mat;
 //! Represents operation of rotation in 3d space as queternion <br>
 //!          and implements operations with rotations basing on <br>
 //!          quaternion mathematics. <br>
-//! <br>
-//!          In addition, provides methods for conversion to and from other <br>
-//!          representatons of rotation (3*3 matrix, vector and <br>
-//!          angle, Euler angles) <br>
 class gp_Quaternion  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   //! Creates an identity quaternion <br>
       gp_Quaternion();

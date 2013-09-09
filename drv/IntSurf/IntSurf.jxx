@@ -7,6 +7,4 @@
 #ifndef _IntSurf_Transition_HeaderFile
 #include <IntSurf_Transition.hxx>
 #endif
-#ifndef _IntSurf_HeaderFile
 #include <IntSurf.hxx>
-#endif

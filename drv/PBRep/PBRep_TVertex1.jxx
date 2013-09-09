@@ -4,6 +4,4 @@
 #ifndef _gp_Pnt_HeaderFile
 #include <gp_Pnt.hxx>
 #endif
-#ifndef _PBRep_TVertex1_HeaderFile
 #include <PBRep_TVertex1.hxx>
-#endif

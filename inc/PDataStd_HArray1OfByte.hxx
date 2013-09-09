@@ -19,30 +19,14 @@
 #include <Handle_PDataStd_HArray1OfByte.hxx>
 #endif
 
-#ifndef _Standard_Integer_HeaderFile
 #include <Standard_Integer.hxx>
-#endif
-#ifndef _Standard_Byte_HeaderFile
 #include <Standard_Byte.hxx>
-#endif
-#ifndef _Handle_Standard_Persistent_HeaderFile
 #include <Handle_Standard_Persistent.hxx>
-#endif
-#ifndef _PDataStd_FieldOfHArray1OfByte_HeaderFile
 #include <PDataStd_FieldOfHArray1OfByte.hxx>
-#endif
-#ifndef _Standard_Address_HeaderFile
 #include <Standard_Address.hxx>
-#endif
-#ifndef _Standard_Persistent_HeaderFile
 #include <Standard_Persistent.hxx>
-#endif
-#ifndef _Handle_PDataStd_VArrayNodeOfFieldOfHArray1OfByte_HeaderFile
 #include <Handle_PDataStd_VArrayNodeOfFieldOfHArray1OfByte.hxx>
-#endif
-#ifndef _Standard_OStream_HeaderFile
 #include <Standard_OStream.hxx>
-#endif
 class Standard_Persistent;
 class Standard_OutOfRange;
 class Standard_RangeError;

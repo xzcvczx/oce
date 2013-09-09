@@ -13,6 +13,4 @@
 #ifndef _TCollection_AsciiString_HeaderFile
 #include <TCollection_AsciiString.hxx>
 #endif
-#ifndef _BinLDrivers_HeaderFile
 #include <BinLDrivers.hxx>
-#endif

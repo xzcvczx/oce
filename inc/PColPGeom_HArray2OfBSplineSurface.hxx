@@ -19,30 +19,14 @@
 #include <Handle_PColPGeom_HArray2OfBSplineSurface.hxx>
 #endif
 
-#ifndef _Standard_Integer_HeaderFile
 #include <Standard_Integer.hxx>
-#endif
-#ifndef _Handle_PGeom_BSplineSurface_HeaderFile
 #include <Handle_PGeom_BSplineSurface.hxx>
-#endif
-#ifndef _Handle_Standard_Persistent_HeaderFile
 #include <Handle_Standard_Persistent.hxx>
-#endif
-#ifndef _PColPGeom_FieldOfHArray2OfBSplineSurface_HeaderFile
 #include <PColPGeom_FieldOfHArray2OfBSplineSurface.hxx>
-#endif
-#ifndef _Standard_Address_HeaderFile
 #include <Standard_Address.hxx>
-#endif
-#ifndef _Standard_Persistent_HeaderFile
 #include <Standard_Persistent.hxx>
-#endif
-#ifndef _Handle_PColPGeom_VArrayNodeOfFieldOfHArray2OfBSplineSurface_HeaderFile
 #include <Handle_PColPGeom_VArrayNodeOfFieldOfHArray2OfBSplineSurface.hxx>
-#endif
-#ifndef _Standard_OStream_HeaderFile
 #include <Standard_OStream.hxx>
-#endif
 class PGeom_BSplineSurface;
 class Standard_Persistent;
 class Standard_RangeError;

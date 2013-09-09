@@ -4,6 +4,4 @@
 #ifndef _PTopLoc_Location_HeaderFile
 #include <PTopLoc_Location.hxx>
 #endif
-#ifndef _PBRep_PointsOnSurface_HeaderFile
 #include <PBRep_PointsOnSurface.hxx>
-#endif

@@ -9,49 +9,22 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
 
-#ifndef _Standard_Boolean_HeaderFile
 #include <Standard_Boolean.hxx>
-#endif
-#ifndef _Handle_Geom_Curve_HeaderFile
 #include <Handle_Geom_Curve.hxx>
-#endif
-#ifndef _Handle_Geom_Plane_HeaderFile
 #include <Handle_Geom_Plane.hxx>
-#endif
-#ifndef _Standard_Integer_HeaderFile
 #include <Standard_Integer.hxx>
-#endif
-#ifndef _Standard_Real_HeaderFile
 #include <Standard_Real.hxx>
-#endif
-#ifndef _Handle_Geom_Surface_HeaderFile
 #include <Handle_Geom_Surface.hxx>
-#endif
-#ifndef _AIS_KindOfSurface_HeaderFile
 #include <AIS_KindOfSurface.hxx>
-#endif
-#ifndef _Handle_Prs3d_Presentation_HeaderFile
 #include <Handle_Prs3d_Presentation.hxx>
-#endif
-#ifndef _Handle_AIS_Drawer_HeaderFile
 #include <Handle_AIS_Drawer.hxx>
-#endif
-#ifndef _Quantity_NameOfColor_HeaderFile
 #include <Quantity_NameOfColor.hxx>
-#endif
-#ifndef _Aspect_TypeOfLine_HeaderFile
 #include <Aspect_TypeOfLine.hxx>
-#endif
-#ifndef _Aspect_TypeOfMarker_HeaderFile
 #include <Aspect_TypeOfMarker.hxx>
-#endif
 class gp_Pnt;
 class TopoDS_Shape;
 class TopoDS_Edge;
@@ -253,7 +226,18 @@ class AIS_DataMapIteratorOfDataMapOfSelStat;
 class AIS  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   
 //! Returns the nearest point in a shape. This is used by <br>
@@ -261,38 +245,15 @@ public:
   Standard_EXPORT   static  gp_Pnt Nearest(const TopoDS_Shape& aShape,const gp_Pnt& aPoint) ;
   
   Standard_EXPORT   static  gp_Pnt Farest(const TopoDS_Shape& aShape,const gp_Pnt& aPoint) ;
-  //! Used by 2d Relation only <br>
-//!          Computes the 3d geometry of <anEdge> in the current WorkingPlane <br>
-//!          and the extremities if any <br>
-//!          Return TRUE if ok <br>
+  
   Standard_EXPORT   static  Standard_Boolean ComputeGeometry(const TopoDS_Edge& anEdge,Handle(Geom_Curve)& aCurve,gp_Pnt& FirstPnt,gp_Pnt& LastPnt) ;
-  //! Used by 2d Relation only <br>
-//!          Computes the 3d geometry of <anEdge> in the current WorkingPlane <br>
-//!          and the extremities if any. <br>
-//!          If <aCurve> is not in the current plane, <extCurve> contains <br>
-//!          the not projected curve associated to <anEdge>. <br>
-//!          If <anEdge> is infinite, <isinfinite> = true and the 2 <br>
-//!          parameters <FirstPnt> and <LastPnt> have no signification. <br>
-//!          Return TRUE if ok <br>
+  
   Standard_EXPORT   static  Standard_Boolean ComputeGeometry(const TopoDS_Edge& anEdge,Handle(Geom_Curve)& aCurve,gp_Pnt& FirstPnt,gp_Pnt& LastPnt,Handle(Geom_Curve)& extCurve,Standard_Boolean& isinfinite,Standard_Boolean& isOnPlane,const Handle(Geom_Plane)& aPlane) ;
-  //! Used by 2d Relation only <br>
-//!          Computes the 3d geometry of <anEdge> in the current WorkingPlane <br>
-//!          and the extremities if any <br>
-//!          Return TRUE if ok <br>
+  
   Standard_EXPORT   static  Standard_Boolean ComputeGeometry(const TopoDS_Edge& anEdge1,const TopoDS_Edge& anEdge2,Handle(Geom_Curve)& aCurve1,Handle(Geom_Curve)& aCurve2,gp_Pnt& FirstPnt1,gp_Pnt& LastPnt1,gp_Pnt& FirstPnt2,gp_Pnt& LastPnt2,const Handle(Geom_Plane)& aPlane) ;
-  //! Used  by  2d Relation  only Computes  the  3d geometry <br>
-//!          of<anEdge1> and <anEdge2> in the current Plane and the <br>
-//!          extremities if any.   Return in ExtCurve  the 3d curve <br>
-//!          (not projected  in the  plane)  of the  first edge  if <br>
-//!          <indexExt> =1 or of the 2nd edge if <indexExt> = 2. If <br>
-//!          <indexExt> = 0, ExtCurve is Null.  if there is an edge <br>
-//!          external to the  plane,  <isinfinite> is true if  this <br>
-//!          edge is infinite.  So, the extremities of it are not <br>
-//!          significant.  Return TRUE if ok <br>
+  
   Standard_EXPORT   static  Standard_Boolean ComputeGeometry(const TopoDS_Edge& anEdge1,const TopoDS_Edge& anEdge2,Standard_Integer& indexExt,Handle(Geom_Curve)& aCurve1,Handle(Geom_Curve)& aCurve2,gp_Pnt& FirstPnt1,gp_Pnt& LastPnt1,gp_Pnt& FirstPnt2,gp_Pnt& LastPnt2,Handle(Geom_Curve)& ExtCurve,Standard_Boolean& isinfinite1,Standard_Boolean& isinfinite2,const Handle(Geom_Plane)& aPlane) ;
-  //! Checks if aCurve belongs to aPlane; if not, projects aCurve in aPlane <br>
-//!          and returns aCurve; <br>
-//!          Return TRUE if ok <br>
+  
   Standard_EXPORT   static  Standard_Boolean ComputeGeomCurve(Handle(Geom_Curve)& aCurve,const Standard_Real first1,const Standard_Real last1,gp_Pnt& FirstPnt1,gp_Pnt& LastPnt1,const Handle(Geom_Plane)& aPlane,Standard_Boolean& isOnPlane) ;
   
   Standard_EXPORT   static  Standard_Boolean ComputeGeometry(const TopoDS_Vertex& aVertex,gp_Pnt& point,const Handle(Geom_Plane)& aPlane,Standard_Boolean& isOnPlane) ;

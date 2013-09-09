@@ -10,6 +10,4 @@
 #ifndef _gp_Circ2d_HeaderFile
 #include <gp_Circ2d.hxx>
 #endif
-#ifndef _GccEnt_HeaderFile
 #include <GccEnt.hxx>
-#endif

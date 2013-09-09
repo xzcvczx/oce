@@ -4,6 +4,4 @@
 #ifndef _LocalAnalysis_CurveContinuity_HeaderFile
 #include <LocalAnalysis_CurveContinuity.hxx>
 #endif
-#ifndef _LocalAnalysis_HeaderFile
 #include <LocalAnalysis.hxx>
-#endif

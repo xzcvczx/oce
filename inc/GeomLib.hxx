@@ -9,46 +9,21 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
 
-#ifndef _Handle_Geom_Curve_HeaderFile
 #include <Handle_Geom_Curve.hxx>
-#endif
-#ifndef _Handle_Geom2d_Curve_HeaderFile
 #include <Handle_Geom2d_Curve.hxx>
-#endif
-#ifndef _Standard_Real_HeaderFile
 #include <Standard_Real.hxx>
-#endif
-#ifndef _GeomAbs_Shape_HeaderFile
 #include <GeomAbs_Shape.hxx>
-#endif
-#ifndef _Standard_Integer_HeaderFile
 #include <Standard_Integer.hxx>
-#endif
-#ifndef _Handle_Geom_BoundedCurve_HeaderFile
 #include <Handle_Geom_BoundedCurve.hxx>
-#endif
-#ifndef _Standard_Boolean_HeaderFile
 #include <Standard_Boolean.hxx>
-#endif
-#ifndef _Handle_Geom_BoundedSurface_HeaderFile
 #include <Handle_Geom_BoundedSurface.hxx>
-#endif
-#ifndef _Handle_TColStd_HArray1OfReal_HeaderFile
 #include <Handle_TColStd_HArray1OfReal.hxx>
-#endif
-#ifndef _Handle_Geom_BSplineSurface_HeaderFile
 #include <Handle_Geom_BSplineSurface.hxx>
-#endif
-#ifndef _Handle_Geom_Surface_HeaderFile
 #include <Handle_Geom_Surface.hxx>
-#endif
 class Geom_Curve;
 class gp_Ax2;
 class Geom2d_Curve;
@@ -85,7 +60,18 @@ class GeomLib_LogSample;
 class GeomLib  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   //! Computes     the  curve  3d    from  package  Geom <br>
 //!          corresponding to curve 2d  from package Geom2d, on <br>
@@ -162,18 +148,6 @@ public:
 //!          of real number and it will not check for that : Unpredictable <br>
 //!          result can happen if this is not satisfied. It is the caller <br>
 //!          responsability to check for that property. <br>
-//! <br>
-//!  This  method makes uniform NumPoints segments S1,...SNumPoints out <br>
-//!          of the segment defined by the first parameter and the <br>
-//!          last  parameter ofthe  InParameter ; keeps   only one <br>
-//!          point of the InParameters set of parameter in each of <br>
-//!          the uniform segments taking care of the first and the <br>
-//!          last   parameters. For the ith segment the element of <br>
-//!          the InParameter is the one that is the first to exceed <br>
-//!          the midpoint of the segment and to fall before the <br>
-//!          midpoint of the next segment <br>
-//!            There  will be  at  the  end at   most NumPoints + 1  if <br>
-//!          NumPoints > 2 in the OutParameters Array <br>
   Standard_EXPORT   static  void RemovePointsFromArray(const Standard_Integer NumPoints,const TColStd_Array1OfReal& InParameters,Handle(TColStd_HArray1OfReal)& OutParameters) ;
   //! this  makes sure that there  is at least MinNumPoints <br>
 //!          in OutParameters taking into account the parameters in <br>

@@ -9,9 +9,6 @@
 #ifndef _Standard_HeaderFile
 #include <Standard.hxx>
 #endif
-#ifndef _Standard_DefineAlloc_HeaderFile
-#include <Standard_DefineAlloc.hxx>
-#endif
 #ifndef _Standard_Macro_HeaderFile
 #include <Standard_Macro.hxx>
 #endif
@@ -51,48 +48,50 @@ class IntTools_CArray1OfReal;
 class IntTools_EdgeEdge  {
 public:
 
-  DEFINE_STANDARD_ALLOC
+  void* operator new(size_t,void* anAddress) 
+  {
+    return anAddress;
+  }
+  void* operator new(size_t size) 
+  {
+    return Standard::Allocate(size); 
+  }
+  void  operator delete(void *anAddress) 
+  {
+    if (anAddress) Standard::Free((Standard_Address&)anAddress); 
+  }
 
   
 //! Empty constructor <br>
-//! <br>
   Standard_EXPORT   IntTools_EdgeEdge();
   
 //! Sets the first edge <br>
-//! <br>
   Standard_EXPORT     void SetEdge1(const TopoDS_Edge& anEdge) ;
   
 //! Sets  the  value of tolerance pipe for the first edge <br>
-//! <br>
   Standard_EXPORT     void SetTolerance1(const Standard_Real aTolEdge1) ;
   
 //! Sets the second edge <br>
-//! <br>
   Standard_EXPORT     void SetEdge2(const TopoDS_Edge& anEdge) ;
   
 //! Sets  the  value of tolerance pipe for the first edge <br>
-//! <br>
   Standard_EXPORT     void SetTolerance2(const Standard_Real aTolEdge2) ;
   
 //! Sets  the  number of division for the shortest <br>
 //! edge among the two.  The  deflection is not taken <br>
 //! into  account <br>
-//! <br>
   Standard_EXPORT     void SetDiscretize(const Standard_Integer aDiscret) ;
   
 //! Sets the value of maximum reative deflection between <br>
 //! the two nearest points on a curve. <br>
-//! <br>
   Standard_EXPORT     void SetDeflection(const Standard_Real aDeflection) ;
   
 //! Sets the criteria of equality of two arguments, <br>
 //! i.e.  |t2-t1|<anEpsT will mean that t2=t1 <br>
-//! <br>
   Standard_EXPORT     void SetEpsilonT(const Standard_Real anEpsT) ;
   
 //! Sets the criteria of equality of two functions' values <br>
 //! i.e.  |f(t2)-f(t1)|<anEpsNull will mean that f(t2)=f(t1) <br>
-//! <br>
   Standard_EXPORT     void SetEpsilonNull(const Standard_Real anEpsNull) ;
   
   Standard_EXPORT     void SetRange1(const IntTools_Range& aRange) ;
@@ -105,23 +104,18 @@ public:
   
 //! The main method of the algorithm to determine <br>
 //! common  parts  between two edges in  3-d space <br>
-//! <br>
   Standard_EXPORT     void Perform() ;
   
 //! True if the common  parts are found <br>
-//! <br>
   Standard_EXPORT     Standard_Boolean IsDone() const;
   
 //! False if the common parts are coherented  with Edge1, Edge2 <br>
-//! <br>
   Standard_EXPORT     Standard_Boolean Order() const;
   //! Returns the number that corresponds to the error. <br>
 //! The  list of error-codes is in  ...cxx file <br>
-//! <br>
   Standard_EXPORT     Standard_Integer ErrorStatus() const;
   
 //! Returns the common parts (Output) <br>
-//! <br>
   Standard_EXPORT    const IntTools_SequenceOfCommonPrts& CommonParts() const;
   
   Standard_EXPORT    const IntTools_Range& Range1() const;
@@ -139,7 +133,6 @@ protected:
 //! The  following  data is not  available <br>
 //!    *  Degenerated edges is  not  available; <br>
 //!    *  Egdes,  that don't contain 3d-curve. <br>
-//! <br>
   Standard_EXPORT     void CheckData() ;
   
 //! Preparing the main  fields  for  the  algorithm <br>
@@ -147,25 +140,21 @@ protected:
 //!    *  To  -Curve  (myCTo  ,myTminTo  ,myTmaxTo  ), <br>
 //!    *  myCreiteria=myTol1+myTol2  , <br>
 //!    *  myProjectableRanges. <br>
-//! <br>
   Standard_EXPORT     void Prepare() ;
   
 //! Returns the flag 1 if it is possible to project <br>
 //! the point from the From-Curve at the  parameter t <br>
 //! to the To-Curve. <br>
 //! Othrwise it returns  0. <br>
-//! <br>
   Standard_EXPORT     Standard_Integer IsProjectable(const Standard_Real t) const;
   
 //! Find the range on the curve Curve-To that  corresponds <br>
 //! to  the  given  range on the curve Curve-From. <br>
-//! <br>
   Standard_EXPORT     Standard_Integer FindRangeOnCurve2(IntTools_CommonPrt& aCP) ;
   
 //! Find the  value  of  the  parameter  on  the curve Curve-To <br>
 //! that corresponds  to  the  given  parameter  on the curve <br>
 //! Curve-From. <br>
-//! <br>
   Standard_EXPORT     Standard_Integer GetParameterOnCurve2(const Standard_Real aT1,Standard_Real& aT2) const;
   
   Standard_EXPORT     Standard_Integer TreatVertexType(const Standard_Real am1,const Standard_Real am2,IntTools_CommonPrt& aCP) ;
@@ -189,12 +178,10 @@ protected:
 //! the  From-Curve at  parameter t  and <br>
 //! projection point of  this point on To-Curve; <br>
 //! myCriteria=myTol1+myTol2. <br>
-//! <br>
   Standard_EXPORT     Standard_Real DistanceFunction(const Standard_Real t) ;
   
 //! Calculates the first derivative of <br>
 //! the DistanceFunction D(t). <br>
-//! <br>
   Standard_EXPORT     Standard_Real DerivativeFunction(const Standard_Real t) ;
   
   Standard_EXPORT     Standard_Boolean CheckTouch(const IntTools_CommonPrt& aCP,Standard_Real& t1,Standard_Real& t2) ;
