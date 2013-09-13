@@ -22,7 +22,7 @@
 @ifnotdefined ( %Image_CMPLRS_EDL) then
   @set %Image_CMPLRS_EDL = "";
 
-  --@uses "Image.edl";
+  @uses "CSF.edl";
 
   @if ( %Station == "sun" ) then
   @endif;
@@ -36,5 +36,6 @@
   @if ( %Station == "hp" ) then
   @endif;
 
-  --@string %CMPLRS_CXX_Options = %CMPLRS_CXX_Options " -DSTANDARD_TYPE=TYPE";
+  @string %CMPLRS_CXX_Options += " " %CSF_FreeImage_INCLUDES " " %CSF_FreeImage_DEFINES " ";
+
 @endif;

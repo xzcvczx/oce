@@ -1,0 +1,10 @@
+@ifnotdefined ( %FreeImagePlus_CMPLRS_EDL) then
+
+  @set %FreeImagePlus_CMPLRS_EDL = "";
+
+  @uses "CSF.edl";
+
+  @string %CMPLRS_CXX_Options += " " %CSF_FreeImage_INCLUDES " " %CSF_FreeImage_DEFINES " ";
+  @string %CMPLRS_C_Options   += " " %CSF_FreeImage_INCLUDES " " %CSF_FreeImage_DEFINES " ";
+
+@endif;

@@ -1,0 +1,10 @@
+EXTERNLIB
+FreeImagePlus_CMPLRS.edl
+fipImage.cpp
+fipMemoryIO.cpp
+fipMetadataFind.cpp
+fipMultiPage.cpp
+fipTag.cpp
+fipWinImage.cpp
+FreeImagePlus.cpp
+FreeImagePlus.h
