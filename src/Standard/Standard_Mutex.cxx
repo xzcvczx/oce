@@ -32,6 +32,9 @@ Standard_Mutex::Standard_Mutex ()
 {
 #if (defined(_WIN32) || defined(__WIN32__))
   InitializeCriticalSection (&myMutex);
+#elif defined (__APPLE__)
+    myMutex = dispatch_semaphore_create(0);
+    myCount = 0;
 #else
   pthread_mutexattr_t anAttr;
   pthread_mutexattr_init (&anAttr);
@@ -49,6 +52,8 @@ Standard_Mutex::~Standard_Mutex ()
 {
 #if (defined(_WIN32) || defined(__WIN32__))
   DeleteCriticalSection (&myMutex);
+#elif defined (__APPLE__)
+    dispatch_release(myMutex);
 #else
   pthread_mutex_destroy (&myMutex);
 #endif
@@ -62,6 +67,16 @@ void Standard_Mutex::Lock ()
 {
 #if (defined(_WIN32) || defined(__WIN32__))
   EnterCriticalSection (&myMutex);
+#elif defined (__APPLE__)
+    for (unsigned spins = 0; spins != 5000; ++spins)
+    {
+        if (OSAtomicCompareAndSwap32Barrier(0, 1, &myCount))
+            return;
+
+        sched_yield();
+    }
+    if (OSAtomicIncrement32Barrier(&myCount) > 1) // if (++count > 1)
+        dispatch_semaphore_wait(myMutex, DISPATCH_TIME_FOREVER);
 #else
   pthread_mutex_lock (&myMutex);
 #endif
@@ -75,6 +90,11 @@ Standard_Boolean Standard_Mutex::TryLock ()
 {
 #if (defined(_WIN32) || defined(__WIN32__))
   return (TryEnterCriticalSection (&myMutex) != 0);
+#elif defined(__APPLE__)
+    if (OSAtomicIncrement32Barrier(&myCount) > 1) // if (++count > 1)
+        return dispatch_semaphore_wait(myMutex, DISPATCH_TIME_NOW) == 0;
+    else
+        return false;
 #else
   return (pthread_mutex_trylock (&myMutex) != EBUSY);
 #endif

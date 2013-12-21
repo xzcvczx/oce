@@ -22,6 +22,9 @@
 
 #if (defined(_WIN32) || defined(__WIN32__))
   #include <windows.h>
+#elif defined (__APPLE__)
+  #include <dispatch/dispatch.h>
+  #include <libkern/OSAtomic.h>
 #else
   #include <pthread.h>
   #include <sys/errno.h>
@@ -165,6 +168,9 @@ private:
 private:
 #if (defined(_WIN32) || defined(__WIN32__))
   CRITICAL_SECTION myMutex;
+#elif defined (__APPLE__)
+  dispatch_semaphore_t myMutex;
+  volatile int32_t myCount;
 #else
   pthread_mutex_t myMutex;
 #endif  
@@ -176,6 +182,9 @@ inline void Standard_Mutex::Unlock ()
 {
 #if (defined(_WIN32) || defined(__WIN32__))
   LeaveCriticalSection (&myMutex);
+#elif defined (__APPLE__)
+  if (OSAtomicDecrement32Barrier(&myCount) > 0) // if (--count > 0)
+        dispatch_semaphore_signal(myMutex);
 #else
   pthread_mutex_unlock (&myMutex);
 #endif
