@@ -55,6 +55,13 @@ if(OCE_TBB_MALLOC_SUPPORT AND TBB_INCLUDE_DIR AND TBB_MALLOC_LIBRARY)
 	endif(CMAKE_CONFIGURATION_TYPES OR NMAKE)
 endif(OCE_TBB_MALLOC_SUPPORT AND TBB_INCLUDE_DIR AND TBB_MALLOC_LIBRARY)
 
+if(OCE_MULTITHREAD_LIBRARY STREQUAL "GCD")
+	add_definitions(-DUSE_GCD)
+	# Add C++11 compilation directive for Standard_GrandCentralDispatch
+	set_source_files_properties(${OCE_SOURCE_DIR}/src/Standard/Standard_GrandCentralDispatch.cxx 
+	PROPERTIES COMPILE_FLAGS -std=c++11)
+endif(OCE_MULTITHREAD_LIBRARY STREQUAL "GCD")
+
 include(../BuildToolkit.cmake)
 
 # Modules are dlopen'd by OSD_SharedLibrary::DlOpen.  ELF libraries may
