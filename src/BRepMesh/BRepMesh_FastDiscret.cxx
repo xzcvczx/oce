@@ -92,6 +92,9 @@
 #ifdef HAVE_TBB
   // paralleling using Intel TBB
   #include <tbb/parallel_for_each.h>
+#elif defined (USE_GCD)
+  // paralleling using Apple Grand Central Dispatch
+  #include "Standard_GrandCentralDispatch.hxx"
 #endif
 
 #define UVDEFLECTION 1.e-05
@@ -256,6 +259,10 @@ void BRepMesh_FastDiscret::Perform(const TopoDS_Shape& theShape)
     CreateMutexesForSubShapes(theShape, TopAbs_EDGE);
     // mesh faces in parallel threads using TBB
     tbb::parallel_for_each (aFaces.begin(), aFaces.end(), *this);
+  #elif defined (USE_GCD)
+    CreateMutexesForSubShapes(theShape, TopAbs_EDGE);
+    // use Apple Grand Central Dispatch
+    parallel_for_each(aFaces.begin(), aFaces.end(), [this] (std::vector<TopoDS_Face>::iterator it) {Process (*it);});
   #else
     // alternative parallelization not yet available
     int i, n = aFaces.size();

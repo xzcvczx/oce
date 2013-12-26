@@ -51,6 +51,9 @@
 #ifdef HAVE_TBB
   // paralleling using Intel TBB
   #include <tbb/parallel_for_each.h>
+#elif defined (USE_GCD)
+  // paralleling using Apple Grand Central Dispatch
+  #include "Standard_GrandCentralDispatch.hxx"
 #endif
 
 namespace
@@ -258,6 +261,10 @@ void BRepMesh_IncrementalMesh::Update(const TopoDS_Shape& S)
     myMesh->CreateMutexesForSubShapes(S, TopAbs_EDGE);
     // mesh faces in parallel threads using TBB
     tbb::parallel_for_each (aFaces.begin(), aFaces.end(), *myMesh.operator->());
+  #elif defined (USE_GCD)
+    myMesh->CreateMutexesForSubShapes(S, TopAbs_EDGE);
+    // use Apple Grand Central Dispatch
+    parallel_for_each(aFaces.begin(), aFaces.end(), [this] (std::vector<TopoDS_Face>::iterator it) {myMesh->Process (*it);});
   #else
     int i, n = aFaces.size();
 #ifdef _OPENMP
