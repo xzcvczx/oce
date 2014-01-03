@@ -134,7 +134,11 @@ BRepMesh_FastDiscret::BRepMesh_FastDiscret(const Standard_Real    theDefle,
   myAngle (theAngl),
   myDeflection (theDefle),
   myWithShare (theWithShare),
+#ifdef USE_GCD
+  myInParallel (Standard_True),
+#else 
   myInParallel (Standard_False),
+#endif
   myNbLocat (0),
   myRelative (theRelative),
   myShapetrigu (theShapetrigu), 
@@ -161,7 +165,11 @@ BRepMesh_FastDiscret::BRepMesh_FastDiscret(const Standard_Real    theDefle,
   myAngle (theAngl),
   myDeflection (theDefle),
   myWithShare (theWithShare),
+#ifdef USE_GCD
+  myInParallel (Standard_True),
+#else
   myInParallel (Standard_False),
+#endif
   myNbLocat (0),
   myRelative (theRelative),
   myShapetrigu (theShapetrigu),

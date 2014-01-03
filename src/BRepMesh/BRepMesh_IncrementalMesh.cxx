@@ -60,7 +60,11 @@ namespace
 {
   //! Default flag to control parallelization for BRepMesh_IncrementalMesh
   //! tool returned for Mesh Factory
+#ifdef USE_GCD
+  static Standard_Boolean IS_IN_PARALLEL = Standard_True;
+#else
   static Standard_Boolean IS_IN_PARALLEL = Standard_False;
+#endif
 };
 
 //=======================================================================
@@ -69,7 +73,11 @@ namespace
 //=======================================================================
 BRepMesh_IncrementalMesh::BRepMesh_IncrementalMesh() 
 : myRelative (Standard_False),
+#ifdef USE_GCD
+  myInParallel (Standard_True),
+#else
   myInParallel (Standard_False),
+#endif
   myModified (Standard_False),
   myStatus (0)
 {
