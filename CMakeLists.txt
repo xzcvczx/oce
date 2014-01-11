@@ -690,10 +690,16 @@ if (NOT WIN32)
 		int main(){std::cout << std::cout.form(\"%9.3e\", 3.14159627e-4) << std::endl;return 0;}
 		"
 		OSTREAM_FORM_OK)
-	include(TestBigEndian)
-	test_big_endian(WORDS_BIGENDIAN)
+	# include(TestBigEndian) @EMSCRIPTEN_TWEAK
+	# test_big_endian(WORDS_BIGENDIAN) @EMSCRIPTEN_TWEAK
 	set(STDC_HEADERS TRUE) # Only for really old systems, being lazy
 	set(STACK_DIRECTION 0) # Don't have a test for this, TODO?
+
+# @EMSCRIPTEN_TWEAK
+if (CMAKE_TOOLCHAIN_FILE)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-warn-absolute-paths")
+endif()
+# END  @EMSCRIPTEN_TWEAK
 
 # TODO: check all headers/functions/libraries that are checked in configure.ac original OCC script
 endif(NOT WIN32)
