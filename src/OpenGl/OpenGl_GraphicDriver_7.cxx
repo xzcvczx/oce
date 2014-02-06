@@ -198,6 +198,7 @@ void OpenGl_GraphicDriver::Redraw (const Graphic3d_CView& ACView,
                                    const Standard_Integer /*width*/, 
                                    const Standard_Integer /*height*/)
 {
+std::cerr << "In OpenGl_GraphicDriver::Redraw\n";
   if (!myCaps->vboDisable && ACView.IsRaytracing)
   {
     if (ACView.WasRedrawnGL)
@@ -216,7 +217,9 @@ void OpenGl_GraphicDriver::Redraw (const Graphic3d_CView& ACView,
     else
       aCView->WS->RedrawArea(ACView, ACUnderLayer, ACOverLayer, x, y, width, height);*/
     // Always do full redraw
+std::cerr << "call WS Redraw\n";
     aCView->WS->Redraw(ACView, ACUnderLayer, ACOverLayer);
+std::cerr << "WS Redraw done\n";
   }
 }
 

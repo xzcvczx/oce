@@ -552,20 +552,28 @@ void OpenGl_Workspace::Redraw (const Graphic3d_CView& theCView,
 
   // release pending GL resources
   Handle(OpenGl_Context) aGlCtx = GetGlContext();
+std::cerr << "In OpenGl_Workspace::Redraw call to ReleaseDelayed\n";
   aGlCtx->ReleaseDelayed();
 
   // cache render mode state
   GLint aRendMode = GL_RENDER;
+std::cerr << "In OpenGl_Workspace::Redraw call to glGetIntegerv\n";
   glGetIntegerv (GL_RENDER_MODE,  &aRendMode);
+std::cerr << "In OpenGl_Workspace::Redraw call to SetFeedback\n";
   aGlCtx->SetFeedback (aRendMode == GL_FEEDBACK);
+std::cerr << "SetFeedback done\n";
 
   Tint toSwap = (aRendMode == GL_RENDER); // swap buffers
   GLint aViewPortBack[4];
   OpenGl_FrameBuffer* aFrameBuffer = (OpenGl_FrameBuffer* )theCView.ptrFBO;
   if (aFrameBuffer != NULL)
   {
+std::cerr << "In OpenGl_Workspace::Redraw aFrameBuffer != NULL\n";
+std::cerr << "In OpenGl_Workspace::Redraw call to glGetIntegerv\n";
     glGetIntegerv (GL_VIEWPORT, aViewPortBack);
+std::cerr << "In OpenGl_Workspace::Redraw call to SetupViewport\n";
     aFrameBuffer->SetupViewport (aGlCtx);
+std::cerr << "In OpenGl_Workspace::Redraw call to BindBuffer\n";
     aFrameBuffer->BindBuffer    (aGlCtx);
     toSwap = 0; // no need to swap buffers
   }
@@ -574,10 +582,14 @@ void OpenGl_Workspace::Redraw (const Graphic3d_CView& theCView,
   if (!theCView.IsRaytracing || myComputeInitStatus == OpenGl_CLIS_FAIL)
   {
 #endif
+std::cerr << "In OpenGl_Workspace::Redraw call to Redraw1\n";
     Redraw1 (theCView, theCUnderLayer, theCOverLayer, toSwap);
+std::cerr << "Redraw1 done\n";
     if (aFrameBuffer == NULL || !myTransientDrawToFront)
     {
+std::cerr << "In OpenGl_Workspace::Redraw call to RedrawImmediatMode\n";
       RedrawImmediatMode();
+std::cerr << "RedrawImmediatMode done\n";
     }
 
     theCView.WasRedrawnGL = Standard_True;
@@ -588,7 +600,9 @@ void OpenGl_Workspace::Redraw (const Graphic3d_CView& theCView,
     int aSizeX = aFrameBuffer != NULL ? aFrameBuffer->GetVPSizeX() : myWidth;
     int aSizeY = aFrameBuffer != NULL ? aFrameBuffer->GetVPSizeY() : myHeight;
 
+std::cerr << "In OpenGl_Workspace::Redraw call to Raytrace\n";
     Raytrace (theCView, aSizeX, aSizeY, toSwap);
+std::cerr << "Raytrace done\n";
 
     theCView.WasRedrawnGL = Standard_False;
   }
@@ -596,9 +610,12 @@ void OpenGl_Workspace::Redraw (const Graphic3d_CView& theCView,
 
   if (aFrameBuffer != NULL)
   {
+std::cerr << "In OpenGl_Workspace::Redraw call to UnbindBuffer\n";
     aFrameBuffer->UnbindBuffer (aGlCtx);
     // move back original viewport
+std::cerr << "In OpenGl_Workspace::Redraw call to glViewport\n";
     glViewport (aViewPortBack[0], aViewPortBack[1], aViewPortBack[2], aViewPortBack[3]);
+std::cerr << "glViewport done\n";
   }
 
 #if (defined(_WIN32) || defined(__WIN32__)) && defined(HAVE_VIDEOCAPTURE)
@@ -620,5 +637,7 @@ void OpenGl_Workspace::Redraw (const Graphic3d_CView& theCView,
 #endif
 
   // reset render mode state
+std::cerr << "In OpenGl_Workspace::Redraw call to SetFeedback\n";
   aGlCtx->SetFeedback (Standard_False);
+std::cerr << "SetFeedback done\n";
 }

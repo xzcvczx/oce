@@ -1604,9 +1604,13 @@ void Visual3d_View::Redraw (const Handle(Visual3d_Layer)& AnUnderLayer, const Ha
         // san - 14/04/2004 - set up Z buffer state before redrawing
        // If the activation/desactivation of ZBuffer should be automatic
         // depending on the presence or absence of facets.
+std::cerr << "In Visual3d_View::Redraw\n";
         if (MyViewManager->ZBufferAuto ()) {
+std::cerr << "  -> ZBufferAuto\n";
                 Standard_Boolean BContainsFacet = ContainsFacet ();
+std::cerr << "  BContainsFacet=" << BContainsFacet << "\n";
                 Standard_Boolean BZBuffer       = ZBufferIsActivated ();
+std::cerr << "  BZBuffer=" << BZBuffer << "\n";
                 // If the view contains facets
                 // and if ZBuffer is not active
                 if (BContainsFacet && ! BZBuffer)
@@ -1622,7 +1626,9 @@ void Visual3d_View::Redraw (const Handle(Visual3d_Layer)& AnUnderLayer, const Ha
         OverCLayer.ptrLayer = UnderCLayer.ptrLayer = NULL;
         if (! AnOverLayer.IsNull ()) OverCLayer = AnOverLayer->CLayer ();
         if (! AnUnderLayer.IsNull ()) UnderCLayer = AnUnderLayer->CLayer ();
+std::cerr << "Call MyGraphicDriver->Redraw\n";
         MyGraphicDriver->Redraw (MyCView, UnderCLayer, OverCLayer);
+std::cerr << "MyGraphicDriver->Redraw done";
 
 }
 
