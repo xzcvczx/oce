@@ -176,7 +176,6 @@ std::cerr << "In OpenGl_PrimitiveArray::DrawArray\n";
   Tint* pvc = myPArray->vcolours;
   if (pvc != NULL)
   {
-std::cerr << "In OpenGl_PrimitiveArray::DrawArray num_vertexs=" << myPArray->num_vertexs << "\n";
     for (i = 0; i < myPArray->num_vertexs; ++i)
     {
       transp = int(theFaceProp->trans * 255.0f);
@@ -244,7 +243,6 @@ std::cerr << "In OpenGl_PrimitiveArray::DrawArray type=" << myPArray->type << "\
 
     if (!toDrawVbo())
     {
-std::cerr << "In OpenGl_PrimitiveArray::DrawArray !toDrawVbo\n";
       if (myPArray->vertices != NULL)
       {
         glVertexPointer (3, GL_FLOAT, 0, myPArray->vertices); // array of vertices
@@ -272,7 +270,6 @@ std::cerr << "In OpenGl_PrimitiveArray::DrawArray !toDrawVbo\n";
     else
     {
       // Bindings concrete pointer in accordance with VBO buffer
-std::cerr << "In OpenGl_PrimitiveArray::DrawArray toDrawVbo\n";
       myVbos[VBOVertices]->BindFixed (aGlContext, GL_VERTEX_ARRAY);
       if (!myVbos[VBOVnormals].IsNull())
       {
@@ -300,7 +297,10 @@ std::cerr << "In OpenGl_PrimitiveArray::DrawArray .\n";
 std::cerr << "In OpenGl_PrimitiveArray::DrawArray toDrawVbo\n";
       if (!myVbos[VBOEdges].IsNull())
       {
+std::cerr << "In OpenGl_PrimitiveArray::DrawArray case 1\n";
+std::cerr << "In OpenGl_PrimitiveArray::DrawArray call Bind\n";
         myVbos[VBOEdges]->Bind (aGlContext);
+std::cerr << "In OpenGl_PrimitiveArray::DrawArray num_bounds=" << myPArray->num_bounds << "\n";
         if (myPArray->num_bounds > 0)
         {
           // draw primitives by vertex count with the indicies
@@ -317,42 +317,60 @@ std::cerr << "In OpenGl_PrimitiveArray::DrawArray toDrawVbo\n";
           // draw one (or sequential) primitive by the indicies
           glDrawElements (myDrawMode, myPArray->num_edges, myVbos[VBOEdges]->GetDataType(), NULL);
         }
+std::cerr << "In OpenGl_PrimitiveArray::DrawArray call Unbind\n";
         myVbos[VBOEdges]->Unbind (aGlContext);
+std::cerr << "In OpenGl_PrimitiveArray::DrawArray Unbind done\n";
       }
       else if (myPArray->num_bounds > 0)
       {
+std::cerr << "In OpenGl_PrimitiveArray::DrawArray case 2\n";
+std::cerr << "In OpenGl_PrimitiveArray::DrawArray num_bounds=" << myPArray->num_bounds << "\n";
         for (i = n = 0; i < myPArray->num_bounds; ++i)
         {
           if (pfc != NULL) glColor3fv (pfc[i].rgb);
           glDrawArrays (myDrawMode, n, myPArray->bounds[i]);
           n += myPArray->bounds[i];
         }
+std::cerr << "In OpenGl_PrimitiveArray::DrawArray n=" << n << "\n";
       }
       else
       {
+std::cerr << "In OpenGl_PrimitiveArray::DrawArray case 3\n";
         if (myDrawMode == GL_POINTS)
         {
+std::cerr << "In OpenGl_PrimitiveArray::DrawArray call DrawMarkers\n";
           DrawMarkers (theWorkspace);
+std::cerr << "In OpenGl_PrimitiveArray::DrawArray DrawMarkers done\n";
         }
         else
         {
+std::cerr << "In OpenGl_PrimitiveArray::DrawArray call glDrawArrays\n";
           glDrawArrays (myDrawMode, 0, myVbos[VBOVertices]->GetElemsNb());
+std::cerr << "In OpenGl_PrimitiveArray::DrawArray glDrawArrays done\n";
         }
       }
 
       // bind with 0
+std::cerr << "In OpenGl_PrimitiveArray::DrawArray call VBOVertices UnbindFixed\n";
       myVbos[VBOVertices]->UnbindFixed (aGlContext, GL_VERTEX_ARRAY);
+std::cerr << "In OpenGl_PrimitiveArray::DrawArray UnbindFixed done\n";
       if (!myVbos[VBOVnormals].IsNull())
       {
+std::cerr << "In OpenGl_PrimitiveArray::DrawArray call VBOVnormals UnbindFixed\n";
         myVbos[VBOVnormals]->UnbindFixed (aGlContext, GL_NORMAL_ARRAY);
+std::cerr << "In OpenGl_PrimitiveArray::DrawArray UnbindFixed done\n";
       }
       if (!myVbos[VBOVtexels].IsNull() && (theWorkspace->NamedStatus & OPENGL_NS_FORBIDSETTEX) == 0)
       {
+std::cerr << "In OpenGl_PrimitiveArray::DrawArray call VBOVtexels UnbindFixed\n";
         myVbos[VBOVtexels]->UnbindFixed (aGlContext, GL_TEXTURE_COORD_ARRAY);
+std::cerr << "In OpenGl_PrimitiveArray::DrawArray UnbindFixed done\n";
       }
       if (!myVbos[VBOVcolours].IsNull())
       {
+std::cerr << "In OpenGl_PrimitiveArray::DrawArray call VBOVcolours UnbindFixed\n";
         myVbos[VBOVcolours]->UnbindFixed (aGlContext, GL_COLOR_ARRAY);
+std::cerr << "In OpenGl_PrimitiveArray::DrawArray UnbindFixed done\n";
         glDisable (GL_COLOR_MATERIAL);
         theWorkspace->NamedStatus |= OPENGL_NS_RESMAT; // Reset material
       }
