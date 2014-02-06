@@ -194,6 +194,7 @@ void OpenGl_Group::AddElement (const TelType theType, OpenGl_Element *theElem)
 void OpenGl_Group::Render (const Handle(OpenGl_Workspace)& theWorkspace) const
 {
   // Is rendering in ADD or IMMEDIATE mode?
+std::cerr << "In OpenGl_Group::Render\n";
   const Standard_Boolean isImmediate = (theWorkspace->NamedStatus & (OPENGL_NS_ADD | OPENGL_NS_IMMEDIATE)) != 0;
   const Handle(OpenGl_RenderFilter)& aFilter = theWorkspace->GetRenderFilter();
 
@@ -222,12 +223,16 @@ void OpenGl_Group::Render (const Handle(OpenGl_Workspace)& theWorkspace) const
           glDepthMask (GL_FALSE);
         }
 
+std::cerr << "In OpenGl_Group::Render call RenderFiltered type=" << aNodeIter->type << "\n";
         aNodeIter->elem->RenderFiltered (theWorkspace, aFilter);
+std::cerr << "In OpenGl_Group::Render RenderFiltered done\n";
         break;
       }
       default:
       {
+std::cerr << "In OpenGl_Group::Render call RenderFiltered type=" << aNodeIter->type << "\n";
         aNodeIter->elem->RenderFiltered (theWorkspace, aFilter);
+std::cerr << "In OpenGl_Group::Render RenderFiltered done\n";
         break;
       }
     }
@@ -242,6 +247,7 @@ void OpenGl_Group::Render (const Handle(OpenGl_Workspace)& theWorkspace) const
     theWorkspace->SetAspectMarker (aBackAspectMarker);
   if (isTextSet)
     theWorkspace->SetAspectText (aBackAspectText);
+std::cerr << "OpenGl_Group::Render done\n";
 }
 
 // =======================================================================
