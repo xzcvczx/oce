@@ -113,6 +113,11 @@ std::cerr << "In OpenGl_PrimitiveArray::BuildVBO\n";
   {
     myVbos[VBOEdges] = new OpenGl_IndexBuffer();
 std::cerr << "In OpenGl_PrimitiveArray::BuildVBO myVbos[VBOEdges]->Init\n";
+std::cerr << "In OpenGl_PrimitiveArray::BuildVBO num_edges=" << myPArray->num_edges << "\n";
+std::cerr << "In OpenGl_PrimitiveArray::BuildVBO num_vertexs=" << myPArray->num_vertexs << "\n";
+for (int i = 0; i < myPArray->num_edges; ++i)
+  std::cerr << " " << myPArray->edges[i];
+std::cerr << "\n";
     if (!myVbos[VBOEdges]->Init (aGlCtx, 1, myPArray->num_edges, (GLuint* )myPArray->edges))
     {
       clearMemoryGL (aGlCtx);
@@ -297,10 +302,8 @@ std::cerr << "In OpenGl_PrimitiveArray::DrawArray type=" << myPArray->type << "\
     /// 1) draw elements from myPArray->bufferVBO[VBOEdges] indicies array
     /// 2) draw elements from vertice array, when bounds defines count of primitive's verts.
     /// 3) draw primitive by vertexes if no edges and bounds array is specified
-std::cerr << "In OpenGl_PrimitiveArray::DrawArray .\n";
     if (toDrawVbo())
     {
-std::cerr << "In OpenGl_PrimitiveArray::DrawArray toDrawVbo\n";
       if (!myVbos[VBOEdges].IsNull())
       {
 std::cerr << "In OpenGl_PrimitiveArray::DrawArray case 1\n";
@@ -328,67 +331,48 @@ std::cerr << "  data type=" << myVbos[VBOEdges]->GetDataType() << "\n";
           glDrawElements (myDrawMode, myPArray->num_edges, myVbos[VBOEdges]->GetDataType(), NULL);
 std::cerr << "In OpenGl_PrimitiveArray::DrawArray glDrawElements done\n";
         }
-std::cerr << "In OpenGl_PrimitiveArray::DrawArray call Unbind\n";
         myVbos[VBOEdges]->Unbind (aGlContext);
-std::cerr << "In OpenGl_PrimitiveArray::DrawArray Unbind done\n";
       }
       else if (myPArray->num_bounds > 0)
       {
-std::cerr << "In OpenGl_PrimitiveArray::DrawArray case 2\n";
-std::cerr << "In OpenGl_PrimitiveArray::DrawArray num_bounds=" << myPArray->num_bounds << "\n";
         for (i = n = 0; i < myPArray->num_bounds; ++i)
         {
           if (pfc != NULL) glColor3fv (pfc[i].rgb);
           glDrawArrays (myDrawMode, n, myPArray->bounds[i]);
           n += myPArray->bounds[i];
         }
-std::cerr << "In OpenGl_PrimitiveArray::DrawArray n=" << n << "\n";
       }
       else
       {
-std::cerr << "In OpenGl_PrimitiveArray::DrawArray case 3\n";
         if (myDrawMode == GL_POINTS)
         {
-std::cerr << "In OpenGl_PrimitiveArray::DrawArray call DrawMarkers\n";
           DrawMarkers (theWorkspace);
-std::cerr << "In OpenGl_PrimitiveArray::DrawArray DrawMarkers done\n";
         }
         else
         {
-std::cerr << "In OpenGl_PrimitiveArray::DrawArray call glDrawArrays\n";
           glDrawArrays (myDrawMode, 0, myVbos[VBOVertices]->GetElemsNb());
-std::cerr << "In OpenGl_PrimitiveArray::DrawArray glDrawArrays done\n";
         }
       }
 
       // bind with 0
-std::cerr << "In OpenGl_PrimitiveArray::DrawArray call VBOVertices UnbindFixed\n";
       myVbos[VBOVertices]->UnbindFixed (aGlContext, GL_VERTEX_ARRAY);
-std::cerr << "In OpenGl_PrimitiveArray::DrawArray UnbindFixed done\n";
       if (!myVbos[VBOVnormals].IsNull())
       {
-std::cerr << "In OpenGl_PrimitiveArray::DrawArray call VBOVnormals UnbindFixed\n";
         myVbos[VBOVnormals]->UnbindFixed (aGlContext, GL_NORMAL_ARRAY);
-std::cerr << "In OpenGl_PrimitiveArray::DrawArray UnbindFixed done\n";
       }
       if (!myVbos[VBOVtexels].IsNull() && (theWorkspace->NamedStatus & OPENGL_NS_FORBIDSETTEX) == 0)
       {
-std::cerr << "In OpenGl_PrimitiveArray::DrawArray call VBOVtexels UnbindFixed\n";
         myVbos[VBOVtexels]->UnbindFixed (aGlContext, GL_TEXTURE_COORD_ARRAY);
-std::cerr << "In OpenGl_PrimitiveArray::DrawArray UnbindFixed done\n";
       }
       if (!myVbos[VBOVcolours].IsNull())
       {
-std::cerr << "In OpenGl_PrimitiveArray::DrawArray call VBOVcolours UnbindFixed\n";
         myVbos[VBOVcolours]->UnbindFixed (aGlContext, GL_COLOR_ARRAY);
-std::cerr << "In OpenGl_PrimitiveArray::DrawArray UnbindFixed done\n";
         glDisable (GL_COLOR_MATERIAL);
         theWorkspace->NamedStatus |= OPENGL_NS_RESMAT; // Reset material
       }
     }
     else
     {
-std::cerr << "In OpenGl_PrimitiveArray::DrawArray !toDrawVbo\n";
       if (myPArray->num_bounds > 0)
       {
         if (myPArray->num_edges > 0)
@@ -452,9 +436,7 @@ std::cerr << "In OpenGl_PrimitiveArray::DrawArray !toDrawVbo\n";
   // and put edges to be drawn into it.
   if (theEdgeFlag && myDrawMode > GL_LINE_STRIP)
   {
-std::cerr << "In OpenGl_PrimitiveArray::DrawArray call DrawEdges\n";
     DrawEdges (theEdgeColour, theWorkspace);
-std::cerr << "In OpenGl_PrimitiveArray::DrawArray DrawEdges done\n";
   }
 
   if (myDrawMode <= GL_LINE_STRIP)
