@@ -35,20 +35,19 @@ make test
 # Run OCCT tests, but overwrite DrawLaunchTests.draw to write
 # an XML summary file at a specified location
 cat > DrawLaunchTests.draw <<EOT
-test bugs vis bug21753 -echo
 test bugs vis bug23747_1 -echo
-test bugs vis bug23747_2 -echo
-test bugs vis bug24224 -echo
-test demo samples bottle -echo
-test offset faces_type_i C9 -echo
-test v3d glsl phong_box -echo
-test v3d glsl phong_plastic -echo
-test v3d glsl phong_sides -echo
-test v3d glsl phong_views -echo
 return
 EOT
+# test bugs vis bug23747_2 -echo
+# test bugs vis bug24224 -echo
+# test demo samples bottle -echo
+# test offset faces_type_i C9 -echo
+# test v3d glsl phong_box -echo
+# test v3d glsl phong_plastic -echo
+# test v3d glsl phong_sides -echo
+# test v3d glsl phong_views -echo
 
 echo "Timestamp" && date
-CSF_ResourceVerbose=1 ResourceDebug=1 cmake -P DrawLaunchTests.cmake || true
+CSF_ResourceVerbose=1 ResourceDebug=1 cmake -P DrawLaunchTests.cmake 2>&1 || true
 echo "Timestamp" && date
 
