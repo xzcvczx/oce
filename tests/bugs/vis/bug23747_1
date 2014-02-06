@@ -19,6 +19,7 @@ vdump $imagedir/${casename}_before_envmap.png
 
 puts "Checking that text labels at trihedron axes are displayed correctly when env mapping is turned ON"
 vtextureenv on 7
+puts "After vtextureenv"
 
 vdump $imagedir/${casename}_with_envmap.png
 

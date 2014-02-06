@@ -4762,6 +4762,7 @@ static int VTextureEnv (Draw_Interpretor& /*theDI*/, Standard_Integer theArgNb, 
     anEnableFlag = anEnableOpt.IsEqual("on");
     isOk         = anEnableFlag || anEnableOpt.IsEqual("off");
   }
+std::cerr << "anEnableFlag=" << anEnableFlag << std::endl;
   if (anEnableFlag)
   {
     isOk = (theArgNb == 3 || theArgNb == 11);
@@ -4802,6 +4803,7 @@ static int VTextureEnv (Draw_Interpretor& /*theDI*/, Standard_Integer theArgNb, 
   if (anEnableFlag)
   {
     TCollection_AsciiString aTextureOpt(theArgVec[2]);
+std::cerr << "aTextureOpt=" << aTextureOpt << std::endl;
     Handle(OCC_TextureEnv) aTexEnv = aTextureOpt.IsIntegerValue() ?
                                      new OCC_TextureEnv((Graphic3d_NameOfTextureEnv)aTextureOpt.IntegerValue()) :
                                      new OCC_TextureEnv(theArgVec[2]);
@@ -4822,8 +4824,11 @@ static int VTextureEnv (Draw_Interpretor& /*theDI*/, Standard_Integer theArgNb, 
         (Standard_ShortReal)Draw::Atof(theArgVec[10])
         );
     }
+std::cerr << "Call to SetTextureEnv" << std::endl;
     aView->SetTextureEnv(aTexEnv);
+std::cerr << "Call to SetSurfaceDetail" << std::endl;
     aView->SetSurfaceDetail(V3d_TEX_ENVIRONMENT);
+std::cerr << "SetSurfaceDetail done" << std::endl;
   }
   else // Disabling environment mapping
   {
@@ -4832,7 +4837,9 @@ static int VTextureEnv (Draw_Interpretor& /*theDI*/, Standard_Integer theArgNb, 
     aView->SetTextureEnv(aTexture); // Passing null handle to clear the texture data
   }
 
+std::cerr << "Call to Redraw" << std::endl;
   aView->Redraw();
+std::cerr << "Redraw done" << std::endl;
   return 0;
 }
 

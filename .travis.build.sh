@@ -48,6 +48,6 @@ EOT
 # test v3d glsl phong_views -echo
 
 echo "Timestamp" && date
-CSF_ResourceVerbose=1 ResourceDebug=1 cmake -P DrawLaunchTests.cmake 2>&1 || true
+CSF_ResourceVerbose=1 cmake -P DrawLaunchTests.cmake 2>&1 || true
 echo "Timestamp" && date
 
