@@ -552,28 +552,20 @@ void OpenGl_Workspace::Redraw (const Graphic3d_CView& theCView,
 
   // release pending GL resources
   Handle(OpenGl_Context) aGlCtx = GetGlContext();
-std::cerr << "In OpenGl_Workspace::Redraw call to ReleaseDelayed\n";
   aGlCtx->ReleaseDelayed();
 
   // cache render mode state
   GLint aRendMode = GL_RENDER;
-std::cerr << "In OpenGl_Workspace::Redraw call to glGetIntegerv\n";
   glGetIntegerv (GL_RENDER_MODE,  &aRendMode);
-std::cerr << "In OpenGl_Workspace::Redraw call to SetFeedback\n";
   aGlCtx->SetFeedback (aRendMode == GL_FEEDBACK);
-std::cerr << "SetFeedback done\n";
 
   Tint toSwap = (aRendMode == GL_RENDER); // swap buffers
   GLint aViewPortBack[4];
   OpenGl_FrameBuffer* aFrameBuffer = (OpenGl_FrameBuffer* )theCView.ptrFBO;
   if (aFrameBuffer != NULL)
   {
-std::cerr << "In OpenGl_Workspace::Redraw aFrameBuffer != NULL\n";
-std::cerr << "In OpenGl_Workspace::Redraw call to glGetIntegerv\n";
     glGetIntegerv (GL_VIEWPORT, aViewPortBack);
-std::cerr << "In OpenGl_Workspace::Redraw call to SetupViewport\n";
     aFrameBuffer->SetupViewport (aGlCtx);
-std::cerr << "In OpenGl_Workspace::Redraw call to BindBuffer\n";
     aFrameBuffer->BindBuffer    (aGlCtx);
     toSwap = 0; // no need to swap buffers
   }

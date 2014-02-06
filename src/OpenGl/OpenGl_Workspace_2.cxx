@@ -833,12 +833,16 @@ void OpenGl_Workspace::Redraw1 (const Graphic3d_CView& ACView,
   glClear (toClear);
 
   Handle(OpenGl_Workspace) aWS(this);
+std::cerr << "In OpenGl_Workspace::Redraw1 call to Render\n";
   myView->Render (myPrintContext, aWS, ACView, ACUnderLayer, ACOverLayer);
+std::cerr << "Render done\n";
 
   // Swap the buffers
   if ( aswap )
   {
+std::cerr << "In OpenGl_Workspace::Redraw1 call to SwapBuffers\n";
     GetGlContext()->SwapBuffers();
+std::cerr << "SwapBuffers done\n";
     myBackBufferRestored = Standard_False;
   }
   else
