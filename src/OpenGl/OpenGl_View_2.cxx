@@ -764,10 +764,8 @@ void OpenGl_View::Render (const Handle(OpenGl_PrinterContext)& thePrintContext,
                           const Aspect_CLayer2d& ACOverLayer)
 {
   // Store and disable current clipping planes
-std::cerr << "In OpenGl_View::Render get context\n";
   const Handle(OpenGl_Context)& aContext = AWorkspace->GetGlContext();
   const Standard_Integer aMaxClipPlanes = aContext->MaxClipPlanes();
-std::cerr << "In OpenGl_View::Render aMaxClipPlanes=" << aMaxClipPlanes << "\n";
   const GLenum lastid = GL_CLIP_PLANE0 + aMaxClipPlanes;
   OPENGL_CLIP_PLANE *oldPlanes = new OPENGL_CLIP_PLANE[aMaxClipPlanes];
   OPENGL_CLIP_PLANE *ptrPlane = oldPlanes;
@@ -817,7 +815,6 @@ std::cerr << "In OpenGl_View::Render aMaxClipPlanes=" << aMaxClipPlanes << "\n";
   // Step 1: Prepare for redraw
 
   // Render background
-std::cerr << "In OpenGl_View::Render call DrawBackground\n";
   DrawBackground (AWorkspace);
 
   // Switch off lighting by default
@@ -825,7 +822,6 @@ std::cerr << "In OpenGl_View::Render call DrawBackground\n";
 
   /////////////////////////////////////////////////////////////////////////////
   // Step 2: Draw underlayer
-std::cerr << "In OpenGl_View::Render call RedrawLayer2d\n";
   RedrawLayer2d (thePrintContext, ACView, ACUnderLayer);
 
   /////////////////////////////////////////////////////////////////////////////
@@ -882,7 +878,6 @@ std::cerr << "In OpenGl_View::Render call RedrawLayer2d\n";
   }
 
   // Apply matrix
-std::cerr << "In OpenGl_View::Render call SetViewMatrix\n";
   AWorkspace->SetViewMatrix((const OpenGl_Matrix *)myOrientationMatrix);
 
 /*
@@ -917,10 +912,8 @@ D = -[Px,Py,Pz] dot |Nx|
 */
 
   // Apply Fog
-std::cerr << "In OpenGl_View::Render Apply fog\n";
   if ( myFog.IsOn )
   {
-std::cerr << "In OpenGl_View::Render fog is on\n";
     const GLfloat ramp = myExtra.map.fpd - myExtra.map.bpd;
     const GLfloat fog_start = myFog.Front * ramp - myExtra.map.fpd;
     const GLfloat fog_end   = myFog.Back  * ramp - myExtra.map.fpd;
@@ -930,13 +923,11 @@ std::cerr << "In OpenGl_View::Render fog is on\n";
     glFogf(GL_FOG_END, fog_end);
     glFogfv(GL_FOG_COLOR, myFog.Color.rgb);
     glEnable(GL_FOG);
-std::cerr << "In OpenGl_View::Render fog done\n";
   }
   else
     glDisable(GL_FOG);
 
   // Apply Lights
-std::cerr << "In OpenGl_View::Render Apply lights\n";
   {
     // setup lights
     Graphic3d_Vec4 anAmbientColor (THE_DEFAULT_AMBIENT[0],
@@ -966,11 +957,9 @@ std::cerr << "In OpenGl_View::Render Apply lights\n";
   }
 
   // Apply InteriorShadingMethod
-std::cerr << "In OpenGl_View::Render Apply InteriorShadingMethod\n";
   glShadeModel( myIntShadingMethod == TEL_SM_FLAT ? GL_FLAT : GL_SMOOTH );
 
   // Apply clipping planes
-std::cerr << "In OpenGl_View::Render Apply clipping planes\n";
   {
     if (myZClip.Back.IsOn || myZClip.Front.IsOn)
     {
@@ -1040,7 +1029,6 @@ std::cerr << "In OpenGl_View::Render Apply clipping planes\n";
   }
 
   // Apply AntiAliasing
-std::cerr << "In OpenGl_View::Render Apply antialiasing\n";
   {
     if (myAntiAliasing)
       AWorkspace->NamedStatus |= OPENGL_NS_ANTIALIASING;
@@ -1053,34 +1041,45 @@ std::cerr << "In OpenGl_View::Render Apply antialiasing\n";
 
   // Added PCT for handling of textures
 std::cerr << "In OpenGl_View::Render Handle textures\n";
+std::cerr << "In OpenGl_View::Render mySurfaceDetail=" << mySurfaceDetail << "\n";
   switch (mySurfaceDetail)
   {
     case Visual3d_TOD_NONE:
       AWorkspace->NamedStatus |= OPENGL_NS_FORBIDSETTEX;
+std::cerr << "In OpenGl_View::Render TOD_NONE call DisableTexture\n";
       AWorkspace->DisableTexture();
       // Render the view
+std::cerr << "In OpenGl_View::Render TOD_NONE call RenderStructs\n";
       RenderStructs(AWorkspace);
       break;
 
     case Visual3d_TOD_ENVIRONMENT:
+std::cerr << "In OpenGl_View::Render TOD_ENVIRONMENT\n";
       AWorkspace->NamedStatus |= OPENGL_NS_FORBIDSETTEX;
+std::cerr << "In OpenGl_View::Render TOD_ENVIRONMENT call EnableTexture\n";
       AWorkspace->EnableTexture (myTextureEnv);
       // Render the view
+std::cerr << "In OpenGl_View::Render TOD_ENVIRONMENT call RenderStructs\n";
       RenderStructs(AWorkspace);
+std::cerr << "In OpenGl_View::Render TOD_ENVIRONMENT call DisableTexture\n";
       AWorkspace->DisableTexture();
       break;
 
     case Visual3d_TOD_ALL:
+std::cerr << "In OpenGl_View::Render TOD_ALL\n";
       // First pass
       AWorkspace->NamedStatus &= ~OPENGL_NS_FORBIDSETTEX;
       // Render the view
+std::cerr << "In OpenGl_View::Render TOD_ALL call RenderStructs\n";
       RenderStructs(AWorkspace);
+std::cerr << "In OpenGl_View::Render TOD_ALL call DisableTexture\n";
       AWorkspace->DisableTexture();
 
       // Second pass
       if (AWorkspace->NamedStatus & OPENGL_NS_2NDPASSNEED)
       {
         AWorkspace->NamedStatus |= OPENGL_NS_2NDPASSDO;
+std::cerr << "In OpenGl_View::Render TOD_ALL call EnableTexture\n";
         AWorkspace->EnableTexture (myTextureEnv);
 
         /* sauvegarde de quelques parametres OpenGL */
@@ -1104,14 +1103,19 @@ std::cerr << "In OpenGl_View::Render Handle textures\n";
         AWorkspace->NamedStatus |= OPENGL_NS_FORBIDSETTEX;
 
         // Render the view
+std::cerr << "In OpenGl_View::Render TOD_ALL call RenderStructs\n";
         RenderStructs(AWorkspace);
+std::cerr << "In OpenGl_View::Render TOD_ALL call DisableTexture\n";
         AWorkspace->DisableTexture();
 
         /* restauration des parametres OpenGL */
+std::cerr << "In OpenGl_View::Render TOD_ALL call glBlendFunc\n";
         glBlendFunc(blend_src, blend_dst);
         if (!blend_state) glDisable(GL_BLEND);
 
+std::cerr << "In OpenGl_View::Render TOD_ALL call glDepthFunc\n";
         glDepthFunc(zbuff_f);
+std::cerr << "In OpenGl_View::Render TOD_ALL call glDepthMask\n";
         glDepthMask(zbuff_w);
         if (!zbuff_state) glDisable(GL_DEPTH_FUNC);
       }
