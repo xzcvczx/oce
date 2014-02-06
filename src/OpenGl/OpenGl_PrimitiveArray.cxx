@@ -315,7 +315,12 @@ std::cerr << "In OpenGl_PrimitiveArray::DrawArray num_bounds=" << myPArray->num_
         else
         {
           // draw one (or sequential) primitive by the indicies
+std::cerr << "In OpenGl_PrimitiveArray::DrawArray call glDrawElements\n";
+std::cerr << "  myDrawMode=" << myDrawMode << "\n";
+std::cerr << "  num_edges=" << myPArray->num_edges << "\n";
+std::cerr << "  data type=" << myVbos[VBOEdges]->GetDataType() << "\n";
           glDrawElements (myDrawMode, myPArray->num_edges, myVbos[VBOEdges]->GetDataType(), NULL);
+std::cerr << "In OpenGl_PrimitiveArray::DrawArray glDrawElements done\n";
         }
 std::cerr << "In OpenGl_PrimitiveArray::DrawArray call Unbind\n";
         myVbos[VBOEdges]->Unbind (aGlContext);
