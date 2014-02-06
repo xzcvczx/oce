@@ -728,6 +728,7 @@ void OpenGl_PrimitiveArray::Render (const Handle(OpenGl_Workspace)& theWorkspace
   {
     return;
   }
+std::cerr << "In OpenGl_PrimitiveArray::Render\n";
 
   const OpenGl_AspectFace*   anAspectFace   = theWorkspace->AspectFace   (Standard_True);
   const OpenGl_AspectLine*   anAspectLine   = theWorkspace->AspectLine   (Standard_True);
@@ -746,6 +747,7 @@ void OpenGl_PrimitiveArray::Render (const Handle(OpenGl_Workspace)& theWorkspace
       aMsg += "VBO creation for Primitive Array has failed for ";
       aMsg += myPArray->num_vertexs;
       aMsg += " vertices. Out of memory?";
+std::cerr << "In OpenGl_PrimitiveArray::Render BuildVBO failed: " << aMsg << "\n";
       aCtx->PushMessage (GL_DEBUG_SOURCE_APPLICATION_ARB, GL_DEBUG_TYPE_PERFORMANCE_ARB, 0, GL_DEBUG_SEVERITY_LOW_ARB, aMsg);
     }
     myIsVboInit = Standard_True;
@@ -770,12 +772,14 @@ void OpenGl_PrimitiveArray::Render (const Handle(OpenGl_Workspace)& theWorkspace
   const TEL_COLOUR* aLineColor = (myPArray->type == TelPointsArrayType) ? &anAspectMarker->Color() : &anAspectLine->Color();
 
   // Use highlight colors
+std::cerr << "In OpenGl_PrimitiveArray::Render ..\n";
   if (theWorkspace->NamedStatus & OPENGL_NS_HIGHLIGHT)
   {
     anEdgeColor = anInteriorColor = aLineColor = theWorkspace->HighlightColor;
     aFrontLightingModel = 0;
   }
 
+std::cerr << "In OpenGl_PrimitiveArray::Render ...\n";
   if (aCtx->IsGlGreaterEqual (2, 0))
   {
     switch (myPArray->type)
@@ -798,6 +802,7 @@ void OpenGl_PrimitiveArray::Render (const Handle(OpenGl_Workspace)& theWorkspace
       }
     }
   }
+std::cerr << "In OpenGl_PrimitiveArray::Render ....\n";
 
   DrawArray (aFrontLightingModel,
              anAspectFace->InteriorStyle(),
@@ -807,4 +812,5 @@ void OpenGl_PrimitiveArray::Render (const Handle(OpenGl_Workspace)& theWorkspace
              anEdgeColor,
              &anAspectFace->IntFront(),
              theWorkspace);
+std::cerr << "OpenGl_PrimitiveArray::Render done\n";
 }
