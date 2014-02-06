@@ -589,6 +589,7 @@ void OpenGl_Structure::Render (const Handle(OpenGl_Workspace) &AWorkspace) const
   if ( myNamedStatus & OPENGL_NS_HIDE )
     return;
 
+std::cerr << "In OpenGl_Structure::Render\n";
   // Render named status
   const Standard_Integer named_status = AWorkspace->NamedStatus;
   AWorkspace->NamedStatus |= myNamedStatus;
@@ -599,6 +600,7 @@ void OpenGl_Structure::Render (const Handle(OpenGl_Workspace) &AWorkspace) const
   const Handle(OpenGl_Context)& aCtx = AWorkspace->GetGlContext();
 
   // Apply local transformation
+std::cerr << "In OpenGl_Structure::Render Apply local transformation\n";
   GLint matrix_mode = 0;
   const OpenGl_Matrix *local_trsf = NULL;
   if (myTransformation)
@@ -637,6 +639,7 @@ void OpenGl_Structure::Render (const Handle(OpenGl_Workspace) &AWorkspace) const
   }
 
   // Apply transform persistence
+std::cerr << "In OpenGl_Structure::Render Apply transform persistence\n";
   const TEL_TRANSFORM_PERSISTENCE *trans_pers = NULL;
   if ( myTransPers && myTransPers->mode != 0 )
   {
@@ -644,6 +647,7 @@ void OpenGl_Structure::Render (const Handle(OpenGl_Workspace) &AWorkspace) const
   }
 
   // Apply aspects
+std::cerr << "In OpenGl_Structure::Render Apply aspects\n";
   const OpenGl_AspectLine *aspect_line = AWorkspace->AspectLine(Standard_False);
   const OpenGl_AspectFace *aspect_face = AWorkspace->AspectFace(Standard_False);
   const OpenGl_AspectMarker *aspect_marker = AWorkspace->AspectMarker(Standard_False);
@@ -658,15 +662,18 @@ void OpenGl_Structure::Render (const Handle(OpenGl_Workspace) &AWorkspace) const
     AWorkspace->SetAspectText(myAspectText);
 
   // Apply highlight box
+std::cerr << "In OpenGl_Structure::Render Apply highlight box\n";
   if (myHighlightBox)
     myHighlightBox->Render( AWorkspace );
 
   // Apply highlight color
+std::cerr << "In OpenGl_Structure::Render Apply highlight color\n";
   const TEL_COLOUR *highlight_color = AWorkspace->HighlightColor;
   if (myHighlightColor)
     AWorkspace->HighlightColor = myHighlightColor;
 
   // Render connected structures
+std::cerr << "In OpenGl_Structure::Render Apply connected structures\n";
   OpenGl_ListOfStructure::Iterator its(myConnected);
   while (its.More())
   {
@@ -675,12 +682,14 @@ void OpenGl_Structure::Render (const Handle(OpenGl_Workspace) &AWorkspace) const
   }
 
   // Set up plane equations for non-structure transformed global model-view matrix
+std::cerr << "In OpenGl_Structure::Render Set up plane equations\n";
   const Handle(OpenGl_Context)& aContext = AWorkspace->GetGlContext();
 
   // List of planes to be applied to context state
   Handle(Graphic3d_SequenceOfHClipPlane) aUserPlanes;
 
   // Collect clipping planes of structure scope
+std::cerr << "In OpenGl_Structure::Render Collect clipping planes\n";
   if (!myClipPlanes.IsEmpty())
   {
     Graphic3d_SequenceOfHClipPlane::Iterator aClippingIt (myClipPlanes);
@@ -701,6 +710,7 @@ void OpenGl_Structure::Render (const Handle(OpenGl_Workspace) &AWorkspace) const
     }
   }
 
+std::cerr << "In OpenGl_Structure::Render Add clipping planes\n";
   if (!aUserPlanes.IsNull() && !aUserPlanes->IsEmpty())
   {
     // add planes at loaded view matrix state
@@ -714,6 +724,7 @@ void OpenGl_Structure::Render (const Handle(OpenGl_Workspace) &AWorkspace) const
   }
 
   // Render groups
+std::cerr << "In OpenGl_Structure::Render Render groups\n";
   OpenGl_ListOfGroup::Iterator itg(myGroups);
   while (itg.More())
   {
@@ -722,12 +733,14 @@ void OpenGl_Structure::Render (const Handle(OpenGl_Workspace) &AWorkspace) const
   }
 
   // Render capping for structure groups
+std::cerr << "In OpenGl_Structure::Render Render capping\n";
   if (!aContext->Clipping().Planes().IsEmpty())
   {
     OpenGl_CappingAlgo::RenderCapping (AWorkspace, myGroups);
   }
 
   // Revert structure clippings
+std::cerr << "In OpenGl_Structure::Render Revert structure clippings\n";
   if (!aUserPlanes.IsNull() && !aUserPlanes->IsEmpty())
   {
     aContext->ChangeClipping().Remove (*aUserPlanes);
@@ -743,6 +756,7 @@ void OpenGl_Structure::Render (const Handle(OpenGl_Workspace) &AWorkspace) const
   AWorkspace->HighlightColor = highlight_color;
 
   // Restore aspects
+std::cerr << "In OpenGl_Structure::Render Restore aspects\n";
   AWorkspace->SetAspectLine(aspect_line);
   AWorkspace->SetAspectFace(aspect_face);
   AWorkspace->SetAspectMarker(aspect_marker);
@@ -755,6 +769,7 @@ void OpenGl_Structure::Render (const Handle(OpenGl_Workspace) &AWorkspace) const
   }
 
   // Restore local transformation
+std::cerr << "In OpenGl_Structure::Render Restore local transformation\n";
   if (myTransformation)
   {
     if (isImmediate)
@@ -780,6 +795,7 @@ void OpenGl_Structure::Render (const Handle(OpenGl_Workspace) &AWorkspace) const
 
   // Restore named status
   AWorkspace->NamedStatus = named_status;
+std::cerr << "OpenGl_Structure::Render done\n";
 }
 
 // =======================================================================

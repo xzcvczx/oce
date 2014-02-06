@@ -59,11 +59,14 @@ void OpenGl_PriorityList::Render (const Handle(OpenGl_Workspace) &AWorkspace) co
   const Standard_Integer aNbPr = myArray.Length();
   Standard_Integer i = 0;
   OpenGl_SequenceOfStructure::Iterator its;
+std::cerr << "In OpenGl_PriorityList::Render aNbPr=" << aNbPr << "\n";
   for (; i < aNbPr; i++)
   {
+std::cerr << "In OpenGl_PriorityList::Render i=" << i << "\n";
     for (its.Init(myArray(i)); its.More(); its.Next())
       its.Value()->Render(AWorkspace);
   }
+std::cerr << "OpenGl_PriorityList::Render done\n";
 }
 
 //=======================================================================
