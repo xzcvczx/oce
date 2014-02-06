@@ -1040,23 +1040,18 @@ D = -[Px,Py,Pz] dot |Nx|
   AWorkspace->NamedStatus &= ~(OPENGL_NS_2NDPASSNEED | OPENGL_NS_2NDPASSDO);
 
   // Added PCT for handling of textures
-std::cerr << "In OpenGl_View::Render Handle textures\n";
-std::cerr << "In OpenGl_View::Render mySurfaceDetail=" << mySurfaceDetail << "\n";
   switch (mySurfaceDetail)
   {
     case Visual3d_TOD_NONE:
       AWorkspace->NamedStatus |= OPENGL_NS_FORBIDSETTEX;
-std::cerr << "In OpenGl_View::Render TOD_NONE call DisableTexture\n";
       AWorkspace->DisableTexture();
       // Render the view
-std::cerr << "In OpenGl_View::Render TOD_NONE call RenderStructs\n";
       RenderStructs(AWorkspace);
       break;
 
     case Visual3d_TOD_ENVIRONMENT:
 std::cerr << "In OpenGl_View::Render TOD_ENVIRONMENT\n";
       AWorkspace->NamedStatus |= OPENGL_NS_FORBIDSETTEX;
-std::cerr << "In OpenGl_View::Render TOD_ENVIRONMENT call EnableTexture\n";
       AWorkspace->EnableTexture (myTextureEnv);
       // Render the view
 std::cerr << "In OpenGl_View::Render TOD_ENVIRONMENT call RenderStructs\n";
@@ -1066,20 +1061,16 @@ std::cerr << "In OpenGl_View::Render TOD_ENVIRONMENT call DisableTexture\n";
       break;
 
     case Visual3d_TOD_ALL:
-std::cerr << "In OpenGl_View::Render TOD_ALL\n";
       // First pass
       AWorkspace->NamedStatus &= ~OPENGL_NS_FORBIDSETTEX;
       // Render the view
-std::cerr << "In OpenGl_View::Render TOD_ALL call RenderStructs\n";
       RenderStructs(AWorkspace);
-std::cerr << "In OpenGl_View::Render TOD_ALL call DisableTexture\n";
       AWorkspace->DisableTexture();
 
       // Second pass
       if (AWorkspace->NamedStatus & OPENGL_NS_2NDPASSNEED)
       {
         AWorkspace->NamedStatus |= OPENGL_NS_2NDPASSDO;
-std::cerr << "In OpenGl_View::Render TOD_ALL call EnableTexture\n";
         AWorkspace->EnableTexture (myTextureEnv);
 
         /* sauvegarde de quelques parametres OpenGL */
@@ -1103,19 +1094,14 @@ std::cerr << "In OpenGl_View::Render TOD_ALL call EnableTexture\n";
         AWorkspace->NamedStatus |= OPENGL_NS_FORBIDSETTEX;
 
         // Render the view
-std::cerr << "In OpenGl_View::Render TOD_ALL call RenderStructs\n";
         RenderStructs(AWorkspace);
-std::cerr << "In OpenGl_View::Render TOD_ALL call DisableTexture\n";
         AWorkspace->DisableTexture();
 
         /* restauration des parametres OpenGL */
-std::cerr << "In OpenGl_View::Render TOD_ALL call glBlendFunc\n";
         glBlendFunc(blend_src, blend_dst);
         if (!blend_state) glDisable(GL_BLEND);
 
-std::cerr << "In OpenGl_View::Render TOD_ALL call glDepthFunc\n";
         glDepthFunc(zbuff_f);
-std::cerr << "In OpenGl_View::Render TOD_ALL call glDepthMask\n";
         glDepthMask(zbuff_w);
         if (!zbuff_state) glDisable(GL_DEPTH_FUNC);
       }
@@ -1126,10 +1112,8 @@ std::cerr << "In OpenGl_View::Render TOD_ALL call glDepthMask\n";
   // in order to synchronize GL state with the graphic driver state
   // before drawing auxiliary stuff (trihedrons, overlayer)
   // and invoking optional callbacks
-std::cerr << "In OpenGl_View::Render call ResetAppliedAspect\n";
   AWorkspace->ResetAppliedAspect();
 
-std::cerr << "In OpenGl_View::Render call RemoveAll\n";
   aContext->ChangeClipping().RemoveAll();
 
   if (!aManager->IsEmpty())
@@ -1144,7 +1128,6 @@ std::cerr << "In OpenGl_View::Render call RemoveAll\n";
   }
 
   // display global trihedron
-std::cerr << "In OpenGl_View::Render display global trihedron\n";
   if (myTrihedron != NULL)
   {
     myTrihedron->Render (AWorkspace);
@@ -1169,17 +1152,13 @@ std::cerr << "In OpenGl_View::Render display global trihedron\n";
   /////////////////////////////////////////////////////////////////////////////
   // Step 6: Draw overlayer
   const int aMode = 0;
-std::cerr << "In OpenGl_View::Render call DisplayCallback\n";
   AWorkspace->DisplayCallback (ACView, (aMode | OCC_PRE_OVERLAY));
 
-std::cerr << "In OpenGl_View::Render call RedrawLayer2d\n";
   RedrawLayer2d (thePrintContext, ACView, ACOverLayer);
 
-std::cerr << "In OpenGl_View::Render call DisplayCallback\n";
   AWorkspace->DisplayCallback (ACView, aMode);
 
   // Restore clipping planes
-std::cerr << "In OpenGl_View::Render restore clipping planes\n";
   for ( ptrPlane = oldPlanes, planeid = GL_CLIP_PLANE0; planeid < lastid; planeid++, ptrPlane++ )
   {
     glClipPlane( planeid, ptrPlane->Equation );
@@ -1199,6 +1178,7 @@ void OpenGl_View::RenderStructs (const Handle(OpenGl_Workspace) &AWorkspace)
 {
   if ( myZLayers.NbStructures() <= 0 )
     return;
+std::cerr << "In OpenGl_View::RenderStructs\n";
 
   glPushAttrib ( GL_DEPTH_BUFFER_BIT );
 
@@ -1226,7 +1206,9 @@ void OpenGl_View::RenderStructs (const Handle(OpenGl_Workspace) &AWorkspace)
     }
   }
 
+std::cerr << "In OpenGl_View::RenderStructs call myZLayers.Render\n";
   myZLayers.Render (AWorkspace);
+std::cerr << "In OpenGl_View::RenderStructs myZLayers.Render done\n";
 
   //TsmPopAttri(); /* restore previous graphics context; before update lights */
   glPopAttrib();

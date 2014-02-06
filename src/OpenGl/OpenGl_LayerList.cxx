@@ -263,6 +263,7 @@ void OpenGl_LayerList::ChangeLayer (const OpenGl_Structure *theStructure,
 void OpenGl_LayerList::Render (const Handle(OpenGl_Workspace) &theWorkspace) const
 {
   OpenGl_SequenceOfLayers::Iterator anIts;
+std::cerr << "In OpenGl_LayerList::Render\n";
   for(anIts.Init (myLayers); anIts.More (); anIts.Next ())
   {
     const OpenGl_PriorityList& aList = anIts.Value ();
@@ -272,7 +273,11 @@ void OpenGl_LayerList::Render (const Handle(OpenGl_Workspace) &theWorkspace) con
       glClear (GL_DEPTH_BUFFER_BIT);
 
       // render priority list
+std::cerr << "OpenGl_LayerList::Render aList.NbStructures=" << aList.NbStructures() << "\n";
+std::cerr << "OpenGl_LayerList::Render call aList.Render\n";
       aList.Render (theWorkspace);
+std::cerr << "OpenGl_LayerList::Render aList.Render done\n";
     }
   }
+std::cerr << "OpenGl_LayerList::Render done\n";
 }
