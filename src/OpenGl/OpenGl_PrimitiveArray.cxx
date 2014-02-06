@@ -166,6 +166,7 @@ void OpenGl_PrimitiveArray::DrawArray (Tint theLightingModel,
                                        const OPENGL_SURF_PROP* theFaceProp,
                                        const Handle(OpenGl_Workspace)& theWorkspace) const
 {
+std::cerr << "In OpenGl_PrimitiveArray::DrawArray\n";
   const Handle(OpenGl_Context)& aGlContext = theWorkspace->GetGlContext();
 
   Tint i,n;
@@ -175,6 +176,7 @@ void OpenGl_PrimitiveArray::DrawArray (Tint theLightingModel,
   Tint* pvc = myPArray->vcolours;
   if (pvc != NULL)
   {
+std::cerr << "In OpenGl_PrimitiveArray::DrawArray num_vertexs=" << myPArray->num_vertexs << "\n";
     for (i = 0; i < myPArray->num_vertexs; ++i)
     {
       transp = int(theFaceProp->trans * 255.0f);
@@ -188,6 +190,7 @@ void OpenGl_PrimitiveArray::DrawArray (Tint theLightingModel,
     }
   }
 
+std::cerr << "In OpenGl_PrimitiveArray::DrawArray type=" << myPArray->type << "\n";
   switch (myPArray->type)
   {
     case TelPointsArrayType:
@@ -241,6 +244,7 @@ void OpenGl_PrimitiveArray::DrawArray (Tint theLightingModel,
 
     if (!toDrawVbo())
     {
+std::cerr << "In OpenGl_PrimitiveArray::DrawArray !toDrawVbo\n";
       if (myPArray->vertices != NULL)
       {
         glVertexPointer (3, GL_FLOAT, 0, myPArray->vertices); // array of vertices
@@ -268,6 +272,7 @@ void OpenGl_PrimitiveArray::DrawArray (Tint theLightingModel,
     else
     {
       // Bindings concrete pointer in accordance with VBO buffer
+std::cerr << "In OpenGl_PrimitiveArray::DrawArray toDrawVbo\n";
       myVbos[VBOVertices]->BindFixed (aGlContext, GL_VERTEX_ARRAY);
       if (!myVbos[VBOVnormals].IsNull())
       {
@@ -289,8 +294,10 @@ void OpenGl_PrimitiveArray::DrawArray (Tint theLightingModel,
     /// 1) draw elements from myPArray->bufferVBO[VBOEdges] indicies array
     /// 2) draw elements from vertice array, when bounds defines count of primitive's verts.
     /// 3) draw primitive by vertexes if no edges and bounds array is specified
+std::cerr << "In OpenGl_PrimitiveArray::DrawArray .\n";
     if (toDrawVbo())
     {
+std::cerr << "In OpenGl_PrimitiveArray::DrawArray toDrawVbo\n";
       if (!myVbos[VBOEdges].IsNull())
       {
         myVbos[VBOEdges]->Bind (aGlContext);
@@ -352,6 +359,7 @@ void OpenGl_PrimitiveArray::DrawArray (Tint theLightingModel,
     }
     else
     {
+std::cerr << "In OpenGl_PrimitiveArray::DrawArray !toDrawVbo\n";
       if (myPArray->num_bounds > 0)
       {
         if (myPArray->num_edges > 0)
@@ -415,11 +423,14 @@ void OpenGl_PrimitiveArray::DrawArray (Tint theLightingModel,
   // and put edges to be drawn into it.
   if (theEdgeFlag && myDrawMode > GL_LINE_STRIP)
   {
+std::cerr << "In OpenGl_PrimitiveArray::DrawArray call DrawEdges\n";
     DrawEdges (theEdgeColour, theWorkspace);
+std::cerr << "In OpenGl_PrimitiveArray::DrawArray DrawEdges done\n";
   }
 
   if (myDrawMode <= GL_LINE_STRIP)
     glPopAttrib();
+std::cerr << "OpenGl_PrimitiveArray::DrawArray done\n";
 }
 
 // =======================================================================
