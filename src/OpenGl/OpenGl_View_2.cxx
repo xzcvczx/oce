@@ -764,8 +764,10 @@ void OpenGl_View::Render (const Handle(OpenGl_PrinterContext)& thePrintContext,
                           const Aspect_CLayer2d& ACOverLayer)
 {
   // Store and disable current clipping planes
+std::cerr << "In OpenGl_View::Render get context\n";
   const Handle(OpenGl_Context)& aContext = AWorkspace->GetGlContext();
   const Standard_Integer aMaxClipPlanes = aContext->MaxClipPlanes();
+std::cerr << "In OpenGl_View::Render aMaxClipPlanes=" << aMaxClipPlanes << "\n";
   const GLenum lastid = GL_CLIP_PLANE0 + aMaxClipPlanes;
   OPENGL_CLIP_PLANE *oldPlanes = new OPENGL_CLIP_PLANE[aMaxClipPlanes];
   OPENGL_CLIP_PLANE *ptrPlane = oldPlanes;
@@ -815,6 +817,7 @@ void OpenGl_View::Render (const Handle(OpenGl_PrinterContext)& thePrintContext,
   // Step 1: Prepare for redraw
 
   // Render background
+std::cerr << "In OpenGl_View::Render call DrawBackground\n";
   DrawBackground (AWorkspace);
 
   // Switch off lighting by default
@@ -822,6 +825,7 @@ void OpenGl_View::Render (const Handle(OpenGl_PrinterContext)& thePrintContext,
 
   /////////////////////////////////////////////////////////////////////////////
   // Step 2: Draw underlayer
+std::cerr << "In OpenGl_View::Render call RedrawLayer2d\n";
   RedrawLayer2d (thePrintContext, ACView, ACUnderLayer);
 
   /////////////////////////////////////////////////////////////////////////////
@@ -878,6 +882,7 @@ void OpenGl_View::Render (const Handle(OpenGl_PrinterContext)& thePrintContext,
   }
 
   // Apply matrix
+std::cerr << "In OpenGl_View::Render call SetViewMatrix\n";
   AWorkspace->SetViewMatrix((const OpenGl_Matrix *)myOrientationMatrix);
 
 /*
@@ -912,8 +917,10 @@ D = -[Px,Py,Pz] dot |Nx|
 */
 
   // Apply Fog
+std::cerr << "In OpenGl_View::Render Apply fog\n";
   if ( myFog.IsOn )
   {
+std::cerr << "In OpenGl_View::Render fog is on\n";
     const GLfloat ramp = myExtra.map.fpd - myExtra.map.bpd;
     const GLfloat fog_start = myFog.Front * ramp - myExtra.map.fpd;
     const GLfloat fog_end   = myFog.Back  * ramp - myExtra.map.fpd;
@@ -923,11 +930,13 @@ D = -[Px,Py,Pz] dot |Nx|
     glFogf(GL_FOG_END, fog_end);
     glFogfv(GL_FOG_COLOR, myFog.Color.rgb);
     glEnable(GL_FOG);
+std::cerr << "In OpenGl_View::Render fog done\n";
   }
   else
     glDisable(GL_FOG);
 
   // Apply Lights
+std::cerr << "In OpenGl_View::Render Apply lights\n";
   {
     // setup lights
     Graphic3d_Vec4 anAmbientColor (THE_DEFAULT_AMBIENT[0],
@@ -957,9 +966,11 @@ D = -[Px,Py,Pz] dot |Nx|
   }
 
   // Apply InteriorShadingMethod
+std::cerr << "In OpenGl_View::Render Apply InteriorShadingMethod\n";
   glShadeModel( myIntShadingMethod == TEL_SM_FLAT ? GL_FLAT : GL_SMOOTH );
 
   // Apply clipping planes
+std::cerr << "In OpenGl_View::Render Apply clipping planes\n";
   {
     if (myZClip.Back.IsOn || myZClip.Front.IsOn)
     {
@@ -1029,6 +1040,7 @@ D = -[Px,Py,Pz] dot |Nx|
   }
 
   // Apply AntiAliasing
+std::cerr << "In OpenGl_View::Render Apply antialiasing\n";
   {
     if (myAntiAliasing)
       AWorkspace->NamedStatus |= OPENGL_NS_ANTIALIASING;
@@ -1040,6 +1052,7 @@ D = -[Px,Py,Pz] dot |Nx|
   AWorkspace->NamedStatus &= ~(OPENGL_NS_2NDPASSNEED | OPENGL_NS_2NDPASSDO);
 
   // Added PCT for handling of textures
+std::cerr << "In OpenGl_View::Render Handle textures\n";
   switch (mySurfaceDetail)
   {
     case Visual3d_TOD_NONE:
@@ -1109,8 +1122,10 @@ D = -[Px,Py,Pz] dot |Nx|
   // in order to synchronize GL state with the graphic driver state
   // before drawing auxiliary stuff (trihedrons, overlayer)
   // and invoking optional callbacks
+std::cerr << "In OpenGl_View::Render call ResetAppliedAspect\n";
   AWorkspace->ResetAppliedAspect();
 
+std::cerr << "In OpenGl_View::Render call RemoveAll\n";
   aContext->ChangeClipping().RemoveAll();
 
   if (!aManager->IsEmpty())
@@ -1125,6 +1140,7 @@ D = -[Px,Py,Pz] dot |Nx|
   }
 
   // display global trihedron
+std::cerr << "In OpenGl_View::Render display global trihedron\n";
   if (myTrihedron != NULL)
   {
     myTrihedron->Render (AWorkspace);
@@ -1149,13 +1165,17 @@ D = -[Px,Py,Pz] dot |Nx|
   /////////////////////////////////////////////////////////////////////////////
   // Step 6: Draw overlayer
   const int aMode = 0;
+std::cerr << "In OpenGl_View::Render call DisplayCallback\n";
   AWorkspace->DisplayCallback (ACView, (aMode | OCC_PRE_OVERLAY));
 
+std::cerr << "In OpenGl_View::Render call RedrawLayer2d\n";
   RedrawLayer2d (thePrintContext, ACView, ACOverLayer);
 
+std::cerr << "In OpenGl_View::Render call DisplayCallback\n";
   AWorkspace->DisplayCallback (ACView, aMode);
 
   // Restore clipping planes
+std::cerr << "In OpenGl_View::Render restore clipping planes\n";
   for ( ptrPlane = oldPlanes, planeid = GL_CLIP_PLANE0; planeid < lastid; planeid++, ptrPlane++ )
   {
     glClipPlane( planeid, ptrPlane->Equation );
@@ -1165,6 +1185,7 @@ D = -[Px,Py,Pz] dot |Nx|
       glDisable( planeid );
   }
   delete[] oldPlanes;
+std::cerr << "OpenGl_View::Render done\n";
 }
 
 /*----------------------------------------------------------------------*/

@@ -574,14 +574,10 @@ void OpenGl_Workspace::Redraw (const Graphic3d_CView& theCView,
   if (!theCView.IsRaytracing || myComputeInitStatus == OpenGl_CLIS_FAIL)
   {
 #endif
-std::cerr << "In OpenGl_Workspace::Redraw call to Redraw1\n";
     Redraw1 (theCView, theCUnderLayer, theCOverLayer, toSwap);
-std::cerr << "Redraw1 done\n";
     if (aFrameBuffer == NULL || !myTransientDrawToFront)
     {
-std::cerr << "In OpenGl_Workspace::Redraw call to RedrawImmediatMode\n";
       RedrawImmediatMode();
-std::cerr << "RedrawImmediatMode done\n";
     }
 
     theCView.WasRedrawnGL = Standard_True;

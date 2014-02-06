@@ -840,9 +840,7 @@ std::cerr << "Render done\n";
   // Swap the buffers
   if ( aswap )
   {
-std::cerr << "In OpenGl_Workspace::Redraw1 call to SwapBuffers\n";
     GetGlContext()->SwapBuffers();
-std::cerr << "SwapBuffers done\n";
     myBackBufferRestored = Standard_False;
   }
   else
