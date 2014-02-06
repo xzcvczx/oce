@@ -48,6 +48,7 @@ EOT
 # test v3d glsl phong_views -echo
 
 echo "Timestamp" && date
-CSF_ResourceVerbose=1 cmake -P DrawLaunchTests.cmake 2>&1 || true
+MESA_DEBUG=1 LIBGL_DEBUG=1 CSF_ResourceVerbose=1 cmake -P DrawLaunchTests.cmake 2>&1 || true
 echo "Timestamp" && date
 
+glxinfo

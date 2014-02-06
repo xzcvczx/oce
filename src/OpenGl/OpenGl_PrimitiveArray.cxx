@@ -100,6 +100,7 @@ Standard_Boolean OpenGl_PrimitiveArray::BuildVBO (const Handle(OpenGl_Workspace)
     // vertices should be always defined - others are optional
     return Standard_False;
   }
+std::cerr << "In OpenGl_PrimitiveArray::BuildVBO\n";
   myVbos[VBOVertices] = new OpenGl_VertexBuffer();
   if (!myVbos[VBOVertices]->Init (aGlCtx, 3, myPArray->num_vertexs, &myPArray->vertices[0].xyz[0]))
   {
@@ -111,6 +112,7 @@ Standard_Boolean OpenGl_PrimitiveArray::BuildVBO (const Handle(OpenGl_Workspace)
    && myPArray->num_edges > 0)
   {
     myVbos[VBOEdges] = new OpenGl_IndexBuffer();
+std::cerr << "In OpenGl_PrimitiveArray::BuildVBO myVbos[VBOEdges]->Init\n";
     if (!myVbos[VBOEdges]->Init (aGlCtx, 1, myPArray->num_edges, (GLuint* )myPArray->edges))
     {
       clearMemoryGL (aGlCtx);
@@ -120,6 +122,7 @@ Standard_Boolean OpenGl_PrimitiveArray::BuildVBO (const Handle(OpenGl_Workspace)
   if (myPArray->vcolours != NULL)
   {
     myVbos[VBOVcolours] = new OpenGl_VertexBuffer();
+std::cerr << "In OpenGl_PrimitiveArray::BuildVBO myVbos[VBOVcolours]->Init\n";
     if (!myVbos[VBOVcolours]->Init (aGlCtx, 4, myPArray->num_vertexs, (GLubyte* )myPArray->vcolours))
     {
       clearMemoryGL (aGlCtx);
@@ -129,6 +132,7 @@ Standard_Boolean OpenGl_PrimitiveArray::BuildVBO (const Handle(OpenGl_Workspace)
   if (myPArray->vnormals != NULL)
   {
     myVbos[VBOVnormals] = new OpenGl_VertexBuffer();
+std::cerr << "In OpenGl_PrimitiveArray::BuildVBO myVbos[VBOVnormals]->Init\n";
     if (!myVbos[VBOVnormals]->Init (aGlCtx, 3, myPArray->num_vertexs, &myPArray->vnormals[0].xyz[0]))
     {
       clearMemoryGL (aGlCtx);
@@ -138,6 +142,7 @@ Standard_Boolean OpenGl_PrimitiveArray::BuildVBO (const Handle(OpenGl_Workspace)
   if (myPArray->vtexels)
   {
     myVbos[VBOVtexels] = new OpenGl_VertexBuffer();
+std::cerr << "In OpenGl_PrimitiveArray::BuildVBO myVbos[VBOVtexels]->Init\n";
     if (!myVbos[VBOVtexels]->Init (aGlCtx, 2, myPArray->num_vertexs, &myPArray->vtexels[0].xy[0]))
     {
       clearMemoryGL (aGlCtx);
@@ -150,6 +155,7 @@ Standard_Boolean OpenGl_PrimitiveArray::BuildVBO (const Handle(OpenGl_Workspace)
     clearMemoryOwn();
   }
   
+std::cerr << "In OpenGl_PrimitiveArray::BuildVBO done\n";
   return Standard_True;
 }
 

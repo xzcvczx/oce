@@ -10,6 +10,8 @@ before_install:
   - sudo apt-get install libgl1-mesa-dri
 #  Postprocess OCCT tests output
   - sudo apt-get install xsltproc
+#  Provides glxinfo to debug GL failures
+  - sudo apt-get install mesa-utils
 before_script:
 #  Remove OCCT tests which are going to be skipped
 #  because of missing data files.  We must use -name
