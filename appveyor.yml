@@ -1,0 +1,25 @@
+version: 0.16dev-{build}
+
+init:
+  - git config --global core.autocrlf input
+
+# clone directory
+clone_folder: c:\projects\oce
+
+install:
+  - '"%VS120COMNTOOLS%\..\..\VC\vcvarsall.bat" amd64'
+
+before_build:
+  - cd c:\projects\oce
+  - mkdir build
+  - cd build
+  - echo Running cmake...
+  - cmake -G "Visual Studio 12 Win64" -DCMAKE_INSTALL_PREFIX:PATH=c:/projects/oce-0.16 -DCMAKE_SUPPRESS_REGENERATION:BOOL=ON -DBUILD_SHARED_LIBS:BOOL=ON ..
+  - type CMakeFiles\CMakeOutput.log
+  - type CMakeFiles\CMakeError.log
+  - type CMakeCache.txt
+
+build_script:
+  - cd c:\projects\oce\build
+  - msbuild oce.sln /m:4 /p:Configuration=Release /p:Platform=x64
+
