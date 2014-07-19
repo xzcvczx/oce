@@ -8,7 +8,6 @@ clone_folder: c:\projects\oce
 
 install:
   - '"%VS120COMNTOOLS%\..\..\VC\vcvarsall.bat" amd64'
-  - cinst ActiveTcl
 
 before_build:
   - cd c:\projects\oce
