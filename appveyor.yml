@@ -3,6 +3,8 @@ version: 0.16dev-{build}
 init:
   - git config --global core.autocrlf input
 
+shallow_clone: true
+
 # clone directory
 clone_folder: c:\projects\oce
 
