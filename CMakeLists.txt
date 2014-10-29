@@ -756,7 +756,7 @@ endif ()
 if(WIN32)
 	if(MSVC) # The compiler used is MSVC
 		message(STATUS "Found MSVC compiler: ${MSVC} ${MSVC_VERSION}")
-		set(LIBRARY_OUTPUT_PATH ${CMAKE_BINARY_DIR}/bin/)
+		set(LIBRARY_OUTPUT_PATH ${CMAKE_BINARY_DIR}/bin)
 	else()
 		IF (MINGW)
 			message(STATUS "Found MINGW compiler: ${MINGW}")
@@ -1048,7 +1048,7 @@ if(MSVC AND OCE_TESTING AND OCE_USE_BUNDLE)
 		endif()
 
 		# Post-build target. In reality it is not a post-build step	, but it doesn't matter
-		add_custom_target(PostBuild ALL ${CMAKE_COMMAND} -E echo Copying dependent files DEPENDS ALL)
+		add_custom_target(PostBuild ALL ${CMAKE_COMMAND} -E echo Copying dependent files)
 
 		if ( CMAKE_CONFIGURATION_TYPES )
 			SET(MY_CMAKE_CONFIGURATION_TYPES ${CMAKE_CONFIGURATION_TYPES})
