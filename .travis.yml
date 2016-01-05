@@ -36,6 +36,7 @@ before_install:
   - sudo apt-get update -q
   - sudo apt-get install tcl8.5-dev tk8.5-dev libgl2ps-dev libfreeimage-dev libtbb-dev
   - sudo apt-add-repository -y ppa:nschloe/vtk-nightly
+  - sudo apt-get update -q
   - sudo apt-get install libvtk6-dev
 #  Needed to run OCCT tests in parallel
   - sudo apt-get install tclthread
