@@ -34,7 +34,7 @@ matrix:
 
 before_install:
   - sudo apt-get update -q
-  - sudo apt-get install tcl8.5-dev tk8.5-dev libgl2ps-dev libfreeimage-dev libtbb-dev libvtk5-dev
+  - sudo apt-get install tcl8.5-dev tk8.5-dev libgl2ps-dev libfreeimage-dev libtbb-dev libvtk6-dev
 #  Needed to run OCCT tests in parallel
   - sudo apt-get install tclthread
 #  Is this needed to run OCCT tests?
