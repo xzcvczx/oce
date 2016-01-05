@@ -6,6 +6,7 @@ set -e
 : "${OCE_USE_PCH=OFF}"
 : "${OCE_COPY_HEADERS_BUILD=OFF}"
 : "${OCE_MULTITHREAD_LIBRARY=NONE}"
+: "${OCE_WITH_VTK=OFF}"
 
 echo "Timestamp" && date
 cmake -DOCE_ENABLE_DEB_FLAG:BOOL=OFF \
@@ -21,6 +22,7 @@ cmake -DOCE_ENABLE_DEB_FLAG:BOOL=OFF \
       -DOCE_WITH_GL2PS:BOOL=ON \
       -DOCE_WITH_FREEIMAGE:BOOL=ON \
       -DOCE_MULTITHREAD_LIBRARY:STRING="${OCE_MULTITHREAD_LIBRARY}" \
+      -DOCE_WITH_VTK:BOOL="${OCE_WITH_VTK}" \
       ..
 echo ""
 echo "Timestamp" && date
